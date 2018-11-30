@@ -1,0 +1,9 @@
+{
+  "backgroundColor": "#ffffff",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-post-item": "/components/postItem/postItem",
+    "i-group-list": "/components/groupList/groupList",
+    "i-search-input": "/components/searchInput/searchInput"
+  }
+}

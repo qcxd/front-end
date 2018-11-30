@@ -1,0 +1,21 @@
+<view class='page__bd page__bd_spacing topView'>
+  <view class='account congratulation'>
+    <text class='fontColor conText'>Congratulations!</text>
+  </view>
+  <view class='account' style='margin-top:18px;'>
+    <text class='fontColor' style='font-size: 16px'>You are using One Chat as a guest.</text>
+  </view>
+  <view class='account' style='margin-top:55rpx;'>
+    <view class='account' style='display: flex;justify-content:center;align-items:center;'>
+      <image style='width:40px;height:40px;' src='{{user.avatarUrl}}'></image>
+      <text style='font-size:20px; color: rgba(74,74,74,1);padding-top:10rpx;padding-left:21px;font-size:20px;'>{{user.nickName}}</text>
+      
+    </view>
+
+  </view>
+  <view class='account' style='margin-top: 55rpx;font-size:16px;'>
+    <text class='fontColor'>You have been added to {{group.name}}
+    </text>
+  </view>
+  <button class="weui-btn start_btn" style='color: white;' bindtap='goToChat'>Get Started</button>
+</view>

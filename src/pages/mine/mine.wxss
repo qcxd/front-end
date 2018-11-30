@@ -1,0 +1,43 @@
+.padding{
+  padding:20rpx;
+}
+.padding_half{
+  padding: 10rpx;
+}
+.graySpace{
+  padding-left: 40rpx;
+  background: #eee;
+  font-size: 12px;
+  min-height: 30rpx;
+}
+.item-avatar .text_box,.item-avatar-lg .text_box{
+  display: flex;
+  flex-direction: column
+}
+
+.item-avatar-lg,.item-avatar-md,.item-avatar-sm,.item-avatar-xs{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  position:relative;
+}
+.item-avatar-lg image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  box-sizing: border-box
+}
+
+.flex{
+  display: flex;
+}
+.title{
+  font-family: "微软雅黑";
+  font-size: 32rpx;
+}
+.message{
+font-size:22rpx;
+opacity:0.6;
+
+}

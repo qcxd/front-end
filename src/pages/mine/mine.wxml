@@ -1,0 +1,15 @@
+<scroll-view scroll-y="true">
+    <view class="graySpace"></view>
+    <view class="item-avatar-lg">
+        <image src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <view class="text_box padding">
+            <view class="flex">
+                <text class="title">{{userInfo.nickName}}</text>
+            </view>
+            <!-- <view class="flex">
+                <text class="message">{{userInfo.email}}jiqing.j.liu@pwc.com</text>
+            </view> -->
+        </view>
+    </view>
+ 
+</scroll-view>

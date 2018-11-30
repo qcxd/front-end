@@ -1,0 +1,2 @@
+<!--components/icon/icon.wxml-->
+<image class="icon" style="width: {{width}}; height:{{height}};" src="/image/icon_{{iconName}}.png" />

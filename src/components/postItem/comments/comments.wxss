@@ -1,0 +1,25 @@
+/* components/postItem/comments/comments.wxss */
+.comment {
+    display: flex;
+    padding: 10rpx;
+}
+.bold {
+    font-size: 24rpx;
+    font-weight: 700;
+}
+.comment-avatar {
+    margin-right: 20rpx;
+}
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10rpx 20rpx;
+    background-color: rgb(230,230,230);
+    border-radius: 32rpx;
+    line-height: 1;
+}
+.comment-content .message {
+    font-size: 20rpx;
+    line-height: 1;
+}

@@ -1,0 +1,2 @@
+<!--components/postItem/avatar/avatar.wxml-->
+<image src="{{src}}" class="avatar" />

@@ -1,0 +1,31 @@
+<view class="chat-input">
+    <!-- <button class="icon" bindtap="switchIsText">
+        <icon iconName="voiceRightHigh"></icon>
+    </button> -->
+    <textarea 
+            class="c-input {{isIOS?'ios-c-input':''}}" 
+            maxlength="-1" 
+            auto-height="true" 
+            show-confirm-bar="false" 
+            placeholder="{{placeholder}}" 
+            bindinput="handleInput"
+            placeholder-class="chat-content"
+            bindblur="hanldeBlur"
+            show-confirm-bar="false"
+            cursor-spacing="19"
+            value="{{content}}"
+            ></textarea>
+    <view class="c-input-holder"></view>
+    <!-- <button wx:else class="btn-voice">voice</button> -->
+    <!-- wx:if="{{isText}}" -->
+    <!-- <button class="icon">
+        <icon iconName="smile_grey"></icon>
+    </button>
+    <button class="icon" bindtap="handleOther">
+        <icon iconName="plus_grey" width="60%" height="60%"></icon>
+    </button> -->
+    <button class="send" bindtap="handleComplete">
+        Send
+    </button>
+
+</view>

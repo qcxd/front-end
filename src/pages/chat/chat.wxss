@@ -1,0 +1,568 @@
+@import "../../lib/weui.wxss";
+
+
+page{
+  height: 100%
+}
+.chat-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.padding{
+  padding:20rpx;
+}
+.padding_half{
+  padding: 10rpx;
+}
+.graySpace{
+  padding-left: 40rpx;
+  background: #eee;
+  font-size: 12px;
+  min-height: 30rpx;
+}
+.item-avatar .text_box,.item-avatar-lg .text_box{
+  display: flex;
+  flex-direction: column
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+.flex{
+  display: flex;
+}
+.title{
+  font-family: "微软雅黑";
+  font-size: 32rpx;
+}
+.message{
+  font-size: 30rpx;
+}
+
+.item-avatar-lg,.item-avatar-md,.item-avatar-sm,.item-avatar-xs{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  position:relative;
+}
+.item-avatar-lg image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  box-sizing: border-box
+}
+.item-avatar-md image{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  box-sizing: border-box
+}
+.item-avatar-sm image{
+  float: left;
+  width: 65rpx;
+  height: 65rpx;
+  box-sizing: border-box
+}
+.item-avatar-xs image{
+  float: left;
+  width: 45rpx;
+  height: 45rpx;
+  box-sizing: border-box
+}
+
+.item-avatar-md .marks{
+  position: absolute;
+  top: 0px;
+  left: 90rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: red;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 28rpx;
+}
+.item-avatar-lg .item-text,.item-avatar-md .item-text,.item-avatar-sm .item-text,.item-avatar-xs .item-text{
+  padding-left: 10px;
+}
+.item-avatar-md .item-time{
+  position: absolute;
+  right: 20rpx;
+}
+.clearfix{
+  overflow: hidden;
+}
+.icon::before{
+  font-size: 70rpx
+}
+.floatR{
+  float: right;
+}
+
+
+
+/* old */
+.tip {
+  color: #fff;
+  background-color: #ccc;
+  font-size: 24rpx;
+  margin: 20rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+
+.padding {
+  padding: 20rpx;
+}
+
+.padding_half {
+  padding: 10rpx;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+
+.wa-row {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 116rpx;
+  background-color: rgba(253, 253, 254, 1);
+}
+
+.right-Avatar {
+  float: right;
+  width: 85rpx;
+  height: 85rpx;
+}
+
+.right-message {
+  float: right;
+  line-height: 65rpx;
+  background: white;
+  border-radius: 10rpx;
+  font-size: 12px;
+  position: relative;
+  /* width: 65%; */
+}
+.right-message-triangle {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  margin-top: -5px;
+  width: 0; 
+  height: 0; 
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;   
+  border-left:5px solid #ffffff; 
+}
+
+.left-message {
+  float: left;
+  margin-top: 10rpx;
+  line-height: 65rpx;
+  background: white;
+  border-radius: 10rpx;
+  font-size: 12px;
+  position: relative;
+}
+
+.left-message-triangle {
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  margin-top: -5px;
+  width: 0; 
+  height: 0; 
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;   
+  border-right:5px solid #ffffff; 
+}
+
+.right-Triangle {
+  float: right;
+  margin-top: 35rpx;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 12px solid white;
+  border-bottom: 8px solid transparent;
+}
+
+.left-Triangle {
+  float: left;
+  margin-top: 35rpx;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-right: 12px solid white;
+  border-bottom: 8px solid transparent;
+}
+
+.right-icon {
+  float: right;
+}
+
+.left-Avatar {
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+}
+
+.left-Triangle {
+  float: left;
+  margin-top: 35rpx;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-right: 12px solid white;
+  border-bottom: 8px solid transparent;
+}
+
+.left-message {
+  float: left;
+  margin-top: 10rpx;
+  line-height: 65rpx;
+  background: white;
+  border-radius: 10rpx;
+  font-size: 12px;
+}
+
+.sendimage-btn {
+  position: absolute;
+  right: 40rpx;
+  bottom: 20rpx;
+  height: 50rpx;
+}
+
+.btn-bar {
+  margin-top: 0px;
+  height: 100%;
+  width: 10vh;
+  border-radius: 0px;
+  font-size: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sendvoice-btn {
+  position: absolute;
+  right: 160rpx;
+  bottom: 20rpx;
+  height: 50rpx;
+  font-size: 20rpx;
+}
+.pdf-btn {
+  position: absolute;
+  right: 280rpx;
+  bottom: 20rpx;
+  height: 50rpx;
+  font-size: 20rpx;
+}
+
+.btn-bar::after{
+  border:none;
+}
+
+.btn-bar-right {
+  float: right;
+  background-color: white;
+  box-shadow: 5rpx 8rpx 15rpx rgba(0, 0, 0, 0.1);
+  padding: 2vh;
+}
+
+.btn-bar-left {
+  padding: 2vh;
+  float: left;
+  background-color: transparent;
+}
+
+.btn-bar-icon {
+  height: 90%;
+}
+
+.ipt-message {
+  float:left;
+  height: 100%;
+  width: 9.3em;
+}
+.chat-image {
+  max-width: 400rpx;
+}
+
+.chat-voice {
+  width: 500rpx;
+}
+.chat-pdf {
+  width: 200rpx;
+  height: 100px;
+}
+
+.type-3 {
+  background-color: transparent;
+}
+
+.pageMask {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 2;
+}
+
+.wa-row-popup {
+  padding-top: 40rpx;
+  height: 15%;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  bottom: 0rpx;
+  z-index: 3;
+}
+
+.wa-row-popup-content {
+  width: 60%;
+  margin-left: 20%;
+  justify-content: space-between;
+  display: flex;
+}
+
+.popup-icon {
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.popup-text {
+  width: 100rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #e0301e;
+}
+
+.item-avatar-lg,.item-avatar-md,.item-avatar-sm,.item-avatar-xs{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  position:relative;
+}
+.item-avatar-lg image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  box-sizing: border-box
+}
+.item-avatar-md image{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  box-sizing: border-box
+}
+.item-avatar-sm image{
+  float: left;
+  width: 65rpx;
+  height: 65rpx;
+  box-sizing: border-box
+}
+.item-avatar-xs image{
+  float: left;
+  width: 45rpx;
+  height: 45rpx;
+  box-sizing: border-box
+}
+
+.item-avatar-md .marks{
+  position: absolute;
+  top: 0px;
+  left: 90rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background:red;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 28rpx;
+}
+.item-avatar-lg .item-text,.item-avatar-md .item-text,.item-avatar-sm .item-text,.item-avatar-xs .item-text{
+  padding-left: 10px;
+}
+.item-avatar-md .item-time{
+  position: absolute;
+  right: 20rpx;
+}
+.clearfix{
+  overflow: hidden;
+}
+.icon::before{
+  font-size: 70rpx
+}
+.floatR{
+  float: right;
+}
+
+.item-avatar-lg,.item-avatar-md,.item-avatar-sm,.item-avatar-xs{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  position:relative;
+}
+.item-avatar-lg image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  box-sizing: border-box
+}
+.item-avatar-md image{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  box-sizing: border-box
+}
+.item-avatar-sm image{
+  float: left;
+  width: 65rpx;
+  height: 65rpx;
+  box-sizing: border-box
+}
+.item-avatar-xs image{
+  float: left;
+  width: 45rpx;
+  height: 45rpx;
+  box-sizing: border-box
+}
+
+.item-avatar-md .marks{
+  position: absolute;
+  top: 0px;
+  left: 90rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background:red;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 28rpx;
+}
+.item-avatar-lg .item-text,.item-avatar-md .item-text,.item-avatar-sm .item-text,.item-avatar-xs .item-text{
+  padding-left: 10px;
+}
+.item-avatar-md .item-time{
+  position: absolute;
+  right: 20rpx;
+}
+.clearfix{
+  overflow: hidden;
+}
+.icon::before{
+  font-size: 70rpx
+}
+.floatR{
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.item-avatar-lg,.item-avatar-md,.item-avatar-sm,.item-avatar-xs{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  position:relative;
+}
+.item-avatar-lg image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  box-sizing: border-box
+}
+.item-avatar-md image{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  box-sizing: border-box
+}
+.item-avatar-sm image{
+  float: left;
+  width: 65rpx;
+  height: 65rpx;
+  box-sizing: border-box
+}
+.item-avatar-xs image{
+  float: left;
+  width: 45rpx;
+  height: 45rpx;
+  box-sizing: border-box
+}
+
+.item-avatar-md .marks{
+  position: absolute;
+  top: 0px;
+  left: 90rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background:red;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 28rpx;
+}
+.item-avatar-lg .item-text,.item-avatar-md .item-text,.item-avatar-sm .item-text,.item-avatar-xs .item-text{
+  padding-left: 10px;
+}
+.item-avatar-md .item-time{
+  position: absolute;
+  right: 20rpx;
+}
+.clearfix{
+  overflow: hidden;
+}
+.icon::before{
+  font-size: 70rpx
+}
+.floatR{
+  float: right;
+}
+
+
+

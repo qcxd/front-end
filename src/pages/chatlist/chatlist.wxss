@@ -1,0 +1,125 @@
+@import "../../lib/weui.wxss";
+
+.list {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+.list:last-child {
+  border-bottom: none;
+}
+.list .info {
+  height: 182rpx;
+  flex: 1;
+  padding: 8rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.list .poster {
+  width: 130rpx;
+  height: 182rpx;
+  box-shadow: 3px 4px 12px 0 rgba(0,0,0,.2);
+}
+.list .title {
+  font-size: 30rpx;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.list .author {
+  font-size: 40rpx;
+  opacity: 0.8;
+}
+.list .others {
+  font-size: 22rpx;
+  color: #9999;
+}
+.list .others .isFinished {
+  color: rgb(246, 118, 4);
+}
+.list .price {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #3281ff;
+  font-size: 24rpx;
+  font-weight: 500;
+  width: 130rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background: rgb(241, 247, 254);
+}
+.notification_badge {
+  position: absolute;
+  top:0.3em;
+  right:28.4em;
+
+  /* font-size: 10px; */
+}
+
+.item-avatar-lg,.item-avatar-md,.item-avatar-sm,.item-avatar-xs{
+  display: flex;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  position:relative;
+}
+.item-avatar-lg image{
+  float: left;
+  width: 125rpx;
+  height: 125rpx;
+  box-sizing: border-box
+}
+.item-avatar-md image{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  box-sizing: border-box
+}
+.item-avatar-sm image{
+  float: left;
+  width: 65rpx;
+  height: 65rpx;
+  box-sizing: border-box
+}
+.item-avatar-xs image{
+  float: left;
+  width: 45rpx;
+  height: 45rpx;
+  box-sizing: border-box
+}
+
+.item-avatar-md .marks{
+  position: absolute;
+  top: 0px;
+  left: 90rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background:red;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 28rpx;
+}
+.item-avatar-lg .item-text,.item-avatar-md .item-text,.item-avatar-sm .item-text,.item-avatar-xs .item-text{
+  padding-left: 10px;
+}
+.item-avatar-md .item-time{
+  position: absolute;
+  right: 20rpx;
+}
+.clearfix{
+  overflow: hidden;
+}
+.icon::before{
+  font-size: 70rpx
+}
+.floatR{
+  float: right;
+}

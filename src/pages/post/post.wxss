@@ -1,0 +1,62 @@
+@import "../../lib/weui.wxss";
+page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: all 0s linear !important;
+}
+.post-page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: all 0s linear !important;
+}
+.fixed_top_holder {
+  height: 142px;
+  width: 100%;
+  background-color: rgb(200, 200, 200);
+}
+.static_top_holder {
+  height: 6px;
+  width: 100%;
+  background-color: rgb(200, 200, 200);
+}
+.fixed_top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 136px;
+  z-index: 2;
+  background-color: rgb(200, 200, 200);
+  transform: translate3d(0,0,0);
+  transition: all 0s linear !important;
+}
+
+.post_list {
+  min-height: calc(100vh - 142px);
+  background-color: rgb(200, 200, 200);
+  position: relative;
+  z-index: 1;
+}
+.post {
+  background-color: #ffffff;
+  height: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  position: relative;
+}
+.bg_white {
+  background-color: #ffffff;
+}
+.icon_pancel {
+  position: fixed;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 10;
+}
+
+.search-input {
+  width: 100%;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-avatar": "./avatar/avatar",
+    "i-comment": "./comments/comments",
+    "i-mark": "./wemark/wemark"
+  }
+}

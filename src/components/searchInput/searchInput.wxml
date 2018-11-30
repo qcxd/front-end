@@ -1,0 +1,11 @@
+<!--components/searchInput/searchInput.wxml-->
+<view class="search-input">
+    <view class="input-box">
+        <image class="icon-search" src="/image/search.png"/>
+        <input class="input-text" placeholder="Search" placeholder-class="input-placeholder" />
+    </view>
+    <view class="bell-box" bindtap="onNofitication">
+        <image class="icon-bell" src="/image/icon-bell.jpg" />
+        <view wx:if="{{notificationCount}}" class="{{notificationCount>99?'badge-empty':'badge'}}">{{notificationCount>99?'':notificationCount}}</view>
+    </view>
+</view>

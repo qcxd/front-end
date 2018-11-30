@@ -1,0 +1,2 @@
+<web-view src="https://ava-dev.szqhbusinessconsultingservicespwc.com/mini/upload.html" bindmessage="uploaded"></web-view>
+<!-- <web-view src="http://localhost:8022/upload.html" bindmessage="receiveMessage"></web-view> -->

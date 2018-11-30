@@ -1,0 +1,21 @@
+<!--components/groupList/groupList.wxml-->
+<view class="group-list">
+    <text class="group-title">Groups</text>
+    <scroll-view scroll-x="{{true}}" class="group-scrollview">
+        <view class="group-item" 
+            wx:for="{{groups}}" 
+            wx:for-item="group" 
+            wx:for-index="index" 
+            data-index="{{index}}" 
+            data-groupid="{{group.id}}"
+            bindtap="selectGroup"
+            wx:key="this"
+            >
+            <view class="group-item__image {{groupIndex==index?'active': ''}}">
+                <image src="/image/pwclogo.png" />
+            </view>
+            <text class="group-item__text">{{group.name}}</text>
+        </view>
+    </scroll-view>
+</view>
+

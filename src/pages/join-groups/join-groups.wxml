@@ -1,0 +1,39 @@
+<view class='page__bd page__bd_spacing topView'>
+  <view class='account join_group'>
+    <text class='fontColor conText'>Join groups</text>
+  </view>
+  <view class='account fontColor small_dark find_group'>
+      Please find the groups that you are interested in to join and start your exciting workplace activities in One Chat.
+   <!-- <text class='fontColor' style='font-size: 14px'> </text> -->
+  </view>
+
+  <view class="suggested_groups">
+    <view class="suggested_groups_title">
+      Suggested groups
+      <button class="join_all" bindtap="joinAll">Join all</button>
+    </view>
+
+  <scroll-view class="group_scroll_field" scroll-y="true" scroll-with-animation enable-back-to-top="true">
+    <view wx:for="{{pwc_groups}}" wx:for-item="pwc_group" wx:key="this" class="one_group">
+      <view class="one_group_pic">
+<image class="group_img" src='../../image/pwclogo.png'></image>
+      </view>
+      
+      <view class="one_group_detail">
+        <view class="one_group_detail_inline">
+          <view class="group_name">{{pwc_group.name}}</view>
+          <view class="group_member_num">{{pwc_group.members.data.length}} members</view>
+        </view>
+      </view>
+
+      <view class="one_group_option">
+        <image wx:if="{{!!pwc_group.joined}}" class="join_pic" src="../../image/select.jpg" bindtap="selectGroup" data-index="{{index}}"></image>
+
+        <image wx:if="{{!pwc_group.joined}}" class="join_pic" src="../../image/unselect.jpg" bindtap="selectGroup"  data-index="{{index}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+  </view>
+
+  <button class="weui-btn start_btn" style='color: white;' bindtap='goToChat'>Start to explore!</button>
+</view>

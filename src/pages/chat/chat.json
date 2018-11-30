@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Chat",
+  "usingComponents": {
+    "chat-input": "../../components/chatInput/chatInput"
+  },
+  "disableScroll": true
+}

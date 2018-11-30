@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/chatbot/chatbot", 
+    "pages/chatlist/chatlist",
+    "pages/mine/mine",
+    "pages/post/post",
+    "pages/join-groups/join-groups",    
+    "pages/chatbot-Success/chatbot-Success",
+    "pages/post-Add/post-Add",
+    "pages/user/user",
+    "pages/chat/chat",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/upload/upload",
+    "pages/test/tets",
+    "pages/menu/menus"
+  ],
+  "window": {
+    "backgroundTextStyle": "#ffffff",
+    "navigationBarBackgroundColor": "#1E90FF",
+    "navigationBarTitleText": "汽车小店",
+    "navigationBarTextStyle": "white",
+    "backgroundColor":"#1E90FF"
+  },
+  "tabBar": {
+      "selectedColor": "#1E90FF",
+    "list": [
+      
+      {
+        "pagePath": "pages/post/post",
+        "text": "News Feed",
+        "iconPath": "image/wpost_1.png",
+        "selectedIconPath": "image/wpost_2.png"
+      },
+      {
+        "pagePath": "pages/chatlist/chatlist",
+        "text": "Chat",
+        "iconPath": "image/wchat_1.png",
+        "selectedIconPath": "image/wchat_2.png"
+      },
+      {
+        "pagePath": "pages/menu/menus",
+        "text": "Menu",
+        "iconPath": "image/wmenu_1.png",
+        "selectedIconPath": "image/wmenu_2.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/wme_1.png",
+        "selectedIconPath": "image/wme_2.png",
+        "text": "Me"
+      }
+    ]
+  }
+}

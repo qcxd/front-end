@@ -1,0 +1,86 @@
+/* pages/chatbot/chatbot.wxss */
+@import "../../lib/weui.wxss";
+
+.topView {
+  height: 100%;
+}
+.start_btn {
+  background-color: DodgerBlue !important;
+  margin-top: 80px;
+  border-radius: 3px;
+}
+
+.dark_color {
+  color: rgb(60, 60, 60);
+}
+
+.light_color {
+  color: rgba(75, 75, 75);
+  opacity: 1;
+  font-weight: 400;
+}
+
+view {
+  background-color: white;
+}
+.content {
+  background-color: white;
+  flex-direction:column;
+  height: 100%;
+  width: 100%;
+}
+
+.account {
+  text-align:center;
+  padding-top: 100px;
+}
+image {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right:20%;
+    width: 60%;
+}
+.welcome {
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+}
+.workplace {
+  text-decoration: underline;
+  color: #E6721D;
+}
+.details {
+  color: grey;
+}
+.bottom {
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+}
+.privacy {
+  font-size: 13px;
+  padding-left: 15px;
+  text-decoration: underline;
+  color: grey;
+}
+.leftPrivay {
+  margin-left:-31px;
+}
+
+.page__hd {
+    padding: 40px;
+}
+.page__bd {
+    padding-bottom: 40px;
+}
+
+.page__bd_spacing {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.message{
+  font-size:22rpx;
+  opacity:0.6;
+}

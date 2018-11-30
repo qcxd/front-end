@@ -1,0 +1,13 @@
+/* components/icon/icon.wxss */
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+.icon image{
+    width: 90%;
+    height: 90%;
+}
