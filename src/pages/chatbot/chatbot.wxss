@@ -32,7 +32,7 @@ view {
 
 .account {
   text-align:center;
-  padding-top: 100px;
+  padding-top: 30%;
 }
 image {
     margin-top: 5%;
