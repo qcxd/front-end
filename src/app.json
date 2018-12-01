@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/chatbot/chatbot", 
+    "pages/home/home",    
+    "pages/index/index", 
     "pages/chatlist/chatlist",
     "pages/mine/mine",
     "pages/post/post",
@@ -9,7 +10,6 @@
     "pages/post-Add/post-Add",
     "pages/user/user",
     "pages/chat/chat",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/upload/upload",
     "pages/test/tets",
@@ -17,38 +17,31 @@
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",
-    "navigationBarBackgroundColor": "#1E90FF",
+    "navigationBarBackgroundColor": "#4C70CB",
     "navigationBarTitleText": "汽车小店",
     "navigationBarTextStyle": "white",
     "backgroundColor":"#1E90FF"
   },
   "tabBar": {
-      "selectedColor": "#1E90FF",
+    "selectedColor": "#1E90FF",
     "list": [
-      
       {
-        "pagePath": "pages/post/post",
-        "text": "News Feed",
+        "pagePath": "pages/home/home",
+        "text": "广场",
         "iconPath": "image/wpost_1.png",
         "selectedIconPath": "image/wpost_2.png"
       },
       {
-        "pagePath": "pages/chatlist/chatlist",
-        "text": "Chat",
+        "pagePath": "pages/home/home",
+        "text": "仓库",
         "iconPath": "image/wchat_1.png",
         "selectedIconPath": "image/wchat_2.png"
       },
       {
-        "pagePath": "pages/menu/menus",
-        "text": "Menu",
+        "pagePath": "pages/home/home",
+        "text": "个人中心",
         "iconPath": "image/wmenu_1.png",
         "selectedIconPath": "image/wmenu_2.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "iconPath": "image/wme_1.png",
-        "selectedIconPath": "image/wme_2.png",
-        "text": "Me"
       }
     ]
   }

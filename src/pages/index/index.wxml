@@ -1,16 +1,14 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> getUserInfo </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-   <navigator  open-type="exit" target="miniProgram" >exit</navigator>
-  </view>
-  <view class="usermotto" wx:if="{{hasUserInfo && canIUse}}">
-    <button class="user-motto" bindtap="bindViewTap">{{motto}}</button>
-    <button class="user-motto" bindtap="clearCache">Clear message</button>
-  </view>
 
+<view class='index-page'>
+  <view class='index-welcome'>
+    <text>欢迎来到汽车小店!</text>
+  </view>
+  <view class="index-location">
+    <image src="../../image/bell.png"></image>
+    <text class="index-location-city">{{currentCity}}</text>
+    <text class="index-change-city" bindtap="changeCity">切换城市</text>
+  </view>
+  <view class="index-btn">
+    <button class="carBtn_primary" type="primary" open-type="getUserInfo" bindgetuserinfo="goHome">开始</button>
+  </view>
 </view>

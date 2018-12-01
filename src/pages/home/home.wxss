@@ -1,1 +1,78 @@
 /* pages/home/home.wxss */
+
+.home-shop {
+  display: flex;
+  align-items: flex-start;
+}
+
+.home-shop .shop-header {
+  padding: 10px;
+}
+
+.home-shop .shop-header image {
+  width: 50px;
+  height: 40px;
+}
+
+.home-shop .shop-info {
+  padding: 10px;
+  flex: 1;
+}
+
+.home-shop .shop-title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+  font-size: 20px;
+  color: #666666;
+}
+
+.home-shop .shop-title image{
+  width: 20px;
+  height: 20px;
+}
+
+.home-shop .shop-title text{
+  flex: 1;
+}
+
+.home-shop .shop-verify{
+  border: 1px solid #4C70CB;
+  padding: 3px 5px;
+  border-radius: 4px;
+  color: #4C70CB;
+  font-size: 13px;
+}
+
+.home-shop .shop-intro {
+  overflow: hidden;  
+  color: #999999;
+  padding: 10px 0px;
+  height: 20px;
+  display: flex;
+  border-bottom: 1px solid #efefef;  
+}
+
+.home-shop .shop-intro text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.shop-prod {
+  display: flex;
+  padding: 10px 0px;
+  justify-content: space-around;
+  color: #999999;
+}
+.shop-prod .shop-car {
+  text-align: center;
+}
+
+.shop-prod .shop-car image{
+  width: 80px;
+  height: 80px;
+}

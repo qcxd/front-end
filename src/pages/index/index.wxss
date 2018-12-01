@@ -1,33 +1,42 @@
-/**index.wxss**/
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  justify-content: space-between;
-  font-size: 32rpx;
-  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-}
+/* pages/index/index.wxss */
 
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+@import "../../lib/weui.wxss";
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin: 0 50px;
-  margin-bottom: 300px;
+.index-page {
   text-align: center;
-  
+  padding: 30px;
+}
+
+.index-welcome {
+  padding: 70px 0px;
+  color: #4C70CB;
+}
+
+.index-location {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+  justify-content: center;
+}
+
+.index-location image {
+  width: 20px;
+  height: 20px;
+}
+
+.index-location-city {
+  padding: 0px 10px;
+}
+
+.index-change-city {
+  font-size: 13px;
+  color: #4C70CB;
+}
+
+.index-btn {
+  padding-top: 40px;
+}
+
+.index-btn button {
+  font-size: 16px;
 }
