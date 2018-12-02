@@ -26,6 +26,20 @@ Page({
       url: '../car-detail/car-datail',
     })
   },
+
+  doCollect() {
+    wx.showToast({
+      title: '已收藏',
+      icon: 'succes',
+      duration: 1000,
+      mask: true
+    })
+  },
+
+  doSearch() {
+    console.log('search');
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -92,3 +92,20 @@ page{
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+
+/** search */
+.car-search {
+  padding: 10px;
+  font-size: 13px;
+  background-color: #ffffff;
+}
+
+.car-search .placeholder {
+  color: #999999;
+}
+
+.car-search input {
+  padding: 0px 10px;  
+  border-radius: 4px 4px;  
+  background-color: #efefef;  
+}

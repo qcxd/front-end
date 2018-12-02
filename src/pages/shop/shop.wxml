@@ -1,5 +1,8 @@
 <!--pages/shop/shop.wxml-->
 <view>
+  <view class='car-search'>
+    <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+  </view>
   <view class='home-shop'>
     <view class='shop-header'>
       <image src="../../image/porsche-normal.jpg"></image>

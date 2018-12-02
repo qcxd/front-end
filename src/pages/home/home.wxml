@@ -1,7 +1,13 @@
 <!--pages/home/home.wxml-->
 <view class='home-page'>
   <view>
-    <view>search</view>
+    <view class='car-search'>
+      <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+    </view>
+    <view class='select car-flex'>    
+      <text>全部地区</text>
+      <text>智能排序</text>
+    </view>
     <view class='home-shop'>
       <view class='shop-header'>
         <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
@@ -9,7 +15,7 @@
       <view class='shop-info' bindtap='goShop'>
         <view class='shop-title'>
           <text>店铺名</text>
-          <image src="../../image/star2.png"></image>
+          <image src="../../image/star2.png" catchtap='doCollect'></image>
         </view>
         <view><text class='shop-verify'>已认证</text></view>
         <view class='shop-intro'>

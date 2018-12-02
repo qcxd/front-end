@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",    
     "pages/home/home",    
     "pages/shop/shop",    
     "pages/car-detail/car-detail",
-    "pages/index/index",
     "pages/chatlist/chatlist",
     "pages/mine/mine",
     "pages/post/post",

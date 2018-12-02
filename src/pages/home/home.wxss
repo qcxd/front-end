@@ -3,6 +3,25 @@
   background-color: #dddddd;
 }
 
+.select {
+  padding: 10px;
+  color: #797979;
+  font-size: 13px;
+  background-color: #ffffff;
+  justify-content: space-around; 
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 10px;
+}
+
+.select text {
+  text-align: center;
+  flex: 0.5;
+}
+
+.select text + text {
+  border-left: 1px solid #efefef;
+}
+
 .shop-prod {
   display: flex;
   padding: 10px 0px;
