@@ -1,4 +1,4 @@
-// pages/shop/shop.js
+// pages/car-detail/car-datail.js
 Page({
 
   /**
@@ -14,18 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  
-  goShop() {
-    wx.navigateTo({
-      url: '../shop/shop',
-    })
-  },
 
-  goCarDetail() {
-    wx.navigateTo({
-      url: '../car-detail/car-datail',
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

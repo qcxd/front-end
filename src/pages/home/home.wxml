@@ -1,15 +1,46 @@
 <!--pages/home/home.wxml-->
 <view class='home-page'>
   <view>
-   <view>search</view>
+    <view>search</view>
     <view class='home-shop'>
       <view class='shop-header'>
-        <image src="../../image/bell.png"></image>
+        <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
       </view>
+      <view class='shop-info' bindtap='goShop'>
+        <view class='shop-title'>
+          <text>店铺名</text>
+          <image src="../../image/star2.png"></image>
+        </view>
+        <view><text class='shop-verify'>已认证</text></view>
+        <view class='shop-intro'>
+          <text>店铺简介，一家专业的二手车店铺.</text>
+        <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
+        </view>
+        <view class='shop-prod'>
+          <view class='shop-car' catchtap='goCarDetail'>
+            <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
+            <text>宝马</text>
+          </view>
+          <view class='shop-car' catchtap='goCarDetail'>
+            <view><image src="../../image/porsche-normal.jpg" mode='widthFix'></image></view>
+            <text>奔驰</text>
+          </view>
+          <view class='shop-car' catchtap='goCarDetail'>
+            <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
+            <text>特斯拉</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='home-shop'>
+      <view class='shop-header'>
+        <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+      </view>      
       <view class='shop-info'>
         <view class='shop-title'>
           <text>店铺名</text>
-          <image src="../../image/bell.png"></image>
+          <image src="../../image/star.png"></image>
         </view>
         <view><text class='shop-verify'>已认证</text></view>
         <view class='shop-intro'>
@@ -18,15 +49,46 @@
           </view>
           <view class='shop-prod'>
             <view class='shop-car'>
-              <view><image src="../../image/joined.jpg"></image></view>
+              <view><image src="../../image/porsche-normal.jpg" mode='widthFix'></image></view>
               <text>宝马</text>
             </view>
             <view class='shop-car'>
-              <view><image src="../../image/joined.jpg"></image></view>
+              <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
               <text>奔驰</text>
             </view>
             <view class='shop-car'>
-              <view><image src="../../image/joined.jpg"></image></view>
+              <view><image src="../../image/porsche-normal.jpg" mode='widthFix'></image></view>
+              <text>特斯拉</text>
+            </view>
+          </view>
+      </view>
+    </view>
+
+    <view class='home-shop'>
+      <view class='shop-header'>
+        <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+      </view>      
+      <view class='shop-info'>
+        <view class='shop-title'>
+          <text>店铺名</text>
+          <image src="../../image/star2.png"></image>
+        </view>
+        <view><text class='shop-verify'>已认证</text></view>
+        <view class='shop-intro'>
+          <text>店铺简介，一家专业的二手车店铺.</text>
+          <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
+          </view>
+          <view class='shop-prod'>
+            <view class='shop-car'>
+              <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
+              <text>宝马</text>
+            </view>
+            <view class='shop-car'>
+              <view><image src="../../image/porsche-normal.jpg" mode='widthFix'></image></view>
+              <text>奔驰</text>
+            </view>
+            <view class='shop-car'>
+              <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
               <text>特斯拉</text>
             </view>
           </view>

@@ -1,0 +1,71 @@
+<!--pages/shop/shop.wxml-->
+<view>
+  <view class='home-shop'>
+    <view class='shop-header'>
+      <image src="../../image/porsche-normal.jpg"></image>
+    </view>
+    <view class='shop-info' bindtap='goShop'>
+      <view class='shop-title'>
+        <text>店铺名</text>
+        <image src="../../image/porsche-normal.jpg"></image>
+        <image src="../../image/star.png"></image>
+      </view>
+      <view><text class='shop-verify'>已认证</text></view>
+      <view class='shop-intro'>
+        <text>店铺简介，一家专业的二手车店铺.</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='shop-view'>
+    <view class='subtitle'>-- 店主推荐 --</view>
+    <view>
+      <view class='shop-box'>
+        <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+        <view class='car-info'>
+          <view class='desc'>保时捷911 红色</view>
+          <view class='car-flex'>
+            <text class='flex_1'>¥18.8万</text>
+            <text class='add'>加入仓库</text>
+          </view>
+        </view>
+      </view>
+      <view class='shop-box'>
+        <image src="../../image/porsche-zoom.jpg" mode='widthFix'></image>
+        <view class='car-info'>
+          <view class='desc'>保时捷911 红色</view>
+          <view class='car-flex'>
+            <text class='flex_1'>¥18.8万</text>
+            <text class='cancle'>加入仓库</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='shop-view'>
+    <view class='subtitle'>-- 全部宝贝 --</view>  
+    <view>
+      <view class='shop-box'>
+        <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+        <view class='car-info'>
+          <view class='desc'>保时捷911 红色</view>
+          <view class='car-flex'>
+            <text class='flex_1'>¥18.8万</text>
+            <text class='add'>加入仓库</text>
+          </view>
+        </view>
+      </view>
+      <view class='shop-box'>
+        <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+        <view class='car-info'>
+          <view class='desc'>保时捷911 红色</view>
+          <view class='car-flex'>
+            <text class='flex_1'>¥18.8万</text>
+            <text class='cancle'>加入仓库</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

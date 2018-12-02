@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/home/home",    
-    "pages/index/index", 
+    "pages/shop/shop",    
+    "pages/car-detail/car-detail",
+    "pages/index/index",
     "pages/chatlist/chatlist",
     "pages/mine/mine",
     "pages/post/post",
-    "pages/join-groups/join-groups",    
+    "pages/join-groups/join-groups",
     "pages/chatbot-Success/chatbot-Success",
     "pages/post-Add/post-Add",
     "pages/user/user",
@@ -13,14 +15,15 @@
     "pages/logs/logs",
     "pages/upload/upload",
     "pages/test/tets",
-    "pages/menu/menus"
+    "pages/menu/menus",
+    "pages/car-detail/car-datail"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",
     "navigationBarBackgroundColor": "#4C70CB",
     "navigationBarTitleText": "汽车小店",
     "navigationBarTextStyle": "white",
-    "backgroundColor":"#1E90FF"
+    "backgroundColor": "#1E90FF"
   },
   "tabBar": {
     "selectedColor": "#1E90FF",
