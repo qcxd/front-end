@@ -22,11 +22,39 @@ Page({
       this.loginThroughWechat();
     }
     let that = this;
-    // 获取当前位置
-    wx.getLocation({
-      type: 'wgs84',
+    wx.getSetting({
       success(res) {
-        that.getLocalCiry(res.latitude, res.longitude);
+        console.log('getSetting');        
+        console.log(res.authSetting)
+        // res.authSetting = {
+        //   "scope.userInfo": true,
+        //   "scope.userLocation": true
+        // }
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: "scope.userLocation",
+            success() {
+              console.log('首次允许，获取地理位置');              
+              // 获取当前位置
+              wx.getLocation({
+                type: 'wgs84',
+                success(res) {
+                  console.log('获取地理位置成功'); 
+                  that.getLocalCiry(res.latitude, res.longitude);
+                }
+              })
+            }
+          });          
+        } else if (res.authSetting['scope.userLocation'] === true) {
+          console.log('已允许，获取地理位置');
+          wx.getLocation({
+            type: 'wgs84',
+            success(res) {
+              console.log('获取地理位置成功'); 
+              that.getLocalCiry(res.latitude, res.longitude);
+            }
+          })
+        }
       }
     })
   },
@@ -45,12 +73,13 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) { 
+        console.log('获取百度城市地理位置成功'); 
         console.log(res);
         let city = res.data.result.addressComponent.city;
         that.setData({ currentCity: city });
       },
       fail: function () {
-        page.setData({ currentCity: "获取定位失败" });
+        page.setData({ currentCity: "定位失败" });
       },
     })
   },
