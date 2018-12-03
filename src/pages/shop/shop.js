@@ -20,6 +20,24 @@ Page({
   },
 
   /**
+   * 加入仓库
+   */
+  addWherehouse() {
+    wx.showToast({
+      title: '已添加',
+    })
+  },
+
+  /**
+   * 取消加入仓库
+   */
+  doCancle() {
+    wx.showToast({
+      title: '已取消',
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

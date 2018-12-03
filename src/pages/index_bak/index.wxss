@@ -31,3 +31,8 @@
   text-align: center;
   
 }
+
+.car-picker-view {
+  text-align: center;
+  font-size: 16px;
+}

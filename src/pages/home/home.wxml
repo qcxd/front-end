@@ -5,8 +5,8 @@
       <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
     </view>
     <view class='select car-flex'>    
-      <text>全部地区</text>
-      <text>智能排序</text>
+      <text bindtap='selectArea'>全部地区</text>
+      <text bindtap='selectSort'>智能排序</text>
     </view>
     <view class='home-shop'>
       <view class='shop-header'>

@@ -8,6 +8,8 @@ Page({
     user: {},
     group: {},
     currentCity: '',
+    cityArray: ['美国', '中国', '巴西', '日本'],
+    popHidden: true,
   },
 
   onLoad: function(options) {
@@ -53,9 +55,19 @@ Page({
     })
   },
  
+  // 
+  popPicker() {
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
+    })
+  },
+
   // 切换城市
-  changeCity() {
-    console.log("切换城市");
+  changeCity: function (e) {
+    this.setData({
+      currentCity: this.data.cityArray[e.detail.value],
+    })
   },
 
   // 开始
