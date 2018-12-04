@@ -22,41 +22,38 @@ Page({
       this.loginThroughWechat();
     }
     let that = this;
-    wx.getSetting({
-      success(res) {
-        console.log('getSetting');        
-        console.log(res.authSetting)
-        // res.authSetting = {
-        //   "scope.userInfo": true,
-        //   "scope.userLocation": true
-        // }
-        if (!res.authSetting['scope.userLocation']) {
-          wx.authorize({
-            scope: "scope.userLocation",
-            success() {
-              console.log('首次允许，获取地理位置');              
-              // 获取当前位置
-              wx.getLocation({
-                type: 'wgs84',
-                success(res) {
-                  console.log('获取地理位置成功'); 
-                  that.getLocalCiry(res.latitude, res.longitude);
-                }
-              })
-            }
-          });          
-        } else if (res.authSetting['scope.userLocation'] === true) {
-          console.log('已允许，获取地理位置');
+    if (!app.globalData.userLocation) {
+      wx.authorize({
+        scope: "scope.userLocation",
+        success() {
+          console.log('首次允许，获取地理位置');
+          // 获取当前位置
+          wx.showLoading({
+            title: '定位中',
+          })
           wx.getLocation({
             type: 'wgs84',
             success(res) {
-              console.log('获取地理位置成功'); 
-              that.getLocalCiry(res.latitude, res.longitude);
+              app.globalData.userLocation = true;
+              console.log('获取地理位置成功');
+              that.getLocalCity(res.latitude, res.longitude);
             }
           })
         }
-      }
-    })
+      });
+    } else if (app.globalData.userLocation === true) {
+      console.log('非首次允许，获取地理位置');
+      wx.showLoading({
+        title: '定位中',
+      })
+      wx.getLocation({
+        type: 'wgs84',
+        success(res) {
+          console.log('获取地理位置成功');
+          that.getLocalCity(res.latitude, res.longitude);
+        }
+      })
+    }
   },
   
   /**
@@ -64,7 +61,7 @@ Page({
    * @param latitude 经度
    * @param longitude 纬度
    */
-  getLocalCiry(latitude, longitude) {
+  getLocalCity(latitude, longitude) {
     let that = this
     wx.request({
       url: 'https://api.map.baidu.com/geocoder/v2/?ak=xsiYQN0VwrBHvxmf42BGdxFiTQgqBC4w&location=' + latitude + ',' + longitude + '&output=json',
@@ -77,14 +74,16 @@ Page({
         console.log(res);
         let city = res.data.result.addressComponent.city;
         that.setData({ currentCity: city });
+        wx.hideLoading();
       },
       fail: function () {
         page.setData({ currentCity: "定位失败" });
+        wx.hideLoading();
       },
     })
   },
  
-  // 
+  // 控制picker
   popPicker() {
     let popHidden = this.data.popHidden;
     this.setData({

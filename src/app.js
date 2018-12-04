@@ -11,11 +11,11 @@ App({
     })
     wx.getSetting({
       success: res => {
+        this.globalData.userLocation = res.authSetting['scope.userLocation'];
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: res => {
               this.globalData.userInfo = res.userInfo
-
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
@@ -27,6 +27,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    userLocation: null,
     sysInfo: wx.getSystemInfoSync()
   }
 })
