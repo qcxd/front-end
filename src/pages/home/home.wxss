@@ -1,6 +1,6 @@
 /* pages/home/home.wxss */
 .home-page {
-  background-color: #dddddd;
+
 }
 
 .select {

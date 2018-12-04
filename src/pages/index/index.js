@@ -37,6 +37,9 @@ Page({
               app.globalData.userLocation = true;
               console.log('获取地理位置成功');
               that.getLocalCity(res.latitude, res.longitude);
+            },
+            fail(res) {
+              that.setData({ currentCity: "定位失败" });
             }
           })
         }
@@ -77,7 +80,7 @@ Page({
         wx.hideLoading();
       },
       fail: function () {
-        page.setData({ currentCity: "定位失败" });
+        that.setData({ currentCity: "定位失败" });
         wx.hideLoading();
       },
     })
@@ -85,6 +88,7 @@ Page({
  
   // 控制picker
   popPicker() {
+    this.getCityList();
     let popHidden = this.data.popHidden;
     this.setData({
       popHidden: !popHidden,
@@ -104,6 +108,25 @@ Page({
     // 跳转到广场tabBar页
     wx.switchTab({
       url: '../home/home',
+    })
+  },
+
+  getCityList() {
+    const params = {
+      "parentid": 0,
+    }
+    apiServicePro.getCityList(params).then((result) => {
+      console.log('apiServicePro.getCityList',result);
+      if (result.code === 200) {
+        console.log('apiServicePro.getCityList');
+      } else {
+        console.log('openid error', result);
+      }
+    }).catch((err) => {
+      wx.showModal({
+        title: '网络异常',
+        content: '网络异常，请稍后再试',
+      })
     })
   },
 

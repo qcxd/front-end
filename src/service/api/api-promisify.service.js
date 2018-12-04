@@ -74,6 +74,41 @@ const uploadPhoto = (filePath, openid) => {
     }
   })
 }
+/**********************mini-car*******************/
+
+/**
+ * 创建用户
+ * @param {}
+ */
+const insertUser = (params) => rest.post({ url: `/user/insertUser`, data: params });
+
+/**
+ * 更新用户信息
+ * @param {}
+ */
+const updateUser = (params) => rest.post({ url: `/user/updateUser`, data: params });
+/**
+ * 获取城市列表
+ * @param {}
+ */
+const getCityList = (params) => rest.post({ url: `/user/district`, data: params });
+
+/**
+ * 创建店铺
+ * @param {}
+ */
+const createShop = (params) => rest.post({ url: `/shop/createShop`, data: params });
+
+/**
+ * 店铺列表
+ * @param {}
+ */
+const getShopList = (params) => rest.post({ url: `/shop/list`, data: params });
+
+/**
+ * 通过用户id获取店铺信息
+ */
+const getShopByUserId = () => rest.get({ url: `/shop/getShopByUserId` });
 
 module.exports = {
   // Workplace
@@ -100,6 +135,8 @@ module.exports = {
   groupNotJoin,
   getGroupUsers,
   // WX Func
-  uploadPhoto
+  uploadPhoto,
+  // mini-car
+  getCityList
 }
 

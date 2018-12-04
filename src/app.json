@@ -23,7 +23,7 @@
     "navigationBarBackgroundColor": "#4C70CB",
     "navigationBarTitleText": "汽车小店",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#1E90FF"
+    "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
     "selectedColor": "#1E90FF",
