@@ -11,7 +11,7 @@ const postToWorkplacePhoto = (groupid, message) =>postToWorkplace(`/api/v1/wp/gr
 
 
 // User
-const insertUser = (user) => rest.post({url: '/user/insertUser', data: user});
+// const insertUser = (user) => rest.post({url: '/user/insertUser', data: user});
 
 const getOpenid = (code) => rest.get({url: '/mini/getOpenid?code='+code});
 
@@ -80,7 +80,7 @@ const uploadPhoto = (filePath, openid) => {
  * 创建用户
  * @param {}
  */
-const insertUser = (params) => rest.post({ url: `/user/insertUser`, data: params });
+const insertUser = (user) => rest.post({ url: '/user/insertUser', data: user });
 
 /**
  * 更新用户信息
@@ -115,7 +115,7 @@ module.exports = {
   postToWorkplaceTxt,
   postToWorkplacePhoto,
   // User
-  insertUser,
+  // insertUser,
   getOpenid,
   getUser,
   getUserByOpenid,
@@ -137,6 +137,11 @@ module.exports = {
   // WX Func
   uploadPhoto,
   // mini-car
-  getCityList
+  insertUser,
+  updateUser,
+  getCityList,
+  createShop,
+  getShopList,
+  getShopByUserId
 }
 

@@ -12,16 +12,17 @@ App({
     wx.getSetting({
       success: res => {
         this.globalData.userLocation = res.authSetting['scope.userLocation'];
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: res => {
-              this.globalData.userInfo = res.userInfo
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
+        // 不再支持授权弹框
+        // if (res.authSetting['scope.userInfo']) {
+        //   wx.getUserInfo({
+        //     success: res => {
+        //       this.globalData.userInfo = res.userInfo
+        //       if (this.userInfoReadyCallback) {
+        //         this.userInfoReadyCallback(res)
+        //       }
+        //     }
+        //   })
+        // }
       }
     })
   },

@@ -162,6 +162,7 @@ Page({
     let self = this;
     console.log('userInfo', userInfo);
     userInfo.openid = this.data.user.openid;
+    app.globalData.userInfo = e.detail.userInfo;
     if (!userInfo.openid) {
       //return error to handle
       return;
@@ -173,8 +174,7 @@ Page({
         let token = result.data.token;
         console.log('token',token);
         userInfo.token = token;
-        self.addDeafaultGroup(userInfo);
-
+        // self.addDeafaultGroup(userInfo);
       } else {
         console.log('insert user', result);
       }
