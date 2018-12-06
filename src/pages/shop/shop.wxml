@@ -29,7 +29,7 @@
           <view class='desc'>保时捷911 红色</view>
           <view class='car-flex'>
             <text class='flex_1'>¥18.8万</text>
-            <text class='add'>加入仓库</text>
+            <text class='add' bindtap='addWherehouse'>加入仓库</text>
           </view>
         </view>
       </view>
@@ -39,7 +39,7 @@
           <view class='desc'>保时捷911 红色</view>
           <view class='car-flex'>
             <text class='flex_1'>¥18.8万</text>
-            <text class='cancle'>加入仓库</text>
+            <text class='cancle'>取消加入</text>
           </view>
         </view>
       </view>

@@ -1,6 +1,6 @@
 /* pages/home/home.wxss */
 .home-page {
-  background-color: #dddddd;
+
 }
 
 .select {
@@ -33,8 +33,9 @@
   text-align: center;
   font-size: 12px;
   font-weight: 400;
+  flex: 0.32;
 }
 
 .shop-prod .shop-car image {
-  width: 90px;
+  width: 100%;
 }

@@ -25,8 +25,8 @@
 }
 
 .shop-box image {
-  width:90%;
-  margin:5px 5%;
+  width:100%;
+  margin:5px 0px;
 }
 
 .shop-box .add {

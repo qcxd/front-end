@@ -11,7 +11,7 @@ const postToWorkplacePhoto = (groupid, message) =>postToWorkplace(`/api/v1/wp/gr
 
 
 // User
-const insertUser = (user) => rest.post({url: '/user/insertUser', data: user});
+// const insertUser = (user) => rest.post({url: '/user/insertUser', data: user});
 
 const getOpenid = (code) => rest.get({url: '/mini/getOpenid?code='+code});
 
@@ -74,13 +74,48 @@ const uploadPhoto = (filePath, openid) => {
     }
   })
 }
+/**********************mini-car*******************/
+
+/**
+ * 创建用户
+ * @param {}
+ */
+const insertUser = (user) => rest.post({ url: '/user/insertUser', data: user });
+
+/**
+ * 更新用户信息
+ * @param {}
+ */
+const updateUser = (params) => rest.post({ url: `/user/updateUser`, data: params });
+/**
+ * 获取城市列表
+ * @param {}
+ */
+const getCityList = (params) => rest.post({ url: `/user/district`, data: params });
+
+/**
+ * 创建店铺
+ * @param {}
+ */
+const createShop = (params) => rest.post({ url: `/shop/createShop`, data: params });
+
+/**
+ * 店铺列表
+ * @param {}
+ */
+const getShopList = (params) => rest.post({ url: `/shop/list`, data: params });
+
+/**
+ * 通过用户id获取店铺信息
+ */
+const getShopByUserId = () => rest.get({ url: `/shop/getShopByUserId` });
 
 module.exports = {
   // Workplace
   postToWorkplaceTxt,
   postToWorkplacePhoto,
   // User
-  insertUser,
+  // insertUser,
   getOpenid,
   getUser,
   getUserByOpenid,
@@ -100,6 +135,13 @@ module.exports = {
   groupNotJoin,
   getGroupUsers,
   // WX Func
-  uploadPhoto
+  uploadPhoto,
+  // mini-car
+  insertUser,
+  updateUser,
+  getCityList,
+  createShop,
+  getShopList,
+  getShopByUserId
 }
 

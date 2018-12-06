@@ -6,9 +6,23 @@
   <view class="index-location">
     <image src="../../image/bell.png"></image>
     <text class="index-location-city">{{currentCity}}</text>
-    <text class="index-change-city" bindtap="changeCity">切换城市</text>
+    <!-- <picker bindchange="changeCity" value="{{index}}" range="{{cityArray}}">
+      <text class="index-change-city">切换城市</text>
+    </picker> -->
+    <text class="index-change-city" bindtap='popPicker'>切换城市</text>
   </view>
   <view class="index-btn">
     <button class="carBtn_primary" type="primary" open-type="getUserInfo" bindgetuserinfo="goHome">开始</button>
   </view>
+</view>
+<view hidden="{{popHidden}}">
+  <view class="car-flex">
+    <text>取消</text>
+    <text>确定</text>
+  </view>
+  <picker-view indicator-class="car-picker-view" style="width: 100%; height: 300px;" value="{{value}}" bindchange="changeCity">
+    <picker-view-column>
+      <view wx:for="{{cityArray}}" style="line-height: 50px; text-align: center;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
 </view>
