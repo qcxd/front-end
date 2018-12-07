@@ -8,7 +8,10 @@ Page({
     user: {},
     group: {},
     currentCity: '',
-    cityArray: ['美国', '中国', '巴西', '日本'],
+    selectValue: '',
+    provinceArray: [],
+    cityArray: [],
+    countyList: [],
     popHidden: true,
   },
 
@@ -57,6 +60,13 @@ Page({
         }
       })
     }
+
+    // 获取省份数据
+    this.getProvinceList(0);
+    // let cityArray = this.dara.cityArray;
+    // cityArray.forEach((item) => {
+    //   this.this.getCityList(0);
+    // })
   },
   
   /**
@@ -88,7 +98,6 @@ Page({
  
   // 控制picker
   popPicker() {
-    this.getCityList();
     let popHidden = this.data.popHidden;
     this.setData({
       popHidden: !popHidden,
@@ -97,9 +106,17 @@ Page({
 
   // 切换城市
   changeCity: function (e) {
+    const val = e.detail.value    
     this.setData({
-      currentCity: this.data.cityArray[e.detail.value],
+      selectValue: this.data.provinceArray[val[0]].name + this.data.cityArray[val[1]].name,
     })
+    this.getCityList(this.data.provinceArray[val[0]].id);
+    
+    // this.setData({
+    //   year: this.data.years[val[0]],
+    //   month: this.data.months[val[1]],
+    //   day: this.data.days[val[2]]
+    // })
   },
 
   // 开始
@@ -111,22 +128,80 @@ Page({
     })
   },
 
-  getCityList() {
+  getProvinceList(parentid) {
     const params = {
-      "parentid": 0,
+      "parentid": parentid,
     }
     apiServicePro.getCityList(params).then((result) => {
-      console.log('apiServicePro.getCityList',result);
       if (result.code === 200) {
-        console.log('apiServicePro.getCityList');
+        this.setData({
+          provinceArray: result.data,
+        })
+        this.getCityList(result.data[0].id);        
       } else {
-        console.log('openid error', result);
       }
     }).catch((err) => {
       wx.showModal({
         title: '网络异常',
         content: '网络异常，请稍后再试',
       })
+    })
+  },
+
+  getCityList(parentid) {
+    const params = {
+      "parentid": parentid,
+    }
+    apiServicePro.getCityList(params).then((result) => {
+      if (result.code === 200) {
+        this.setData({
+          cityArray: result.data,
+        })
+        // this.getCountyList(result.data[0].id);
+      } else {
+      }
+    }).catch((err) => {
+      wx.showModal({
+        title: '网络异常',
+        content: '网络异常，请稍后再试',
+      })
+    })
+  },
+
+  getCountyList(parentid) {
+    const params = {
+      "parentid": parentid,
+    }
+    apiServicePro.getCityList(params).then((result) => {
+      if (result.code === 200) {
+        this.setData({
+          countyList: result.data,
+        })
+      } else {
+      }
+    }).catch((err) => {
+      wx.showModal({
+        title: '网络异常',
+        content: '网络异常，请稍后再试',
+      })
+    })
+  },
+
+  popEnsure() {
+    const selectValue = this.data.selectValue;
+    this.setData({
+      currentCity: selectValue,
+    })
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
+    })
+  },
+
+  popCancle() {
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
     })
   },
 

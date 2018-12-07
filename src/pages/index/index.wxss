@@ -40,3 +40,23 @@
 .index-btn button {
   font-size: 16px;
 }
+
+.car-pop-view {
+  background-color: #ffffff;
+}
+
+.car-pop-view .car-flex {
+  padding: 5px 30px;
+  border-bottom: 1px solid rgb(170, 189, 236);
+}
+
+.car-pop-view .car-flex .pop-cancle {
+  flex: 0.5;
+  color: #999999;
+}
+
+.car-pop-view .car-flex .pop-ensure {
+  flex: 0.5;
+  color: #4C70CB;
+  text-align: right;
+}

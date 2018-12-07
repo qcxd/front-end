@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/index/index",    
     "pages/ossUpload/ossUpload",
-    "pages/index/index",
     "pages/home/home",
     "pages/shop/shop",
     "pages/car-detail/car-detail",
