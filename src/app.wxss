@@ -109,3 +109,15 @@ page{
   border-radius: 4px 4px;  
   background-color: #efefef;  
 }
+
+.car-model {
+  position: fixed;
+  background-color: #dcebf879;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+} 
+
+.hidden {
+  display: none;
+}

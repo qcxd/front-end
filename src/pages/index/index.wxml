@@ -6,7 +6,7 @@
   <view class="index-location">
     <image src="../../image/bell.png"></image>
     <text class="index-location-city">{{currentCity}}</text>
-    <!-- <picker bindchange="changeCity" value="{{index}}" range="{{cityArray}}">
+    <!-- <picker bindchange="changeCity" value="{{index}}" range="{{cityList}}">
       <text class="index-change-city">切换城市</text>
     </picker> -->
     <text class="index-change-city" bindtap='popPicker'>切换城市</text>
@@ -15,7 +15,13 @@
     <button class="carBtn_primary" type="primary" open-type="getUserInfo" bindgetuserinfo="goHome">开始</button>
   </view>
 </view>
-<view hidden="{{popHidden}}" class="car-pop-view">
+
+<scroll-view scroll-y scroll-with-animation class='car-model' hidden="{{popHidden}}">
+  <pickCity cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
+</scroll-view>
+
+
+<!-- <view hidden="{{popHidden}}" class="car-pop-view">
   <view class="car-flex">
     <text class="pop-cancle" bindtap='popCancle'>取消</text>
     <text class="pop-ensure" bindtap='popEnsure'>确定</text>
@@ -25,10 +31,8 @@
       <view wx:for="{{provinceArray}}" style="line-height: 50px; text-align: center;">{{item.name}}</view>
     </picker-view-column>
     <picker-view-column>
-      <view wx:for="{{cityArray}}" style="line-height: 50px; text-align: center;">{{item.name}}</view>
+      <view wx:for="{{cityList}}" style="line-height: 50px; text-align: center;">{{item.name}}</view>
     </picker-view-column>
-    <!-- <picker-view-column bindchange="changeCity">
-      <view wx:for="{{countyList}}" style="line-height: 50px; text-align: center;">{{item.name}}</view>
-    </picker-view-column> -->
   </picker-view>
-</view>
+</view> -->
+
