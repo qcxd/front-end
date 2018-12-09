@@ -235,23 +235,23 @@ Page({
   onGotUserInfo(e) {
     let userInfo = e.detail.userInfo;
     let self = this;
-    console.log('userInfo', userInfo);
     userInfo.openid = this.data.user.openid;
     app.globalData.userInfo = e.detail.userInfo;
     if (!userInfo.openid) {
       //return error to handle
       return;
     }
-
     apiServicePro.insertUser(userInfo).then((result) => {
-      console.log('result', result);
       if (result.code === 200) {
-        let token = result.data.token;
-        console.log('token',token);
-        userInfo.token = token;
+        userInfo.token = result.data.token;
+        wx.setStorage({
+          key: "token",
+          data: result.data.token
+        })
+        console.log('******token', result.data.token);
         // self.addDeafaultGroup(userInfo);
       } else {
-        console.log('insert user', result);
+        console.log('insert user error', result);
       }
     }).catch((err) => {
       console.log('err', err);

@@ -7,17 +7,21 @@ const _request = (method, url, data, fromWp = false, callback, needLoading ='Loa
       mask: true
     })
   }
+  let token = '';
+  try {
+    token = wx.getStorageSync('token');
+  } catch (e) {
+    console.log('获取token异常');
+  }
   wx.request({
     url: config.hostUrl + url,
     method: method,
     data: data,
     header: {
-      // 'authorization': 'Bearer ' + wx.getStorageSync('user').token,
-      'authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJQd0MgTmV3IFZlbnR1cmVzIiwiaWF0IjoxNTQxNTc3MTE4LCJleHAiOjE2MDQ3MzU1MTgsImF1ZCI6InB3Yy5jb20iLCJzdWIiOiJQd0MgTmV3IFZlbnR1cmVzIHRlc3QgdG9rZW4iLCJjbGllbnROYW1lIjoiUHdDIE9uZUNoYXQifQ.d4_jlSqDndisproPjiy1zy1_aELwMYVLk_nQRwCGcTc',
+      'authorization': 'Bearer ' + token,
       'content-type': 'application/json'
     },
     success: function(res) {
-      console.log('res', res);
       _handleResponse(res, fromWp, callback);
       if(needLoading){
         wx.hideLoading()
@@ -31,9 +35,6 @@ const _request = (method, url, data, fromWp = false, callback, needLoading ='Loa
     }
   });
 }
-
-
-
 
 const _handleResponse = (res, fromWp, callback) => {
   console.log('res', res)

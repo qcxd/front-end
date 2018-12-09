@@ -32,8 +32,8 @@
       {
         "pagePath": "pages/home/home",
         "text": "广场",
-        "iconPath": "image/wpost_1.png",
-        "selectedIconPath": "image/wpost_2.png"
+        "iconPath": "image/menu_1.png",
+        "selectedIconPath": "image/menu_1.png"
       },
       {
         "pagePath": "pages/home/home",
