@@ -1,4 +1,12 @@
 /* components/pickCity.wxss */
+.car-model {
+  position: fixed;
+  background-color: #dcebf879;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+} 
+
 .pickCity {
   margin: 10px;
   background-color: #efefef;
@@ -16,7 +24,7 @@
 
 .pickCity-city-data {
   background-color: #ffffff;
-  padding-right: 4%;  
+  padding-right: 8%;  
   padding-top: 15px;
 }
 

@@ -16,9 +16,9 @@
   </view>
 </view>
 
-<scroll-view scroll-y scroll-with-animation class='car-model' hidden="{{popHidden}}">
-  <pickCity cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
-</scroll-view>
+<view hidden="{{popHidden}}">
+  <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
+</view>
 
 
 <!-- <view hidden="{{popHidden}}" class="car-pop-view">
