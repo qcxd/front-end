@@ -1,0 +1,43 @@
+<!--pages/wherehouse/wherehouse.wxml-->
+<view class='wherehouse'>
+  <view>
+    <view class="wherehouse-shop">
+      <view class='home-shop'>
+        <view class='shop-header'>
+          <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+        </view>      
+        <view class='shop-info'>
+          <view class='shop-title'>
+            <text>店铺名</text>
+            <image src="../../image/star.png"></image>
+          </view>
+          <view><text class='shop-verify'>已认证</text></view>         
+        </view>
+      </view>
+      <view class='car-flex'>
+        <text>上海市浦东新区</text>
+        <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+      </view>
+      <view >
+        <view>收藏的车(6)</view>
+        <view>
+          <view class='shop-prod'>
+            <view class='shop-car' catchtap='goCarDetail'>
+              <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
+              <text>宝马</text>
+            </view>
+            <view class='shop-car' catchtap='goCarDetail'>
+              <view><image src="../../image/porsche-normal.jpg" mode='widthFix'></image></view>
+              <text>奔驰</text>
+            </view>
+            <view class='shop-car' catchtap='goCarDetail'>
+              <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
+              <text>特斯拉</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

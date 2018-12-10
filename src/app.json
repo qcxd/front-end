@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index",    
+    "pages/wherehouse/wherehouse",
+    "pages/index/index",
     "pages/ossUpload/ossUpload",
     "pages/home/home",
     "pages/shop/shop",

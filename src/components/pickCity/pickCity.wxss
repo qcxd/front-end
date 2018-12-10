@@ -46,6 +46,7 @@
   right: 18px;
   width: 10px;
   color: #666666;
+  text-align:center;
 }
 
 .pickCity-left-code text {

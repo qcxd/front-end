@@ -1,0 +1,14 @@
+/* pages/wherehouse/wherehouse.wxss */
+
+.wherehouse {
+  
+}
+
+.img-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.wherehouse-shop {
+  
+}
