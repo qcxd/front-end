@@ -2,8 +2,10 @@
 <scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='car-model'>
   <view class='pickCity'>
     <view>
-      <view>当前选择城市</view>
-      <view>{{currentCity}}</view>
+      <view class='pickCity-city-code'>当前选择城市</view>
+      <view class='pickCity-city-data'>
+        <text>{{currentCity}}</text>
+      </view>
     </view>
 
     <block wx:for="{{cityList}}">

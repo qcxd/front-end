@@ -1,7 +1,7 @@
 /* components/pickCity.wxss */
 .car-model {
   position: fixed;
-  background-color: #dcebf879;
+  background-color: #ecf2f783;
   width: 100%;
   height: 100%;
   top: 0px;
@@ -9,7 +9,7 @@
 
 .pickCity {
   margin: 10px;
-  background-color: #efefef;
+  background-color: #f6f9fc;
 }
 
 .pickCity-city {
@@ -19,7 +19,7 @@
 
 .pickCity-city-code {
   padding: 5px 10px;
-  color: #666666;
+  color: #566366;
 }
 
 .pickCity-city-data {
@@ -34,10 +34,10 @@
   display: inline-block;
   text-align: center;
   padding: 5px 0px;
-  border: 0.05rem solid rgb(234, 236, 241);
+  /* border: 0.05rem solid rgb(234, 236, 241); */
   border-radius: 4px;
   margin-bottom: 15px;
-  color: #7e7f80;
+  color: #303131;
 }
 
 .pickCity-left-code {

@@ -4,6 +4,7 @@ const loading = require('./loading');
 let token = '';
 try {
   token = wx.getStorageSync('token');
+  console.log('token' , token);
 } catch (e) {
   console.log('获取token异常');
 }
@@ -20,6 +21,7 @@ const _handleResponse = (res, {url, success, fail}) => {
 }
 
 const _request = (...argus) => {
+  console.log(header_pre);
   let options = argus[0];
   let {
     method = 'GET',

@@ -159,7 +159,6 @@ Page({
   
   /** 选择城市 */
   doSelect(e) {
-    console.log(e.detail);
     this.setData({
       popHidden: true,
       currentCity: e.detail.name
