@@ -23,17 +23,14 @@
         <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
         </view>
         <view class='shop-prod'>
-          <view class='shop-car' catchtap='goCarDetail'>
-            <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
-            <text>宝马</text>
+          <view catchtap='goCarDetail' class='carCard-flex'>
+            <carCard></carCard>
           </view>
-          <view class='shop-car' catchtap='goCarDetail'>
-            <view><image src="../../image/porsche-normal.jpg" mode='widthFix'></image></view>
-            <text>奔驰</text>
+          <view catchtap='goCarDetail' class='carCard-flex'>
+            <carCard></carCard>
           </view>
-          <view class='shop-car' catchtap='goCarDetail'>
-            <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
-            <text>特斯拉</text>
+          <view catchtap='goCarDetail' class='carCard-flex'>
+            <carCard></carCard>
           </view>
         </view>
       </view>

@@ -1,7 +1,7 @@
 /* pages/wherehouse/wherehouse.wxss */
 
 .wherehouse {
-  
+  background-color: aliceblue
 }
 
 .img-icon {
@@ -10,5 +10,25 @@
 }
 
 .wherehouse-shop {
-  
+  background-color: #ffffff;
+  /* padding: 5px; */
+}
+
+.wherehouse-cars {
+  padding: 10px;
+}
+
+.cars-cell {
+  width: 100%;
+  white-space: nowrap;
+  padding: 10px 0px;
+}
+
+.cars-cell .carCard {
+  width: 200px;
+  display: inline-block;
+}
+
+.cars-cell .carCard + .carCard {
+  padding: 0px 15px;
 }

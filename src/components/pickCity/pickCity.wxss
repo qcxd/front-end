@@ -1,5 +1,5 @@
 /* components/pickCity.wxss */
-.car-model {
+.pickCity-model {
   position: fixed;
   background-color: #ecf2f783;
   width: 100%;

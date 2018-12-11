@@ -1,1 +1,15 @@
 /* components/carCard/carCard.wxss */
+
+.car-card {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.car-card image {
+  width: 100%;
+}
+
+.car-card-info {
+  text-align: center;
+}

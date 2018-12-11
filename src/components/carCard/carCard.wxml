@@ -1,2 +1,7 @@
 <!--components/carCard/carCard.wxml-->
-<text>components/carCard/carCard.wxml</text>
+<view class='car-card'>
+  <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
+  <view class='car-card-info'>
+    <text>宝马</text>
+  </view>
+</view>

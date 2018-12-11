@@ -29,6 +29,10 @@
   color: #999999;
 }
 
+.shop-prod .carCard-flex{
+  flex: 0.32;
+}
+
 .shop-prod .shop-car {
   text-align: center;
   font-size: 12px;

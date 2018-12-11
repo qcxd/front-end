@@ -1,5 +1,5 @@
 <!--components/pickCity.wxml-->
-<scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='car-model'>
+<scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='pickCity-model'>
   <view class='pickCity'>
     <view>
       <view class='pickCity-city-code'>当前选择城市</view>

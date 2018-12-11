@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/wherehouse/wherehouse",
     "pages/index/index",
-    "pages/ossUpload/ossUpload",
+    "pages/wherehouse/wherehouse",
     "pages/home/home",
+    "pages/ossUpload/ossUpload",
     "pages/shop/shop",
     "pages/car-detail/car-detail",
     "pages/chatlist/chatlist",
@@ -37,7 +37,7 @@
         "selectedIconPath": "image/menu_1_active.png"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/wherehouse/wherehouse",
         "text": "仓库",
         "iconPath": "image/wchat_1.png",
         "selectedIconPath": "image/wchat_2.png"
@@ -49,5 +49,8 @@
         "selectedIconPath": "image/wmenu_2.png"
       }
     ]
+  },
+  "usingComponents": {
+    "carCard": "/components/carCard/carCard"
   }
 }
