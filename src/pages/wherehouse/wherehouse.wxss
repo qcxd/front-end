@@ -17,12 +17,13 @@
   padding: 0px 10px;
 }
 .shop-info .car-flex {
-  border-top: 1px solid;
+  padding: 5px 0px;
 }
 
 .shop-info .car-flex text{
-  font-size: 15px;
+  font-size: 14px;
   flex: 1;
+  color: #666666;
 }
 
 .wherehouse-cars {
@@ -32,7 +33,7 @@
 .cars-cell {
   width: 100%;
   white-space: nowrap;
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
 }
 
 .cars-cell .carCard {
