@@ -14,6 +14,10 @@
   /* padding: 5px; */
 }
 
+.wherehouse-shop .car-flex {
+  padding: 0px 10px;
+}
+
 .wherehouse-cars {
   padding: 10px;
 }
@@ -25,10 +29,10 @@
 }
 
 .cars-cell .carCard {
-  width: 200px;
+  width: 160px;
   display: inline-block;
 }
 
 .cars-cell .carCard + .carCard {
-  padding: 0px 15px;
+  padding-left: 15px;
 }
