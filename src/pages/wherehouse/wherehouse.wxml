@@ -15,13 +15,21 @@
           <view><text class='shop-verify'>已认证</text></view>         
         </view>
       </view>
-      <view class='car-flex'>
-        <text>上海市浦东新区</text>
-        <image src="../../image/star.png" mode='widthFix' class="img-icon" />
-        <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+      <view class='shop-info'>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+          <text>上海市浦东新区</text>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        </view>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <text>收藏的车(6)</text>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        </view>
       </view>
       <view class='wherehouse-cars'>
-        <view>收藏的车(6)</view>
         <scroll-view scroll-x class='cars-cell'>
           <view catchtap='goCarDetail' class='carCard'>
             <carCard></carCard>

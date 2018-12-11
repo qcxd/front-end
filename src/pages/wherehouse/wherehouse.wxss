@@ -11,11 +11,18 @@
 
 .wherehouse-shop {
   background-color: #ffffff;
-  /* padding: 5px; */
 }
 
-.wherehouse-shop .car-flex {
+.shop-info {
   padding: 0px 10px;
+}
+.shop-info .car-flex {
+  border-top: 1px solid;
+}
+
+.shop-info .car-flex text{
+  font-size: 15px;
+  flex: 1;
 }
 
 .wherehouse-cars {
