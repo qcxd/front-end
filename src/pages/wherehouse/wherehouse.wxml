@@ -43,5 +43,89 @@
         </scroll-view>
       </view>
     </view>
+
+    <view class="wherehouse-shop">
+      <view class='home-shop'>
+        <view class='shop-header'>
+          <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+        </view>      
+        <view class='shop-info'>
+          <view class='shop-title'>
+            <text>店铺名</text>
+            <image src="../../image/star.png"></image>
+          </view>
+          <view><text class='shop-verify'>已认证</text></view>         
+        </view>
+      </view>
+      <view class='shop-info'>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+          <text>上海市浦东新区</text>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        </view>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <text>收藏的车(6)</text>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        </view>
+      </view>
+      <view class='wherehouse-cars'>
+        <scroll-view scroll-x class='cars-cell'>
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard></carCard>
+          </view>
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard></carCard>
+          </view>
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard></carCard>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+
+    <view class="wherehouse-shop">
+      <view class='home-shop'>
+        <view class='shop-header'>
+          <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+        </view>      
+        <view class='shop-info'>
+          <view class='shop-title'>
+            <text>店铺名</text>
+            <image src="../../image/star.png"></image>
+          </view>
+          <view><text class='shop-verify'>已认证</text></view>         
+        </view>
+      </view>
+      <view class='shop-info'>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+          <text>上海市浦东新区</text>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        </view>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <text>收藏的车(6)</text>
+          <image src="../../image/star.png" mode='widthFix' class="img-icon" />
+        </view>
+      </view>
+      <view class='wherehouse-cars'>
+        <scroll-view scroll-x class='cars-cell'>
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard></carCard>
+          </view>
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard></carCard>
+          </view>
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard></carCard>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
   </view>
 </view>
