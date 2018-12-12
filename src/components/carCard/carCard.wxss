@@ -10,6 +10,18 @@
   width: 100%;
 }
 
+.car-card-price {
+  color:#ffffff;
+  background-color:rgba(76, 112, 203, 0.5);
+  text-align:center;
+  position:fixed;
+  width: 160px;
+  margin-top: -24px;
+  background:#dddddd;
+  padding: 2px 0px;
+}
+
+
 .car-card-info {
   text-align: center;
 }

@@ -1,4 +1,7 @@
 // pages/wherehouse/wherehouse.js
+
+const apiServicePro = require('../../service/api/api-promisify.service');
+
 Page({
 
   /**
@@ -26,6 +29,10 @@ Page({
         content: '网络异常，请稍后再试',
       })
     })
+  },
+
+  goCarDetail() {
+
   },
 
   /**

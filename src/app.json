@@ -40,14 +40,14 @@
       {
         "pagePath": "pages/wherehouse/wherehouse",
         "text": "仓库",
-        "iconPath": "image/wchat_1.png",
-        "selectedIconPath": "image/wchat_2.png"
+        "iconPath": "image/menu_2.png",
+        "selectedIconPath": "image/menu_2_active.png"
       },
       {
         "pagePath": "pages/home/home",
         "text": "个人中心",
-        "iconPath": "image/wmenu_1.png",
-        "selectedIconPath": "image/wmenu_2.png"
+        "iconPath": "image/menu_3.png",
+        "selectedIconPath": "image/menu_3.png"
       }
     ]
   },

@@ -3,6 +3,7 @@
   <view>
     <image src="{{carDatail.indexImage}}" mode='widthFix'></image>
   </view>
+  <view class='car-card-price'>{{carDatail.price}}万</view>
   <view class='car-card-info'>
     <view>{{carDatail.brand}}</view>
     <view>{{carDatail.price}}万</view>
