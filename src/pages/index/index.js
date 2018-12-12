@@ -117,10 +117,6 @@ Page({
   // 开始
   goHome(e) {
     this.onGotUserInfo(e);
-    // 跳转到广场tabBar页
-    wx.switchTab({
-      url: '../home/home',
-    })
   },
 
   getCityList() {
@@ -204,11 +200,17 @@ Page({
     apiServicePro.insertUser(userInfo).then((result) => {
       if (result.code === 200) {
         userInfo.token = result.data.token;
-        wx.setStorage({
-          key: "token",
-          data: result.data.token
-        })
-        // self.addDeafaultGroup(userInfo);
+        // wx.setStorage({
+        //   key: "token",
+        //   data: result.data.token
+        // })
+        try {
+          wx.setStorageSync('token', result.data.token);
+          // 跳转到广场tabBar页
+          wx.switchTab({
+            url: '../home/home',
+          })
+        } catch (e) {}
       } else {
         console.log('insert user error', result);
       }
