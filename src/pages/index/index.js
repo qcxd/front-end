@@ -24,29 +24,7 @@ Page({
       this.loginThroughWechat();
     }
     let that = this;
-    if (!app.globalData.userLocation) {
-      wx.authorize({
-        scope: "scope.userLocation",
-        success() {
-          console.log('首次允许，获取地理位置');
-          // 获取当前位置
-          wx.showLoading({
-            title: '定位中',
-          })
-          wx.getLocation({
-            type: 'wgs84',
-            success(res) {
-              app.globalData.userLocation = true;
-              console.log('获取地理位置成功');
-              that.getLocalCity(res.latitude, res.longitude);
-            },
-            fail(res) {
-              that.setData({ currentCity: "定位失败" });
-            }
-          })
-        }
-      });
-    } else if (app.globalData.userLocation === true) {
+    if (app.globalData.userLocation) {
       console.log('非首次允许，获取地理位置');
       wx.showLoading({
         title: '定位中',
@@ -63,7 +41,33 @@ Page({
     // 获取城市数据
     this.getCityList();
   },
-  
+  dealWithCity() {
+    let that = this
+    wx.authorize({
+      scope: "scope.userLocation",
+      success() {
+        console.log('首次允许，获取地理位置');
+        // 获取当前位置
+        wx.showLoading({
+          title: '定位中',
+        })
+        wx.getLocation({
+          type: 'wgs84',
+          success(res) {
+            app.globalData.userLocation = true;
+            console.log('获取地理位置成功');
+            that.getLocalCity(res.latitude, res.longitude);
+          },
+          fail(res) {
+            that.setData({
+              currentCity: "定位失败"
+            });
+          }
+        })
+      }
+    });
+  },
+
   /**
    * 获取城市
    * @param latitude 经度
@@ -77,20 +81,24 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function (res) { 
-        console.log('获取百度城市地理位置成功'); 
+      success: function(res) {
+        console.log('获取百度城市地理位置成功');
         console.log(res);
         let city = res.data.result.addressComponent.city;
-        that.setData({ currentCity: city });
+        that.setData({
+          currentCity: city
+        });
         wx.hideLoading();
       },
-      fail: function () {
-        that.setData({ currentCity: "定位失败" });
+      fail: function() {
+        that.setData({
+          currentCity: "定位失败"
+        });
         wx.hideLoading();
       },
     })
   },
- 
+
   // 控制picker
   popPicker() {
     let popHidden = this.data.popHidden;
@@ -100,13 +108,13 @@ Page({
   },
 
   // 切换城市
-  changeCity: function (e) {
-    const val = e.detail.value    
+  changeCity: function(e) {
+    const val = e.detail.value
     this.setData({
       selectValue: this.data.provinceArray[val[0]].name + this.data.cityList[val[1]].name,
     })
     this.getCityList(this.data.provinceArray[val[0]].id);
-    
+
     // this.setData({
     //   year: this.data.years[val[0]],
     //   month: this.data.months[val[1]],
@@ -129,8 +137,7 @@ Page({
         this.setData({
           cityList: result.data,
         })
-      } else {
-      }
+      } else {}
     }).catch((err) => {
       wx.showModal({
         title: '网络异常',
@@ -156,7 +163,7 @@ Page({
       popHidden: !popHidden,
     })
   },
-  
+
   /** 选择城市 */
   doSelect(e) {
     this.setData({
@@ -168,23 +175,24 @@ Page({
   loginThroughWechat() {
     let that = this;
     wx.login({
-      success: function (data) {
+      success: function(data) {
         apiServicePro.getOpenid(data.code).then((result) => {
           console.log('getOpenid - --  - promisify', result);
-            if (result.code === 200) {
-              console.log(' result.data.openid', result.data.openid);
-              that.data.user.openid = result.data.openid;
-              that.setData({
-                user: that.data.user
-              })
-            } else {
-              console.log('openid error', result);
-            }
+          if (result.code === 200) {
+            that.dealWithCity()
+            console.log(' result.data.openid', result.data.openid);
+            that.data.user.openid = result.data.openid;
+            that.setData({
+              user: that.data.user
+            })
+          } else {
+            console.log('openid error', result);
+          }
         }).catch((err) => {
           console.log(err, 'getOpenId err');
         })
       },
-      fail: function (err) {
+      fail: function(err) {
         console.log('fail');
         console.log('wx.login failed', err)
         // callback(err)
@@ -217,7 +225,7 @@ Page({
     });
   },
 
-  addDeafaultGroup: function (userInfo) {
+  addDeafaultGroup: function(userInfo) {
     let that = this;
     const param = {
       openid: userInfo.openid,
@@ -232,7 +240,7 @@ Page({
     });
   },
 
-  getWeChatUserInfo: function (token) {
+  getWeChatUserInfo: function(token) {
     let that = this;
     apiServicePro.getUserByOpenid(this.data.user.openid).then((res) => {
       res.data.token = token;
@@ -243,7 +251,7 @@ Page({
     });
   },
 
-  getLatestUserInfo: function () {
+  getLatestUserInfo: function() {
     // apiService.get
   },
 
