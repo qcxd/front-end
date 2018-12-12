@@ -1,6 +1,4 @@
 const config = require('../config');
-const promisify = require('../utils/promisify');
-
 
 const _request = () => {
 

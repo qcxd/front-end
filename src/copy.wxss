@@ -1,6 +1,6 @@
 
 /**app.wxss**/
-@import 'wa-ui.wxss';
+@import 'car-ui.wxss';
 page{
   height: 100%
 }

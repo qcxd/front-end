@@ -1,14 +1,14 @@
+// pages/wherehouse/wherehouse.js
 
 const apiServicePro = require('../../service/api/api-promisify.service');
 
-// pages/shop/shop.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shopList: []
+    getShopList: [],
   },
 
   /**
@@ -16,39 +16,6 @@ Page({
    */
   onLoad: function (options) {
     this.getShopList();
-  },
-  
-  goShop() {
-    wx.navigateTo({
-      url: '../shop/shop',
-    })
-  },
-
-  goCarDetail() {
-    wx.navigateTo({
-      url: '../car-detail/car-datail',
-    })
-  },
-
-  doCollect() {
-    wx.showToast({
-      title: '已收藏',
-      icon: 'succes',
-      duration: 1000,
-      mask: true
-    })
-  },
-
-  doSearch() {
-    console.log('search');
-  },
-
-  selectSort() {
-
-  },
-
-  selectArea() {
-
   },
 
   getShopList() {
@@ -62,6 +29,10 @@ Page({
         content: '网络异常，请稍后再试',
       })
     })
+  },
+
+  goCarDetail() {
+
   },
 
   /**
@@ -96,14 +67,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getShopList();
+    console.log('onpulldown************');
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('页面上拉触底事件的处理函数************');
   },
 
   /**

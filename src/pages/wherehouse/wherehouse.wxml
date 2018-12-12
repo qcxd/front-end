@@ -1,0 +1,54 @@
+<!--pages/wherehouse/wherehouse.wxml-->
+<view class='wherehouse'>
+  <view class='car-search'>
+    <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+  </view>
+  <view class='select car-flex'>    
+    <text bindtap='selectArea'>全部地区</text>
+    <text bindtap='selectSort'>智能排序</text>
+  </view>
+
+  <block wx:for="{{shopList}}">
+    <view class="wherehouse-shop">
+      <view class='home-shop'>
+        <view class='shop-header'>
+          <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+        </view>      
+        <view class='shop-info'>
+          <view class='shop-title'>
+            <text>店铺名</text>
+            <image src="../../image/star.png"></image>
+          </view>
+          <view><text class='shop-verify'>已认证</text></view>         
+        </view>
+      </view>
+      <view class='shop-info'>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <image src="../../image/icon-address.png" mode='widthFix'class="img-icon-address" />
+          <text class='line-v'>{{item.address}}</text>
+          <image src="../../image/icon-weChat.png" class="img-icon" />
+          <image src="../../image/icon-call.png" class="img-icon" />
+        </view>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <text>收藏的车({{item.Cars.length}})</text>
+          <image src="../../image/icon-more.png" mode='widthFix' class="img-icon" />
+        </view>
+      </view>
+      <view class='wherehouse-cars'>
+        <scroll-view scroll-x class='cars-cell'>
+          <block wx:for="{{item.Cars}}">
+            <view catchtap='goCarDetail' class='carCard'>
+              <carCard carDatail="{{item}}"></carCard>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </block>
+
+  <carDetail carDatail="{{shopList[0].Cars[0]}}" />
+
+  <footer />
+</view>

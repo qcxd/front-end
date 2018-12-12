@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/ossUpload/ossUpload",
+    "pages/wherehouse/wherehouse",
     "pages/home/home",
+    "pages/ossUpload/ossUpload",
     "pages/shop/shop",
     "pages/car-detail/car-detail",
     "pages/chatlist/chatlist",
@@ -24,7 +26,8 @@
     "navigationBarBackgroundColor": "#4C70CB",
     "navigationBarTitleText": "汽车小店",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#F5F7FA",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#1E90FF",
@@ -32,21 +35,26 @@
       {
         "pagePath": "pages/home/home",
         "text": "广场",
-        "iconPath": "image/wpost_1.png",
-        "selectedIconPath": "image/wpost_2.png"
+        "iconPath": "image/menu_1.png",
+        "selectedIconPath": "image/menu_1_active.png"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/wherehouse/wherehouse",
         "text": "仓库",
-        "iconPath": "image/wchat_1.png",
-        "selectedIconPath": "image/wchat_2.png"
+        "iconPath": "image/menu_2.png",
+        "selectedIconPath": "image/menu_2_active.png"
       },
       {
         "pagePath": "pages/home/home",
         "text": "个人中心",
-        "iconPath": "image/wmenu_1.png",
-        "selectedIconPath": "image/wmenu_2.png"
+        "iconPath": "image/menu_3.png",
+        "selectedIconPath": "image/menu_3.png"
       }
     ]
+  },
+  "usingComponents": {
+    "carCard": "/components/carCard/carCard",
+    "footer": "/components/footer/footer",
+    "carDetail": "/components/carDetail/carDetail"
   }
 }

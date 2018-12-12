@@ -1,0 +1,26 @@
+/* components/carCard/carCard.wxss */
+
+.car-card {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.car-card image {
+  width: 100%;
+}
+
+.car-card-price {
+  color:#ffffff;
+  background-color:rgba(76, 112, 203, 0.75);
+  text-align:center;
+  position:fixed;
+  width: 160px;
+  margin-top: -24px;
+  padding: 2px 0px;
+}
+
+
+.car-card-info {
+  text-align: center;
+}

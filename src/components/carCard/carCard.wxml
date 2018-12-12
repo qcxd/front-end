@@ -1,0 +1,12 @@
+<!--components/carCard/carCard.wxml-->
+<view class='car-card'>
+  <view>
+    <!-- <view class='car-card-price'>{{carDatail.price}}万</view> -->
+    <image src="{{carDatail.indexImage}}" mode='widthFix'></image>
+  </view>
+  <view class='car-card-price'>{{carDatail.price}}万</view>
+  <view class='car-card-info'>
+    <view>{{carDatail.brand}}</view>
+    <view>2014年/8888.98公里</view>
+  </view>
+</view>

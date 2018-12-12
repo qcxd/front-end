@@ -9,7 +9,7 @@
   font-size: 13px;
   background-color: #ffffff;
   justify-content: space-around; 
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #d8e2e9;
   margin-bottom: 10px;
 }
 
@@ -19,23 +19,17 @@
 }
 
 .select text + text {
-  border-left: 1px solid #efefef;
+  border-left: 1px solid #d8e2e9;
 }
 
 .shop-prod {
   display: flex;
   padding: 10px 0px;
   justify-content: space-between;
-  color: #999999;
 }
 
-.shop-prod .shop-car {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
+.shop-prod .carCard{
   flex: 0.32;
 }
 
-.shop-prod .shop-car image {
-  width: 100%;
-}
+

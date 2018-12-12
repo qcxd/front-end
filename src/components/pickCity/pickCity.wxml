@@ -1,0 +1,29 @@
+<!--components/pickCity.wxml-->
+<scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='pickCity-model'>
+  <view class='pickCity'>
+    <view>
+      <view class='pickCity-city-code'>当前选择城市</view>
+      <view class='pickCity-city-data'>
+        <text>{{currentCity}}</text>
+      </view>
+    </view>
+
+    <block wx:for="{{cityList}}">
+      <view id="{{item.code}}">
+        <view class='pickCity-city-code'>{{item.code}}</view>
+        <view class='pickCity-city-data'>
+          <block wx:for="{{item.data}}">
+            <text bindtap='doSelsct' data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text>        
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <view class='pickCity-left-code'>
+      <block wx:for="{{cityList}}">
+        <text bindtap='jumpToView' data-code="{{item.code}}">{{item.code}}</text>
+      </block>
+    </view>
+  </view>
+</scroll-view>
+

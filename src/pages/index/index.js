@@ -1,14 +1,16 @@
+// pages/index/index.js
+
 const app = getApp()
 const apiService = require('../../service/api.service.js')
 const apiServicePro = require('../../service/api/api-promisify.service');
 
-// pages/index/index.js
 Page({
   data: {
     user: {},
     group: {},
     currentCity: '',
-    cityArray: ['美国', '中国', '巴西', '日本'],
+    selectValue: '',
+    cityList: [],
     popHidden: true,
   },
 
@@ -57,6 +59,9 @@ Page({
         }
       })
     }
+
+    // 获取城市数据
+    this.getCityList();
   },
   
   /**
@@ -88,7 +93,6 @@ Page({
  
   // 控制picker
   popPicker() {
-    this.getCityList();
     let popHidden = this.data.popHidden;
     this.setData({
       popHidden: !popHidden,
@@ -97,9 +101,17 @@ Page({
 
   // 切换城市
   changeCity: function (e) {
+    const val = e.detail.value    
     this.setData({
-      currentCity: this.data.cityArray[e.detail.value],
+      selectValue: this.data.provinceArray[val[0]].name + this.data.cityList[val[1]].name,
     })
+    this.getCityList(this.data.provinceArray[val[0]].id);
+    
+    // this.setData({
+    //   year: this.data.years[val[0]],
+    //   month: this.data.months[val[1]],
+    //   day: this.data.days[val[2]]
+    // })
   },
 
   // 开始
@@ -112,21 +124,44 @@ Page({
   },
 
   getCityList() {
-    const params = {
-      "parentid": 0,
-    }
-    apiServicePro.getCityList(params).then((result) => {
-      console.log('apiServicePro.getCityList',result);
+    apiServicePro.getCityList({}).then((result) => {
       if (result.code === 200) {
-        console.log('apiServicePro.getCityList');
+        this.setData({
+          cityList: result.data,
+        })
       } else {
-        console.log('openid error', result);
       }
     }).catch((err) => {
       wx.showModal({
         title: '网络异常',
         content: '网络异常，请稍后再试',
       })
+    })
+  },
+
+  popEnsure() {
+    const selectValue = this.data.selectValue;
+    this.setData({
+      currentCity: selectValue,
+    })
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
+    })
+  },
+
+  popCancle() {
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
+    })
+  },
+  
+  /** 选择城市 */
+  doSelect(e) {
+    this.setData({
+      popHidden: true,
+      currentCity: e.detail.name
     })
   },
 
@@ -160,23 +195,22 @@ Page({
   onGotUserInfo(e) {
     let userInfo = e.detail.userInfo;
     let self = this;
-    console.log('userInfo', userInfo);
     userInfo.openid = this.data.user.openid;
     app.globalData.userInfo = e.detail.userInfo;
     if (!userInfo.openid) {
       //return error to handle
       return;
     }
-
     apiServicePro.insertUser(userInfo).then((result) => {
-      console.log('result', result);
       if (result.code === 200) {
-        let token = result.data.token;
-        console.log('token',token);
-        userInfo.token = token;
+        userInfo.token = result.data.token;
+        wx.setStorage({
+          key: "token",
+          data: result.data.token
+        })
         // self.addDeafaultGroup(userInfo);
       } else {
-        console.log('insert user', result);
+        console.log('insert user error', result);
       }
     }).catch((err) => {
       console.log('err', err);
@@ -226,10 +260,6 @@ Page({
   },
 
   onUnload: function() {
-
-  },
-
-  onPullDownRefresh: function() {
 
   },
 

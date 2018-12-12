@@ -1,0 +1,55 @@
+/* pages/wherehouse/wherehouse.wxss */
+
+.wherehouse {
+  /* background-color: aliceblue */
+}
+
+.wherehouse-shop {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.shop-info {
+  padding: 0px 10px;
+}
+
+.shop-info .img-icon-address {
+  width: 12px;
+  height: 15px;
+  padding-right: 5px;
+}
+
+.shop-info .car-flex {
+  padding: 5px 0px;
+}
+
+.shop-info .car-flex text{
+  font-size: 14px;
+  flex: 1;
+}
+
+.shop-info .car-flex .line-v {
+  border-right: 1px solid #d8e2e9;
+}
+
+.shop-info .car-flex .img-icon{
+  padding-left: 15px;
+}
+
+.wherehouse-cars {
+  padding: 10px;
+}
+
+.cars-cell {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.cars-cell .carCard {
+  width: 160px;
+  display: inline-block;
+}
+
+.cars-cell .carCard + .carCard {
+  padding-left: 15px;
+}

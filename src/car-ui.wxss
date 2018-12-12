@@ -1,0 +1,26 @@
+
+
+/**常规字体*/
+.theme-text {
+  color: #4C70CB;
+}
+
+.title-text {
+  color: #13334D;
+}
+
+.common-text {
+  color: #556677;
+}
+
+.icon-color {
+  color: #9DACB6;
+}
+
+.small-text {
+  color: #ACB4B9;
+}
+
+.border-color {
+  color: #d8e2e9;
+}
