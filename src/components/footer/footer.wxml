@@ -1,0 +1,4 @@
+<!--components/Footer/footer.wxml-->
+<view class='footer'>
+  <text>已经到底了哦…</text>
+</view>

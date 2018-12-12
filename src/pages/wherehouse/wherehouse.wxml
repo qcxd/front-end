@@ -1,7 +1,7 @@
 <!--pages/wherehouse/wherehouse.wxml-->
 <view class='wherehouse'>
 
-  <view>
+  <block>
     <view class="wherehouse-shop">
       <view class='home-shop'>
         <view class='shop-header'>
@@ -119,5 +119,7 @@
         </scroll-view>
       </view>
     </view>
-  </view>
+  </block>
+
+  <footer />
 </view>

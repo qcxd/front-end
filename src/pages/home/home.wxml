@@ -34,4 +34,6 @@
       </view>
     </view>
   </block>
+
+  <footer />
 </view>
