@@ -27,7 +27,6 @@
         <view class='car-flex'>
           <image src="../../image/icon-address.png" mode='widthFix'class="img-icon-address" />
           <text class='line-v'>{{item.address}}</text>
-          <!-- <view class='hr-v'></view> -->
           <image src="../../image/icon-weChat.png" class="img-icon" />
           <image src="../../image/icon-call.png" class="img-icon" />
         </view>
@@ -48,6 +47,8 @@
       </view>
     </view>
   </block>
+
+  <carDetail carDatail="{{shopList[0].Cars[0]}}" />
 
   <footer />
 </view>

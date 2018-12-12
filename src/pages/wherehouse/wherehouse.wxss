@@ -43,7 +43,6 @@
 .cars-cell {
   width: 100%;
   white-space: nowrap;
-  /* padding: 10px 0px; */
 }
 
 .cars-cell .carCard {

@@ -53,6 +53,7 @@
   },
   "usingComponents": {
     "carCard": "/components/carCard/carCard",
-    "footer": "/components/footer/footer"
+    "footer": "/components/footer/footer",
+    "carDetail": "/components/carDetail/carDetail"
   }
 }
