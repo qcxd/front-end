@@ -5,14 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    getShopList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getShopList();
+  },
 
+  getShopList() {
+    apiServicePro.getShopList({}).then((result) => {
+      this.setData({
+        shopList: result.data,
+      })
+    }).catch((err) => {
+      wx.showModal({
+        title: '网络异常',
+        content: '网络异常，请稍后再试',
+      })
+    })
   },
 
   /**

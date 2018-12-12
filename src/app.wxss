@@ -75,6 +75,14 @@ page{
   font-size: 11px;
 }
 
+.home-shop .shop-no-verify {
+  border: 1px solid #9DACB6;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #9DACB6;
+  font-size: 11px;
+}
+
 .home-shop .shop-intro {
   overflow: hidden;  
   color: #999999;

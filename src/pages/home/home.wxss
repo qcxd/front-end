@@ -26,20 +26,10 @@
   display: flex;
   padding: 10px 0px;
   justify-content: space-between;
-  color: #999999;
 }
 
 .shop-prod .carCard{
   flex: 0.32;
 }
 
-.shop-prod .shop-car {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-  flex: 0.32;
-}
 
-.shop-prod .shop-car image {
-  width: 100%;
-}
