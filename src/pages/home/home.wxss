@@ -9,7 +9,7 @@
   font-size: 13px;
   background-color: #ffffff;
   justify-content: space-around; 
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #d8e2e9;
   margin-bottom: 10px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .select text + text {
-  border-left: 1px solid #efefef;
+  border-left: 1px solid #d8e2e9;
 }
 
 .shop-prod {
@@ -29,7 +29,7 @@
   color: #999999;
 }
 
-.shop-prod .carCard-flex{
+.shop-prod .carCard{
   flex: 0.32;
 }
 

@@ -2,6 +2,6 @@
 <view class='car-card'>
   <view><image src="../../image/porsche-zoom.jpg" mode='widthFix'></image></view>
   <view class='car-card-info'>
-    <text>宝马</text>
+    <text>{{carDatail.brand}}</text>
   </view>
 </view>

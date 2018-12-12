@@ -31,15 +31,7 @@
       </view>
       <view class='wherehouse-cars'>
         <scroll-view scroll-x class='cars-cell'>
-          <view catchtap='goCarDetail' class='carCard'>
-            <carCard></carCard>
-          </view>
-          <view catchtap='goCarDetail' class='carCard'>
-            <carCard></carCard>
-          </view>
-          <view catchtap='goCarDetail' class='carCard'>
-            <carCard></carCard>
-          </view>
+          
         </scroll-view>
       </view>
     </view>

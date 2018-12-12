@@ -25,7 +25,8 @@
     "navigationBarBackgroundColor": "#4C70CB",
     "navigationBarTitleText": "汽车小店",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#F5F7FA",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#1E90FF",

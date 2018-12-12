@@ -1,7 +1,7 @@
 /* pages/wherehouse/wherehouse.wxss */
 
 .wherehouse {
-  background-color: aliceblue
+  /* background-color: aliceblue */
 }
 
 .img-icon {
@@ -11,6 +11,7 @@
 
 .wherehouse-shop {
   background-color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .shop-info {
@@ -23,7 +24,7 @@
 .shop-info .car-flex text{
   font-size: 14px;
   flex: 1;
-  color: #666666;
+  /* color: #556677; */
 }
 
 .wherehouse-cars {
