@@ -32,7 +32,9 @@ Page({
   },
 
   goCarDetail() {
-
+    wx.navigateTo({
+      url: '../car-detail/car-detail',
+    })
   },
 
   /**

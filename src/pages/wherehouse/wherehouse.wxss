@@ -40,10 +40,10 @@
 }
 
 .cars-cell .carCard {
-  width: 160px;
+  width: 150px;
   display: inline-block;
 }
 
 .cars-cell .carCard + .carCard {
-  padding-left: 15px;
+  padding-left: 10px;
 }

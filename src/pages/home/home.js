@@ -26,7 +26,7 @@ Page({
 
   goCarDetail() {
     wx.navigateTo({
-      url: '../car-detail/car-datail',
+      url: '../car-detail/car-detail',
     })
   },
 
@@ -113,7 +113,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getShopList({id: shopList[length - 1].id});
+    const shopList = this.data.shopList;
+    this.getShopList({id: shopList[shopList.length - 1].id});
   },
 
   /**

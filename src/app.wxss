@@ -24,11 +24,36 @@ page{
   flex: 1;
 }
 
+/** 筛选 */
+.select {
+  padding: 10px;
+  color: #797979;
+  font-size: 13px;
+  background-color: #ffffff;
+  justify-content: space-around; 
+  border-bottom: 1px solid #d8e2e9;
+}
+
+.select text {
+  text-align: center;
+}
+
+.select image {
+  width: 12px;
+  height: 6px;
+  padding: 0px 5px;
+}
+
+.select text + text {
+  border-left: 1px solid #d8e2e9;
+}
+
 /** 店铺 */
 .home-shop {
   display: flex;
   align-items: flex-start;
   background-color: #ffffff;
+  margin-top: 10px;
 }
 
 .home-shop + .home-shop {
@@ -114,9 +139,16 @@ page{
 }
 
 .car-search input {
-  padding: 0px 10px;  
+  padding-left: 30px;  
   border-radius: 4px 4px;  
   background-color: #efefef;  
+}
+
+.car-search icon {
+  position: relative;
+  top: 25px;
+  left: 10px;
+  z-index: 10;
 }
 
 /*0.5px线条*/

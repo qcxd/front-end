@@ -17,8 +17,7 @@
     "pages/logs/logs",
     "pages/upload/upload",
     "pages/test/tets",
-    "pages/menu/menus",
-    "pages/car-detail/car-datail"
+    "pages/menu/menus"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",

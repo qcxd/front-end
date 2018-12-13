@@ -1,2 +1,4 @@
 <!--pages/car-detail/car-detail.wxml-->
-<text>pages/car-detail/car-detail.wxml</text>
+<view>
+    <carDetail />
+</view>

@@ -3,24 +3,6 @@
 
 }
 
-.select {
-  padding: 10px;
-  color: #797979;
-  font-size: 13px;
-  background-color: #ffffff;
-  justify-content: space-around; 
-  border-bottom: 1px solid #d8e2e9;
-  margin-bottom: 10px;
-}
-
-.select text {
-  text-align: center;
-  flex: 0.5;
-}
-
-.select text + text {
-  border-left: 1px solid #d8e2e9;
-}
 /* 
 .shop-prod {
   display: flex;
@@ -34,6 +16,7 @@
 
 .shop-prod {
   padding: 10px;
+  background-color: #ffffff;
 }
 
 .shop-prod .carCard {
@@ -42,8 +25,5 @@
   padding: 5px 1%;
 }
 
-/* .shop-prod .carCard + .carCard {
-  padding-left: 2%;
-} */
 
 

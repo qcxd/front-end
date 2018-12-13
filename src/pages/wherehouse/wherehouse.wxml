@@ -3,9 +3,16 @@
   <view class='car-search'>
     <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
   </view>
-  <view class='select car-flex'>    
-    <text bindtap='selectArea'>全部地区</text>
-    <text bindtap='selectSort'>智能排序</text>
+  
+  <view class='select car-flex'> 
+    <view bindtap='selectArea' class="car-flex">
+      <text>全部地区</text>
+      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+    </view> 
+    <view bindtap='selectSort' class="car-flex">  
+      <text>智能排序</text>
+      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+    </view>
   </view>
 
   <block wx:for="{{shopList}}">
@@ -33,12 +40,15 @@
         <view class='hr'></view>
         <view class='car-flex'>
           <text>收藏的车({{item.Cars.length}})</text>
-          <image src="../../image/icon-more.png" mode='widthFix' class="img-icon" />
+          <!-- <image src="../../image/icon-more.png" mode='widthFix' class="img-icon" /> -->
         </view>
       </view>
       <view class='wherehouse-cars'>
         <scroll-view scroll-x class='cars-cell'>
           <block wx:for="{{item.Cars}}">
+            <view catchtap='goCarDetail' class='carCard'>
+              <carCard carDatail="{{item}}"></carCard>
+            </view>
             <view catchtap='goCarDetail' class='carCard'>
               <carCard carDatail="{{item}}"></carCard>
             </view>
@@ -48,7 +58,7 @@
     </view>
   </block>
 
-  <carDetail carDatail="{{shopList[0].Cars[0]}}" />
+  <!-- <carDetail carDatail="{{shopList[0].Cars[0]}}" /> -->
 
   <footer />
 </view>
