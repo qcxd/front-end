@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/car-detail/car-detail",
     "pages/home/home",
     "pages/index/index",
     "pages/wherehouse/wherehouse",
     "pages/ossUpload/ossUpload",
     "pages/shop/shop",
-    "pages/car-detail/car-detail",
     "pages/chatlist/chatlist",
     "pages/mine/mine",
     "pages/post/post",
@@ -17,7 +17,8 @@
     "pages/logs/logs",
     "pages/upload/upload",
     "pages/test/tets",
-    "pages/menu/menus"
+    "pages/menu/menus",
+    "pages/my-home/my-home"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",
@@ -43,7 +44,7 @@
         "selectedIconPath": "image/menu_2_active.png"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/my-home/my-home",
         "text": "个人中心",
         "iconPath": "image/menu_3.png",
         "selectedIconPath": "image/menu_3.png"

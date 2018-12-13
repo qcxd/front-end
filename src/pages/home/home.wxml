@@ -19,7 +19,7 @@
   <block wx:for="{{shopList}}">
     <view class='home-shop'>
       <view class='shop-header'>
-        <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+        <image src="{{item.logo}}" mode='aspectFill'></image>
       </view>
       <view class='shop-info' bindtap='goShop'>
         <view class='shop-title'>

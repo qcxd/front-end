@@ -1,1 +1,50 @@
 /* pages/car-detail/car-detail.wxss */
+
+.car-detail {
+
+}
+
+.car-detail .car-swiper image {
+  width: 100%;
+}
+
+.car-detail .car-detail-info {
+  padding: 15px;
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+
+.car-detail .car-detail-info .intro {
+  font-size: 13px;
+  color: rgb(95, 114, 128);
+  padding: 15px;
+  background: rgb(217, 224, 228);
+  border-radius: 4px;
+  font-weight: 400;
+  /* margin: 15px 0px; */
+}
+
+.car-detail .car-detail-info image {
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  margin: 10px 10px 10px 0px;
+}
+
+.car-detail .car-detail-info .price {
+  font-size: 22px;
+  color: #FC7946;
+  padding: 5px;
+}
+
+.car-detail .car-detail-info .z_r {
+  width: 2px;
+  border-width: 8px; 
+  border-style: solid;
+  border-color: transparent transparent rgb(217, 224, 228) transparent;
+  margin-left: 10px;
+}
+
+.car-detail .message-box {
+  margin: 15px 0px;
+}
