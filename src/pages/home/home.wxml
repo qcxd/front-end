@@ -4,6 +4,7 @@
     <icon type="search" size="15" />
     <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
   </view>
+  
   <view class='select car-flex'> 
     <view bindtap='selectArea' class="car-flex">
       <text>全部地区</text>

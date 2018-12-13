@@ -1,6 +1,7 @@
 <!--pages/wherehouse/wherehouse.wxml-->
 <view class='wherehouse'>
   <view class='car-search'>
+    <icon type="search" size="15" />
     <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
   </view>
   
