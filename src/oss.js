@@ -45,7 +45,7 @@ const uploadFile = function (params) {
         return;
       }
       if (params.success) {
-        params.success(aliyunFileKey);
+        params.success(aliyunServerURL+aliyunFileKey);
       }
     },
     fail: function (err) {

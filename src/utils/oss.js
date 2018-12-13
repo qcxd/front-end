@@ -16,7 +16,9 @@ const uploadFile = function (params) {
     })
     return;
   }
-  const aliyunFileKey =  params.dir ;
+  console.log("params.filePath", params.filePath)
+  // const aliyunFileKey =  params.dir ;
+  const aliyunFileKey = params.dir + params.filePath.replace('http://', '');
 
   const aliyunServerURL = env.uploadImageUrl;
   const accessid = env.OSSAccessKeyId;
