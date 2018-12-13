@@ -110,6 +110,21 @@ const getShopList = (params) => rest.post({ url: `/shop/list`, data: params });
  */
 const getShopByUserId = () => rest.get({ url: `/shop/getShopByUserId` });
 
+/**
+ * 加入仓库
+ */
+const joinWarehouse = (params) => rest.post({ url: `/shop/joinWarehouse`, data: params });
+
+/**
+ * 仓库列表
+ */
+const getWarehouseList = (params) => rest.post({ url: `/shop/warehouseList`, data: params });
+
+/**
+ * 创建汽车
+ */
+const createCar = (params) => rest.post({ url: `/shop/createCar`, data: params });
+
 module.exports = {
   // Workplace
   postToWorkplaceTxt,
@@ -142,6 +157,9 @@ module.exports = {
   getCityList,
   createShop,
   getShopList,
-  getShopByUserId
+  getShopByUserId,
+  joinWarehouse,
+  getWarehouseList,
+  createCar
 }
 

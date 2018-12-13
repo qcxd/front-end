@@ -14,6 +14,15 @@ page{
   background: linear-gradient(to right, #4C70CB , rgb(85, 128, 238));
 }
 
+.carBtn_primary_t {
+  color: #ffffff;
+  background: linear-gradient(to right, #4C70CB , rgb(85, 128, 238));
+}
+
+.carBtn_primary_h {
+  color: #ffffff;
+  background: linear-gradient(to right, #FC7946 , rgba(247, 129, 82, 0.911));
+}
 
 /** flex */
 .car-flex {

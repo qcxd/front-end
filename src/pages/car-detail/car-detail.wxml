@@ -30,4 +30,13 @@
       <view class="intro">该车巴啦巴拉xxxxxxxxxxx,该车巴啦巴拉xxxxxxxxxxx,该车巴啦巴拉xxxxxxxxxxx</view>
     <!-- </view> -->
   </view>
+
+  <view class="footer-btn">
+    <view class="collect"> 
+      <image src="../../image/star.png" class="img-icon" />
+      <view class="">收藏</view>
+    </view>
+    <button class="carBtn_primary_t">一键分享</button>
+    <button class="carBtn_primary_h">联系卖家</button>
+  </view>
 </view>
