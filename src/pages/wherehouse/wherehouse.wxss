@@ -13,12 +13,6 @@
   padding: 0px 10px;
 }
 
-.shop-info .img-icon-address {
-  width: 12px;
-  height: 15px;
-  padding-right: 5px;
-}
-
 .shop-info .car-flex {
   padding: 5px 0px;
 }

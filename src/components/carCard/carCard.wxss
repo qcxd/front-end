@@ -13,9 +13,9 @@
 .car-card-price {
   color:#ffffff;
   background-color:rgba(76, 112, 203, 0.75);
-  text-align:center;
-  position:fixed;
-  width: 160px;
+  text-align: center;
+  position: relative;
+  /* width: 160px; */
   margin-top: -24px;
   padding: 2px 0px;
 }

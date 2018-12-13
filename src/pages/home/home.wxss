@@ -21,15 +21,29 @@
 .select text + text {
   border-left: 1px solid #d8e2e9;
 }
-
+/* 
 .shop-prod {
   display: flex;
   padding: 10px 0px;
   justify-content: space-between;
+} */
+
+/* .shop-prod .carCard{
+  flex: 0.32;
+} */
+
+.shop-prod {
+  padding: 10px;
 }
 
-.shop-prod .carCard{
-  flex: 0.32;
+.shop-prod .carCard {
+  width: 48%;
+  display: inline-block;
+  padding: 5px 1%;
 }
+
+/* .shop-prod .carCard + .carCard {
+  padding-left: 2%;
+} */
 
 

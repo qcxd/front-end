@@ -1,29 +1,41 @@
 /* components/pickCity.wxss */
+.pick-title {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  padding: 10px 0px;
+  background-color: #ffffff;
+}
+.pick-title text {
+  padding: 0px 15px;
+}
+.pick-title .pick-title-cnacle {
+  flex: 1;
+  text-align: right;
+}
+
 .pickCity-model {
   position: fixed;
-  background-color: #ecf2f783;
+  background-color: #FFFFFF;
   width: 100%;
   height: 100%;
-  top: 0px;
+  top: 36px;
 } 
 
 .pickCity {
-  margin: 10px;
-  background-color: #f6f9fc;
-}
-
-.pickCity-city {
-  /* padding: 5px 10px;
-  color: #666666; */
+  margin: 15px;
+  background-color: #F5F7FA;
 }
 
 .pickCity-city-code {
   padding: 5px 10px;
   color: #566366;
+  background-color: #E1E7F1;
+  border-radius: 4px;
 }
 
 .pickCity-city-data {
-  background-color: #ffffff;
   padding-right: 8%;  
   padding-top: 15px;
 }
@@ -34,7 +46,6 @@
   display: inline-block;
   text-align: center;
   padding: 5px 0px;
-  /* border: 0.05rem solid rgb(234, 236, 241); */
   border-radius: 4px;
   margin-bottom: 15px;
   color: #303131;
@@ -42,8 +53,8 @@
 
 .pickCity-left-code {
   position: fixed;
-  top: 40px;
-  right: 18px;
+  top: 50px;
+  right: 23px;
   width: 10px;
   color: #666666;
   text-align:center;
@@ -51,4 +62,7 @@
 
 .pickCity-left-code text {
   display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4C70CB;
 }

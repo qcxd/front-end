@@ -19,11 +19,6 @@
   justify-content: center;
 }
 
-.index-location image {
-  width: 20px;
-  height: 20px;
-}
-
 .index-location-city {
   padding: 0px 10px;
 }
@@ -41,7 +36,11 @@
   font-size: 16px;
 }
 
-.car-pop-view {
+.pick-title-cnacle {
+  color: #ACB4B9;
+}
+/** 选择弹框 */
+/* .car-pop-view {
   background-color: #ffffff;
 }
 
@@ -59,4 +58,4 @@
   flex: 0.5;
   color: #4C70CB;
   text-align: right;
-}
+} */

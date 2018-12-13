@@ -24,14 +24,25 @@
           <text>{{item.introduce}}</text>
         <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
         </view>
-        <view class='shop-prod'>
+        <!-- <view class='shop-prod'>
           <block wx:for="{{item.Cars}}">
             <view catchtap='goCarDetail' class='carCard'>
               <carCard carDatail="{{item}}"></carCard>
             </view>
           </block>
-        </view>
+        </view> -->
       </view>
+    </view>
+
+    <view class='shop-prod'>
+      <block wx:for="{{item.Cars}}">
+        <view catchtap='goCarDetail' class='carCard'>
+          <carCard carDatail="{{item}}"></carCard>
+        </view>
+        <view catchtap='goCarDetail' class='carCard'>
+          <carCard carDatail="{{item}}"></carCard>
+        </view>
+      </block>
     </view>
   </block>
 
