@@ -2,7 +2,7 @@
 
 .car-card {
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
 }
 
@@ -11,16 +11,21 @@
 }
 
 .car-card-price {
+  position: relative;
+  margin-top: -26px;
+  padding: 2px 0px;
+  margin-bottom: 3px;
+  text-align: center;
   color:#ffffff;
   background-color:rgba(76, 112, 203, 0.75);
-  text-align: center;
-  position: relative;
-  /* width: 160px; */
-  margin-top: -22px;
-  padding: 2px 0px;
 }
 
 
 .car-card-info {
   text-align: center;
+}
+
+.car-card-info .small-text {
+  color: #ACB4B9;
+  font-size: 12px;
 }
