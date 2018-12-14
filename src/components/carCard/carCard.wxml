@@ -6,7 +6,7 @@
   </view>
   <view class='car-card-price'>{{carDatail.price}}万</view>
   <view class='car-card-info'>
-    <view>{{carDatail.brand}}</view>
-    <view>2014年/8888.98公里</view>
+    <view>{{carDatail.brand}} 2014款 1.6L</view>
+    <view class='small-text'>2014年/88.98万公里</view>
   </view>
 </view>

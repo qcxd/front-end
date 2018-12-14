@@ -1,1 +1,77 @@
 /* pages/car-detail/car-detail.wxss */
+
+.car-detail {
+
+}
+
+.car-detail .car-swiper image {
+  width: 100%;
+}
+
+.car-detail .car-detail-info {
+  padding: 15px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.car-detail .car-detail-info .intro {
+  padding: 15px;
+  background: rgb(217, 224, 228);
+  border-radius: 4px;
+  font-size: 13px;
+  color: rgb(95, 114, 128);
+  font-weight: 400;
+  /* margin: 15px 0px; */
+}
+
+.car-detail .car-detail-info image {
+  height: 36px;
+  width: 36px;
+  margin: 10px 10px 10px 0px;
+  border-radius: 18px;
+}
+
+.car-detail .car-detail-info .price {
+  padding: 5px;
+  font-size: 22px;
+  color: #FC7946;
+}
+
+.car-detail .car-detail-info .z_r {
+  width: 2px;
+  margin-left: 10px;
+  border-width: 8px; 
+  border-style: solid;
+  border-color: transparent transparent rgb(217, 224, 228) transparent;
+}
+
+.car-detail .message-box {
+  margin: 15px 0px;
+}
+
+.car-detail .footer-btn {
+  position: fixed;
+  display: flex;
+  bottom: 0px;
+  width: 100%;
+  background-color: #FFFFFF;
+  font-size: 15px;
+  align-items: center;
+}
+
+.car-detail .footer-btn .collect {
+  flex: 1;
+  padding: 0px 30px 0px 10px;
+  text-align: center;
+}
+
+.car-detail .footer-btn button {
+  border: 0px;
+  border-radius: 0px;
+  font-size: 15px;
+}
+
+.car-detail .footer-btn button + button {
+  margin-left: 10px;
+}
+

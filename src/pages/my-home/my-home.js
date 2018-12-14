@@ -1,4 +1,4 @@
-// pages/car-detail/car-datail.js
+// pages/my-home/my-home.js
 Page({
 
   /**

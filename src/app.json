@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/wherehouse/wherehouse",
+    "pages/car-detail/car-detail",
     "pages/home/home",
+    "pages/wherehouse/wherehouse",
     "pages/ossUpload/ossUpload",
     "pages/shop/shop",
-    "pages/car-detail/car-detail",
     "pages/chatlist/chatlist",
     "pages/mine/mine",
     "pages/post/post",
@@ -18,15 +18,14 @@
     "pages/upload/upload",
     "pages/test/tets",
     "pages/menu/menus",
-    "pages/car-detail/car-datail"
+    "pages/my-home/my-home"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",
     "navigationBarBackgroundColor": "#4C70CB",
     "navigationBarTitleText": "汽车小店",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F7FA",
-    "enablePullDownRefresh": true
+    "backgroundColor": "#F5F7FA"
   },
   "tabBar": {
     "selectedColor": "#1E90FF",
@@ -44,7 +43,7 @@
         "selectedIconPath": "image/menu_2_active.png"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/my-home/my-home",
         "text": "个人中心",
         "iconPath": "image/menu_3.png",
         "selectedIconPath": "image/menu_3.png"
@@ -52,6 +51,7 @@
     ]
   },
   "usingComponents": {
+    "shopHead": "/components/shopHead/shopHead",
     "carCard": "/components/carCard/carCard",
     "footer": "/components/footer/footer",
     "carDetail": "/components/carDetail/carDetail"

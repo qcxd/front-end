@@ -1,39 +1,36 @@
 <!--pages/home/home.wxml-->
 <view class='home-page'>
   <view class='car-search'>
+    <icon type="search" size="15" />
     <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
   </view>
-  <view class='select car-flex'>    
-    <text bindtap='selectArea'>全部地区</text>
-    <text bindtap='selectSort'>智能排序</text>
+  
+  <view class='select car-flex'> 
+    <view bindtap='selectArea' class="car-flex">
+      <text>全部地区</text>
+      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+    </view> 
+    <view bindtap='selectSort' class="car-flex">  
+      <text>智能排序</text>
+      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+    </view>
   </view>
 
   <block wx:for="{{shopList}}">
-    <view class='home-shop'>
-      <view class='shop-header'>
-        <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
-      </view>
-      <view class='shop-info' bindtap='goShop'>
-        <view class='shop-title'>
-          <text>{{item.name}}</text>
-          <image src="../../image/star2.png" catchtap='doCollect'></image>
+    <view bindtap='goShop' data-id="{{item.id}}">
+      <shopHead shopInfo='{{item}}' />
+    </view>
+
+    <view class='shop-prod'>
+      <block wx:for="{{item.Cars}}">
+        <view catchtap='goCarDetail' class='carCard'>
+          <carCard carDatail="{{item}}"></carCard>
         </view>
-        <view wx:if="{{item.verify}}"><text class='shop-verify'>已认证</text></view>
-        <view wx:if="{{!item.verify}}"><text class='shop-no-verify'>未认证</text></view>
-        <view class='shop-intro'>
-          <text>{{item.introduce}}</text>
-        <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
-        </view>
-        <view class='shop-prod'>
-          <block wx:for="{{item.Cars}}">
-            <view catchtap='goCarDetail' class='carCard'>
-              <carCard carDatail="{{item}}"></carCard>
-            </view>
-          </block>
-        </view>
-      </view>
+      </block>
     </view>
   </block>
-
-  <footer />
+  
+  <block wx:if="{{shopList.legth % 10 !== 0}}">
+    <footer />
+  </block>
 </view>

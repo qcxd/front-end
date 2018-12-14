@@ -12,16 +12,13 @@
 }
 
 .shop-view .shop-box {
-  width: 49%;
+  width: 48%;
   font-size: 14px;
   color: #797979;  
   display: inline-block;
   background-color: #ffffff;
   border-radius: 4px;
-}
-
-.shop-view .shop-box + .shop-box {
-  margin-left: 2%;
+  margin: 0px 1%;
 }
 
 .shop-box image {
@@ -46,7 +43,7 @@
 }
 
 .shop-box .car-info {
-  padding: 10px;
+  padding: 5px 10px 10px 10px;
 }
 
 .shop-box .desc {

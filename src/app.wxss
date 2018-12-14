@@ -14,6 +14,15 @@ page{
   background: linear-gradient(to right, #4C70CB , rgb(85, 128, 238));
 }
 
+.carBtn_primary_t {
+  color: #ffffff;
+  background: linear-gradient(to right, #4C70CB , rgb(85, 128, 238));
+}
+
+.carBtn_primary_h {
+  color: #ffffff;
+  background: linear-gradient(to right, #FC7946 , rgba(247, 129, 82, 0.911));
+}
 
 /** flex */
 .car-flex {
@@ -24,11 +33,36 @@ page{
   flex: 1;
 }
 
+/** 筛选 */
+.select {
+  padding: 10px; 
+  color: #797979;
+  font-size: 13px;
+  background-color: #ffffff;
+  justify-content: space-around; 
+  border-bottom: 1px solid #d8e2e9;
+}
+
+.select text {
+  text-align: center;
+}
+
+.select image {
+  width: 12px;
+  height: 6px;
+  padding: 0px 5px;
+}
+
+.select text + text {
+  border-left: 1px solid #d8e2e9;
+}
+
 /** 店铺 */
 .home-shop {
   display: flex;
   align-items: flex-start;
   background-color: #ffffff;
+  margin-top: 10px;
 }
 
 .home-shop + .home-shop {
@@ -104,7 +138,7 @@ page{
 
 /** search */
 .car-search {
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   font-size: 13px;
   background-color: #ffffff;
 }
@@ -114,9 +148,16 @@ page{
 }
 
 .car-search input {
-  padding: 0px 10px;  
+  padding-left: 30px;  
   border-radius: 4px 4px;  
   background-color: #efefef;  
+}
+
+.car-search icon {
+  position: relative;
+  top: 25px;
+  left: 10px;
+  z-index: 10;
 }
 
 /*0.5px线条*/
@@ -151,4 +192,10 @@ page{
 .img-icon {
   width: 16px;
   height: 16px;
+}
+
+.img-icon-address {
+  width: 12px;
+  height: 15px;
+  padding-right: 5px;
 }

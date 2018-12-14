@@ -24,3 +24,7 @@
 .border-color {
   color: #d8e2e9;
 }
+
+.red-color {
+  color: #FC7946;
+}

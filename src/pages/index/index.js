@@ -155,9 +155,22 @@ Page({
 
   /** 选择城市 */
   doSelect(e) {
+    if (e.detail.name) {
+      this.setData({
+        popHidden: true,
+        currentCity: e.detail.name
+      })
+    } else {  // 取消按钮
+      this.setData({
+        popHidden: true,
+      })
+    }
+  },
+
+  /** 取消选择城市 */
+  doCancle() {
     this.setData({
       popHidden: true,
-      currentCity: e.detail.name
     })
   },
 

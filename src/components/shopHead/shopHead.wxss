@@ -1,0 +1,79 @@
+
+.home-shop {
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+
+.home-shop + .home-shop {
+  margin-top: 10px;
+}
+
+.home-shop .shop-header {
+  padding: 10px 0px 10px 10px;
+}
+
+.home-shop .shop-header image {
+  width: 40px;
+  height: 40px;
+}
+
+.home-shop .shop-info {
+  padding: 10px;
+  flex: 1;
+}
+
+.home-shop .shop-title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+  font-size: 15px;
+  color: #13334D;
+}
+
+.home-shop .shop-title image{
+  width: 18px;
+  height: 18px;
+  padding-left: 10px;
+}
+
+.home-shop .shop-title text{
+  flex: 1;
+}
+
+.home-shop .shop-verify{
+  border: 1px solid #4C70CB;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #4C70CB;
+  font-size: 11px;
+}
+
+.home-shop .shop-no-verify {
+  border: 1px solid #9DACB6;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #9DACB6;
+  font-size: 11px;
+}
+
+.home-shop .shop-intro {
+  display: flex;
+  height: 20px;
+  overflow: hidden; 
+  padding: 6px 0px;
+  color: #999999;
+  border-bottom: 1px solid #efefef; 
+  font-size: 13px; 
+}
+
+.home-shop .shop-intro text {
+  position: relative;
+  display: inline-block;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;  
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}

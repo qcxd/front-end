@@ -1,5 +1,6 @@
 
 const apiServicePro = require('../../service/api/api-promisify.service');
+const showModal = require('../../utils/utils');
 
 // pages/shop/shop.js
 Page({
@@ -15,27 +16,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getShopList();
+    this.getShopList({});
   },
   
-  goShop() {
+  /** 店铺首页 */
+  goShop(e) {
     wx.navigateTo({
-      url: '../shop/shop',
+      url: `../shop/shop?id=${e.currentTarget.dataset.id}`,
     })
   },
 
   goCarDetail() {
     wx.navigateTo({
-      url: '../car-detail/car-datail',
+      url: `../car-detail/car-detail`,
     })
   },
 
-  doCollect() {
-    wx.showToast({
-      title: '已收藏',
-      icon: 'succes',
-      duration: 1000,
-      mask: true
+  doCollect(e) {
+    const params = {
+      id: e.currentTarget.dataset.id
+    };
+    apiServicePro.joinWarehouse(params).then((result) => {
+      if (result.code === 200) {
+        wx.showToast({
+          title: '已收藏',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      } else {
+        showModal();
+      }
+    }, (err) => {
+      showModal();
     })
   },
 
@@ -50,17 +63,28 @@ Page({
   selectArea() {
 
   },
-
-  getShopList() {
-    apiServicePro.getShopList({}).then((result) => {
-      this.setData({
-        shopList: result.data,
-      })
+  
+  /**
+   * 获取店铺列表
+   * @param {Object} params 
+   */
+  getShopList(params) {
+    apiServicePro.getShopList(params).then((result) => {
+      if (result.code === 200) {
+        let shopList = this.data.shopList;
+        if (params.id) {
+          shopList = shopList.concat(result.data);
+        } else {
+          shopList = result.data;
+        }
+        this.setData({
+          shopList: shopList
+        })
+      } else {
+        showModal();
+      }
     }).catch((err) => {
-      wx.showModal({
-        title: '网络异常',
-        content: '网络异常，请稍后再试',
-      })
+      showModal();
     })
   },
 
@@ -96,14 +120,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getShopList();
+    this.getShopList({});
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    const shopList = this.data.shopList;
+    console.log('shopList.length', shopList.length );
+    if (shopList.length % 10 === 0) {
+      this.getShopList({id: shopList[shopList.length - 1].id});
+    }
   },
 
   /**
