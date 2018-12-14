@@ -19,7 +19,7 @@
   <block wx:for="{{shopList}}">
     <view class="wherehouse-shop">
       <view bindtap='goShop' data-id="{{item.id}}">
-        <shopHead shopInfo='{{item.Shop}}' shopIntro='false'/>
+        <shopHead shopInfo='{{item.Shop}}' shopIntro='{{false}}'/>
       </view>
       <view class='shop-info'>
         <view class='hr'></view>

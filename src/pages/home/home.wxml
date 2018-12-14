@@ -2,7 +2,7 @@
 <view class='home-page'>
   <view class='car-search'>
     <icon type="search" size="15" />
-    <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+    <input type='search' bindblur="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
   </view>
   
   <view class='select car-flex'> 
@@ -33,4 +33,6 @@
   <block wx:if="{{shopList.legth % 10 !== 0}}">
     <footer />
   </block>
+
+  <pickCity />
 </view>

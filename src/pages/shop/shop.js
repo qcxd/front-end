@@ -1,7 +1,7 @@
 // pages/shop/shop.js
 
 const apiServicePro = require('../../service/api/api-promisify.service');
-const showModal = require('../../utils/utils');
+const Utils = require('../../utils/utils');
 
 Page({
 
@@ -33,7 +33,7 @@ Page({
           shopDetail: result.data
         })
       } else {
-        showModal();
+        Utils.showModal();
       }
     }, (err) => {
     })
@@ -43,6 +43,7 @@ Page({
    * 加入仓库
    */
   addWherehouse(e) {
+    console.log(e);
     const params = {
       id: e.currentTarget.dataset.id
     };
@@ -55,7 +56,7 @@ Page({
           mask: true
         })
       } else {
-        showModal();
+        Utils.showModal();
       }
     }, (err) => {
     })

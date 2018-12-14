@@ -1,6 +1,6 @@
 
 const apiServicePro = require('../../service/api/api-promisify.service');
-const showModal = require('../../utils/utils');
+const Utils = require('../../utils/utils');
 
 // pages/shop/shop.js
 Page({
@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getShopList({});
+    // this.getShopList({});
   },
   
   /** 店铺首页 */
@@ -45,15 +45,18 @@ Page({
           mask: true
         })
       } else {
-        showModal();
+        Utils.showModal();
       }
     }, (err) => {
-      showModal();
+      Utils.showModal();
     })
   },
 
-  doSearch() {
-    console.log('search');
+  doSearch(e) {
+    const params = {
+      keywords: e.detail.value
+    }
+    this.getShopList(params);
   },
 
   selectSort() {
@@ -81,10 +84,10 @@ Page({
           shopList: shopList
         })
       } else {
-        showModal();
+        Utils.showModal();
       }
     }).catch((err) => {
-      showModal();
+      Utils.showModal();
     })
   },
 
@@ -92,7 +95,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getShopList({});
   },
 
   /**

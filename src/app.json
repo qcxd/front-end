@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/car-detail/car-detail",
     "pages/home/home",
+    "pages/car-detail/car-detail",
     "pages/wherehouse/wherehouse",
     "pages/ossUpload/ossUpload",
     "pages/shop/shop",
