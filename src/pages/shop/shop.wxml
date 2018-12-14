@@ -32,18 +32,18 @@
 
   <view class='shop-view'>
     <view class='subtitle'>-- 全部宝贝 --</view>  
-    <view>
+    <block wx:for="{{shopDetail.Cars}}">
       <view class='shop-box'>
-        <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+        <image src="{{item.indexImage}}" mode='widthFix'></image>
         <view class='car-info'>
-          <view class='desc'>保时捷911 红色</view>
+          <view class='desc'>{{item.brand}}</view>
           <view class='car-flex'>
-            <text class='flex_1'>¥18.8万</text>
+            <text class='flex_1'>¥{{item.price}}万</text>
             <text class='add'>加入仓库</text>
           </view>
         </view>
       </view>
-      <view class='shop-box'>
+      <!-- <view class='shop-box'>
         <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
         <view class='car-info'>
           <view class='desc'>保时捷911 红色</view>
@@ -52,7 +52,7 @@
             <text class='cancle'>加入仓库</text>
           </view>
         </view>
-      </view>
-    </view>
+      </view> -->
+    </block>
   </view>
 </view>

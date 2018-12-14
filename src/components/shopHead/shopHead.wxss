@@ -59,20 +59,21 @@
 }
 
 .home-shop .shop-intro {
-  overflow: hidden;  
-  color: #999999;
-  padding: 6px 0px;
-  height: 20px;
   display: flex;
+  height: 20px;
+  overflow: hidden; 
+  padding: 6px 0px;
+  color: #999999;
   border-bottom: 1px solid #efefef; 
   font-size: 13px; 
 }
 
 .home-shop .shop-intro text {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  position: relative;
   display: inline-block;
   display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;  
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
