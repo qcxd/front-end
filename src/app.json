@@ -51,6 +51,7 @@
     ]
   },
   "usingComponents": {
+    "shopHead": "/components/shopHead/shopHead",
     "carCard": "/components/carCard/carCard",
     "footer": "/components/footer/footer",
     "carDetail": "/components/carDetail/carDetail"

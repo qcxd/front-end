@@ -106,9 +106,9 @@ const createShop = (params) => rest.post({ url: `/shop/createShop`, data: params
 const getShopList = (params) => rest.post({ url: `/shop/list`, data: params });
 
 /**
- * 通过用户id获取店铺信息
+ * 通过店铺id获取店铺信息
  */
-const getShopByUserId = () => rest.get({ url: `/shop/getShopByUserId` });
+const getShopDetail = (id) => rest.get({ url: `/shop/getShop?id=${id}` });
 
 /**
  * 加入仓库
@@ -157,7 +157,7 @@ module.exports = {
   getCityList,
   createShop,
   getShopList,
-  getShopByUserId,
+  getShopDetail,
   joinWarehouse,
   getWarehouseList,
   createCar

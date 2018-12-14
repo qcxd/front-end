@@ -1,5 +1,6 @@
 
 const apiServicePro = require('../../service/api/api-promisify.service');
+const showModal = require('../../utils/utils');
 
 // pages/shop/shop.js
 Page({
@@ -18,15 +19,16 @@ Page({
     this.getShopList({});
   },
   
-  goShop() {
+  /** 店铺首页 */
+  goShop(e) {
     wx.navigateTo({
-      url: '../shop/shop',
+      url: `../shop/shop?id=${e.currentTarget.dataset.id}`,
     })
   },
 
   goCarDetail() {
     wx.navigateTo({
-      url: '../car-detail/car-detail',
+      url: `../car-detail/car-detail`,
     })
   },
 
@@ -43,10 +45,10 @@ Page({
           mask: true
         })
       } else {
-        this.showModal();
+        showModal();
       }
     }, (err) => {
-      this.showModal();
+      showModal();
     })
   },
 
@@ -79,17 +81,10 @@ Page({
           shopList: shopList
         })
       } else {
-        this.showModal();
+        showModal();
       }
     }).catch((err) => {
-      this.showModal();
-    })
-  },
-
-  showModal() {
-    wx.showModal({
-      title: '网络异常',
-      content: '网络异常，请稍后再试',
+      showModal();
     })
   },
 

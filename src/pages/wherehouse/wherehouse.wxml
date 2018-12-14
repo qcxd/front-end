@@ -18,18 +18,8 @@
 
   <block wx:for="{{shopList}}">
     <view class="wherehouse-shop">
-      <view class='home-shop'>
-        <view class='shop-header'>
-          <image src="{{item.Shop.logo}}" mode='aspectFill'></image>
-        </view>      
-        <view class='shop-info'>
-          <view class='shop-title'>
-            <text>{{item.Shop.name}}</text>
-            <image src="../../image/star.png"></image>
-          </view>
-          <view wx:if="{{item.Shop.verify}}"><text class='shop-verify'>已认证</text></view>
-          <view wx:if="{{!item.Shop.verify}}"><text class='shop-no-verify'>未认证</text></view>        
-        </view>
+      <view bindtap='goShop' data-id="{{item.id}}">
+        <shopHead shopInfo='{{item.Shop}}' shopIntro='false'/>
       </view>
       <view class='shop-info'>
         <view class='hr'></view>
@@ -47,7 +37,7 @@
       </view>
       <view class='wherehouse-cars'>
         <scroll-view scroll-x class='cars-cell'>
-          <block wx:for="{{item.shop.Cars}}">
+          <block wx:for="{{item.Cars}}">
             <view catchtap='goCarDetail' class='carCard'>
               <carCard carDatail="{{item}}"></carCard>
             </view>

@@ -1,6 +1,7 @@
 // pages/wherehouse/wherehouse.js
 
 const apiServicePro = require('../../service/api/api-promisify.service');
+const showModal = require('../../utils/utils');
 
 Page({
   /**
@@ -34,10 +35,10 @@ Page({
           shopList: shopList
         })
       } else {
-        this.showModal();
+        showModal();
       }
     }).catch((err) => {
-      this.showModal();
+      showModal();
     })
   },
 

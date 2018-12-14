@@ -1,18 +1,22 @@
 // pages/shop/shop.js
+
+const apiServicePro = require('../../service/api/api-promisify.service');
+const showModal = require('../../utils/utils');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    shopDetail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getShopDetail(options.id);
   },
 
   doSearch() {
@@ -20,11 +24,40 @@ Page({
   },
 
   /**
+   * 听过店铺id获取信息
+   */
+  getShopDetail(id) {
+    apiServicePro.getShopDetail(id).then((result) => {
+      if (result.code === 200) {
+        this.setData({
+          shopDetail: result.data
+        })
+      } else {
+        showModal();
+      }
+    }, (err) => {
+    })
+  },
+
+  /**
    * 加入仓库
    */
-  addWherehouse() {
-    wx.showToast({
-      title: '已添加',
+  addWherehouse(e) {
+    const params = {
+      id: e.currentTarget.dataset.id
+    };
+    apiServicePro.joinWarehouse(params).then((result) => {
+      if (result.code === 200) {
+        wx.showToast({
+          title: '已添加',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      } else {
+        showModal();
+      }
+    }, (err) => {
     })
   },
 
