@@ -4,7 +4,7 @@ const loading = require('./loading');
 let token = '';
 try {
   token = wx.getStorageSync('token');
-  console.log('token' , token);
+  console.log('token***' , token);
 } catch (e) {
   console.log('获取token异常');
 }

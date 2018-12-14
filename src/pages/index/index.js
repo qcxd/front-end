@@ -25,14 +25,12 @@ Page({
     }
     let that = this;
     if (app.globalData.userLocation) {
-      console.log('非首次允许，获取地理位置');
       wx.showLoading({
         title: '定位中',
       })
       wx.getLocation({
         type: 'wgs84',
         success(res) {
-          console.log('获取地理位置成功');
           that.getLocalCity(res.latitude, res.longitude);
         }
       })
@@ -46,7 +44,6 @@ Page({
     wx.authorize({
       scope: "scope.userLocation",
       success() {
-        console.log('首次允许，获取地理位置');
         // 获取当前位置
         wx.showLoading({
           title: '定位中',
@@ -55,7 +52,6 @@ Page({
           type: 'wgs84',
           success(res) {
             app.globalData.userLocation = true;
-            console.log('获取地理位置成功');
             that.getLocalCity(res.latitude, res.longitude);
           },
           fail(res) {
@@ -82,7 +78,6 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function(res) {
-        console.log('获取百度城市地理位置成功');
         console.log(res);
         let city = res.data.result.addressComponent.city;
         that.setData({
@@ -114,17 +109,15 @@ Page({
       selectValue: this.data.provinceArray[val[0]].name + this.data.cityList[val[1]].name,
     })
     this.getCityList(this.data.provinceArray[val[0]].id);
-
-    // this.setData({
-    //   year: this.data.years[val[0]],
-    //   month: this.data.months[val[1]],
-    //   day: this.data.days[val[2]]
-    // })
   },
 
   // 开始
   goHome(e) {
     this.onGotUserInfo(e);
+    // 跳转到广场tabBar页
+    wx.switchTab({
+      url: '../home/home',
+    });
   },
 
   getCityList() {
@@ -198,7 +191,6 @@ Page({
 
   onGotUserInfo(e) {
     let userInfo = e.detail.userInfo;
-    let self = this;
     userInfo.openid = this.data.user.openid;
     app.globalData.userInfo = e.detail.userInfo;
     if (!userInfo.openid) {
@@ -208,17 +200,18 @@ Page({
     apiServicePro.insertUser(userInfo).then((result) => {
       if (result.code === 200) {
         userInfo.token = result.data.token;
-        // wx.setStorage({
-        //   key: "token",
-        //   data: result.data.token
-        // })
-        try {
-          wx.setStorageSync('token', result.data.token);
-          // 跳转到广场tabBar页
-          wx.switchTab({
-            url: '../home/home',
-          })
-        } catch (e) {}
+        wx.setStorage({
+          key: "token",
+          data: result.data.token
+        })
+        // try {
+        //   wx.setStorageSync('token', result.data.token);
+        //   console.log('token index', result.data.token)
+        //   // 跳转到广场tabBar页
+        //   wx.switchTab({
+        //     url: '../home/home',
+        //   })
+        // } catch (e) {}
       } else {
         console.log('insert user error', result);
       }
