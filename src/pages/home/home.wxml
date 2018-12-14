@@ -24,7 +24,7 @@
       <view class='shop-info' bindtap='goShop'>
         <view class='shop-title'>
           <text>{{item.name}}</text>
-          <image src="../../image/star2.png" catchtap='doCollect'></image>
+          <image src="../../image/star2.png" catchtap='doCollect' data-id="{{item.id}}"></image>
         </view>
         <view wx:if="{{item.verify}}"><text class='shop-verify'>已认证</text></view>
         <view wx:if="{{!item.verify}}"><text class='shop-no-verify'>未认证</text></view>
@@ -47,50 +47,11 @@
         <view catchtap='goCarDetail' class='carCard'>
           <carCard carDatail="{{item}}"></carCard>
         </view>
-        <view catchtap='goCarDetail' class='carCard'>
-          <carCard carDatail="{{item}}"></carCard>
-        </view>
       </block>
     </view>
   </block>
-
-  <block wx:for="{{shopList}}">
-    <view class='home-shop'>
-      <view class='shop-header'>
-        <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
-      </view>
-      <view class='shop-info' bindtap='goShop'>
-        <view class='shop-title'>
-          <text>{{item.name}}</text>
-          <image src="../../image/star2.png" catchtap='doCollect'></image>
-        </view>
-        <view wx:if="{{item.verify}}"><text class='shop-verify'>已认证</text></view>
-        <view wx:if="{{!item.verify}}"><text class='shop-no-verify'>未认证</text></view>
-        <view class='shop-intro'>
-          <text>{{item.introduce}}</text>
-        <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
-        </view>
-        <!-- <view class='shop-prod'>
-          <block wx:for="{{item.Cars}}">
-            <view catchtap='goCarDetail' class='carCard'>
-              <carCard carDatail="{{item}}"></carCard>
-            </view>
-          </block>
-        </view> -->
-      </view>
-    </view>
-
-    <view class='shop-prod'>
-      <block wx:for="{{item.Cars}}">
-        <view catchtap='goCarDetail' class='carCard'>
-          <carCard carDatail="{{item}}"></carCard>
-        </view>
-        <view catchtap='goCarDetail' class='carCard'>
-          <carCard carDatail="{{item}}"></carCard>
-        </view>
-      </block>
-    </view>
+  
+  <block wx:if="{{shopList.legth % 10 !== 0}}">
+    <footer />
   </block>
-
-  <footer />
 </view>

@@ -20,21 +20,22 @@
     <view class="wherehouse-shop">
       <view class='home-shop'>
         <view class='shop-header'>
-          <image src="../../image/porsche-wallpaper.jpg" mode='aspectFill'></image>
+          <image src="{{item.Shop.logo}}" mode='aspectFill'></image>
         </view>      
         <view class='shop-info'>
           <view class='shop-title'>
-            <text>店铺名</text>
+            <text>{{item.Shop.name}}</text>
             <image src="../../image/star.png"></image>
           </view>
-          <view><text class='shop-verify'>已认证</text></view>         
+          <view wx:if="{{item.Shop.verify}}"><text class='shop-verify'>已认证</text></view>
+          <view wx:if="{{!item.Shop.verify}}"><text class='shop-no-verify'>未认证</text></view>        
         </view>
       </view>
       <view class='shop-info'>
         <view class='hr'></view>
         <view class='car-flex'>
           <image src="../../image/icon-address.png" mode='widthFix'class="img-icon-address" />
-          <text class='line-v'>{{item.address}}</text>
+          <text class='line-v'>{{item.Shop.address}}</text>
           <image src="../../image/icon-weChat.png" class="img-icon" />
           <image src="../../image/icon-call.png" class="img-icon" />
         </view>
@@ -46,10 +47,7 @@
       </view>
       <view class='wherehouse-cars'>
         <scroll-view scroll-x class='cars-cell'>
-          <block wx:for="{{item.Cars}}">
-            <view catchtap='goCarDetail' class='carCard'>
-              <carCard carDatail="{{item}}"></carCard>
-            </view>
+          <block wx:for="{{item.shop.Cars}}">
             <view catchtap='goCarDetail' class='carCard'>
               <carCard carDatail="{{item}}"></carCard>
             </view>

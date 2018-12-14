@@ -3,31 +3,41 @@
 const apiServicePro = require('../../service/api/api-promisify.service');
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    getShopList: [],
+    shopList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getShopList();
+    this.getWarehouseList({});
   },
 
-  getShopList() {
-    apiServicePro.getShopList({}).then((result) => {
-      this.setData({
-        shopList: result.data,
-      })
+  /**
+   * 获取仓库列表
+   * @param {Object} params 
+   */
+  getWarehouseList(params) {
+    apiServicePro.getWarehouseList(params).then((result) => {
+      if (result.code === 200) {
+        let shopList = this.data.shopList;
+        if (params.id) {
+          shopList = shopList.concat(result.data);
+        } else {
+          shopList = result.data;
+        }
+        this.setData({
+          shopList: shopList
+        })
+      } else {
+        this.showModal();
+      }
     }).catch((err) => {
-      wx.showModal({
-        title: '网络异常',
-        content: '网络异常，请稍后再试',
-      })
+      this.showModal();
     })
   },
 
@@ -69,14 +79,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log('onpulldown************');
+    this.getWarehouseList({});
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('页面上拉触底事件的处理函数************');
+    const shopList = this.data.shopList;
+    console.log('shopList.length', shopList.length );
+    if (shopList.length % 10 === 0) {
+      this.getWarehouseList({id: shopList[shopList.length - 1].id});
+    }
   },
 
   /**

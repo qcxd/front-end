@@ -30,12 +30,23 @@ Page({
     })
   },
 
-  doCollect() {
-    wx.showToast({
-      title: '已收藏',
-      icon: 'succes',
-      duration: 1000,
-      mask: true
+  doCollect(e) {
+    const params = {
+      id: e.currentTarget.dataset.id
+    };
+    apiServicePro.joinWarehouse(params).then((result) => {
+      if (result.code === 200) {
+        wx.showToast({
+          title: '已收藏',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      } else {
+        this.showModal();
+      }
+    }, (err) => {
+      this.showModal();
     })
   },
 
@@ -57,20 +68,28 @@ Page({
    */
   getShopList(params) {
     apiServicePro.getShopList(params).then((result) => {
-      let shopList = this.data.shopList;
-      if (params.id) {
-        shopList = shopList.concat(result.data);
+      if (result.code === 200) {
+        let shopList = this.data.shopList;
+        if (params.id) {
+          shopList = shopList.concat(result.data);
+        } else {
+          shopList = result.data;
+        }
+        this.setData({
+          shopList: shopList
+        })
       } else {
-        shopList = result.data;
+        this.showModal();
       }
-      this.setData({
-        shopList: shopList
-      })
     }).catch((err) => {
-      wx.showModal({
-        title: '网络异常',
-        content: '网络异常，请稍后再试',
-      })
+      this.showModal();
+    })
+  },
+
+  showModal() {
+    wx.showModal({
+      title: '网络异常',
+      content: '网络异常，请稍后再试',
     })
   },
 
@@ -114,7 +133,10 @@ Page({
    */
   onReachBottom: function () {
     const shopList = this.data.shopList;
-    this.getShopList({id: shopList[shopList.length - 1].id});
+    console.log('shopList.length', shopList.length );
+    if (shopList.length % 10 === 0) {
+      this.getShopList({id: shopList[shopList.length - 1].id});
+    }
   },
 
   /**
