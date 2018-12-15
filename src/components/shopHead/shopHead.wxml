@@ -7,7 +7,8 @@
   <view class='shop-info'>
     <view class='shop-title'>
       <text>{{shopInfo.name}}</text>
-      <image src="../../image/star2.png" catchtap='doCollect' data-id="{{shopInfo.id}}"></image>
+      <!-- <image src="../../image/icon_star2.png" catchtap='doCollect' data-id="{{shopInfo.id}}"></image> -->
+      <icon iconName='star2' width='16px' height='16px' catchtap='doCollect' data-id="{{shopInfo.id}}"/>
     </view>
     <view wx:if="{{shopInfo.verify}}"><text class='shop-verify'>已认证</text></view>
     <view wx:if="{{!shopInfo.verify}}"><text class='shop-no-verify'>未认证</text></view>

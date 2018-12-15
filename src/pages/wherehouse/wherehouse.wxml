@@ -8,11 +8,11 @@
   <view class='select car-flex'> 
     <view bindtap='selectArea' class="car-flex">
       <text>全部地区</text>
-      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+      <icon iconName='arrowDown' width='12px' height='6px' />
     </view> 
     <view bindtap='selectSort' class="car-flex">  
       <text>智能排序</text>
-      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+      <icon iconName='arrowDown' width='12px' height='6px' />
     </view>
   </view>
 
@@ -24,10 +24,10 @@
       <view class='shop-info'>
         <view class='hr'></view>
         <view class='car-flex'>
-          <image src="../../image/icon-address.png" mode='widthFix'class="img-icon-address" />
+          <icon iconName='address' width='12px' height='15px' class='address'/>
           <text class='line-v'>{{item.Shop.address}}</text>
-          <image src="../../image/icon-weChat.png" class="img-icon" />
-          <image src="../../image/icon-call.png" class="img-icon" />
+          <icon iconName='weChat' width='16px' height='16px' />
+          <icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
         </view>
         <view class='hr'></view>
         <view class='car-flex'>

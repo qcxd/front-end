@@ -6,6 +6,7 @@
     </view>
     <view class="bell-box" bindtap="onNofitication">
         <image class="icon-bell" src="/image/icon-bell.jpg" />
+        <icon width='16px' height='16px' iconName='bell' />
         <view wx:if="{{notificationCount}}" class="{{notificationCount>99?'badge-empty':'badge'}}">{{notificationCount>99?'':notificationCount}}</view>
     </view>
 </view>

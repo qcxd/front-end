@@ -4,7 +4,7 @@
     <text>欢迎来到汽车小店!</text>
   </view>
   <view class="index-location">
-    <image src="../../image/icon-address.png" class='img-icon-address'></image>
+    <icon iconName='address' width='12px' height='15px' />
     <text class="index-location-city">{{currentCity}}</text>
     <!-- <picker bindchange="changeCity" value="{{index}}" range="{{cityList}}">
       <text class="index-change-city">切换城市</text>

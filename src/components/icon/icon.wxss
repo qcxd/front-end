@@ -1,5 +1,5 @@
 /* components/icon/icon.wxss */
-.icon {
+/* .icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,4 +10,4 @@
 .icon image{
     width: 90%;
     height: 90%;
-}
+} */

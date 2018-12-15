@@ -26,8 +26,12 @@
   border-right: 1px solid #d8e2e9;
 }
 
-.shop-info .car-flex .img-icon{
+.shop-info .car-flex icon{
   padding-left: 15px;
+}
+
+.shop-info .car-flex .address{
+  padding: 0px 7px 0px 0px;
 }
 
 .wherehouse-cars {

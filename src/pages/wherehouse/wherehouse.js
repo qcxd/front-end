@@ -48,6 +48,12 @@ Page({
     })
   },
 
+  phoneCall(e) {
+    wx.makePhoneCall({
+      phoneNumber: '1340000'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

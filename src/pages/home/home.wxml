@@ -8,11 +8,11 @@
   <view class='select car-flex'> 
     <view bindtap='selectArea' class="car-flex">
       <text>全部地区</text>
-      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+      <icon iconName='arrowDown' width='12px' height='6px' />
     </view> 
     <view bindtap='selectSort' class="car-flex">  
       <text>智能排序</text>
-      <image src="../../image/icon-arrow-down.png" class='img-icon'/>
+      <icon iconName='arrowDown' width='12px' height='6px' />
     </view>
   </view>
 
