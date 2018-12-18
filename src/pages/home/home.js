@@ -32,31 +32,47 @@ Page({
     })
   },
 
-  doCollect(e) {
+  doSearch(e) {
     const params = {
-      id: e.currentTarget.dataset.id
+      keywords: e.detail.value
+    }
+    this.getShopList(params);
+  },
+
+  /** 收藏店铺 */
+  followShop(e) {
+    const params = {
+      id: e.detail.id,
+      follow: e.detail.follow ? false : true
     };
-    apiServicePro.joinWarehouse(params).then((result) => {
+    apiServicePro.followShop(params).then((result) => {
       if (result.code === 200) {
-        wx.showToast({
-          title: '已收藏',
-          icon: 'succes',
-          duration: 1000,
-          mask: true
+        let sList = this.data.shopList;
+        sList.forEach(el => {
+          if (el.id === e.detail.id) {
+            el.follow = el.follow ? false : true
+          }
+        });
+        this.setData({
+          shopList: sList
         })
+        if (e.detail.follow) {
+          wx.showToast({
+            title: '已取消收藏',
+            icon: 'succes'
+          })
+        } else {
+          wx.showToast({
+            title: '已收藏',
+            icon: 'succes'
+          })
+        }
       } else {
         Utils.showModal();
       }
     }, (err) => {
       Utils.showModal();
     })
-  },
-
-  doSearch(e) {
-    const params = {
-      keywords: e.detail.value
-    }
-    this.getShopList(params);
   },
 
   selectSort() {
@@ -95,14 +111,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getShopList({});
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getShopList({});
   },
 
   /**

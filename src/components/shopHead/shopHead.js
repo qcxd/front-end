@@ -1,4 +1,5 @@
 // components/shopHead/shopHead.js
+
 Component({
   /**
    * 组件的属性列表
@@ -25,6 +26,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    followShop(e) {
+      const myEventDetail = {
+        id: e.currentTarget.dataset.id,
+        follow: e.currentTarget.dataset.follow
+      } // detail对象，提供给事件监听函数
+      const myEventOption = {} // 触发事件的选项
+      this.triggerEvent('followshop', myEventDetail, myEventOption)
+    }
   }
 })

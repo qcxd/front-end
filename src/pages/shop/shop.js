@@ -43,7 +43,6 @@ Page({
    * 加入仓库
    */
   addWherehouse(e) {
-    console.log(e);
     const params = {
       id: e.currentTarget.dataset.id
     };

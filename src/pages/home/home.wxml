@@ -18,7 +18,7 @@
 
   <block wx:for="{{shopList}}">
     <view bindtap='goShop' data-id="{{item.id}}">
-      <shopHead shopInfo='{{item}}' />
+      <shopHead shopInfo='{{item}}' bind:followshop="followShop"/>
     </view>
 
     <view class='shop-prod'>

@@ -6,7 +6,7 @@
   <shopHead shopInfo='{{shopDetail}}'/>
   <view class='shop-view'>
     <view class='subtitle'>-- 店主推荐 --</view>
-    <view>
+    <!-- <view>
       <view class='shop-box'>
         <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
         <view class='car-info'>
@@ -27,7 +27,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
   </view>
 
   <view class='shop-view'>

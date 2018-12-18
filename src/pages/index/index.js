@@ -39,6 +39,7 @@ Page({
     // 获取城市数据
     this.getCityList();
   },
+
   dealWithCity() {
     let that = this
     wx.authorize({
@@ -120,6 +121,49 @@ Page({
     });
   },
 
+  onGotUserInfo(e) {
+    let userInfo = e.detail.userInfo;
+    userInfo.openid = this.data.user.openid;
+    app.globalData.userInfo = e.detail.userInfo;
+    if (!userInfo.openid) {
+      return;
+    }
+    apiServicePro.insertUser(userInfo).then((result) => {
+      if (result.code === 200) {
+        userInfo.token = result.data.token;
+        wx.setStorage({
+          key: "token",
+          data: result.data.token
+        })
+      } else {
+      }
+    }).catch((err) => {
+    });
+  },
+
+  loginThroughWechat() {
+    let that = this;
+    wx.login({
+      success: function(data) {
+        apiServicePro.getOpenid(data.code).then((result) => {
+          if (result.code === 200) {
+            that.dealWithCity()
+            that.data.user.openid = result.data.openid;
+            that.setData({
+              user: that.data.user
+            })
+          } else {
+          }
+        }).catch((err) => {
+        })
+      },
+      fail: function(err) {
+        console.log('fail');
+        console.log('wx.login failed', err)
+      }
+    })
+  },
+
   getCityList() {
     apiServicePro.getCityList({}).then((result) => {
       if (result.code === 200) {
@@ -172,95 +216,6 @@ Page({
     this.setData({
       popHidden: true,
     })
-  },
-
-  loginThroughWechat() {
-    let that = this;
-    wx.login({
-      success: function(data) {
-        apiServicePro.getOpenid(data.code).then((result) => {
-          console.log('getOpenid - --  - promisify', result);
-          if (result.code === 200) {
-            that.dealWithCity()
-            console.log(' result.data.openid', result.data.openid);
-            that.data.user.openid = result.data.openid;
-            that.setData({
-              user: that.data.user
-            })
-          } else {
-            console.log('openid error', result);
-          }
-        }).catch((err) => {
-          console.log(err, 'getOpenId err');
-        })
-      },
-      fail: function(err) {
-        console.log('fail');
-        console.log('wx.login failed', err)
-        // callback(err)
-      }
-    })
-  },
-
-  onGotUserInfo(e) {
-    let userInfo = e.detail.userInfo;
-    userInfo.openid = this.data.user.openid;
-    app.globalData.userInfo = e.detail.userInfo;
-    if (!userInfo.openid) {
-      //return error to handle
-      return;
-    }
-    apiServicePro.insertUser(userInfo).then((result) => {
-      if (result.code === 200) {
-        userInfo.token = result.data.token;
-        wx.setStorage({
-          key: "token",
-          data: result.data.token
-        })
-        // try {
-        //   wx.setStorageSync('token', result.data.token);
-        //   console.log('token index', result.data.token)
-        //   // 跳转到广场tabBar页
-        //   wx.switchTab({
-        //     url: '../home/home',
-        //   })
-        // } catch (e) {}
-      } else {
-        console.log('insert user error', result);
-      }
-    }).catch((err) => {
-      console.log('err', err);
-    });
-  },
-
-  addDeafaultGroup: function(userInfo) {
-    let that = this;
-    const param = {
-      openid: userInfo.openid,
-      groups: [that.data.group]
-    }
-
-    apiServicePro.addGroups(param).then((res) => {
-      console.log('addGroup', res);
-      if (res.code === 200) {
-        that.getWeChatUserInfo(userInfo.token);
-      }
-    });
-  },
-
-  getWeChatUserInfo: function(token) {
-    let that = this;
-    apiServicePro.getUserByOpenid(this.data.user.openid).then((res) => {
-      res.data.token = token;
-      wx.setStorageSync('user', res.data);
-      wx.navigateTo({
-        url: '../chatbot-Success/chatbot-Success?group=' + JSON.stringify(that.data.group),
-      });
-    });
-  },
-
-  getLatestUserInfo: function() {
-    // apiService.get
   },
 
   onReady: function() {

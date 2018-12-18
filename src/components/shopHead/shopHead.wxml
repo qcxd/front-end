@@ -7,8 +7,14 @@
   <view class='shop-info'>
     <view class='shop-title'>
       <text>{{shopInfo.name}}</text>
-      <!-- <image src="../../image/icon_star2.png" catchtap='doCollect' data-id="{{shopInfo.id}}"></image> -->
-      <icon iconName='star2' width='16px' height='16px' catchtap='doCollect' data-id="{{shopInfo.id}}"/>
+      <!-- <image src="../../image/icon_star2.png" catchtap='followShop' data-id="{{shopInfo.id}}"></image> -->
+      <block wx:if='{{shopInfo.follow}}'>
+        <icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+      </block>
+      <block wx:if='{{!shopInfo.follow}}'>
+        <icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+      </block>
+      <!-- <view class="">已关注</view> -->
     </view>
     <view wx:if="{{shopInfo.verify}}"><text class='shop-verify'>已认证</text></view>
     <view wx:if="{{!shopInfo.verify}}"><text class='shop-no-verify'>未认证</text></view>

@@ -6,7 +6,7 @@ Component({
   properties: {
     iconName: {
       type: String,
-      value: 'voiceRightHigh'
+      value: 'star'
     },
     width: {
       type: String,

@@ -1,7 +1,7 @@
 // pages/wherehouse/wherehouse.js
 
 const apiServicePro = require('../../service/api/api-promisify.service');
-const showModal = require('../../utils/utils');
+const Utils = require('../../utils/utils');
 
 Page({
   /**
@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getWarehouseList({});
+    // this.getWarehouseList({});
   },
 
   /**
@@ -35,10 +35,10 @@ Page({
           shopList: shopList
         })
       } else {
-        showModal();
+        Utils.showModal();
       }
     }).catch((err) => {
-      showModal();
+      Utils.showModal();
     })
   },
 
