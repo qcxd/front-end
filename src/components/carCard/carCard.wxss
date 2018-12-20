@@ -2,17 +2,35 @@
 
 .carCard {
   display: flex;
+  width: 100%;
 }
 
 .carCard .car-image {
-  flex: .3;
-  /* height: 150px; */
+  width: 115px;
 }
 
 .carCard image {
-  width: 100%;
+  width: 100px;
+  height: 80px;
 }
 
 .carCard .car-info {
   flex: 1;
 }
+
+.carCard .title-text {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.carCard .small-text {
+  padding-top: 2px;
+  font-size: 12px;
+}
+
+.carCard .price-text {
+  color: #4C70CB;
+  font-size: 15px;
+  font-weight: 600;
+}
+ 

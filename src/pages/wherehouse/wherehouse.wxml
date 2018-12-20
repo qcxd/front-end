@@ -25,7 +25,22 @@
     </view>
   </view>
 
-  <view wx:if='{{_active === "0"}}'></view>
+  <view wx:if='{{_active === "0"}}'>
+    <block wx:for="{{shopList}}" wx:key="{{item.id}}">
+      <view class="wherehouse-shop">
+        <view bindtap='goShop' data-id="{{item.id}}">
+          <text>{{item.Shop.name}}</text>
+        </view>
+        <view class='wherehouse-cars'>
+          <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+            <view catchtap='goCarDetail' class='carCard'>
+              <carCard carDatail="{{item}}"></carCard>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
   <view wx:else>
     <block wx:for="{{shopList}}" wx:key="{{item.id}}">
       <view class="wherehouse-shop">
