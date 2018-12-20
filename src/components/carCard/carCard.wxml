@@ -1,12 +1,12 @@
 <!--components/carCard/carCard.wxml-->
 <view class='carCard'>
   <view class='car-image'>
-    <image src="../../image/porsche-wallpaper.jpg" mode='withFix'/>
+    <image src='{{carDetail.indexImage}}' mode='withFix'/>
   </view>
   <!-- <image src="../../image/porsche-wallpaper.jpg" mode='withFix'/> -->
   <view class='car-info'>
     <view class='title-text'>本田思域 2016款 1.8 L 180 TURBO CVT 舒适版</view>
     <view class='small-text'>2014年款/12.8公里</view>
-    <view class='small-text'>￥<text class='price-text'>12.2</text>万</view>
+    <view class='small-text'>￥<text class='price-text'>{{carDetail.price}}</text>万</view>
   </view>
 </view>

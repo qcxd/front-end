@@ -34,7 +34,7 @@
         <view class='wherehouse-cars'>
           <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
             <view catchtap='goCarDetail' class='carCard'>
-              <carCard carDatail="{{item}}"></carCard>
+              <carCard carDetail="{{item}}"></carCard>
             </view>
           </block>
         </view>
@@ -64,7 +64,7 @@
           <scroll-view scroll-x class='cars-cell'>
             <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
               <view catchtap='goCarDetail' class='carCard'>
-                <shopCar carDatail="{{item}}"></shopCar>
+                <shopCar carDetail="{{item}}"></shopCar>
               </view>
             </block>
           </scroll-view>
