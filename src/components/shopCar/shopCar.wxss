@@ -1,0 +1,31 @@
+/* components/carCard/carCard.wxss */
+
+.shopCar {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.shopCar image {
+  width: 100%;
+}
+
+.shopCar-price {
+  position: relative;
+  margin-top: -26px;
+  padding: 2px 0px;
+  margin-bottom: 3px;
+  text-align: center;
+  color:#ffffff;
+  background-color:rgba(76, 112, 203, 0.75);
+}
+
+
+.shopCar-info {
+  text-align: center;
+}
+
+.shopCar-info .small-text {
+  color: #ACB4B9;
+  font-size: 12px;
+}

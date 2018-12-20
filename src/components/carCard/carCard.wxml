@@ -1,12 +1,9 @@
 <!--components/carCard/carCard.wxml-->
-<view class='car-card'>
-  <view>
-    <!-- <view class='car-card-price'>{{carDatail.price}}万</view> -->
-    <image src="{{carDatail.indexImage}}" mode='widthFix'></image>
-  </view>
-  <view class='car-card-price'>{{carDatail.price}}万</view>
-  <view class='car-card-info'>
-    <view>{{carDatail.brand}} 2014款 1.6L</view>
-    <view class='small-text'>2014年/88.98万公里</view>
+<view class='carCard'>
+  <view class='car-image'><image src="./image/porsche-wallpaper.jpg" /></view>
+  <view class='car-info'>
+    <view>本田思域 2016款 1.8 L 180 TURBO CVT 舒适版</view>
+    <view >2014年款/12.8公里</view>
+    <view >￥12.2万</view>
   </view>
 </view>

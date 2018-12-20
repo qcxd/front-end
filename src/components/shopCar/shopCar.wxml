@@ -1,0 +1,12 @@
+<!--components/carCard/carCard.wxml-->
+<view class='shopCar'>
+  <view>
+    <!-- <view class='shopCar-price'>{{carDatail.price}}万</view> -->
+    <image src="{{carDatail.indexImage}}" mode='widthFix'></image>
+  </view>
+  <view class='shopCar-price'>{{carDatail.price}}万</view>
+  <view class='shopCar-info'>
+    <view>{{carDatail.brand}} 2014款 1.6L</view>
+    <view class='small-text'>2014年/88.98万公里</view>
+  </view>
+</view>

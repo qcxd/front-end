@@ -53,8 +53,9 @@
   "usingComponents": {
     "icon": "/components/icon/icon",
     "shopHead": "/components/shopHead/shopHead",
-    "carCard": "/components/carCard/carCard",
+    "shopCar": "/components/shopCar/shopCar",
     "footer": "/components/footer/footer",
-    "carDetail": "/components/carDetail/carDetail"
+    "carDetail": "/components/carDetail/carDetail",
+    "carCard": "/components/carCard/carCard"
   }
 }

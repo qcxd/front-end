@@ -1,31 +1,18 @@
 /* components/carCard/carCard.wxss */
 
-.car-card {
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
+.carCard {
+  display: flex;
 }
 
-.car-card image {
+.carCard .car-image {
+  flex: .3;
+  /* height: 150px; */
+}
+
+.carCard image {
   width: 100%;
 }
 
-.car-card-price {
-  position: relative;
-  margin-top: -26px;
-  padding: 2px 0px;
-  margin-bottom: 3px;
-  text-align: center;
-  color:#ffffff;
-  background-color:rgba(76, 112, 203, 0.75);
-}
-
-
-.car-card-info {
-  text-align: center;
-}
-
-.car-card-info .small-text {
-  color: #ACB4B9;
-  font-size: 12px;
+.carCard .car-info {
+  flex: 1;
 }
