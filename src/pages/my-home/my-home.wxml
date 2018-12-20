@@ -1,4 +1,29 @@
-<!--pages/my-home/my-home.wxml-->
-<view>
-    个人中心
+<!-- pages/my-home/my-home.wxml -->
+<view class='myHome'>
+  <view class='car-flex home-head'>
+    <image src='../../image/porsche-zoom.jpg' />
+    <view>用户姓名</view>
+  </view>
+  <view class='car-flex home-center'>
+    <view>
+      <view class='small-text'>收藏汽车</view>
+      <view class='theme-text'>8辆</view>
+    </view>
+    <view>
+      <view class='small-text'>收藏店铺</view>
+      <view class='theme-text'>6家</view>
+    </view>
+    <view>
+      <view class='small-text'>我的粉丝</view>
+      <view class='theme-text'>233人</view>
+    </view>
+  </view>
+  <view class='car-flex home-cell'>
+    <text class='small-text flex_1'>我的店铺</text>
+    <icon iconName="arrowRight" width='8px' height='12px' />
+  </view>
+   <view class='car-flex home-cell'>
+    <text class='small-text flex_1'>我要开店</text>
+    <icon iconName="arrowRight" width='8px' height='12px' />
+  </view>
 </view>

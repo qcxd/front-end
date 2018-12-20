@@ -1,1 +1,35 @@
 /* pages/my-home/my-home.wxss */
+
+.myHome .home-head {
+  padding: 15px;
+  color: #ffffff;
+  background-color: #4C70CB;
+}
+
+.myHome .home-head image {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 100px;
+  border: 3px solid #ffffff;
+}
+
+.myHome .home-center {
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 0px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.myHome .small-text {
+  padding: 2px;
+  font-size: 13px;
+  color: #4A4A4A;
+}
+
+.myHome .home-cell {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+}

@@ -19,7 +19,8 @@
 }
 
 .carCard .title-text {
-  font-size: 15px;
+  color: #13334D;
+  font-size: 14px;
   font-weight: 400;
 }
 
