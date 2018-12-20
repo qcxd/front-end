@@ -46,7 +46,7 @@
         "pagePath": "pages/my-home/my-home",
         "text": "个人中心",
         "iconPath": "image/menu_3.png",
-        "selectedIconPath": "image/menu_3.png"
+        "selectedIconPath": "image/menu_3_active.png"
       }
     ]
   },
