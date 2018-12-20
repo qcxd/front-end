@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    _active: '0',
     shopList: [],
+    carList: [],
   },
 
   /**
@@ -16,6 +18,13 @@ Page({
    */
   onLoad: function (options) {
     // this.getWarehouseList({});
+  },
+
+  tabSwitch(e) {
+    const index =  e.currentTarget.dataset.index;
+    this.setData({
+      _active: index
+    })
   },
 
   /**
