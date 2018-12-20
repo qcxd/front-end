@@ -24,7 +24,7 @@
     <view class='shop-prod'>
       <block wx:for="{{item.Cars}}">
         <view catchtap='goCarDetail' class='carCard'>
-          <carCard carDetail="{{item}}"></carCard>
+          <shopCar carDetail="{{item}}"></shopCar>
         </view>
       </block>
     </view>

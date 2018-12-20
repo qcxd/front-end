@@ -2,7 +2,7 @@
 <view class='myHome'>
   <view class='car-flex home-head'>
     <image src='../../image/porsche-zoom.jpg' />
-    <view>用户姓名</view>
+    <view>{{user.nickName}}</view>
   </view>
   <view class='car-flex home-center'>
     <view>
