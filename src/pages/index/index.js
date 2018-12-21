@@ -1,7 +1,7 @@
 // pages/index/index.js
 
-const app = getApp()
-const apiService = require('../../service/api.service.js')
+const app = getApp();
+const apiService = require('../../service/api.service.js');
 const apiServicePro = require('../../service/api/api-promisify.service');
 
 Page({
@@ -84,6 +84,7 @@ Page({
         that.setData({
           currentCity: city
         });
+        app.globalData.currentCity = city;
         wx.hideLoading();
       },
       fail: function() {
@@ -117,7 +118,7 @@ Page({
     this.onGotUserInfo(e);
     // 跳转到广场tabBar页
     wx.switchTab({
-      url: '../home/home',
+      url: `../home/home`,
     });
   },
 
@@ -179,24 +180,6 @@ Page({
     })
   },
 
-  popEnsure() {
-    const selectValue = this.data.selectValue;
-    this.setData({
-      currentCity: selectValue,
-    })
-    let popHidden = this.data.popHidden;
-    this.setData({
-      popHidden: !popHidden,
-    })
-  },
-
-  popCancle() {
-    let popHidden = this.data.popHidden;
-    this.setData({
-      popHidden: !popHidden,
-    })
-  },
-
   /** 选择城市 */
   doSelect(e) {
     if (e.detail.name) {
@@ -209,13 +192,6 @@ Page({
         popHidden: true,
       })
     }
-  },
-
-  /** 取消选择城市 */
-  doCancle() {
-    this.setData({
-      popHidden: true,
-    })
   },
 
   onReady: function() {

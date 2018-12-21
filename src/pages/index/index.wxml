@@ -6,9 +6,6 @@
   <view class="index-location">
     <icon iconName='address' width='12px' height='15px' />
     <text class="index-location-city">{{currentCity}}</text>
-    <!-- <picker bindchange="changeCity" value="{{index}}" range="{{cityList}}">
-      <text class="index-change-city">切换城市</text>
-    </picker> -->
     <text class="index-change-city" bindtap='popPicker'>切换城市</text>
   </view>
   <view class="index-btn">
@@ -20,19 +17,4 @@
   <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
 </view>
 
-
-<!-- <view hidden="{{popHidden}}" class="car-pop-view">
-  <view class="car-flex">
-    <text class="pop-cancle" bindtap='popCancle'>取消</text>
-    <text class="pop-ensure" bindtap='popEnsure'>确定</text>
-  </view>
-  <picker-view indicator-class="car-picker-view" style="width: 100%; height: 300px;" value="{{value}}" bindchange="changeCity">
-    <picker-view-column>
-      <view wx:for="{{provinceArray}}" style="line-height: 50px; text-align: center;">{{item.name}}</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{cityList}}" style="line-height: 50px; text-align: center;">{{item.name}}</view>
-    </picker-view-column>
-  </picker-view>
-</view> -->
 

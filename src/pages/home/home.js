@@ -1,4 +1,4 @@
-
+const app = getApp();
 const apiServicePro = require('../../service/api/api-promisify.service');
 const Utils = require('../../utils/utils');
 
@@ -9,14 +9,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopList: []
+    shopList: [],
+    currentCity: '',
+    selectValue: '',
+    cityList: [],
+    popHidden: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getShopList({});
+    this.setData({
+      currentCity: app.globalData.currentCity,
+    })
+    // 获取城市数据
+    this.getCityList();
   },
   
   /** 店铺首页 */
@@ -105,6 +113,58 @@ Page({
     }).catch((err) => {
       Utils.showModal();
     })
+  },
+
+  // 控制picker
+  popPicker() {
+    console.log('popPicker');
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
+    })
+  },
+
+  // 切换城市
+  changeCity: function (e) {
+    const val = e.detail.value
+    this.setData({
+      selectValue: this.data.provinceArray[val[0]].name + this.data.cityList[val[1]].name,
+    })
+    this.getCityList(this.data.provinceArray[val[0]].id);
+  },
+
+  /** 获取城市列表 */
+  getCityList() {
+    apiServicePro.getCityList({}).then((result) => {
+      if (result.code === 200) {
+        const cityList = result.data
+        cityList.forEach((e) => {
+          e.replace(/市$/, '');
+        })
+        this.setData({
+          cityList,
+        })
+      } else { }
+    }).catch((err) => {
+      wx.showModal({
+        title: '网络异常',
+        content: '网络异常，请稍后再试',
+      })
+    })
+  },
+
+  /** 选择城市 */
+  doSelect(e) {
+    if (e.detail.name) {
+      this.setData({
+        popHidden: true,
+        currentCity: e.detail.name
+      })
+    } else {  // 取消按钮
+      this.setData({
+        popHidden: true,
+      })
+    }
   },
 
   /**

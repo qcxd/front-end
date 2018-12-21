@@ -29,6 +29,7 @@ App({
   globalData: {
     userInfo: null,
     userLocation: null,
-    sysInfo: wx.getSystemInfoSync()
+    sysInfo: wx.getSystemInfoSync(),
+    currentCity: '',
   }
 })

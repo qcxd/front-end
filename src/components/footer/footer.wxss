@@ -1,8 +1,8 @@
 /* components/Footer/footer.wxss */
 
 .footer {
-  text-align: center;
-  font-size: 14px;
-  color: ACB4B9;
   padding: 10px;
+  text-align: center;
+  font-size:10px;
+  color:#ACB4B9;
 }

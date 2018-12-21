@@ -56,6 +56,7 @@
     "shopCar": "/components/shopCar/shopCar",
     "footer": "/components/footer/footer",
     "carDetail": "/components/carDetail/carDetail",
-    "carCard": "/components/carCard/carCard"
+    "carCard": "/components/carCard/carCard",
+    "pickCity": "/components/pickCity/pickCity"
   }
 }

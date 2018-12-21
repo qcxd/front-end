@@ -12,6 +12,27 @@
   flex: 0.32;
 } */
 
+.home-page .car-search {
+  flex: 1;
+}
+
+.home-page .head-address {
+  font-size: 13px;
+  padding-left: 15px;
+}
+
+.home-page .head-address text {
+  padding-right: 5px;
+}
+
+.home-page-head {
+  background-color: #ffffff;
+}
+
+.home-page-shop {
+  background-color: #ffffff;
+}
+
 .shop-prod {
   position: relative;
   padding: 0px 10px 10px 10px;
@@ -22,6 +43,49 @@
   width: 48%;
   display: inline-block;
   padding: 5px 1%;
+}
+
+.shop-info {
+  padding: 0px 10px;
+}
+
+.shop-info .car-flex {
+  padding: 5px 0px;
+}
+
+.shop-info .car-flex text{
+  font-size: 14px;
+  flex: 1;
+}
+
+.shop-info .car-flex .line-v {
+  border-right: 1px solid #d8e2e9;
+}
+
+.shop-info .car-flex icon{
+  padding-left: 15px;
+}
+
+.shop-info .car-flex .address{
+  padding: 0px 7px 0px 0px;
+}
+
+.scroll-cars {
+  padding: 10px;
+}
+
+.cars-cell {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.cars-cell .carCard {
+  width: 150px;
+  display: inline-block;
+}
+
+.cars-cell .carCard + .carCard {
+  padding-left: 10px;
 }
 
 

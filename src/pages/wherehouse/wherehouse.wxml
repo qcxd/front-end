@@ -60,6 +60,7 @@
             <text>收藏的车({{item.Cars.length}})</text>
           </view>
         </view>
+
         <view class='wherehouse-cars'>
           <scroll-view scroll-x class='cars-cell'>
             <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
@@ -69,6 +70,7 @@
             </block>
           </scroll-view>
         </view>
+
       </view>
     </block>
   </view>

@@ -29,6 +29,7 @@ const showModal = (title, content) => {
   })
 }
 
+
 module.exports = {
   formatDate,
   showModal

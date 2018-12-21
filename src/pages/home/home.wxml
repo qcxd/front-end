@@ -1,11 +1,17 @@
 <!--pages/home/home.wxml-->
 <view class='home-page'>
-  <view class='car-search'>
-    <icon type="search" size="15" />
-    <input type='search' bindblur="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+  <view class='car-flex home-page-head'>
+    <view bindtap='popPicker' class='head-address'>
+      <text>{{currentCity}}</text>
+      <icon iconName='arrowDown' width='12px' height='6px' />
+    </view>
+    <view class='car-search'>
+      <icon type="search" size="15" />
+      <input type='search' bindblur="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+    </view>
   </view>
   
-  <view class='select car-flex'> 
+  <!-- <view class='select car-flex'> 
     <view bindtap='selectArea' class="car-flex">
       <text>全部地区</text>
       <icon iconName='arrowDown' width='12px' height='6px' />
@@ -14,25 +20,51 @@
       <text>智能排序</text>
       <icon iconName='arrowDown' width='12px' height='6px' />
     </view>
-  </view>
+  </view> -->
 
-  <block wx:for="{{shopList}}">
+  <view class='home-page-shop' wx:for="{{shopList}}">
     <view bindtap='goShop' data-id="{{item.id}}">
       <shopHead shopInfo='{{item}}' bind:followshop="followShop"/>
     </view>
 
-    <view class='shop-prod'>
+    <!-- <view class='shop-prod'>
       <block wx:for="{{item.Cars}}">
         <view catchtap='goCarDetail' class='carCard'>
           <shopCar carDetail="{{item}}"></shopCar>
         </view>
       </block>
+    </view> -->
+
+    <view class='shop-info'>
+      <view class='hr'></view>
+      <view class='car-flex'>
+        <icon iconName='address' width='12px' height='15px' class='address'/>
+        <text class='line-v'>{{item.address}}</text>
+        <icon iconName='weChat' width='16px' height='16px' />
+        <icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+      </view>
+      <view class='hr'></view>
+      <view class='car-flex'>
+        <text>车辆({{item.Cars.length}})</text>
+      </view>
     </view>
-  </block>
+
+    <view class='scroll-cars'>
+      <scroll-view scroll-x class='cars-cell'>
+        <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+          <view catchtap='goCarDetail' class='carCard'>
+            <shopCar carDetail="{{item}}"></shopCar>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
   
   <block wx:if="{{shopList.legth % 10 !== 0}}">
     <footer />
   </block>
 
-  <pickCity />
+  <view hidden="{{popHidden}}">
+    <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
+  </view>
 </view>
