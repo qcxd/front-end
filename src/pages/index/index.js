@@ -27,6 +27,7 @@ Page({
           })
         } else {
           _this.getOpenid();
+          this.getCityList();
           if (app.globalData.userLocation) {
             wx.showLoading({
               title: '定位中',
@@ -43,7 +44,6 @@ Page({
         }
       }
     })
-    this.getCityList();
   },
 
   getOpenid() {
