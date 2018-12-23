@@ -5,18 +5,17 @@ const _handleResponse = (res, {url, success, fail}) => {
   if (res.data.code === 500) {
     throw res.data.msg;
   }
-  success(res.data);
+  success(res);
 }
 
 const _request = (...argus) => {
-  let token = '';
+  let user = '';
   try {
-    token = wx.getStorageSync('token');
+    user = wx.getStorageSync('user');
     const header_pre = {
-      'authorization': 'Bearer ' + token,
+      'authorization': 'Bearer ' + user.token,
       'content-type': 'application/json'
     };
-    console.log(header_pre);
     let options = argus[0];
     let {
       method = 'GET',
@@ -34,7 +33,7 @@ const _request = (...argus) => {
       data: data,
       header: header,
       success: function (res) {
-        _handleResponse(res, options);
+        _handleResponse(res.data, options);
       },
       fail: function (res) {
         if (fail) {
@@ -46,7 +45,7 @@ const _request = (...argus) => {
       }
     });
   } catch (e) {
-    console.log('获取token异常');
+    console.log('请求异常');
   }
 };
 

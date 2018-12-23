@@ -17,31 +17,15 @@
   </view> -->
 
   <view class='tab car-flex'> 
-    <view bindtap='selectArea' class="car-flex" bindtap='tabSwitch' data-index='0'>
-      <text class='{{_active === "0" ? "active" : ""}}'>汽车</text>
-    </view> 
     <view bindtap='selectSort' class="car-flex" bindtap='tabSwitch' data-index='1'>  
       <text class='{{_active === "1"? "active": ""}}'>店铺</text>
     </view>
+    <view bindtap='selectArea' class="car-flex" bindtap='tabSwitch' data-index='0'>
+      <text class='{{_active === "0" ? "active" : ""}}'>汽车</text>
+    </view> 
   </view>
 
-  <view wx:if='{{_active === "0"}}'>
-    <block wx:for="{{shopList}}" wx:key="{{item.id}}">
-      <view class="wherehouse-shop">
-        <view bindtap='goShop' data-id="{{item.id}}" class='shop-title'>
-          <text>{{item.Shop.name}}</text>
-        </view>
-        <view class='wherehouse-cars'>
-          <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
-            <view catchtap='goCarDetail' class='carCard'>
-              <carCard carDetail="{{item}}"></carCard>
-            </view>
-          </block>
-        </view>
-      </view>
-    </block>
-  </view>
-  <view wx:else>
+  <view wx:if='{{_active === "1"}}'>
     <block wx:for="{{shopList}}" wx:key="{{item.id}}">
       <view class="wherehouse-shop">
         <view bindtap='goShop' data-id="{{item.id}}">
@@ -71,6 +55,22 @@
           </scroll-view>
         </view>
 
+      </view>
+    </block>
+  </view>
+  <view wx:else>
+    <block wx:for="{{shopList}}" wx:key="{{item.id}}">
+      <view class="wherehouse-shop">
+        <view bindtap='goShop' data-id="{{item.id}}" class='shop-title'>
+          <text>{{item.Shop.name}}</text>
+        </view>
+        <view class='wherehouse-cars'>
+          <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+            <view catchtap='goCarDetail' class='carCard'>
+              <carCard carDetail="{{item}}"></carCard>
+            </view>
+          </block>
+        </view>
       </view>
     </block>
   </view>

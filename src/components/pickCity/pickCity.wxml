@@ -14,11 +14,11 @@
         </view>
       </view>
 
-      <block wx:for="{{cityList}}">
+      <block wx:for="{{cityList}}" wx:key="{{item.code}}">
         <view id="{{item.code}}">
           <view class='pickCity-city-code'>{{item.code}}</view>
           <view class='pickCity-city-data'>
-            <block wx:for="{{item.data}}">
+            <block wx:for="{{item.data}}" wx:key="{{item.id}}">
               <text bindtap='doSelsct' data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text>        
             </block>
           </view>
@@ -26,7 +26,7 @@
       </block>
 
       <view class='pickCity-left-code'>
-        <block wx:for="{{cityList}}">
+        <block wx:for="{{cityList}}" wx:key="{{item.code}}">
           <text bindtap='jumpToView' data-code="{{item.code}}">{{item.code}}</text>
         </block>
       </view>

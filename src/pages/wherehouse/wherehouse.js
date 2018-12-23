@@ -1,14 +1,16 @@
 // pages/wherehouse/wherehouse.js
 
 const apiServicePro = require('../../service/api/api-promisify.service');
-const Utils = require('../../utils/utils');
+const {
+  showModal,
+} = require('../../utils/utils');
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    _active: '0',
+    _active: '1', // 1 店铺 2 汽车
     shopList: [],
     carList: [],
   },
@@ -44,10 +46,10 @@ Page({
           shopList: shopList
         })
       } else {
-        Utils.showModal();
+        showModal();
       }
     }).catch((err) => {
-      Utils.showModal();
+      showModal();
     })
   },
 

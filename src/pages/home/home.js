@@ -16,11 +16,11 @@ Page({
   },
 
   onLoad: function (options) {
-    let that = this;
+    let _this = this;
     wx.getStorage({
       key: 'currentCity',
       success: function(res) {
-        that.setData({
+        _this.setData({
           currentCity: res.data,
         })
       },
@@ -111,7 +111,6 @@ Page({
 
   /** 控制picker */
   popPicker() {
-    console.log('popPicker');
     let popHidden = this.data.popHidden;
     this.setData({
       popHidden: !popHidden,

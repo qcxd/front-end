@@ -13,8 +13,6 @@ const postToWorkplacePhoto = (groupid, message) =>postToWorkplace(`/api/v1/wp/gr
 // User
 // const insertUser = (user) => rest.post({url: '/user/insertUser', data: user});
 
-const getOpenid = (code) => rest.get({url: '/mini/getOpenid?code='+code});
-
 const getUser = () => rest.post({url: '/user/getUser'});
 
 const getUserByOpenid = (openid) => rest.get({url: `/user/getUser/${openid}`});
@@ -75,6 +73,11 @@ const uploadPhoto = (filePath, openid) => {
   })
 }
 /**********************mini-car*******************/
+/**
+ * 获取openid
+ */
+const getOpenid = (code) => rest.get({ url: '/mini/getOpenid?code=' + code });
+
 
 /**
  * 创建用户

@@ -22,43 +22,45 @@
     </view>
   </view> -->
 
-  <view class='home-page-shop' wx:for="{{shopList}}">
-    <view bindtap='goShop' data-id="{{item.id}}">
-      <shopHead shopInfo='{{item}}' bind:followshop="followShop"/>
-    </view>
-
-    <!-- <view class='shop-prod'>
-      <block wx:for="{{item.Cars}}">
-        <view catchtap='goCarDetail' class='carCard'>
-          <shopCar carDetail="{{item}}"></shopCar>
-        </view>
-      </block>
-    </view> -->
-
-    <view class='shop-info'>
-      <view class='hr'></view>
-      <view class='car-flex'>
-        <icon iconName='address' width='12px' height='15px' class='address'/>
-        <text class='line-v'>{{item.address}}</text>
-        <icon iconName='weChat' width='16px' height='16px' />
-        <icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+  <block wx:for="{{shopList}}" wx:key="{{item.id}}">
+    <view class='home-page-shop'>
+      <view bindtap='goShop' data-id="{{item.id}}">
+        <shopHead shopInfo='{{item}}' bind:followshop="followShop"/>
       </view>
-      <view class='hr'></view>
-      <view class='car-flex'>
-        <text>车辆({{item.Cars.length}})</text>
-      </view>
-    </view>
 
-    <view class='scroll-cars'>
-      <scroll-view scroll-x class='cars-cell'>
-        <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+      <!-- <view class='shop-prod'>
+        <block wx:for="{{item.Cars}}">
           <view catchtap='goCarDetail' class='carCard'>
             <shopCar carDetail="{{item}}"></shopCar>
           </view>
         </block>
-      </scroll-view>
+      </view> -->
+
+      <view class='shop-info'>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <icon iconName='address' width='12px' height='15px' class='address'/>
+          <text class='line-v'>{{item.address}}</text>
+          <icon iconName='weChat' width='16px' height='16px' />
+          <icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+        </view>
+        <view class='hr'></view>
+        <view class='car-flex'>
+          <text>总计（{{item.Cars.length}}）</text>
+        </view>
+      </view>
+
+      <view class='scroll-cars'>
+        <scroll-view scroll-x class='cars-cell'>
+          <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+            <view catchtap='goCarDetail' class='carCard'>
+              <shopCar carDetail="{{item}}"></shopCar>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
     </view>
-  </view>
+  </block>
   
   <block wx:if="{{shopList.legth % 10 !== 0}}">
     <footer />

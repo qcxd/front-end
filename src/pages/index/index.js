@@ -1,10 +1,9 @@
 // pages/index/index.js
 const app = getApp();
-const apiService = require('../../service/api.service.js');
 const apiServicePro = require('../../service/api/api-promisify.service');
 const {
   cityReplace,
-  showModal
+  showModal,
 } = require('../../utils/utils.js');
 
 Page({
@@ -18,15 +17,16 @@ Page({
   },
 
   onLoad: function(options) {
-    let that = this;
+    let _this = this;
     wx.getStorageInfo({
       success(res) {
-        if (res.keys.indexOf('token') === 1 && res.keys.indexOf('user') === 1 && res.keys.indexOf('currentCity') === 1) {
+        if (res.keys.indexOf('user') !== -1 &&
+            res.keys.indexOf('currentCity') !== -1) {
           wx.switchTab({
             url: '../home/home',
           })
         } else {
-          that.getOpenid();
+          _this.getOpenid();
           if (app.globalData.userLocation) {
             wx.showLoading({
               title: '定位中',
@@ -34,11 +34,11 @@ Page({
             wx.getLocation({
               type: 'wgs84',
               success(res) {
-                that.getLocalCity(res.latitude, res.longitude);
+                _this.getLocalCity(res.latitude, res.longitude);
               }
             })
           } else {
-            that.getWeChatCity();
+            _this.getWeChatCity();
           }
         }
       }
@@ -46,9 +46,49 @@ Page({
     this.getCityList();
   },
 
+  getOpenid() {
+    let _this = this;
+    wx.login({
+      success: function (data) {
+        apiServicePro.getOpenid(data.code).then((result) => {
+          if (result.code === 200) {
+            _this.data.user.openid = result.data.openid;
+            _this.setData({
+              user: _this.data.user
+            });
+          } else {
+          }
+        }).catch((err) => {
+        })
+      },
+      fail: function (err) {
+        console.log('wx.login failed', err)
+      }
+    })
+  },
+
+  /** 获取城市列表 */
+  getCityList() {
+    apiServicePro.getCityList({}).then((result) => {
+      if (result.code === 200) {
+        const cityList = result.data;
+        cityList.forEach((e) => {
+          e.data.forEach((city) => {
+            city.name = cityReplace(city.name);
+          })
+        });
+        this.setData({
+          cityList: data.data,
+        })
+      } else { }
+    }).catch((err) => {
+      showModal();
+    })
+  },
+
   /** 获取定位 */
   getWeChatCity() {
-    let that = this
+    let _this = this
     wx.authorize({
       scope: "scope.userLocation",
       success() {
@@ -59,10 +99,10 @@ Page({
           type: 'wgs84',
           success(res) {
             app.globalData.userLocation = true;
-            that.getLocalCity(res.latitude, res.longitude);
+            _this.getLocalCity(res.latitude, res.longitude);
           },
           fail(res) {
-            that.setData({
+            _this.setData({
               currentCity: "定位失败"
             });
           }
@@ -77,7 +117,7 @@ Page({
    * @param longitude 纬度
    */
   getLocalCity(latitude, longitude) {
-    let that = this
+    let _this = this;
     wx.request({
       url: 'https://api.map.baidu.com/geocoder/v2/?ak=xsiYQN0VwrBHvxmf42BGdxFiTQgqBC4w&location=' + latitude + ',' + longitude + '&output=json',
       data: {},
@@ -87,7 +127,7 @@ Page({
       success: function(res) {
         let city = res.data.result.addressComponent.city;
         city = cityReplace(city);
-        that.setData({
+        _this.setData({
           currentCity: city
         });
         wx.setStorage({
@@ -97,7 +137,7 @@ Page({
         wx.hideLoading();
       },
       fail: function() {
-        that.setData({
+        _this.setData({
           currentCity: "---"
         });
         wx.hideLoading();
@@ -115,20 +155,13 @@ Page({
 
   /** 跳转广场tabBar页，同时获取用户信息 */
   goHome(e) {
-    this.getUserInfo(e);
-    wx.switchTab({
-      url: `../home/home`,
-    });
+    this.getUser(e);
   },
- 
+
   /** 获取用户信息 */
-  getUserInfo(e) {
+  getUser(e) {
     let userInfo = e.detail.userInfo;
     userInfo.openid = this.data.user.openid;
-    wx.setStorage({
-      key: "user",
-      data: e.detail.userInfo
-    })
     if (!userInfo.openid) {
       return;
     }
@@ -136,54 +169,17 @@ Page({
       if (result.code === 200) {
         userInfo.token = result.data.token;
         wx.setStorage({
-          key: "token",
-          data: result.data.token
-        })
+          key: "user",
+          data: userInfo
+        });
+        wx.switchTab({
+          url: `../home/home`,
+        });
       } else {
+        
       }
     }).catch((err) => {
     });
-  },
-
-  getOpenid() {
-    let that = this;
-    wx.login({
-      success: function(data) {
-        apiServicePro.getOpenid(data.code).then((result) => {
-          if (result.code === 200) {
-            that.data.user.openid = result.data.openid;
-            that.setData({
-              user: that.data.user
-            });
-          } else {
-          }
-        }).catch((err) => {
-        })
-      },
-      fail: function(err) {
-        console.log('fail');
-        console.log('wx.login failed', err)
-      }
-    })
-  },
-
-  /** 获取城市列表 */
-  getCityList() {
-    apiServicePro.getCityList({}).then((result) => {
-      if (result.code === 200) {
-        const cityList = result.data;
-        cityList.forEach((e) => {
-          e.data.forEach((city) => {
-            city.name = cityReplace(city.name);
-          })
-        });
-        this.setData({
-          cityList: result.data,
-        })
-      } else {}
-    }).catch((err) => {
-      showModal();
-    })
   },
 
   /** 选择城市 */

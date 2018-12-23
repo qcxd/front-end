@@ -1,7 +1,7 @@
 <!-- pages/my-home/my-home.wxml -->
 <view class='myHome'>
   <view class='car-flex home-head'>
-    <image src='../../image/porsche-zoom.jpg' />
+    <image src='{{user.avatarUrl}}' />
     <view>{{user.nickName}}</view>
   </view>
   <view class='car-flex home-center'>
