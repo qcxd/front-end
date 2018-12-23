@@ -21,7 +21,7 @@
       <text class='{{_active === "0" ? "active" : ""}}'>汽车</text>
     </view> 
     <view bindtap='selectSort' class="car-flex" bindtap='tabSwitch' data-index='1'>  
-      <text class='{{_active === "1"? "active": ""}}'>仓库</text>
+      <text class='{{_active === "1"? "active": ""}}'>店铺</text>
     </view>
   </view>
 

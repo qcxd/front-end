@@ -1,13 +1,12 @@
 const app = getApp();
 const apiServicePro = require('../../service/api/api-promisify.service');
-const Utils = require('../../utils/utils');
+const {
+  cityReplace,
+  showModal,
+} = require('../../utils/utils');
 
 // pages/shop/shop.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     shopList: [],
     currentCity: '',
@@ -16,14 +15,16 @@ Page({
     popHidden: true,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    this.setData({
-      currentCity: app.globalData.currentCity,
+    let that = this;
+    wx.getStorage({
+      key: 'currentCity',
+      success: function(res) {
+        that.setData({
+          currentCity: res.data,
+        })
+      },
     })
-    // 获取城市数据
     this.getCityList();
   },
   
@@ -33,18 +34,43 @@ Page({
       url: `../shop/shop?id=${e.currentTarget.dataset.id}`,
     })
   },
-
+ /** 汽车详情 */
   goCarDetail() {
     wx.navigateTo({
       url: `../car-detail/car-detail`,
     })
   },
 
+  /** 搜索 */
   doSearch(e) {
     const params = {
       keywords: e.detail.value
     }
     this.getShopList(params);
+  },
+
+  /**
+   * 获取店铺列表
+   * @param {Object} params 
+   */
+  getShopList(params) {
+    apiServicePro.getShopList(params).then((result) => {
+      if (result.code === 200) {
+        let shopList = this.data.shopList;
+        if (params.id) {
+          shopList = shopList.concat(result.data);
+        } else {
+          shopList = result.data;
+        }
+        this.setData({
+          shopList: shopList
+        })
+      } else {
+        showModal();
+      }
+    }).catch((err) => {
+      showModal();
+    })
   },
 
   /** 收藏店铺 */
@@ -76,46 +102,14 @@ Page({
           })
         }
       } else {
-        Utils.showModal();
+        showModal();
       }
     }, (err) => {
-      Utils.showModal();
+      showModal();
     })
   },
 
-  selectSort() {
-
-  },
-
-  selectArea() {
-
-  },
-  
-  /**
-   * 获取店铺列表
-   * @param {Object} params 
-   */
-  getShopList(params) {
-    apiServicePro.getShopList(params).then((result) => {
-      if (result.code === 200) {
-        let shopList = this.data.shopList;
-        if (params.id) {
-          shopList = shopList.concat(result.data);
-        } else {
-          shopList = result.data;
-        }
-        this.setData({
-          shopList: shopList
-        })
-      } else {
-        Utils.showModal();
-      }
-    }).catch((err) => {
-      Utils.showModal();
-    })
-  },
-
-  // 控制picker
+  /** 控制picker */
   popPicker() {
     console.log('popPicker');
     let popHidden = this.data.popHidden;
@@ -124,32 +118,22 @@ Page({
     })
   },
 
-  // 切换城市
-  changeCity: function (e) {
-    const val = e.detail.value
-    this.setData({
-      selectValue: this.data.provinceArray[val[0]].name + this.data.cityList[val[1]].name,
-    })
-    this.getCityList(this.data.provinceArray[val[0]].id);
-  },
-
   /** 获取城市列表 */
   getCityList() {
     apiServicePro.getCityList({}).then((result) => {
       if (result.code === 200) {
-        const cityList = result.data
+        const cityList = result.data;
         cityList.forEach((e) => {
-          e.replace(/市$/, '');
-        })
+          e.data.forEach((city) => {
+            city.name = cityReplace(city.name);
+          })
+        });
         this.setData({
-          cityList,
+          cityList: result.data,
         })
       } else { }
     }).catch((err) => {
-      wx.showModal({
-        title: '网络异常',
-        content: '网络异常，请稍后再试',
-      })
+      showModal();
     })
   },
 
@@ -160,11 +144,21 @@ Page({
         popHidden: true,
         currentCity: e.detail.name
       })
+      wx.setStorage({
+        key: 'currentCity',
+        data: e.detail.name,
+      });
     } else {  // 取消按钮
       this.setData({
         popHidden: true,
       })
     }
+  },
+
+  selectSort() {
+  },
+
+  selectArea() {
   },
 
   /**

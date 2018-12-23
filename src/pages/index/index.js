@@ -1,8 +1,11 @@
 // pages/index/index.js
-
 const app = getApp();
 const apiService = require('../../service/api.service.js');
 const apiServicePro = require('../../service/api/api-promisify.service');
+const {
+  cityReplace,
+  showModal
+} = require('../../utils/utils.js');
 
 Page({
   data: {
@@ -15,37 +18,40 @@ Page({
   },
 
   onLoad: function(options) {
-    let user = wx.getStorageSync('user');
-    if (user) {
-      wx.switchTab({
-        url: '../post/post',
-      })
-    } else {
-      this.loginThroughWechat();
-    }
     let that = this;
-    if (app.globalData.userLocation) {
-      wx.showLoading({
-        title: '定位中',
-      })
-      wx.getLocation({
-        type: 'wgs84',
-        success(res) {
-          that.getLocalCity(res.latitude, res.longitude);
+    wx.getStorageInfo({
+      success(res) {
+        if (res.keys.indexOf('token') === 1 && res.keys.indexOf('user') === 1 && res.keys.indexOf('currentCity') === 1) {
+          wx.switchTab({
+            url: '../home/home',
+          })
+        } else {
+          that.getOpenid();
+          if (app.globalData.userLocation) {
+            wx.showLoading({
+              title: '定位中',
+            })
+            wx.getLocation({
+              type: 'wgs84',
+              success(res) {
+                that.getLocalCity(res.latitude, res.longitude);
+              }
+            })
+          } else {
+            that.getWeChatCity();
+          }
         }
-      })
-    }
-
-    // 获取城市数据
+      }
+    })
     this.getCityList();
   },
 
-  dealWithCity() {
+  /** 获取定位 */
+  getWeChatCity() {
     let that = this
     wx.authorize({
       scope: "scope.userLocation",
       success() {
-        // 获取当前位置
         wx.showLoading({
           title: '定位中',
         })
@@ -66,7 +72,7 @@ Page({
   },
 
   /**
-   * 获取城市
+   * 获取定位城市
    * @param latitude 经度
    * @param longitude 纬度
    */
@@ -79,24 +85,27 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function(res) {
-        console.log(res);
         let city = res.data.result.addressComponent.city;
+        city = cityReplace(city);
         that.setData({
           currentCity: city
         });
-        app.globalData.currentCity = city;
+        wx.setStorage({
+          key: 'currentCity',
+          data: city,
+        });
         wx.hideLoading();
       },
       fail: function() {
         that.setData({
-          currentCity: "定位失败"
+          currentCity: "---"
         });
         wx.hideLoading();
       },
     })
   },
 
-  // 控制picker
+  /** 控制picker */
   popPicker() {
     let popHidden = this.data.popHidden;
     this.setData({
@@ -104,28 +113,22 @@ Page({
     })
   },
 
-  // 切换城市
-  changeCity: function(e) {
-    const val = e.detail.value
-    this.setData({
-      selectValue: this.data.provinceArray[val[0]].name + this.data.cityList[val[1]].name,
-    })
-    this.getCityList(this.data.provinceArray[val[0]].id);
-  },
-
-  // 开始
+  /** 跳转广场tabBar页，同时获取用户信息 */
   goHome(e) {
-    this.onGotUserInfo(e);
-    // 跳转到广场tabBar页
+    this.getUserInfo(e);
     wx.switchTab({
       url: `../home/home`,
     });
   },
-
-  onGotUserInfo(e) {
+ 
+  /** 获取用户信息 */
+  getUserInfo(e) {
     let userInfo = e.detail.userInfo;
     userInfo.openid = this.data.user.openid;
-    app.globalData.userInfo = e.detail.userInfo;
+    wx.setStorage({
+      key: "user",
+      data: e.detail.userInfo
+    })
     if (!userInfo.openid) {
       return;
     }
@@ -142,17 +145,16 @@ Page({
     });
   },
 
-  loginThroughWechat() {
+  getOpenid() {
     let that = this;
     wx.login({
       success: function(data) {
         apiServicePro.getOpenid(data.code).then((result) => {
           if (result.code === 200) {
-            that.dealWithCity()
             that.data.user.openid = result.data.openid;
             that.setData({
               user: that.data.user
-            })
+            });
           } else {
           }
         }).catch((err) => {
@@ -165,18 +167,22 @@ Page({
     })
   },
 
+  /** 获取城市列表 */
   getCityList() {
     apiServicePro.getCityList({}).then((result) => {
       if (result.code === 200) {
+        const cityList = result.data;
+        cityList.forEach((e) => {
+          e.data.forEach((city) => {
+            city.name = cityReplace(city.name);
+          })
+        });
         this.setData({
           cityList: result.data,
         })
       } else {}
     }).catch((err) => {
-      wx.showModal({
-        title: '网络异常',
-        content: '网络异常，请稍后再试',
-      })
+      showModal();
     })
   },
 
@@ -185,8 +191,12 @@ Page({
     if (e.detail.name) {
       this.setData({
         popHidden: true,
-        currentCity: e.detail.name
+        currentCity: e.detail.name,
       })
+      wx.setStorage({
+        key: 'currentCity',
+        data: e.detail.name,
+      });
     } else {  // 取消按钮
       this.setData({
         popHidden: true,

@@ -29,8 +29,13 @@ const showModal = (title, content) => {
   })
 }
 
+const cityReplace = (val) => {
+  return val.replace(/市$/, '');
+}
+
 
 module.exports = {
   formatDate,
-  showModal
+  showModal,
+  cityReplace
 }

@@ -5,12 +5,9 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    wx.login({
-      success: res => {
-      }
-    })
     wx.getSetting({
       success: res => {
+        // 获取地理位置授权信息
         this.globalData.userLocation = res.authSetting['scope.userLocation'];
         // 不再支持授权弹框
         // if (res.authSetting['scope.userInfo']) {
