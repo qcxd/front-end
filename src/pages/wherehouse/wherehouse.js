@@ -6,20 +6,18 @@ const {
 } = require('../../utils/utils');
 
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
-    _active: '1', // 1 店铺 2 汽车
+    _active: '1', // 1 店铺 0 汽车
     shopList: [],
     carList: [],
+    currentPageShop: 1,
+    currentPageCar: 1,
+    totalShop: 0,
+    totalCar: 0,
+    pageSize: 10
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    // this.getWarehouseList({});
   },
 
   tabSwitch(e) {
@@ -30,21 +28,53 @@ Page({
   },
 
   /**
-   * 获取仓库列表
+   * 获取仓库店铺列表
    * @param {Object} params 
    */
   getWarehouseList(params) {
     apiServicePro.getWarehouseList(params).then((result) => {
       if (result.code === 200) {
+        const totalShop = result.data.count;
+        const dataList = result.data.rows;
+        dataList.forEach((el) => {
+          el.isOpen = false;
+        })
         let shopList = this.data.shopList;
         if (params.id) {
-          shopList = shopList.concat(result.data);
+          shopList = shopList.concat(dataList);
         } else {
-          shopList = result.data;
+          shopList = dataList;
         }
         this.setData({
-          shopList: shopList
+          shopList,
+          totalShop,
         })
+      } else {
+        showModal();
+      }
+    }).catch((err) => {
+      showModal();
+    })
+  },
+
+  /**
+   * 获取仓库汽车列表
+   * @param {Object} params 
+   */
+  getWarehouseCarList(params) {
+    apiServicePro.getWarehouseCarList(params).then((result) => {
+      if (result.code === 200) {
+        const totalCar = result.data.count;
+        let carList = this.data.carList;
+        if (params.id) {
+          carList = carList.concat(result.data.rows);
+        } else {
+          carList = result.data.rows;
+        }
+        this.setData({
+          carList,
+          totalCar
+        });
       } else {
         showModal();
       }
@@ -65,6 +95,36 @@ Page({
     })
   },
 
+  /** 搜索 */
+  doSearch(e) {
+    const _active = this.data._active;
+    if (_active === '1') {
+      const params = {
+        name: e.detail.value
+      }
+      this.getWarehouseList(params);
+    } else {
+      const params = {
+        brand: e.detail.value
+      }
+      this.getWarehouseCarList(params);
+    }
+  },
+
+  /** 展开闭合汽车 */
+  openCars(e) {
+    const id = e.currentTarget.dataset.id;
+    const shopList = this.data.shopList;
+    shopList.forEach((el) => {
+      if (el.id === id) {
+        el.isOpen = !el.isOpen;
+      }
+    })
+    this.setData({
+      shopList,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -77,6 +137,7 @@ Page({
    */
   onShow: function () {
     this.getWarehouseList({});
+    this.getWarehouseCarList({});
   },
 
   /**
@@ -97,17 +158,33 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getWarehouseList({});
+    const _active = thia.data._active;
+    if (_active === '1') {
+      this.getWarehouseList({});
+    } else {
+      this.getWarehouseCarList({});
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    const shopList = this.data.shopList;
-    console.log('shopList.length', shopList.length );
-    if (shopList.length % 10 === 0) {
-      this.getWarehouseList({id: shopList[shopList.length - 1].id});
+    const _active = thia.data._active;
+    if (_active === '1') {
+      let currentPageShop = this.data.currentPageShop;
+      let totalShop = this.data.totalShop;
+      let pageSize = this.data.pageSize;
+      if (currentPageShop * pageSize  < totalShop ) {
+        this.getWarehouseList({ currentPage: currentPageShop });
+      }
+    } else {
+      let currentPageCar = this.data.currentPageCar;
+      let totalCar = this.data.totalCar;
+      let pageSize = this.data.pageSize;
+      if (currentPageShop * pageSize < totalCar) {
+        this.getWarehouseCarList({ currentPage: currentPageCar });
+      }
     }
   },
 

@@ -124,9 +124,14 @@ const followShop = (params) => rest.post({ url: `/shop/follow`, data: params });
 const joinWarehouse = (params) => rest.post({ url: `/shop/joinWarehouse`, data: params });
 
 /**
- * 仓库列表
+ * 仓库店铺列表
  */
 const getWarehouseList = (params) => rest.post({ url: `/shop/warehouseList`, data: params });
+
+/**
+ * 仓库汽车列表
+ */
+const getWarehouseCarList = (params) => rest.post({ url: `/shop/warehouseCarList`, data: params });
 
 /**
  * 创建汽车
@@ -169,6 +174,7 @@ module.exports = {
   followShop,
   joinWarehouse,
   getWarehouseList,
+  getWarehouseCarList,
   createCar
 }
 

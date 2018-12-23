@@ -27,7 +27,7 @@ Page({
           })
         } else {
           _this.getOpenid();
-          this.getCityList();
+          _this.getCityList();
           if (app.globalData.userLocation) {
             wx.showLoading({
               title: '定位中',
@@ -78,7 +78,7 @@ Page({
           })
         });
         this.setData({
-          cityList: data.data,
+          cityList: result.data,
         })
       } else { }
     }).catch((err) => {

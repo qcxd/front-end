@@ -41,35 +41,49 @@
           </view>
           <view class='hr'></view>
           <view class='car-flex'>
-            <text>收藏的车({{item.Cars.length}})</text>
+            <text>仓库的车（{{item.FollowCars.length}}）</text>
+            <icon iconName="arrowDown" width="12px" height="8px" bindtap='openCars' data-id='{{item.id}}'></icon>
           </view>
+          <block wx:if="{{item.isOpen}}">
+            <block wx:for="{{item.FollowCars}}"  wx:key="{{item.Car.id}}">
+              <view class='shop-box'>
+                <image src="{{item.Car.indexImage}}" mode='widthFix'></image>
+                <view class='car-info'>
+                  <view class='desc'>{{item.Car.brand}}</view>
+                  <view class='car-flex'>
+                    <text class='flex_1'>¥{{item.Car.price}}万</text>
+                    <text class='add' bindtap='addWherehouse' data-id='{{item.Car.id}}'>加入仓库</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </block>
         </view>
-
         <view class='wherehouse-cars'>
           <scroll-view scroll-x class='cars-cell'>
-            <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+            <block wx:for="{{item.Car}}" wx:key="{{item.id}}">
               <view catchtap='goCarDetail' class='carCard'>
                 <shopCar carDetail="{{item}}"></shopCar>
               </view>
             </block>
           </scroll-view>
         </view>
-
       </view>
     </block>
   </view>
+
   <view wx:else>
-    <block wx:for="{{shopList}}" wx:key="{{item.id}}">
+    <block wx:for="{{carList}}" wx:key="{{item.id}}">
       <view class="wherehouse-shop">
-        <view bindtap='goShop' data-id="{{item.id}}" class='shop-title'>
+        <!-- <view bindtap='goShop' data-id="{{item.id}}" class='shop-title'>
           <text>{{item.Shop.name}}</text>
-        </view>
+        </view> -->
         <view class='wherehouse-cars'>
-          <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
+          <!-- <block wx:for="{{item.Car}}" wx:key="{{item.id}}"> -->
             <view catchtap='goCarDetail' class='carCard'>
-              <carCard carDetail="{{item}}"></carCard>
+              <carCard carDetail="{{item.Car}}"></carCard>
             </view>
-          </block>
+          <!-- </block> -->
         </view>
       </view>
     </block>

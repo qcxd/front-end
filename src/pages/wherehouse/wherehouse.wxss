@@ -74,3 +74,43 @@
 .cars-cell .carCard + .carCard {
   padding-left: 10px;
 }
+
+.shop-box {
+  width: 48%;
+  font-size: 14px;
+  color: #797979;  
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin: 0px 1%;
+}
+
+.shop-box image {
+  width:100%;
+  margin:5px 0px;
+}
+
+.shop-box .add {
+  background-color: #4C70CB;
+  color: #ffffff;
+  border-radius: 50px;  
+  font-size: 12px;
+  padding: 2px 10px;
+}
+
+.shop-box .cancle {
+  color: #4C70CB;
+  border: 1px solid #4C70CB;
+  border-radius: 50px;
+  font-size: 11px;
+  padding: 2px 10px;
+}
+
+.shop-box .car-info {
+  padding: 5px 10px 10px 10px;
+}
+
+.shop-box .desc {
+  font-size: 12px;
+  padding-bottom: 2px;
+}
