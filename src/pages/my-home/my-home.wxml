@@ -7,15 +7,15 @@
   <view class='car-flex home-center'>
     <view>
       <view class='small-text'>收藏汽车</view>
-      <view class='theme-text'>8辆</view>
+      <view class='theme-text'>{{userStatistics.followCars}}辆</view>
     </view>
     <view>
       <view class='small-text'>收藏店铺</view>
-      <view class='theme-text'>6家</view>
+      <view class='theme-text'>{{userStatistics.followShops}}家</view>
     </view>
     <view>
       <view class='small-text'>我的粉丝</view>
-      <view class='theme-text'>233人</view>
+      <view class='theme-text'>{{userStatistics.byFollowShops}}人</view>
     </view>
   </view>
   <view class='car-flex home-cell'>

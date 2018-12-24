@@ -1,28 +1,39 @@
 // pages/my-home/my-home.js
-const app = getApp()
+const app = getApp();
+const apiServicePro = require('../../service/api/api-promisify.service');
+const {
+  cityReplace,
+  showModal,
+} = require('../../utils/utils.js');
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     user: {},
+    userStatistics: {},
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let _this = this
     wx.getStorage({
       key: 'user',
       success: function(res) {
-        console.log(res);
         _this.setData({
           user: res.data
         })
       },
+    });
+    this.getUserStatistics();
+  },
+
+  getUserStatistics() {
+    apiServicePro.getUserStatistics().then((result) => {
+      if (result.code === 200) {
+        this.setData({
+          userStatistics: result.data
+        })
+      }
+    }).catch((err) => {
+      showModal();
     })
   },
 

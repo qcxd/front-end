@@ -138,6 +138,13 @@ const getWarehouseCarList = (params) => rest.post({ url: `/shop/warehouseCarList
  */
 const createCar = (params) => rest.post({ url: `/shop/createCar`, data: params });
 
+/**
+ * 获取用户数据分析
+ */
+const getUserStatistics = () => rest.get({ url: `/user/statistics` });
+
+
+
 module.exports = {
   // Workplace
   postToWorkplaceTxt,
@@ -175,6 +182,7 @@ module.exports = {
   joinWarehouse,
   getWarehouseList,
   getWarehouseCarList,
-  createCar
+  createCar,
+  getUserStatistics
 }
 
