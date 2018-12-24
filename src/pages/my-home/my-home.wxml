@@ -20,10 +20,10 @@
   </view>
   <view class='car-flex home-cell'>
     <text class='small-text flex_1'>我的店铺</text>
-    <icon iconName="arrowRight" width='8px' height='12px' />
+    <Icon iconName="arrowRight" width='8px' height='12px' />
   </view>
    <view class='car-flex home-cell'>
     <text class='small-text flex_1'>我要开店</text>
-    <icon iconName="arrowRight" width='8px' height='12px' />
+    <Icon iconName="arrowRight" width='8px' height='12px' />
   </view>
 </view>

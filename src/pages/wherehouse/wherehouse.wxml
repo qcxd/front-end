@@ -2,17 +2,22 @@
 <view class='wherehouse'>
   <view class='car-search'>
     <icon type="search" size="15" />
-    <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+    <input 
+      bindinput="doSearch" 
+      value='{{inputValue}}' 
+      placeholder="搜索" 
+      placeholder-class='placeholder'
+    />
   </view>
   
   <!-- <view class='select car-flex'> 
     <view bindtap='selectArea' class="car-flex">
       <text>全部地区</text>
-      <icon iconName='arrowDown' width='12px' height='6px' />
+      <Icon iconName='arrowDown' width='12px' height='6px' />
     </view> 
     <view bindtap='selectSort' class="car-flex">  
       <text>智能排序</text>
-      <icon iconName='arrowDown' width='12px' height='6px' />
+      <Icon iconName='arrowDown' width='12px' height='6px' />
     </view>
   </view> -->
 
@@ -29,20 +34,31 @@
     <block wx:for="{{shopList}}" wx:key="{{item.id}}">
       <view class="wherehouse-shop">
         <view bindtap='goShop' data-id="{{item.id}}">
-          <shopHead shopInfo='{{item.Shop}}' shopIntro='{{false}}'/>
+          <shopHead
+            shopInfo='{{item.Shop}}'
+            shopIntro='{{false}}'
+            bind:followshop="unFollowShop"
+          />
         </view>
         <view class='shop-info'>
           <view class='hr'></view>
           <view class='car-flex'>
-            <icon iconName='address' width='12px' height='15px' class='address'/>
+            <Icon iconName='address' width='12px' height='15px' class='address'/>
             <text class='line-v'>{{item.Shop.address}}</text>
-            <icon iconName='weChat' width='16px' height='16px' />
-            <icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+            <Icon iconName='weChat' width='16px' height='16px' />
+            <Icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
           </view>
           <view class='hr'></view>
           <view class='car-flex'>
             <text>仓库的车（{{item.FollowCars.length}}）</text>
-            <icon iconName="arrowDown" width="12px" height="8px" bindtap='openCars' data-id='{{item.id}}'></icon>
+            <block wx:if="{{item.FollowCars.length > 0}}">
+              <block wx:if="{{item.isOpen}}">
+                <Icon iconName="arrowsUp" width="12px" height="8px" bindtap='openCars' data-id='{{item.id}}' />
+              </block>
+              <block wx:else>
+                <Icon iconName="arrowsDown" width="12px" height="8px" bindtap='openCars' data-id='{{item.id}}' />
+              </block>
+            </block>
           </view>
           <block wx:if="{{item.isOpen}}">
             <block wx:for="{{item.FollowCars}}"  wx:key="{{item.Car.id}}">
@@ -52,7 +68,9 @@
                   <view class='desc'>{{item.Car.brand}}</view>
                   <view class='car-flex'>
                     <text class='flex_1'>¥{{item.Car.price}}万</text>
-                    <text class='add' bindtap='addWherehouse' data-id='{{item.Car.id}}'>加入仓库</text>
+                    <text class='add' bindtap='addWherehouse' data-id='{{item.Car.id}}'>
+                      加入仓库
+                    </text>
                   </view>
                 </view>
               </view>

@@ -6,13 +6,19 @@
   </view>
   <view class='shop-info'>
     <view class='shop-title'>
+      <block wx:if="{{shopIntro}}">
+        <view class='level'>v1</view>
+      </block>
       <text>{{shopInfo.name}}</text>
+      <block wx:if="{{!shopIntro}}">
+        <view class='level'>v1</view>
+      </block>
       <!-- <image src="../../image/icon_star2.png" catchtap='followShop' data-id="{{shopInfo.id}}"></image> -->
       <block wx:if='{{shopInfo.follow}}'>
-        <icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+        <Icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
       </block>
       <block wx:if='{{!shopInfo.follow}}'>
-        <icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+        <Icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
       </block>
       <!-- <view class="">已关注</view> -->
     </view>

@@ -7,6 +7,7 @@ const {
 
 Page({
   data: {
+    inputValue: '',
     _active: '1', // 1 店铺 0 汽车
     shopList: [],
     carList: [],
@@ -14,7 +15,7 @@ Page({
     currentPageCar: 1,
     totalShop: 0,
     totalCar: 0,
-    pageSize: 10
+    pageSize: 10,
   },
 
   onLoad: function (options) {
@@ -23,7 +24,8 @@ Page({
   tabSwitch(e) {
     const index =  e.currentTarget.dataset.index;
     this.setData({
-      _active: index
+      _active: index,
+      inputValue: '',
     })
   },
 
@@ -125,6 +127,20 @@ Page({
     })
   },
 
+  /** 取消关注 */
+  unFollowShop(e) {
+    const id = e.currentTarget.dataset.id;
+    const shopList = this.data.shopList;
+    shopList.forEach((el) => {
+      if (el.id === id) {
+        el.isFollowShop = false;
+      }
+    })
+    this.setData({
+      shopList,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -158,7 +174,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    const _active = thia.data._active;
+    const _active = this.data._active;
     if (_active === '1') {
       this.getWarehouseList({});
     } else {
@@ -170,7 +186,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    const _active = thia.data._active;
+    const _active = this.data._active;
     if (_active === '1') {
       let currentPageShop = this.data.currentPageShop;
       let totalShop = this.data.totalShop;
@@ -182,7 +198,7 @@ Page({
       let currentPageCar = this.data.currentPageCar;
       let totalCar = this.data.totalCar;
       let pageSize = this.data.pageSize;
-      if (currentPageShop * pageSize < totalCar) {
+      if (currentPageCar * pageSize < totalCar) {
         this.getWarehouseCarList({ currentPage: currentPageCar });
       }
     }

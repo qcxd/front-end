@@ -44,7 +44,7 @@ Page({
   /** 搜索 */
   doSearch(e) {
     const params = {
-      keywords: e.detail.value
+      keyword: e.detail.value
     }
     this.getShopList(params);
   },
@@ -58,9 +58,9 @@ Page({
       if (result.code === 200) {
         let shopList = this.data.shopList;
         if (params.id) {
-          shopList = shopList.concat(result.data);
+          shopList = shopList.concat(result.data.rows);
         } else {
-          shopList = result.data;
+          shopList = result.data.rows;
         }
         this.setData({
           shopList: shopList

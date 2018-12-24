@@ -1,6 +1,6 @@
 <view class="chat-input">
     <!-- <button class="icon" bindtap="switchIsText">
-        <icon iconName="voiceRightHigh"></icon>
+        <Icon iconName="voiceRightHigh"></Icon>
     </button> -->
     <textarea 
             class="c-input {{isIOS?'ios-c-input':''}}" 
@@ -19,10 +19,10 @@
     <!-- <button wx:else class="btn-voice">voice</button> -->
     <!-- wx:if="{{isText}}" -->
     <!-- <button class="icon">
-        <icon iconName="smile_grey"></icon>
+        <Icon iconName="smile_grey"></Icon>
     </button>
     <button class="icon" bindtap="handleOther">
-        <icon iconName="plus_grey" width="60%" height="60%"></icon>
+        <Icon iconName="plus_grey" width="60%" height="60%"></Icon>
     </button> -->
     <button class="send" bindtap="handleComplete">
         Send

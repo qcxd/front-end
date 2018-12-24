@@ -32,6 +32,17 @@
   font-size: 15px;
   color: #13334D;
 }
+.home-shop .shop-title .level {
+  width:23px;
+  height:14px;
+  margin-right: 10px;
+  text-align: center;
+  border-radius:2px;
+  font-size:11px;
+  font-family:"Times New Roman",Georgia,Serif;
+  color:#ffffff;
+  background-image:linear-gradient(to bottom,#f59518, #f3e247, #f59518);
+}
 
 .home-shop .shop-title image{
   width: 18px;

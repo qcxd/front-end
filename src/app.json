@@ -50,7 +50,7 @@
     ]
   },
   "usingComponents": {
-    "icon": "/components/icon/icon",
+    "Icon": "/components/Icon/Icon",
     "shopHead": "/components/shopHead/shopHead",
     "shopCar": "/components/shopCar/shopCar",
     "footer": "/components/footer/footer",

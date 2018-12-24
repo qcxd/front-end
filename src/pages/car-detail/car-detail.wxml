@@ -33,7 +33,7 @@
 
   <view class="footer-btn">
     <view class="collect"> 
-      <icon iconName='star2' width='16px' height='16px' />
+      <Icon iconName='star2' width='16px' height='16px' />
       <view class="">收藏</view>
     </view>
     <button class="carBtn_primary_t">一键分享</button>
