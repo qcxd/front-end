@@ -41,14 +41,6 @@
           />
         </view>
         <view class='shop-info'>
-          <view class='hr'></view>
-          <view class='car-flex'>
-            <Icon iconName='address' width='12px' height='15px' class='address'/>
-            <text class='line-v'>{{item.Shop.address}}</text>
-            <Icon iconName='weChat' width='16px' height='16px' />
-            <Icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
-          </view>
-          <view class='hr'></view>
           <view class='car-flex'>
             <text>仓库的车（{{item.FollowCars.length}}）</text>
             <block wx:if="{{item.FollowCars.length > 0}}">
@@ -68,9 +60,9 @@
                   <view class='desc'>{{item.Car.brand}}</view>
                   <view class='car-flex'>
                     <text class='flex_1'>¥{{item.Car.price}}万</text>
-                    <text class='add' bindtap='addWherehouse' data-id='{{item.Car.id}}'>
+                    <button class='add' bindtap='addWherehouse' data-id='{{item.Car.id}}'>
                       加入仓库
-                    </text>
+                    </button>
                   </view>
                 </view>
               </view>

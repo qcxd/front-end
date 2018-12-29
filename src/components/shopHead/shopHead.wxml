@@ -1,39 +1,48 @@
 <!--components/shopHead/shopHead.wxml-->
-
-<view class='home-shop'>
-  <view class='shop-header'>
-    <image src="{{shopInfo.logo}}" mode='aspectFill'></image>
-  </view>
-  <view class='shop-info'>
-    <view class='shop-title'>
-      <block wx:if="{{shopIntro}}">
-        <view class='level'>v1</view>
-      </block>
-      <text>{{shopInfo.name}}</text>
-      <block wx:if="{{!shopIntro}}">
-        <view class='level'>v1</view>
-      </block>
-      <!-- <image src="../../image/icon_star2.png" catchtap='followShop' data-id="{{shopInfo.id}}"></image> -->
-      <block wx:if='{{shopInfo.follow}}'>
-        <Icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
-      </block>
-      <block wx:if='{{!shopInfo.follow}}'>
-        <Icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
-      </block>
-      <!-- <view class="">已关注</view> -->
+<view class='homeHead'>
+  <view class='home-shop'>
+    <view class='shop-header'>
+      <image src="{{shopInfo.logo}}" mode='aspectFill'></image>
     </view>
-    <!-- <view wx:if="{{shopInfo.verify}}"><text class='shop-verify'>已认证</text></view>
-    <view wx:if="{{!shopInfo.verify}}"><text class='shop-no-verify'>未认证</text></view> -->
-    <view wx:if="{{shopIntro}}" class='shop-intro'>
-      <text>{{shopInfo.introduce}}</text>
-    <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
+    <view class='shop-info'>
+      <view class='shop-title'>
+        <block wx:if="{{shopIntro}}">
+          <view class='level'>v1</view>
+        </block>
+        <text>{{shopInfo.name}}</text>
+        <block wx:if="{{!shopIntro}}">
+          <view class='level'>v1</view>
+        </block>
+        <!-- <image src="../../image/icon_star2.png" catchtap='followShop' data-id="{{shopInfo.id}}"></image> -->
+        <block wx:if='{{shopInfo.follow}}'>
+          <Icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+        </block>
+        <block wx:if='{{!shopInfo.follow}}'>
+          <Icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+        </block>
+        <!-- <view class="">已关注</view> -->
+      </view>
+      <!-- <view wx:if="{{shopInfo.verify}}"><text class='shop-verify'>已认证</text></view>
+      <view wx:if="{{!shopInfo.verify}}"><text class='shop-no-verify'>未认证</text></view> -->
+      <view wx:if="{{shopIntro}}" class='shop-intro'>
+        <text>{{shopInfo.introduce}}</text>
+      <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
+      </view>
+      <!-- <view class='shop-prod'>
+        <block wx:for="{{shopInfo.Cars}}">
+          <view catchtap='goCarDetail' class='carCard'>
+            <carCard carDetail="{{shopInfo}}"></carCard>
+          </view>
+        </block>
+      </view> -->
     </view>
-    <!-- <view class='shop-prod'>
-      <block wx:for="{{shopInfo.Cars}}">
-        <view catchtap='goCarDetail' class='carCard'>
-          <carCard carDetail="{{shopInfo}}"></carCard>
-        </view>
-      </block>
-    </view> -->
   </view>
+  <view class='hr'></view>
+  <view class='car-flex address'>
+    <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
+    <text class='line-v'>{{shopInfo.address}}</text>
+    <Icon iconName='weChat' width='16px' height='16px' />
+    <Icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+  </view>
+  <view class='hr'></view>
 </view>

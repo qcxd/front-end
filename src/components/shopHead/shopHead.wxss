@@ -1,4 +1,9 @@
 
+
+.homeHead {
+  padding: 0px 10px;
+}
+
 .home-shop {
   display: flex;
   align-items: center;
@@ -12,7 +17,7 @@
 }
 
 .home-shop .shop-header {
-  padding-left: 10px;
+  /* padding-left: 10px; */
 }
 
 .home-shop .shop-header image {
@@ -90,4 +95,41 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   line-height: 20px;  
+}
+
+.homeHead .address {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
+
+.homeHead .address text{
+  flex: 1;
+  font-size: 14px;
+}
+
+.homeHead .address icon {
+  padding-left: 15px;
+} 
+
+.homeHead .address .icon-address {
+  padding:0px 7px 0px 0px;
+}
+
+.homeHead .address .line-v {
+  border-right: 1px solid #d8e2e9;
+}
+
+/*0.5px线条*/
+.hr {
+  position: relative;
+}
+.hr:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(0deg, #d8e2e9 50%, transparent 50%);
 }

@@ -10,6 +10,7 @@ Page({
   data: {
     shopList: [],
     currentCity: '',
+    currentCityId: '',
     selectValue: '',
     cityList: [],
     popHidden: true,
@@ -20,9 +21,11 @@ Page({
     wx.getStorage({
       key: 'currentCity',
       success: function(res) {
+        const currentCityId = _this.getCityId(res.data) || '';
         _this.setData({
           currentCity: res.data,
-        })
+          currentCityId,
+        });
       },
     })
     this.getCityList();
@@ -42,9 +45,10 @@ Page({
   },
 
   /** 搜索 */
-  doSearch(e) {
+  doSearch(e) {    
     const params = {
-      keyword: e.detail.value
+      keyword: e.detail.value,
+      city: this.data.currentCityId,
     }
     this.getShopList(params);
   },
@@ -139,9 +143,11 @@ Page({
   /** 选择城市 */
   doSelect(e) {
     if (e.detail.name) {
+      const currentCityId = _this.getCityId(res.data) || '';
       this.setData({
         popHidden: true,
-        currentCity: e.detail.name
+        currentCity: e.detail.name,
+        currentCityId,
       })
       wx.setStorage({
         key: 'currentCity',
@@ -152,6 +158,17 @@ Page({
         popHidden: true,
       })
     }
+  },
+
+  getCityId(currentCity) {
+    const cityList = result.data;
+    cityList.forEach(e => {
+      e.data.forEach(item => {
+        if (item.name.index(currentCity) > 0) {
+          return item.id;
+        }
+      });
+    })
   },
 
   selectSort() {

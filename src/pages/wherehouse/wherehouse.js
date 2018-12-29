@@ -91,12 +91,6 @@ Page({
     })
   },
 
-  phoneCall(e) {
-    wx.makePhoneCall({
-      phoneNumber: '1340000'
-    })
-  },
-
   /** 搜索 */
   doSearch(e) {
     const _active = this.data._active;
