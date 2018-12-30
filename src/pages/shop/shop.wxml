@@ -89,7 +89,13 @@
             <view class='desc'>{{item.brand}}</view>
             <view class='car-flex'>
               <text class='flex_1'>¥{{item.price}}万</text>
-              <text class='add' bindtap='addWherehouse' data-id='{{item.id}}'>加入仓库</text>
+              <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
+                bindtap='addWherehouse' 
+                data-id='{{item.id}}'
+                data-follow='{{item.isFollowCar}}'
+              >
+                {{item.isFollowCar ? "取消加入" : "加入仓库"}}
+              </text>
             </view>
           </view>
         </view>

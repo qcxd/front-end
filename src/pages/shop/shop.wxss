@@ -83,11 +83,21 @@
 }
 
 .shop-box .add {
-  background-color: #4C70CB;
-  color: #ffffff;
   border-radius: 50px;  
   font-size: 12px;
   padding: 2px 10px;
+  color: #ffffff;
+  background-color: #4C70CB;
+  border: 1px solid #4C70CB;
+}
+
+.shop-box .cancel {
+  border-radius: 50px;  
+  font-size: 12px;
+  padding: 2px 10px;
+  color: #797979;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
 }
 
 .shop-box .cancle {

@@ -88,13 +88,13 @@ Page({
         let sList = this.data.shopList;
         sList.forEach(el => {
           if (el.id === e.detail.id) {
-            el.follow = el.follow ? false : true
+            el.isFollowShop = el.isFollowShop ? false : true
           }
         });
         this.setData({
           shopList: sList
         })
-        if (e.detail.follow) {
+        if (e.detail.isFollowShop) {
           wx.showToast({
             title: '已取消收藏',
             icon: 'succes'

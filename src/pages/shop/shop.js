@@ -54,29 +54,39 @@ Page({
    */
   addWherehouse(e) {
     const params = {
-      id: e.currentTarget.dataset.id
+      id: e.currentTarget.dataset.id,
+      follow: e.currentTarget.dataset.follow ? false : true,
     };
     apiServicePro.joinWarehouse(params).then((result) => {
       if (result.code === 200) {
-        wx.showToast({
-          title: '已添加',
-          icon: 'succes',
-          duration: 1000,
-          mask: true
+        const shopDetail = this.data.shopDetail;
+        shopDetail.Cars.forEach(item => {
+          if (item.id === e.currentTarget.dataset.id) {
+            item.isFollowCar = e.currentTarget.dataset.follow ? false : true;
+          }
         })
+        this.setData({
+          shopDetail,
+        })
+        if (e.currentTarget.dataset.follow) {
+          wx.showToast({
+            title: '已取消',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
+        } else {
+          wx.showToast({
+            title: '已添加',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
+        }
       } else {
         showModal();
       }
     }, (err) => {
-    })
-  },
-
-  /**
-   * 取消加入仓库
-   */
-  doCancle() {
-    wx.showToast({
-      title: '已取消',
     })
   },
 
@@ -94,18 +104,19 @@ Page({
 
   /** 收藏店铺 */
   followShop(e) {
+    console.log(e);
     const params = {
       id: e.currentTarget.dataset.id,
-      follow: e.currentTarget.dataset.isFollowShop ? false : true
+      follow: e.currentTarget.dataset.follow ? false : true
     };
     apiServicePro.followShop(params).then((result) => {
       if (result.code === 200) {
         const shopDetail = this.data.shopDetail;
-        shopDetail.isFollowShop = e.currentTarget.dataset.isFollowShop ? false : true;
+        shopDetail.isFollowShop = e.currentTarget.dataset.follow ? false : true;
         this.setData({
           shopDetail,
         })
-        if (e.currentTarget.dataset.isFollowShop) {
+        if (e.currentTarget.dataset.follow) {
           wx.showToast({
             title: '已取消收藏',
             icon: 'succes'
