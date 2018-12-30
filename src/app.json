@@ -6,17 +6,9 @@
     "pages/car-detail/car-detail",
     "pages/ossUpload/ossUpload",
     "pages/shop/shop",
-    "pages/mine/mine",
-    "pages/post/post",
-    "pages/join-groups/join-groups",
-    "pages/chatbot-Success/chatbot-Success",
-    "pages/post-Add/post-Add",
-    "pages/user/user",
-    "pages/chat/chat",
     "pages/logs/logs",
     "pages/upload/upload",
     "pages/test/tets",
-    "pages/menu/menus",
     "pages/my-home/my-home"
   ],
   "window": {

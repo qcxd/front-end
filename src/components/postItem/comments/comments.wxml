@@ -1,8 +1,0 @@
-<!--components/postItem/comments/comments.wxml-->
-<view class="comment" wx:if="{{comment.message}}">
-    <i-avatar src="{{comment.from.avatar}}" class="comment-avatar"></i-avatar>
-    <view class="comment-content">
-        <text class="bold">{{comment.from.name}}</text>
-        <text class="message">{{comment.message}}</text>
-    </view>
-</view>

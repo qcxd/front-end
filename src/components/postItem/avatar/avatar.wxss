@@ -1,7 +1,0 @@
-/* components/postItem/avatar/avatar.wxss */
-.avatar {
-    width: 72rpx;
-    height: 72rpx;
-    border-radius: 50%;
-    display: block;
-}
