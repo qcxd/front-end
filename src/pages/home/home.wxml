@@ -48,6 +48,10 @@
     <footer />
   </block>
 
+  <block wx:if="{{shopList.length === 0}}">
+    <noData></noData>
+  </block>
+
   <view hidden="{{popHidden}}">
     <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
   </view>

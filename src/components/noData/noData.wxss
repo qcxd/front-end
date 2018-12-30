@@ -1,1 +1,8 @@
 /* components/noData/noData.wxss */
+.noDataPage {
+  margin-top: 10px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 40px;
+  font-size: 12px;
+}

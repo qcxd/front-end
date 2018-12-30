@@ -56,6 +56,7 @@
     "footer": "/components/footer/footer",
     "carCard": "/components/carCard/carCard",
     "pickCity": "/components/pickCity/pickCity",
-    "carSwiper": "/components/carSwiper/carSwiper"
+    "carSwiper": "/components/carSwiper/carSwiper",
+    "noData": "/components/noData/noData"
   }
 }

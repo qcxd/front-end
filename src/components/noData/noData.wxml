@@ -1,3 +1,4 @@
 <!--components/noData/noData.wxml-->
-<view>
-noData</view>
+<view class='noDataPage'>
+  <text>暂时没有数据，换个城市试试～</text>
+</view>
