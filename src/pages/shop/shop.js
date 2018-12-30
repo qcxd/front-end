@@ -1,7 +1,9 @@
 // pages/shop/shop.js
 
 const apiServicePro = require('../../service/api/api-promisify.service');
-const Utils = require('../../utils/utils');
+const {
+  showModal,
+} = require('../../utils/utils');
 
 Page({
 
@@ -9,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopDetail: {}
+    shopDetail: {},
+    _active: '1',
   },
 
   /**
@@ -23,6 +26,13 @@ Page({
     console.log('search');
   },
 
+  tabSwitch(e) {
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      _active: index,
+    })
+  },
+
   /**
    * 听过店铺id获取信息
    */
@@ -33,7 +43,7 @@ Page({
           shopDetail: result.data
         })
       } else {
-        Utils.showModal();
+        showModal();
       }
     }, (err) => {
     })
@@ -55,7 +65,7 @@ Page({
           mask: true
         })
       } else {
-        Utils.showModal();
+        showModal();
       }
     }, (err) => {
     })
@@ -67,6 +77,49 @@ Page({
   doCancle() {
     wx.showToast({
       title: '已取消',
+    })
+  },
+
+  phoneCall(e) {
+    wx.makePhoneCall({
+      phoneNumber: '1340000'
+    })
+  },
+
+  goCarDetail() {
+    wx.navigateTo({
+      url: '../car-detail/car-detail',
+    })
+  },
+
+  /** 收藏店铺 */
+  followShop(e) {
+    const params = {
+      id: e.currentTarget.dataset.id,
+      follow: e.currentTarget.dataset.isFollowShop ? false : true
+    };
+    apiServicePro.isFollowShopShop(params).then((result) => {
+      if (result.code === 200) {
+        const shopDetail = this.data.shopDetail;
+        shopDetail.isFollowShop = e.currentTarget.dataset.isFollowShop ? false : true;
+        this.setData({
+          shopDetail,
+        })
+        if (e.currentTarget.dataset.isFollowShop) {
+          wx.showToast({
+            title: '已取消收藏',
+            icon: 'succes'
+          })
+        } else {
+          wx.showToast({
+            title: '已收藏',
+            icon: 'succes'
+          })
+        }
+      } else {
+        showModal();
+      }
+    }, (err) => {
     })
   },
 

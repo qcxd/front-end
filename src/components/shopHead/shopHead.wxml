@@ -14,11 +14,11 @@
           <view class='level'>v1</view>
         </block>
         <!-- <image src="../../image/icon_star2.png" catchtap='followShop' data-id="{{shopInfo.id}}"></image> -->
-        <block wx:if='{{shopInfo.follow}}'>
-          <Icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+        <block wx:if='{{shopInfo.isFollowShop}}'>
+          <Icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
         </block>
-        <block wx:if='{{!shopInfo.follow}}'>
-          <Icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.follow}}" />
+        <block wx:if='{{!shopInfo.isFollowShop}}'>
+          <Icon iconName='star2' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
         </block>
         <!-- <view class="">已关注</view> -->
       </view>
@@ -41,8 +41,8 @@
   <view class='car-flex address'>
     <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
     <text class='line-v'>{{shopInfo.address}}</text>
-    <Icon iconName='weChat' width='16px' height='16px' />
-    <Icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+    <Icon iconName='weChat' width='20px' height='16.67px' />
+    <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' />
   </view>
   <view class='hr'></view>
 </view>

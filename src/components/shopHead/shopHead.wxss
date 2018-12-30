@@ -100,7 +100,7 @@
 .homeHead .address {
   display: flex;
   align-items: center;
-  padding: 5px 0px;
+  padding: 7px 0px;
 }
 
 .homeHead .address text{
@@ -117,6 +117,8 @@
 }
 
 .homeHead .address .line-v {
+  font-size: 12px;
+  font-weight: 400;
   border-right: 1px solid #d8e2e9;
 }
 

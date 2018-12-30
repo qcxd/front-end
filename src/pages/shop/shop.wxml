@@ -3,17 +3,18 @@
   <!-- <view class='car-search'>
     <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
   </view> -->
-  <!-- <shopHead shopInfo='{{shopDetail}}'/> -->
   <view class='shop-head'>
     <view class='car-flex shop-head-info'>
-      <image src="../../image/porsche-normal.jpg" mode='widthFix' />
+      <image src="{{shopDetail.logo}}" />
       <view class='flex_1'>
-        <view class='car-flex'>
+        <view class='car-flex paddingBottom_5'>
           <view class='flex_1'>
             <text class='title'>{{shopDetail.name}}</text>
             <text>v1</text>
           </view>
-          <button>收藏</button>
+          <button class='{{shopDetail.isFollowShop ? "follow" : ""}}' bindtap='followShop' data-follow='{{shopDetail.isFollowShop}}'>
+            {{shopDetail.isFollowShop ? '已收藏' : '收藏'}}
+          </button>
         </view>
         <view class='car-flex'>
           <text class='number'>粉丝数：20 </text>
@@ -26,68 +27,87 @@
     <view class='car-flex address'>
       <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
       <text class='line-v'>{{shopDetail.address}}</text>
-      <Icon iconName='weChat' width='16px' height='16px' />
-      <Icon iconName='call' width='16px' height='16px' bindtap='phoneCall' />
+      <Icon iconName='weChat' width='20px' height='16.67px' />
+      <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' />
     </view>
     <view class='hr'></view>  
 
     <view class='shop-menu'>
       <icon type="search" size="15" />
       <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
-      <view class='active'>首页</view>
-      <view>全部汽车</view>
+      <view class='{{_active === "1" ? "active" : ""}}' bindtap='tabSwitch' data-index="1">首页</view>
+      <view class='{{_active === "0" ? "active" : ""}}' bindtap='tabSwitch' data-index="0">全部汽车</view>
     </view>
   </view>
-  
-  <view class='shop-view'>
-    <view class='subtitle'>-- 店主推荐 --</view>
-    <!-- <view>
-      <view class='shop-box'>
-        <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+  <block wx:if="{{_active === '1'}}">
+    <view>
+      <view class='shop-new'>
         <view class='car-info'>
-          <view class='desc'>保时捷911 红色</view>
-          <view class='car-flex'>
-            <text class='flex_1'>¥18.8万</text>
-            <text class='add' bindtap='addWherehouse'>加入仓库</text>
+          <view>斯科达 速派 2016款</view>
+          <view><text class='price'>56.3</text>万</view>
+        </view>
+        <view class='t_r'></view>
+      </view>
+      <carSwiper></carSwiper>
+    </view>
+    <!-- <view class='shop-view'>
+      <view class='subtitle'>-- 店主推荐 --</view>
+      <view>
+        <view class='shop-box'>
+          <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+          <view class='car-info'>
+            <view class='desc'>保时捷911 红色</view>
+            <view class='car-flex'>
+              <text class='flex_1'>¥18.8万</text>
+              <text class='add' bindtap='addWherehouse'>加入仓库</text>
+            </view>
           </view>
         </view>
-      </view>
-      <view class='shop-box'>
-        <image src="../../image/porsche-zoom.jpg" mode='widthFix'></image>
-        <view class='car-info'>
-          <view class='desc'>保时捷911 红色</view>
-          <view class='car-flex'>
-            <text class='flex_1'>¥18.8万</text>
-            <text class='cancle'>取消加入</text>
+        <view class='shop-box'>
+          <image src="../../image/porsche-zoom.jpg" mode='widthFix'></image>
+          <view class='car-info'>
+            <view class='desc'>保时捷911 红色</view>
+            <view class='car-flex'>
+              <text class='flex_1'>¥18.8万</text>
+              <text class='cancle'>取消加入</text>
+            </view>
           </view>
         </view>
       </view>
     </view> -->
-  </view>
-
-  <view class='shop-view'>
-    <view class='subtitle'>-- 全部宝贝 --</view>  
-    <block wx:for="{{shopDetail.Cars}}">
-      <view class='shop-box'>
-        <image src="{{item.indexImage}}" mode='widthFix'></image>
-        <view class='car-info'>
-          <view class='desc'>{{item.brand}}</view>
-          <view class='car-flex'>
-            <text class='flex_1'>¥{{item.price}}万</text>
-            <text class='add' bindtap='addWherehouse' data-id='{{item.id}}'>加入仓库</text>
+    <view class='shop-view'>
+      <view class='subtitle'>-- 店铺推荐 --</view>  
+      <block wx:for="{{shopDetail.Cars}}">
+        <view class='shop-box'>
+          <image src="{{item.indexImage}}" mode='widthFix'></image>
+          <view class='car-info'>
+            <view class='desc'>{{item.brand}}</view>
+            <view class='car-flex'>
+              <text class='flex_1'>¥{{item.price}}万</text>
+              <text class='add' bindtap='addWherehouse' data-id='{{item.id}}'>加入仓库</text>
+            </view>
           </view>
+        </view>
+        <!-- <view class='shop-box'>
+          <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+          <view class='car-info'>
+            <view class='desc'>保时捷911 红色</view>
+            <view class='car-flex'>
+              <text class='flex_1'>¥18.8万</text>
+              <text class='cancle'>加入仓库</text>
+            </view>
+          </view>
+        </view> -->
+      </block>
+    </view>
+  </block>
+  <view wx:else>
+    <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
+      <view class='all-cars'>
+        <view catchtap='goCarDetail' class='carCard'>
+          <carCard carDetail="{{item}}"></carCard>
         </view>
       </view>
-      <!-- <view class='shop-box'>
-        <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
-        <view class='car-info'>
-          <view class='desc'>保时捷911 红色</view>
-          <view class='car-flex'>
-            <text class='flex_1'>¥18.8万</text>
-            <text class='cancle'>加入仓库</text>
-          </view>
-        </view>
-      </view> -->
     </block>
   </view>
 </view>

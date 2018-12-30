@@ -161,7 +161,7 @@ Page({
   },
 
   getCityId(currentCity) {
-    const cityList = result.data;
+    const cityList = this.data.cityList;;
     cityList.forEach(e => {
       e.data.forEach(item => {
         if (item.name.index(currentCity) > 0) {
