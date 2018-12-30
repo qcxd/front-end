@@ -98,7 +98,7 @@ Page({
       id: e.currentTarget.dataset.id,
       follow: e.currentTarget.dataset.isFollowShop ? false : true
     };
-    apiServicePro.isFollowShopShop(params).then((result) => {
+    apiServicePro.followShop(params).then((result) => {
       if (result.code === 200) {
         const shopDetail = this.data.shopDetail;
         shopDetail.isFollowShop = e.currentTarget.dataset.isFollowShop ? false : true;

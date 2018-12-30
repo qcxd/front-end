@@ -10,9 +10,14 @@
         <view class='car-flex paddingBottom_5'>
           <view class='flex_1'>
             <text class='title'>{{shopDetail.name}}</text>
-            <text>v1</text>
+            <text class='level'>v1</text>
           </view>
-          <button class='{{shopDetail.isFollowShop ? "follow" : ""}}' bindtap='followShop' data-follow='{{shopDetail.isFollowShop}}'>
+          <button
+            class='{{shopDetail.isFollowShop ? "follow" : ""}}'
+            bindtap='followShop'
+            data-id='{{shopDetail.id}}'
+            data-follow='{{shopDetail.isFollowShop}}'
+          >
             {{shopDetail.isFollowShop ? '已收藏' : '收藏'}}
           </button>
         </view>
