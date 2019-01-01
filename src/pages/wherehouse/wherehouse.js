@@ -91,6 +91,13 @@ Page({
     })
   },
 
+  /** 店铺首页 */
+  goShop(e) {
+    wx.navigateTo({
+      url: `../shop/shop?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
   /** 搜索 */
   doSearch(e) {
     const _active = this.data._active;

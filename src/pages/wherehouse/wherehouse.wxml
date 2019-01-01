@@ -33,7 +33,7 @@
   <view wx:if='{{_active === "1"}}'>
     <block wx:for="{{shopList}}" wx:key="{{item.id}}">
       <view class="wherehouse-shop">
-        <view bindtap='goShop' data-id="{{item.id}}">
+        <view bindtap='goShop' data-id="{{item.Shop.id}}">
           <shopHead
             shopInfo='{{item.Shop}}'
             shopIntro='{{false}}'
