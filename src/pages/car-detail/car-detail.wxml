@@ -1,42 +1,73 @@
 <!--pages/car-detail/car-detail.wxml-->
 <view class="car-detail">
   <view class="car-swiper">
-    <swiper
+    <carSwiper
       indicator-dots="true"
       autoplay="false"
       interval="5000"
       duration="1000"
-    >
-      <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" mode='widthFix' />
-      </swiper-item>
-      </block>
-    </swiper>
+    ></carSwiper>
+    <view class='car-flex imgs'>
+      <Icon iconName='img' width='15px' height='15px'></Icon>
+      <text>60</text>
+    </view>
     </view>
   <view class="car-detail-info">
     <view class="title-text">保时捷 911 2014款  1.6L</view>
-    <view>报价<text class="price">9.8</text>万</view>
+    <view><text class="price">9.8</text>万</view>
   </view>
 
   <view class="car-detail-info">
+    <view class='sub-title'>基本信息</view>
+    <view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+      <view class='item-box'>
+        <view class='item-name'>表里里程</view>
+        <view class='item-value'>2.7万公里</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="car-detail-info">
     <view class="title-text">👍🏼 卖家有话说：</view>
     <view class='car-flex'>
       <image src="../../image/porsche-wallpaper.jpg" />
       <view>刘先森</view>
     </view>
-    <!-- <view class="message-box"> -->
       <view class="z_r"></view>
       <view class="intro">该车巴啦巴拉xxxxxxxxxxx,该车巴啦巴拉xxxxxxxxxxx,该车巴啦巴拉xxxxxxxxxxx</view>
-    <!-- </view> -->
-  </view>
+  </view> -->
 
-  <view class="footer-btn">
+  <!-- <view class="footer-btn">
     <view class="collect"> 
       <Icon iconName='star2' width='16px' height='16px' />
       <view class="">收藏</view>
     </view>
     <button class="carBtn_primary_t">一键分享</button>
     <button class="carBtn_primary_h">联系卖家</button>
-  </view>
+  </view> -->
+  <fixedFooter />
 </view>

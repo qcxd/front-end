@@ -9,7 +9,7 @@
 
 .index-welcome {
   padding: 70px 0px;
-  color: #4C70CB;
+  color: #35A1FB;
 }
 
 .index-location {
@@ -25,7 +25,7 @@
 
 .index-change-city {
   font-size: 13px;
-  color: #4C70CB;
+  color: #35A1FB;
 }
 
 .index-btn {
@@ -56,6 +56,6 @@
 
 .car-pop-view .car-flex .pop-ensure {
   flex: 0.5;
-  color: #4C70CB;
+  color: #35A1FB;
   text-align: right;
 } */

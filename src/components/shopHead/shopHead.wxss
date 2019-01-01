@@ -60,10 +60,10 @@
 }
 
 .home-shop .shop-verify{
-  border: 1px solid #4C70CB;
+  border: 1px solid #35A1FB;
   padding: 2px 4px;
   border-radius: 4px;
-  color: #4C70CB;
+  color: #35A1FB;
   font-size: 11px;
 }
 

@@ -11,12 +11,12 @@ page{
 /** btn */
 .carBtn_primary {
   border-radius: 50px;
-  background: linear-gradient(to right, #4C70CB , rgb(85, 128, 238));
+  background: linear-gradient(to right, #35A1FB , rgb(85, 128, 238));
 }
 
 .carBtn_primary_t {
   color: #ffffff;
-  background: linear-gradient(to right, #4C70CB , rgb(85, 128, 238));
+  background: linear-gradient(to right, #35A1FB , rgb(85, 128, 238));
 }
 
 .carBtn_primary_h {
@@ -102,10 +102,10 @@ page{
 }
 
 .home-shop .shop-verify{
-  border: 1px solid #4C70CB;
+  border: 1px solid #35A1FB;
   padding: 2px 4px;
   border-radius: 4px;
-  color: #4C70CB;
+  color: #35A1FB;
   font-size: 11px;
 }
 

@@ -30,7 +30,7 @@
 }
 
 .carCard .price-text {
-  color: #4C70CB;
+  color: #35A1FB;
   font-size: 15px;
   font-weight: 600;
 }

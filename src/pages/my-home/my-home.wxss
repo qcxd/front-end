@@ -3,7 +3,7 @@
 .myHome .home-head {
   padding: 15px;
   color: #ffffff;
-  background-color: #4C70CB;
+  background-color: #35A1FB;
 }
 
 .myHome .home-head image {

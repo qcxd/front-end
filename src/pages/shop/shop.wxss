@@ -1,6 +1,6 @@
 /* pages/shop/shop.wxss */
 .shopPage {
-
+  background-color: #ffffff;
 }
 
 .shopPage .shop-head {
@@ -13,9 +13,9 @@
   line-height: 2;
   padding: 0px 15px;
   font-size: 12px;
-  background-color: #4C70CB;
+  background-color: #35A1FB;
   color: #ffffff;
-  border: 1px solid #4C70CB;
+  border: 1px solid #35A1FB;
 }
 
 .shopPage .shop-head .title{
@@ -83,26 +83,28 @@
 }
 
 .shop-box .add {
+  line-height: 0.8;
   border-radius: 50px;  
   font-size: 12px;
-  padding: 2px 10px;
+  padding:0px 10px 7px 10px;
   color: #ffffff;
-  background-color: #4C70CB;
-  border: 1px solid #4C70CB;
+  background-color: #35A1FB;
+  border: 1px solid #35A1FB;
 }
 
 .shop-box .cancel {
-  border-radius: 50px;  
-  font-size: 12px;
-  padding: 2px 10px;
-  color: #797979;
+  line-height:0.8;
+  border-radius:50px;
+  font-size:12px;
+  padding:0px 10px 7px 10px;
+  color: #35A1FB;
   background-color: #ffffff;
-  border: 1px solid #efefef;
+  border: 1px solid #35A1FB;
 }
 
 .shop-box .cancle {
-  color: #4C70CB;
-  border: 1px solid #4C70CB;
+  color: #35A1FB;
+  border: 1px solid #35A1FB;
   border-radius: 50px;
   font-size: 11px;
   padding: 2px 10px;
@@ -160,8 +162,8 @@
 }
 
 .shop-menu  .active {
-  color: #4C70CB;
-  border-bottom: 1px solid #4C70CB;
+  color: #35A1FB;
+  border-bottom: 1px solid #35A1FB;
 }
 
 .shop-menu icon {
@@ -182,7 +184,7 @@
 .shop-new .car-info {
   text-align: center;
   padding-top: 15px;
-  background-color:#4C70CB;
+  background-color:#35A1FB;
   font-size: 12px;
   color:#ffffff;
 }
@@ -196,7 +198,7 @@
   height: 0;
   border-width:15px 70px;
   border-style: solid;
-  border-color: #4C70CB transparent transparent transparent;
+  border-color: #35A1FB transparent transparent transparent;
 }
 
 .shopPage .all-cars {

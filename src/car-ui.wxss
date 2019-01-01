@@ -2,7 +2,7 @@
 
 /**常规字体*/
 .theme-text {
-  color: #4C70CB;
+  color: #35A1FB;
 }
 
 .title-text {

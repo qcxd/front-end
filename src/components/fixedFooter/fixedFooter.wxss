@@ -1,0 +1,34 @@
+/* components/fixdFooter/fixedFooter.wxss */
+.fixedFooter {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #ffffff;
+}
+
+.fixedFooter .btn-star {
+  flex: 1;
+  padding-left: 30px;
+}
+
+.fixedFooter icon {
+  padding-right: 3px;
+}
+
+.fixedFooter .btn-weChat {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #ADBEE8;
+}
+
+.fixedFooter .btn-call {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #35A1FB;
+}

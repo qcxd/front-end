@@ -23,7 +23,7 @@
 
 .home-page .head-address text {
   padding-right: 5px;
-  color: #4C70CB;
+  color: #35A1FB;
 }
 
 .home-page-head {
