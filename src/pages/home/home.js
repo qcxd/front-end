@@ -21,7 +21,7 @@ Page({
     wx.getStorage({
       key: 'currentCity',
       success: function(res) {
-        const currentCityId = _this.getCityId(res.data) || '';
+        const currentCityId = _this.getCityId(res.data);
         _this.setData({
           currentCity: res.data,
           currentCityId,
@@ -143,7 +143,7 @@ Page({
   /** 选择城市 */
   doSelect(e) {
     if (e.detail.name) {
-      const currentCityId = _this.getCityId(res.data) || '';
+      const currentCityId = this.getCityId(e.detail.name);
       this.setData({
         popHidden: true,
         currentCity: e.detail.name,
@@ -161,14 +161,16 @@ Page({
   },
 
   getCityId(currentCity) {
-    const cityList = this.data.cityList;;
+    const cityList = this.data.cityList;
+    let id = 0;
     cityList.forEach(e => {
       e.data.forEach(item => {
-        if (item.name.index(currentCity) > 0) {
-          return item.id;
+        if (item.name.indexOf(currentCity) >= 0) {
+          id = item.id;
         }
       });
-    })
+    });
+    return id;
   },
 
   selectSort() {

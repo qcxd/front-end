@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/my-home/my-home",
     "pages/index/index",
     "pages/wherehouse/wherehouse",
     "pages/home/home",
@@ -8,8 +9,7 @@
     "pages/shop/shop",
     "pages/logs/logs",
     "pages/upload/upload",
-    "pages/test/tets",
-    "pages/my-home/my-home"
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",

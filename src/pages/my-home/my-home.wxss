@@ -26,10 +26,26 @@
   padding: 2px;
   font-size: 13px;
   color: #4A4A4A;
+  padding-left: 5px;
 }
 
 .myHome .home-cell {
   margin-top: 10px;
   padding: 10px 15px;
   background-color: #ffffff;
+}
+
+.myHome .home-cell-list {
+  padding: 10px 15px;
+  background-color: #ffffff;
+}
+
+.myHome .home-cell-list + .home-cell-list {
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border-top: 1px solid #efefef;
+}
+
+.myHome .marginTop_10 {
+  margin-top: 10px;
 }
