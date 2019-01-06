@@ -1,0 +1,50 @@
+/* pages/createShop/createShop.wxss */
+
+.createShopPage {
+  /* padding-bottom: 30px; */
+}
+
+.createShopPage .info-box {
+  margin-bottom: 15px;
+  padding: 0px 15px; 
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.createShopPage .subtitle {
+  padding: 10px 0px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
+
+.createShopPage .info-cell {
+  padding: 15px 0px; 
+  border-top: 1px solid #efefef;
+}
+
+.createShopPage .address-cell {
+  padding: 10px 0px; 
+  border-top: 1px solid #efefef;
+  justify-content:flex-end;
+  color: #1AAD19;
+}
+
+.createShopPage .address-cell icon {
+  padding-left: 5px;
+}
+
+.createShopPage input {
+  flex: 1;
+}
+
+.createShopPage .placeholder {
+  text-align: right;
+  color: #9B9B9B;
+}
+
+.createShopPage button {
+  margin: 30px 15px;
+  border-radius: 0px;
+  color: #ffffff;
+  background: linear-gradient(to right, #35A1FB, rgb(30, 148, 245));
+}

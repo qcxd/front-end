@@ -18,7 +18,7 @@
       <view class='theme-text'>{{userStatistics.byFollowShops}}人</view>
     </view>
   </view>
-  <view class='car-flex home-cell'>
+  <view class='car-flex home-cell' bindtap='createShop'>
     <Icon iconName="shop" width='20px' height='20px' />
     <text class='small-text flex_1'>我要开店</text>
     <Icon iconName="arrowRight" width='8px' height='12px' />
@@ -30,7 +30,7 @@
       <text class='small-text flex_1'>我的店铺</text>
       <Icon iconName="arrowRight" width='8px' height='12px' />
     </view>
-    <view class='car-flex home-cell-list'>
+    <view class='car-flex home-cell-list' bindtap='createCar'>
       <Icon iconName="car" width='20px' height='12px' />
       <text class='small-text flex_1'>创建汽车</text>
       <Icon iconName="arrowRight" width='8px' height='12px' />

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/createShop/createShop",
     "pages/my-home/my-home",
     "pages/index/index",
     "pages/wherehouse/wherehouse",
@@ -7,6 +8,7 @@
     "pages/car-detail/car-detail",
     "pages/ossUpload/ossUpload",
     "pages/shop/shop",
+    "pages/createCar/createCar",
     "pages/logs/logs",
     "pages/upload/upload",
     "pages/test/test"

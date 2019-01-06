@@ -25,6 +25,7 @@ Page({
     this.getUserStatistics();
   },
 
+  /** 获取用户信息 */
   getUserStatistics() {
     apiServicePro.getUserStatistics().then((result) => {
       if (result.code === 200) {
@@ -34,6 +35,20 @@ Page({
       }
     }).catch((err) => {
       showModal();
+    })
+  },
+
+  /** 创建店铺 */
+  createShop() {
+    wx.navigateTo({
+      url: '../createShop/createShop',
+    })
+  },
+
+  /** 创建汽车 */
+  createCar() {
+    wx.navigateTo({
+      url: '../createCar/createCar',
     })
   },
 
