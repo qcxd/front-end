@@ -1,4 +1,5 @@
 /* pages/createShop/createShop.wxss */
+@import "../../lib/weui.wxss";
 
 .createShopPage {
   /* padding-bottom: 30px; */

@@ -1,16 +1,16 @@
 {
   "pages": [
     "pages/my-home/my-home",
+    "pages/ossUpload/ossUpload",
+    "pages/upload/upload",
     "pages/createShop/createShop",
     "pages/index/index",
     "pages/wherehouse/wherehouse",
     "pages/home/home",
     "pages/car-detail/car-detail",
-    "pages/ossUpload/ossUpload",
     "pages/shop/shop",
     "pages/createCar/createCar",
     "pages/logs/logs",
-    "pages/upload/upload",
     "pages/test/test"
   ],
   "window": {
