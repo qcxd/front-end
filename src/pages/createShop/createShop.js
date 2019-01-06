@@ -1,7 +1,15 @@
 // pages/createShop/createShop.js
 Page({
   data: {
-
+    name: '',
+    tel: '',
+    country: '',
+    province: 25,
+    city: 405,
+    area: 2719,
+    introduce: '',
+    address: '',
+    logo: ''
   },
 
   onLoad: function (options) {
@@ -9,8 +17,12 @@ Page({
   },
 
   /** 创建店铺 */
-  onSubmit() {
-    
+  onSubmit(e) {
+    console.log(e);
+  },
+  /**  reset */
+  formReset(e) {
+
   },
 
   /**
