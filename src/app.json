@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/createShop/createShop",
     "pages/my-home/my-home",
+    "pages/createShop/createShop",
     "pages/index/index",
     "pages/wherehouse/wherehouse",
     "pages/home/home",

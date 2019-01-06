@@ -7,10 +7,11 @@
       <input placeholder="姓名" placeholder-class="placeholder" />
     </view>
     <view class='info-cell car-flex'>
-      <view>
-        微信二维码
+      <view class='wechat'>
+        <view>微信二维码</view>
+        <view class='small-text'>请保存自己的微信二维码并保存</view>
       </view>
-      <image src="../../image/"></image>
+      <image class='wechat-code' src="../../image/wechat.jpeg"></image>
     </view>
     <view class='info-cell car-flex'>
       <text>手机号</text>
