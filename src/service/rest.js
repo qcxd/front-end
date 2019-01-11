@@ -5,9 +5,8 @@ const _handleResponse = (res, {url, success, fail}) => {
   console.log(res);
   if (res.code === 500) {
     throw res.msg;
-  } else {
-    success(res);
   }
+  success(res);
 }
 
 const _request = (...argus) => {
