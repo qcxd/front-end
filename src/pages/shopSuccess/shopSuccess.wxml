@@ -1,0 +1,4 @@
+<!--pages/shopSuccess/shopSuccess.wxml-->
+<view class='shopSuccess'>
+   您已成功创建店铺！
+</view>

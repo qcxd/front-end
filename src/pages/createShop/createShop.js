@@ -39,11 +39,12 @@ Page({
       area: this.data.area,
       logo: this.data.logo,
     }
-    apiServicePro.createShop(Object.assign(address, params)).then((data) => {
+    apiServicePro.createShop(Object.assign(address, params)).then((result) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
-          url: `../shop/shop?id=${data.result.id}`,
+          // url: `../shop/shop?id=${data.result.id}`,
+          url: `../shopSuccess/shopSuccess`,
         })
       }
     })

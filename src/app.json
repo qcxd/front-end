@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/my-home/my-home",
     "pages/index/index",
+    "pages/my-home/my-home",
     "pages/ossUpload/ossUpload",
     "pages/upload/upload",
     "pages/createShop/createShop",
@@ -11,7 +11,8 @@
     "pages/shop/shop",
     "pages/createCar/createCar",
     "pages/logs/logs",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/shopSuccess/shopSuccess"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",
