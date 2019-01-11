@@ -2,10 +2,12 @@ const config = require('index').config;
 const loading = require('./loading');
 
 const _handleResponse = (res, {url, success, fail}) => {
-  if (res.data.code === 500) {
-    throw res.data.msg;
+  console.log(res);
+  if (res.code === 500) {
+    throw res.msg;
+  } else {
+    success(res);
   }
-  success(res);
 }
 
 const _request = (...argus) => {

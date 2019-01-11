@@ -1,5 +1,5 @@
 // components/searchInput/searchInput.js
-const sockerService = require('../../service/socket.service.js');
+// const sockerService = require('../../service/socket.service.js');
 Component({
   /**
    * 组件的属性列表
@@ -20,14 +20,14 @@ Component({
    */
   methods: {
     initSocket(){
-      let socket = sockerService.getSocket();
-      socket.on('notification', () => {
-        console.log('get notification')
-        let notificationCount = this.data.notificationCount + 1;
-        this.setData({
-          notificationCount: notificationCount
-        })
-      });
+      // let socket = sockerService.getSocket();
+      // socket.on('notification', () => {
+      //   console.log('get notification')
+      //   let notificationCount = this.data.notificationCount + 1;
+      //   this.setData({
+      //     notificationCount: notificationCount
+      //   })
+      // });
     },
     onNofitication(){
       

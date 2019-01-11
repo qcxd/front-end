@@ -7,9 +7,9 @@ Page({
     name: '',
     tel: '',
     country: '',
-    province: 25,
-    city: 405,
-    area: 2719,
+    province: 0,
+    city: 0,
+    area: 0,
     addressInfo: '',
     introduce: '',
     address: '',
@@ -30,22 +30,16 @@ Page({
   },
 
   /** 创建店铺 */
-  onSubmit(e) {
-    console.log(e);
+  doSubmit(e) {
+    // this.uploadImg();
     const params = e.detail.value
-    // this.uploadImage();
-    // const params = {
-    //   name: '',
-    //   tel: '',
-    //   country: '',
-    //   province: 25,
-    //   city: 405,
-    //   area: 2719,
-    //   introduce: '',
-    //   address: '',
-    //   logo: '',
-    // };
-    apiServicePro.createShop({...params}).then((data) => {
+    const address = {
+      province: this.data.province,
+      city: this.data.city,
+      area: this.data.area,
+      logo: this.data.logo,
+    }
+    apiServicePro.createShop(Object.assign(address, params)).then((data) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
@@ -80,7 +74,7 @@ Page({
     })
   },
 
-  uploadImg() {
+  onSubmit(e) {
     let that = this;
     console.log(JSON.stringify(that.data.uploadImgs))
     for (let i = 0; i < that.data.uploadImgs.length; i++) {
@@ -91,8 +85,12 @@ Page({
           filePath: filePath,
           dir: "images/",
           success: function (res) {
-            console.log("上传成功")
             console.log("上传成功" + JSON.stringify(res))
+            that.setData({
+              logo: res,
+            }, () => {
+              that.doSubmit(e);
+            })
           },
           fail: function (res) {
             console.log("上传失败")
@@ -111,14 +109,17 @@ Page({
 
   bindChange(e) {
     const val = e.detail.value
-    const province = this.data.provinceList[val[0]];
-    const city = this.data.cityList[val[1]];
-    const area = this.data.areaList[val[2]];
+    const province = this.data.provinceList[val[0]].data[0].id;
+    const city = this.data.cityList[val[1]].data[0].id;
+    const area = this.data.areaList[val[2]].data[0].id;
+    const provinceName = this.data.provinceList[val[0]].data[0].name;
+    const cityName = this.data.cityList[val[1]].data[0].name;
+    const areaName = this.data.areaList[val[2]].data[0].name;
     this.setData({
       province,
       city,
       area,
-      addressInfo: `${province}${city}${area}`,
+      addressInfo: `${provinceName}${cityName}${areaName}`,
     })
   },
 

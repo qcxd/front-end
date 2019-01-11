@@ -48,7 +48,7 @@
       </view>
       <view class='info-cell car-flex' bindtap="popAddress">
         <text>选择地区</text>
-        <input name="addressInfo" placeholder="地区信息" placeholder-class="placeholder" disabled/>
+        <input value="{{addressInfo}}" placeholder="地区信息" placeholder-class="placeholder" disabled/>
         <!-- <text class="address-info">地区信息</text> -->
       </view>
       <view class='info-cell car-flex'>
