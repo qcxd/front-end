@@ -1,0 +1,40 @@
+/* pages/nameCard/nameCard.wxss */
+.nameCard {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+
+.nameCard .qrcode {
+  text-align: center;
+}
+
+.nameCard .qrcode image {
+  width: 40%;
+}
+
+.nameCard .qrcode .small-text {
+  font-size: 14px;
+}
+
+.nameCard .qrcode .actions {
+  float: right;
+  padding:15px;
+}
+
+.nameCard .qrcode .actions icon{
+  padding: 0px 5px;
+}
+
+.nameCard .detail {
+  padding: 50px;
+}
+
+.nameCard .detail icon {
+  padding-right: 10px;
+}
+
+.nameCard .detail .car-flex {
+  padding: 10px 0px;
+}
+

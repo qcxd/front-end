@@ -1,0 +1,25 @@
+<!--pages/nameCard/nameCard.wxml-->
+<view class='nameCard'>
+  <view class='qrcode'>
+    <view class='actions'>
+      <Icon iconName="download" width='16px' height='16px' />
+      <Icon iconName="share2" width='16px' height='16px' />
+    </view>
+    <image src='{{userInfo.shop.qrcode}}' mode='aspectFit'/>
+    <view class='small-text'>{{userInfo.shop.shopName}}</view>
+  </view>
+  <view class='detail'>
+    <view class='car-flex'>
+      <Icon iconName="people" width='14px' height='16px' />
+      <view>{{userInfo.shop.name}}</view>
+    </view>
+    <view class='car-flex'>
+      <Icon iconName="call" width='14px' height='16px' />
+      <view>{{userInfo.shop.phone}}</view>
+    </view>
+    <view class='car-flex'>
+      <Icon iconName="address" width='12px' height='16px' />
+      <view>{{addressInfo}}</view>
+    </view>
+  </view>
+</view>

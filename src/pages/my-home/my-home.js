@@ -17,6 +17,7 @@ Page({
     wx.getStorage({
       key: 'user',
       success: function(res) {
+        console.log(res);
         _this.setData({
           user: res.data
         })
@@ -49,6 +50,13 @@ Page({
   createCar() {
     wx.navigateTo({
       url: '../createCar/createCar',
+    })
+  },
+
+  /** 名片 */
+  goNamecard() {
+    wx.navigateTo({
+      url: '../nameCard/nameCard',
     })
   },
 

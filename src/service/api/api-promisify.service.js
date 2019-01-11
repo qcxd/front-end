@@ -60,11 +60,24 @@ const insertUser = (user) => rest.post({ url: '/user/insertUser', data: user });
  * @param {}
  */
 const updateUser = (params) => rest.post({ url: `/user/updateUser`, data: params });
+
+/**
+ * 获取用户信息
+ * @param {}
+ */
+const getUserInfo = () => rest.get({ url: `/user/userInfo` });
+
 /**
  * 获取城市列表
  * @param {}
  */
 const getCityList = (params) => rest.post({ url: `/user/district`, data: params });
+
+/**
+ * 获取城市列表
+ * @param {}
+ */
+const getAllDistrict = (params) => rest.post({ url: `/user/allDistrict`, data: params });
 
 /**
  * 创建店铺
@@ -130,7 +143,9 @@ module.exports = {
   // mini-car
   insertUser,
   updateUser,
+  getUserInfo,
   getCityList,
+  getAllDistrict,
   createShop,
   getShopList,
   getShopDetail,

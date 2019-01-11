@@ -6,7 +6,7 @@
   background-color: #35A1FB;
 }
 
-.myHome .home-head image {
+.myHome .home-head .head-img {
   width: 60px;
   height: 60px;
   margin-right: 15px;

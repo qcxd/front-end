@@ -36,7 +36,7 @@
       </view>
       <view class='info-cell car-flex'>
         <text>手机号</text>
-        <input name="tel" placeholder="11位手机号" placeholder-class="placeholder" />
+        <input name="phone" placeholder="11位手机号" placeholder-class="placeholder" />
       </view>
     </view>
 
@@ -44,7 +44,7 @@
       <view class='subtitle'>店铺信息</view>
       <view class='info-cell car-flex'>
         <text>店铺名</text>
-        <input placeholder="请输入店铺名称" placeholder-class="placeholder" />
+        <input name="shopName" placeholder="请输入店铺名称" placeholder-class="placeholder" />
       </view>
       <view class='info-cell car-flex' bindtap="popAddress">
         <text>选择地区</text>

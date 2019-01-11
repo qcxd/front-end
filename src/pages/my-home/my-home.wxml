@@ -1,8 +1,9 @@
 <!-- pages/my-home/my-home.wxml -->
 <view class='myHome'>
   <view class='car-flex home-head'>
-    <image src='{{user.avatarUrl}}' />
-    <view>{{user.nickName}}</view>
+    <image class='head-img' src='{{user.avatarUrl}}' />
+    <view class='flex_1'>{{user.nickName}}</view>
+    <Icon iconName='namecard' width='30px' height='20px;' bindtap='goNamecard'></Icon>
   </view>
   <view class='car-flex home-center'>
     <view>

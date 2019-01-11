@@ -5,7 +5,8 @@ const uploadImage = require('../../utils/oss.js');
 Page({
   data: {
     name: '',
-    tel: '',
+    phone: '',
+    shopName: '',
     country: '',
     province: 0,
     city: 0,
@@ -25,8 +26,8 @@ Page({
   },
 
   onLoad: function (options) {
-    // 省市数据
-    this.getCityList(0);
+    // 省市区数据
+    this.getAllDistrict();
   },
 
   /** 创建店铺 */
@@ -133,19 +134,15 @@ Page({
   /** 获取城市列表
    * id 可选 可传空字符？？
    */
-  getCityList(parentid) {
-    const params ={
-      // id,
-      parentid,
-    }
-    apiServicePro.getCityList(params).then((result) => {
+  getAllDistrict() {
+    apiServicePro.getAllDistrict({}).then((result) => {
       if (result.code === 200) {
         const provinceList = result.data;
         this.setData({
           provinceList,
           cityList: provinceList,
           areaList: provinceList,
-        })
+        });
       }
     }).catch((err) => {
       showModal();

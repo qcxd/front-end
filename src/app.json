@@ -12,7 +12,8 @@
     "pages/createCar/createCar",
     "pages/logs/logs",
     "pages/test/test",
-    "pages/shopSuccess/shopSuccess"
+    "pages/shopSuccess/shopSuccess",
+    "pages/nameCard/nameCard"
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",
