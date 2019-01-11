@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/my-home/my-home",
+    "pages/index/index",
     "pages/ossUpload/ossUpload",
     "pages/upload/upload",
     "pages/createShop/createShop",
-    "pages/index/index",
     "pages/wherehouse/wherehouse",
     "pages/home/home",
     "pages/car-detail/car-detail",
@@ -53,5 +53,10 @@
     "carSwiper": "/components/carSwiper/carSwiper",
     "noData": "/components/noData/noData",
     "fixedFooter": "/components/fixedFooter/fixedFooter"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用来为您提供更好的数据搜索使用"
+    }
   }
 }

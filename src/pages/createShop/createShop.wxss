@@ -36,6 +36,7 @@
 
 .createShopPage input {
   flex: 1;
+  padding-left: 10px;
 }
 
 .createShopPage .placeholder {
@@ -61,4 +62,33 @@
 .createShopPage .small-text {
   font-size: 12px;
   color: #9B9B9B;
+}
+
+
+.address-picker {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: #00000050;
+  z-index: 99;
+}
+
+.address-picker .address-box {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  bottom: 0px;
+  background-color: #ffffff;
+  padding: 15px 0px;
+  border-top: 1px solid #efefef;
+}
+
+.address-picker .address-box .car-flex{
+  padding: 0px 15px;
+  color: #35A1FB;
+}
+
+.address-picker picker-view-column view {
+  text-align: center;
 }

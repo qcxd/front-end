@@ -1,4 +1,7 @@
 // pages/createShop/createShop.js
+const apiServicePro = require('../../service/api/api-promisify.service');
+const uploadImage = require('../../utils/oss.js');
+
 Page({
   data: {
     name: '',
@@ -7,28 +10,54 @@ Page({
     province: 25,
     city: 405,
     area: 2719,
+    addressInfo: '',
     introduce: '',
     address: '',
     logo: '',
     filePath: "",
     images: [],
     uploadImgs: [],
-    count: 9
+    count: 9,
+    provinceList: [],
+    cityList: [],
+    areaList: [],
+    popHidden: true,
   },
 
   onLoad: function (options) {
-
+    // 省市数据
+    this.getCityList(0);
   },
 
   /** 创建店铺 */
   onSubmit(e) {
     console.log(e);
+    const params = e.detail.value
+    // this.uploadImage();
+    // const params = {
+    //   name: '',
+    //   tel: '',
+    //   country: '',
+    //   province: 25,
+    //   city: 405,
+    //   area: 2719,
+    //   introduce: '',
+    //   address: '',
+    //   logo: '',
+    // };
+    apiServicePro.createShop({...params}).then((data) => {
+      if (result.code === 200) {
+        // 成功到店铺还是添加一个成功结果页面？？？
+        wx.navigateTo({
+          url: `../shop/shop?id=${data.result.id}`,
+        })
+      }
+    })
   },
   /**  reset */
   formReset(e) {
 
   },
-
 
   chooseImage: function (e) {
     var selectPictureNum = e.target.dataset.num;
@@ -49,14 +78,13 @@ Page({
         })
       },
     })
-
   },
 
-  uploadImg: function () {
-    var that = this;
+  uploadImg() {
+    let that = this;
     console.log(JSON.stringify(that.data.uploadImgs))
-    for (var i = 0; i < that.data.uploadImgs.length; i++) {
-      var filePath = that.data.uploadImgs[i];
+    for (let i = 0; i < that.data.uploadImgs.length; i++) {
+      let filePath = that.data.uploadImgs[i];
 
       uploadImage(
         {
@@ -73,6 +101,53 @@ Page({
         })
     }
 
+  },
+
+  popAddress() {
+    this.setData({
+      popHidden: false,
+    })
+  },
+
+  bindChange(e) {
+    const val = e.detail.value
+    const province = this.data.provinceList[val[0]];
+    const city = this.data.cityList[val[1]];
+    const area = this.data.areaList[val[2]];
+    this.setData({
+      province,
+      city,
+      area,
+      addressInfo: `${province}${city}${area}`,
+    })
+  },
+
+  pickEnsure() {
+    this.setData({
+      popHidden: true,
+    })
+  },
+
+  /** 获取城市列表
+   * id 可选 可传空字符？？
+   */
+  getCityList(parentid) {
+    const params ={
+      // id,
+      parentid,
+    }
+    apiServicePro.getCityList(params).then((result) => {
+      if (result.code === 200) {
+        const provinceList = result.data;
+        this.setData({
+          provinceList,
+          cityList: provinceList,
+          areaList: provinceList,
+        })
+      }
+    }).catch((err) => {
+      showModal();
+    })
   },
 
   /**
