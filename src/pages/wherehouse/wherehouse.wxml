@@ -5,7 +5,7 @@
     <input 
       bindinput="doSearch" 
       value='{{inputValue}}' 
-      placeholder='{{_active === "1" ? "请输入店铺名称" : "请输入汽车名称"}}' 
+      placeholder='{{_active === "1" ? "搜索你想要的店铺" : "搜索你想要的汽车"}}' 
       placeholder-class='placeholder'
     />
   </view>

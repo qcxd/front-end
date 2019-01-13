@@ -15,29 +15,31 @@ Page({
     introduce: '',
     address: '',
     logo: '',
-    filePath: "",
+    filePath: '',
     images: [],
     uploadImgs: [],
     count: 9,
-    districtList: [],
-    cityList: [],
-    areaList: [],
+    region: ['广东省', '广州市', '海珠区'],
+    customItem: '全部',
+    // districtList: [],
+    // cityList: [],
+    // areaList: [],
     popHidden: true,
   },
 
   onLoad: function (options) {
     // 省市区数据
-    this.getAllDistrict();
+    // this.getAllDistrict();
   },
 
   /** 创建店铺 */
   doSubmit(e) {
-    // this.uploadImg();
-    const params = e.detail.value
+    const params = e.detail.value;
+    const region = e.data.region;
     const address = {
-      province: this.data.province,
-      city: this.data.city,
-      area: this.data.area,
+      province: this.data.region[0],
+      city: this.data.region[1],
+      area: this.data.region[2],
       logo: this.data.logo,
     }
     apiServicePro.createShop(Object.assign(address, params)).then((result) => {
@@ -103,27 +105,27 @@ Page({
 
   },
 
-  popAddress() {
-    this.setData({
-      popHidden: false,
-    })
-  },
+  // popAddress() {
+  //   this.setData({
+  //     popHidden: false,
+  //   })
+  // },
 
-  bindChange(e) {
-    const val = e.detail.value
-    const province = this.data.districtList[val[0]].data[0].id;
-    const city = this.data.cityList[val[1]].data[0].id;
-    const area = this.data.areaList[val[2]].data[0].id;
-    const provinceName = this.data.districtList[val[0]].data[0].name;
-    const cityName = this.data.cityList[val[1]].data[0].name;
-    const areaName = this.data.areaList[val[2]].data[0].name;
-    this.setData({
-      province,
-      city,
-      area,
-      addressInfo: `${provinceName}${cityName}${areaName}`,
-    })
-  },
+  // bindChange(e) {
+  //   const val = e.detail.value
+  //   const province = this.data.districtList[val[0]].data[0].id;
+  //   const city = this.data.cityList[val[1]].data[0].id;
+  //   const area = this.data.areaList[val[2]].data[0].id;
+  //   const provinceName = this.data.districtList[val[0]].data[0].name;
+  //   const cityName = this.data.cityList[val[1]].data[0].name;
+  //   const areaName = this.data.areaList[val[2]].data[0].name;
+  //   this.setData({
+  //     province,
+  //     city,
+  //     area,
+  //     addressInfo: `${provinceName}${cityName}${areaName}`,
+  //   })
+  // },
 
   pickEnsure() {
     this.setData({
@@ -134,19 +136,26 @@ Page({
   /** 获取城市列表
    * id 可选 可传空字符？？
    */
-  getAllDistrict() {
-    const params = {
-      type: 'all',
-    };
-    apiServicePro.getAllDistrict(params).then((result) => {
-      if (result.code === 200) {
-        const districtList = result.data;
-        this.setData({
-          districtList,
-        });
-      }
-    }).catch((err) => {
-      showModal();
+  // getAllDistrict() {
+  //   const params = {
+  //     type: 'all',
+  //   };
+  //   apiServicePro.getAllDistrict(params).then((result) => {
+  //     if (result.code === 200) {
+  //       const districtList = result.data;
+  //       this.setData({
+  //         districtList,
+  //       });
+  //     }
+  //   }).catch((err) => {
+  //     showModal();
+  //   })
+  // },
+
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
     })
   },
 

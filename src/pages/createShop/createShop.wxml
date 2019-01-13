@@ -46,10 +46,14 @@
         <text>店铺名</text>
         <input name="shopName" placeholder="请输入店铺名称" placeholder-class="placeholder" />
       </view>
-      <view class='info-cell car-flex' bindtap="popAddress">
+      <view class='info-cell car-flex'>
         <text>选择地区</text>
-        <input value="{{addressInfo}}" placeholder="地区信息" placeholder-class="placeholder" disabled/>
-        <!-- <text class="address-info">地区信息</text> -->
+        <!-- <input value="{{addressInfo}}" placeholder="地区信息" placeholder-class="placeholder" disabled/> -->
+         <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+            <view class="picker">
+              {{region[0]}}{{region[1]}}{{region[2]}}
+            </view>
+          </picker>
       </view>
       <view class='info-cell car-flex'>
         <text>详细地址</text>
