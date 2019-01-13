@@ -2,8 +2,8 @@
 <view class='nameCard'>
   <view class='qrcode'>
     <view class='actions'>
-      <Icon iconName="download" width='16px' height='16px' />
-      <Icon iconName="share2" width='16px' height='16px' />
+      <Icon iconName="download" width='14px' height='14px' />
+      <Icon iconName="share2" width='14px' height='14px' />
     </view>
     <image src='{{userInfo.shop.qrcode}}' mode='aspectFit'/>
     <view class='small-text'>{{userInfo.shop.shopName}}</view>

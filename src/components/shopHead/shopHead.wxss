@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
-  padding: 10px 0px 5px 0px;
+  padding: 15px 0px 10px 0px;
   background-color: #ffffff;
 }
 
@@ -33,8 +33,8 @@
 .home-shop .shop-title {
   display: flex;
   align-items: center;
-  /* padding-bottom: 4px; */
-  font-size: 15px;
+  padding-bottom: 2px;
+  font-size: 16px;
   color: #13334D;
 }
 .home-shop .shop-title .level {
@@ -100,7 +100,7 @@
 .homeHead .address {
   display: flex;
   align-items: center;
-  padding: 7px 0px;
+  padding: 10px 0px;
 }
 
 .homeHead .address text{

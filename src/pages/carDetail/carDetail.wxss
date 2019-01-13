@@ -1,14 +1,14 @@
-/* pages/car-detail/car-detail.wxss */
+/* pages/carDetail/carDetail.wxss */
 
-.car-detail {
+.carDetail {
 
 }
 
-.car-detail .car-swiper image {
+.carDetail .car-swiper image {
   width: 100%;
 }
 
-.car-detail .imgs {
+.carDetail .imgs {
   position: absolute;
   z-index:99;
   padding:7px;
@@ -20,18 +20,18 @@
   opacity: .6;
 }
 
-.car-detail .imgs text {
+.carDetail .imgs text {
   padding-left: 7px;
   font-size: 12px;
 }
 
-.car-detail .car-detail-info {
+.carDetail .carDetail-info {
   padding: 15px 30px;
   background-color: #ffffff;
   margin-bottom: 10px;
 }
 
-.car-detail .car-detail-info .intro {
+.carDetail .carDetail-info .intro {
   padding: 15px 30px;
   background: rgb(217, 224, 228);
   border-radius: 4px;
@@ -40,41 +40,41 @@
   font-weight: 400;
 }
 
-.car-detail .car-detail-info image {
+.carDetail .carDetail-info image {
   height: 36px;
   width: 36px;
   margin: 10px 10px 10px 0px;
   border-radius: 18px;
 }
 
-.car-detail .car-detail-info .price {
+.carDetail .carDetail-info .price {
   padding: 5px;
   font-size: 22px;
   color: #35A1FB;
 }
 
-.car-detail .car-detail-info .sub-title {
+.carDetail .carDetail-info .sub-title {
   font-size: 14px;
   color: #35A1FB;
 }
 
-.car-detail .car-detail-info .item-box {
+.carDetail .carDetail-info .item-box {
   display: inline-block;
   width: 33.333%;
   text-align: left;
   padding: 10px 0px;
 }
 
-.car-detail .car-detail-info .item-name {
+.carDetail .carDetail-info .item-name {
   font-size: 12px;
   color: #9DACB6;
 }
 
-.car-detail .car-detail-info .item-value {
+.carDetail .carDetail-info .item-value {
   font-size: 14px;
 }
 
-.car-detail .car-detail-info .z_r {
+.carDetail .carDetail-info .z_r {
   width: 2px;
   margin-left: 10px;
   border-width: 8px; 
@@ -82,11 +82,11 @@
   border-color: transparent transparent rgb(217, 224, 228) transparent;
 }
 
-.car-detail .message-box {
+.carDetail .message-box {
   margin: 15px 0px;
 }
 
-.car-detail .footer-btn {
+.carDetail .footer-btn {
   position: fixed;
   display: flex;
   bottom: 0px;
@@ -96,19 +96,19 @@
   align-items: center;
 }
 
-.car-detail .footer-btn .collect {
+.carDetail .footer-btn .collect {
   flex: 1;
   padding: 0px 30px 0px 10px;
   text-align: center;
 }
 
-.car-detail .footer-btn button {
+.carDetail .footer-btn button {
   border: 0px;
   border-radius: 0px;
   font-size: 15px;
 }
 
-.car-detail .footer-btn button + button {
+.carDetail .footer-btn button + button {
   margin-left: 10px;
 }
 

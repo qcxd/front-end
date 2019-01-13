@@ -1,17 +1,17 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my-home/my-home",
+    "pages/shopSearch/shopSearch",
+    "pages/myHome/myHome",
     "pages/ossUpload/ossUpload",
     "pages/upload/upload",
     "pages/createShop/createShop",
     "pages/wherehouse/wherehouse",
     "pages/home/home",
-    "pages/car-detail/car-detail",
+    "pages/carDetail/carDetail",
     "pages/shop/shop",
     "pages/createCar/createCar",
     "pages/logs/logs",
-    "pages/test/test",
     "pages/shopSuccess/shopSuccess",
     "pages/nameCard/nameCard"
   ],
@@ -38,7 +38,7 @@
         "selectedIconPath": "image/menu_2_active.png"
       },
       {
-        "pagePath": "pages/my-home/my-home",
+        "pagePath": "pages/myHome/myHome",
         "text": "个人中心",
         "iconPath": "image/menu_3_active.png",
         "selectedIconPath": "image/menu_3_active.png"

@@ -79,13 +79,13 @@
           bindchange="bindChange"
         >
           <picker-view-column>
-            <view wx:for="{{provinceList}}" wx:key="{{this}}" style="line-height: 50px">{{item.data[0].name}}</view>
+            <view wx:for="{{districtList}}" wx:key="{{this}}" style="line-height: 50px">{{item.name}}</view>
           </picker-view-column>
           <picker-view-column>
-            <view wx:for="{{cityList}}" wx:key="{{this}}" style="line-height: 50px">{{item.data[0].name}}</view>
+            <view wx:for="{{districtList.children}}" wx:key="{{this}}" style="line-height: 50px">{{item.name}}</view>
           </picker-view-column>
           <picker-view-column>
-            <view wx:for="{{areaList}}" wx:key="{{this}}" style="line-height: 50px">{{item.data[0].name}}</view>
+            <view wx:for="{{districtList.children.children}}" wx:key="{{this}}" style="line-height: 50px">{{item.name}}</view>
           </picker-view-column>
         </picker-view>
       </view>

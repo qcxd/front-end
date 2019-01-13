@@ -1,4 +1,4 @@
-/* pages/my-home/my-home.wxss */
+/* pages/myHome/myHome.wxss */
 
 .myHome .home-head {
   padding: 15px;

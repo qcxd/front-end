@@ -1,0 +1,48 @@
+/* pages/shopSearch/shopSearch.wxss */
+.shopSearch {
+
+}
+
+.shopSearch .input-box {
+  background: #ffffff;
+  padding:10px 15px 10px 0px;
+}
+
+.shopSearch input {
+  flex: 1;
+  margin-right: 10px;
+  padding-left:30px;
+  background-color: #EFEEEE;
+  border-radius: 25px;
+}
+
+.shopSearch icon {
+  position: relative;
+  left: 25px;
+  z-index: 10;
+}
+
+.shopSearch .search-box {
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.shopSearch .search-box-cell {
+  background: #ffffff;
+  padding: 10px 20px;
+}
+
+.shopSearch .subtitle {
+  padding-bottom: 10px;
+}
+
+.shopSearch .words-cell view {
+  display: inline-block;
+  line-height: 30px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  text-align: center;
+  background: #efefef;
+  border-radius: 4px;
+  padding: 2px 20px;
+}

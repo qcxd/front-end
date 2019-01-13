@@ -1,0 +1,31 @@
+<view class='shopSearch'>
+  <view class='input-box car-flex'>
+    <icon type="search" size="15" />
+    <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
+    <text bindtap='cancel'>取消</text>
+  </view>
+  <view class='search-box'>
+    <view class='search-box-cell'>
+      <view class='subtitle'>热门搜索</view>
+      <view class='words-cell'>
+        <view>SUV</view>
+        <view>奥迪</view>
+        <view>特斯拉</view>
+        <view>荣威</view>
+        <view>特斯拉</view>
+        <view>荣威</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='search-box'>
+    <view class='search-box-cell'>
+      <view class='subtitle'>历史搜索</view>
+      <view class='words-cell'>
+        <view>SUV</view>
+        <view>奥迪</view>
+        <view>特斯拉</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -21,9 +21,12 @@ Page({
   onLoad: function (options) {
     this.getShopDetail(options.id);
   },
-
+ 
+  /** 搜索页 */
   doSearch() {
-    console.log('search');
+    wx.navigateTo({
+      url: '../shopSearch/shopSearch',
+    })
   },
 
   tabSwitch(e) {
@@ -98,7 +101,7 @@ Page({
 
   goCarDetail() {
     wx.navigateTo({
-      url: '../car-detail/car-detail',
+      url: '../carDetail/carDetail',
     })
   },
 

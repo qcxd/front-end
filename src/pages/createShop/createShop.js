@@ -19,7 +19,7 @@ Page({
     images: [],
     uploadImgs: [],
     count: 9,
-    provinceList: [],
+    districtList: [],
     cityList: [],
     areaList: [],
     popHidden: true,
@@ -44,8 +44,8 @@ Page({
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
-          // url: `../shop/shop?id=${data.result.id}`,
-          url: `../shopSuccess/shopSuccess`,
+          url: `../shop/shop?id=${result.data.id}`,
+          // url: `../shopSuccess/shopSuccess`,
         })
       }
     })
@@ -111,10 +111,10 @@ Page({
 
   bindChange(e) {
     const val = e.detail.value
-    const province = this.data.provinceList[val[0]].data[0].id;
+    const province = this.data.districtList[val[0]].data[0].id;
     const city = this.data.cityList[val[1]].data[0].id;
     const area = this.data.areaList[val[2]].data[0].id;
-    const provinceName = this.data.provinceList[val[0]].data[0].name;
+    const provinceName = this.data.districtList[val[0]].data[0].name;
     const cityName = this.data.cityList[val[1]].data[0].name;
     const areaName = this.data.areaList[val[2]].data[0].name;
     this.setData({
@@ -135,13 +135,14 @@ Page({
    * id 可选 可传空字符？？
    */
   getAllDistrict() {
-    apiServicePro.getAllDistrict({}).then((result) => {
+    const params = {
+      type: 'all',
+    };
+    apiServicePro.getAllDistrict(params).then((result) => {
       if (result.code === 200) {
-        const provinceList = result.data;
+        const districtList = result.data;
         this.setData({
-          provinceList,
-          cityList: provinceList,
-          areaList: provinceList,
+          districtList,
         });
       }
     }).catch((err) => {

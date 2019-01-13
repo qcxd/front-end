@@ -40,7 +40,7 @@ Page({
  /** 汽车详情 */
   goCarDetail() {
     wx.navigateTo({
-      url: `../car-detail/car-detail`,
+      url: `../carDetail/carDetail`,
     })
   },
 

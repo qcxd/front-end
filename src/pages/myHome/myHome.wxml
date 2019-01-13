@@ -1,4 +1,4 @@
-<!-- pages/my-home/my-home.wxml -->
+<!-- pages/myHome/myHome.wxml -->
 <view class='myHome'>
   <view class='car-flex home-head'>
     <image class='head-img' src='{{user.avatarUrl}}' />

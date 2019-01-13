@@ -1,4 +1,4 @@
-// pages/my-home/my-home.js
+// pages/myHome/myHome.js
 const app = getApp();
 const apiServicePro = require('../../service/api/api-promisify.service');
 const {

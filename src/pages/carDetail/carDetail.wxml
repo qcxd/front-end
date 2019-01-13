@@ -1,5 +1,5 @@
-<!--pages/car-detail/car-detail.wxml-->
-<view class="car-detail">
+<!--pages/carDetail/carDetail.wxml-->
+<view class="carDetail">
   <view class="car-swiper">
     <carSwiper
       indicator-dots="true"
@@ -12,12 +12,12 @@
       <text>60</text>
     </view>
     </view>
-  <view class="car-detail-info">
+  <view class="carDetail-info">
     <view class="title-text">保时捷 911 2014款  1.6L</view>
     <view><text class="price">9.8</text>万</view>
   </view>
 
-  <view class="car-detail-info">
+  <view class="carDetail-info">
     <view class='sub-title'>基本信息</view>
     <view>
       <view class='item-box'>
@@ -51,7 +51,7 @@
     </view>
   </view>
 
-  <!-- <view class="car-detail-info">
+  <!-- <view class="carDetail-info">
     <view class="title-text">👍🏼 卖家有话说：</view>
     <view class='car-flex'>
       <image src="../../image/porsche-wallpaper.jpg" />
