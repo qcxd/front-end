@@ -193,7 +193,18 @@ Page({
   onPullDownRefresh: function () {
 
   },
-
+  chooseAddress:() => {
+    wx.chooseAddress({
+      success: (res) => {
+        this.setData({
+          addressInfo: res
+        })
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
