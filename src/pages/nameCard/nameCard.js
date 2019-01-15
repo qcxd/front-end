@@ -15,7 +15,7 @@ Page({
     servicePro.getUserInfo().then(result => {
       if (result) {
         const userInfo = result.data;
-        const addressInfo = userInfo.shop.address;
+        const addressInfo = userInfo.Shop.addressInfo;
         this.setData({
           userInfo,
           addressInfo,

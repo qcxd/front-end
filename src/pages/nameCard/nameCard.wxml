@@ -5,21 +5,21 @@
       <Icon iconName="download" width='14px' height='14px' />
       <Icon iconName="share2" width='14px' height='14px' />
     </view>
-    <image src='{{userInfo.shop.qrcode}}' mode='aspectFit'/>
-    <view class='small-text'>{{userInfo.shop.shopName}}</view>
+    <image src='{{userInfo.Shop.qrcode}}' mode='aspectFit'/>
+    <view class='small-text'>{{userInfo.Shop.shopName}}</view>
   </view>
   <view class='detail'>
     <view class='car-flex'>
       <Icon iconName="people" width='14px' height='16px' />
-      <view>{{userInfo.shop.name}}</view>
+      <view>{{userInfo.Shop.name}}</view>
     </view>
     <view class='car-flex'>
       <Icon iconName="call" width='14px' height='16px' />
-      <view>{{userInfo.shop.phone}}</view>
+      <view>{{userInfo.Shop.phone}}</view>
     </view>
     <view class='car-flex'>
       <Icon iconName="address" width='12px' height='16px' />
-      <view>{{addressInfo}}</view>
+      <view>{{addressInfo.province.name}}{{addressInfo.city.name}}{{addressInfo.area.name}}{{addressInfo.detail}}</view>
     </view>
   </view>
 </view>

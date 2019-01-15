@@ -49,11 +49,11 @@
       <view class='info-cell car-flex'>
         <text>选择地区</text>
         <!-- <input value="{{addressInfo}}" placeholder="地区信息" placeholder-class="placeholder" disabled/> -->
-         <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
-            <view class="picker">
-              {{region[0]}}{{region[1]}}{{region[2]}}
-            </view>
-          </picker>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+          <view class="picker">
+            {{region[0]}}{{region[1]}}{{region[2]}}
+          </view>
+        </picker>
       </view>
       <view class='info-cell car-flex'>
         <text>详细地址</text>
@@ -61,9 +61,9 @@
       </view>
       <view class='address-cell car-flex '>
         <Icon iconName='weChat' width="16px" height="16px"/>
-         <view class="btn-area">
-    <button type="primary" bindtap="chooseAddress">一键导入微信地址</button>
-  </view>
+        <view class="btn-area">
+          <view type="primary" bindtap="chooseAddress">一键导入微信地址</view>
+        </view>
         <Icon iconName='arrowRight' width="6px" height="8px"/>
       </view>
     </view>
@@ -71,7 +71,7 @@
     <button form-type="submit">提交</button>
   </form>
 
-  <block wx:if="{{!popHidden}}" >
+  <!-- <block wx:if="{{!popHidden}}" >
     <view class="address-picker">
       <view class="address-box">
         <view class='car-flex'>
@@ -96,5 +96,5 @@
         </picker-view>
       </view>
     </view>
-  </block>
+  </block> -->
 </view>
