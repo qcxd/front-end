@@ -85,9 +85,9 @@ Page({
     })
   },
 
-  goCarDetail() {
+  goCarDetail(e) {
     wx.navigateTo({
-      url: '../carDetail/carDetail',
+      url: `../carDetail/carDetail?id=${e.currentTarget.dataset.id}`,
     })
   },
 

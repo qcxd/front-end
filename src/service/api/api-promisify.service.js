@@ -122,6 +122,11 @@ const getWarehouseCarList = (params) => rest.post({ url: `/shop/warehouseCarList
 const createCar = (params) => rest.post({ url: `/shop/createCar`, data: params });
 
 /**
+ * 通过汽车id获取汽车详情
+ */
+const getCarDetail = (id) => rest.get({ url: `/car/detail/${id}` });
+
+/**
  * 获取用户数据分析
  */
 const getUserStatistics = () => rest.get({ url: `/user/statistics` });
@@ -154,6 +159,7 @@ module.exports = {
   getWarehouseList,
   getWarehouseCarList,
   createCar,
+  getCarDetail,
   getUserStatistics
 }
 

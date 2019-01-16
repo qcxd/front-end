@@ -167,9 +167,10 @@
 }
 
 .shop-menu icon {
-  position: relative;
-  left: 25px;
-  z-index: 10;
+  position:absolute;
+  left:38px;
+  z-index:10;
+  margin-top:7px;
 }
 
 .paddingBottom_5 {

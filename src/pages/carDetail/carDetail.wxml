@@ -13,8 +13,8 @@
     </view>
     </view>
   <view class="carDetail-info">
-    <view class="title-text">保时捷 911 2014款  1.6L</view>
-    <view><text class="price">9.8</text>万</view>
+    <view class="title-text">{{carDetail.brand}}</view>
+    <view><text class="price">{{carDetail.price}}</text>万</view>
   </view>
 
   <view class="carDetail-info">
@@ -69,5 +69,5 @@
     <button class="carBtn_primary_t">一键分享</button>
     <button class="carBtn_primary_h">联系卖家</button>
   </view> -->
-  <fixedFooter />
+  <fixedFooter carDetail='{{carDetail}}' bind:phonecall='phoneCall'/>
 </view>

@@ -67,11 +67,19 @@ const validatePhone = (phone, desc) => {
   }
 }
 
+const phoneCall = (e) => {
+  const phone = e.currentTarget.dataset.phone
+  wx.makePhoneCall({
+    phoneNumber: phone,
+  })
+}
+
 module.exports = {
   formatDate,
   showModal,
   cityReplace,
   validateEmpty,
   validateImages,
-  validatePhone
+  validatePhone,
+  phoneCall
 }

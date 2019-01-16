@@ -38,9 +38,9 @@ Page({
     })
   },
  /** 汽车详情 */
-  goCarDetail() {
+  goCarDetail(e) {
     wx.navigateTo({
-      url: `../carDetail/carDetail`,
+      url: `../carDetail/carDetail?id=${e.currentTarget.dataset.id}`,
     })
   },
 

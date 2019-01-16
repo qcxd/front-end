@@ -33,7 +33,7 @@
       <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
       <text class='line-v'>{{shopDetail.address}}</text>
       <Icon iconName='weChat' width='20px' height='16.67px' />
-      <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' />
+      <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' data-phone='{{shopDetail.phone}}'/>
     </view>
     <view class='hr'></view>  
 
@@ -88,7 +88,7 @@
     <view class='shop-view'>
       <view class='subtitle'>-- 店铺推荐 --</view>  
       <block wx:for="{{shopDetail.Cars}}">
-        <view class='shop-box'>
+        <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
           <image src="{{item.indexImage}}" mode='widthFix'></image>
           <view class='car-info'>
             <view class='desc'>{{item.brand}}</view>
@@ -120,7 +120,7 @@
   <view wx:else>
     <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
       <view class='all-cars'>
-        <view catchtap='goCarDetail' class='carCard'>
+        <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
           <carCard carDetail="{{item}}"></carCard>
         </view>
       </view>

@@ -72,7 +72,7 @@
         <view class='wherehouse-cars'>
           <scroll-view scroll-x class='cars-cell'>
             <block wx:for="{{item.Car}}" wx:key="{{item.id}}">
-              <view catchtap='goCarDetail' class='carCard'>
+              <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
                 <shopCar carDetail="{{item}}"></shopCar>
               </view>
             </block>
@@ -90,7 +90,7 @@
         </view> -->
         <view class='wherehouse-cars'>
           <!-- <block wx:for="{{item.Car}}" wx:key="{{item.id}}"> -->
-            <view catchtap='goCarDetail' class='carCard'>
+            <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
               <carCard carDetail="{{item.Car}}"></carCard>
             </view>
           <!-- </block> -->

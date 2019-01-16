@@ -20,7 +20,7 @@ Page({
     images: [],
     uploadImgs: [],
     count: 9,
-    region: ['广东省', '广州市', '海珠区'],
+    region: [],
     customItem: '全部',
     popHidden: true,
   },

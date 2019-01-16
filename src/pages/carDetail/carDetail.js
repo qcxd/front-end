@@ -1,10 +1,13 @@
 // pages/carDetail/carDetail.js
+const apiServicePro = require('../../service/api/api-promisify.service');
+const {
+  phoneCall,
+} = require('../../utils/utils');
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    carDetail: {},
     imgUrls: [
       'https://test-buycarshop.oss-cn-beijing.aliyuncs.com/images/tmp/wxd69c8ff630f18b95.o6zAJs4dYanu890IXcPAeUhW4Ixc.HAm45WKvZ4z5830181c6b1af100ff1847db1277bf182.jpg',
       'https://test-buycarshop.oss-cn-beijing.aliyuncs.com/images/tmp/wxd69c8ff630f18b95.o6zAJs4dYanu890IXcPAeUhW4Ixc.QD0jvpmY6TFdb2541b054365b88b0bae5172f87fdcaf.jpg',
@@ -12,11 +15,24 @@ Page({
     ],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    console.log(options);
+    this.getCarDetail(options.id);
+  },
 
+  /** 汽车详情 */
+  getCarDetail(id) {
+    apiServicePro.getCarDetail(id).then((result) => {
+      if (result) {
+        this.setData({
+          carDetail: result.data,
+        })
+      }
+    })
+  },
+
+  phoneCall(e) {
+    phoneCall(e);
   },
 
   /**

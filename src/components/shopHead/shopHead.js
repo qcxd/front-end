@@ -1,4 +1,7 @@
 // components/shopHead/shopHead.js
+const {
+  phoneCall,
+} = require('../../utils/utils');
 
 Component({
   /**
@@ -36,9 +39,7 @@ Component({
     },
 
     phoneCall(e) {
-      wx.makePhoneCall({
-        phoneNumber: '1340000'
-      })
+      phoneCall(e);
     }
   }
 })

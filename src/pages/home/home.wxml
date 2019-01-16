@@ -35,7 +35,7 @@
       <view class='scroll-cars'>
         <scroll-view scroll-x class='cars-cell'>
           <block wx:for="{{item.Cars}}" wx:key="{{item.id}}">
-            <view catchtap='goCarDetail' class='carCard'>
+            <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
               <shopCar carDetail="{{item}}"></shopCar>
             </view>
           </block>

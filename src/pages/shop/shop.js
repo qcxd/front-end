@@ -3,6 +3,7 @@
 const apiServicePro = require('../../service/api/api-promisify.service');
 const {
   showModal,
+  phoneCall,
 } = require('../../utils/utils');
 
 Page({
@@ -94,14 +95,12 @@ Page({
   },
 
   phoneCall(e) {
-    wx.makePhoneCall({
-      phoneNumber: '1340000'
-    })
+    phoneCall(e);
   },
 
-  goCarDetail() {
+  goCarDetail(e) {
     wx.navigateTo({
-      url: '../carDetail/carDetail',
+      url: `../carDetail/carDetail?id=${e.currentTarget.dataset.id}`,
     })
   },
 
