@@ -9,7 +9,7 @@
         <block wx:if="{{shopIntro}}">
           <view class='level'>v1</view>
         </block>
-        <text>{{shopInfo.name}}</text>
+        <text>{{shopInfo.shopName}}</text>
         <block wx:if="{{!shopIntro}}">
           <view class='level'>v1</view>
         </block>

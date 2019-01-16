@@ -7,7 +7,7 @@
     <Icon iconName='weChat2' width='20px' height='16.67px' ></Icon>
     <text>微信联系</text>
   </view>
-  <view class='btn-call' catchtap='phoneCall' data-phone='{{carDetail.phone}}'>
+  <view class='btn-call' catchtap='phoneCall' data-phone='{{carDetail.Shop.phone}}'>
     <Icon iconName='call2' width='15px' height='15px' ></Icon>
     <text>电话预约</text>
   </view>

@@ -86,7 +86,7 @@
     <block wx:for="{{carList}}" wx:key="{{item.id}}">
       <view class="wherehouse-shop">
         <!-- <view bindtap='goShop' data-id="{{item.id}}" class='shop-title'>
-          <text>{{item.Shop.name}}</text>
+          <text>{{item.Shop.shopName}}</text>
         </view> -->
         <view class='wherehouse-cars'>
           <!-- <block wx:for="{{item.Car}}" wx:key="{{item.id}}"> -->

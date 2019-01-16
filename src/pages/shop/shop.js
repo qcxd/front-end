@@ -106,7 +106,6 @@ Page({
 
   /** 收藏店铺 */
   followShop(e) {
-    console.log(e);
     const params = {
       id: e.currentTarget.dataset.id,
       follow: e.currentTarget.dataset.follow ? false : true
