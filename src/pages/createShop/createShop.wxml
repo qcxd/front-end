@@ -57,7 +57,7 @@
       </view>
       <view class='info-cell car-flex'>
         <text>详细地址</text>
-        <input name="address" placeholder="街道门牌信息" placeholder-class="placeholder" />
+        <input name="address" placeholder="街道门牌信息" placeholder-class="placeholder" value="{{address}}" />
       </view>
       <view class='address-cell car-flex '>
         <Icon iconName='weChat' width="16px" height="16px"/>

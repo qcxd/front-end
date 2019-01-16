@@ -10,12 +10,11 @@ Page({
     phone: '',
     shopName: '',
     country: '',
-    province: 0,
-    city: 0,
-    area: 0,
-    addressInfo: '',
-    introduce: '',
+    province: '',
+    city: '',
+    area: '',
     address: '',
+    introduce: '',
     logo: '',
     filePath: '',
     images: [],
@@ -23,9 +22,6 @@ Page({
     count: 9,
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
-    // districtList: [],
-    // cityList: [],
-    // areaList: [],
     popHidden: true,
   },
 
@@ -34,7 +30,6 @@ Page({
     wx.getStorage({
       key: 'user',
       success: function(res) {
-        console.log(res);
         _this.setData({
           user: res.data
         })
@@ -45,7 +40,7 @@ Page({
   onSubmit(e) {
     let that = this;
     const value = e.detail.value;
-    console.log(JSON.stringify(this.data.uploadImgs))
+    const openid = this.data.user.openid;
 
     utils.validateEmpty(value.name, '请输入姓名');
     utils.validateEmpty(value.phone, '请输入手机号码');
@@ -54,7 +49,6 @@ Page({
     utils.validateEmpty(value.address, '请输详细地址');
     utils.validatePhone(value.phone, '请输入正确的手机号');
 
-    const openid = this.data.user.openid;
     for (let i = 0; i < that.data.uploadImgs.length; i++) {
       let filePath = that.data.uploadImgs[i];
       uploadImage(
@@ -62,7 +56,6 @@ Page({
         filePath: filePath,
         dir: `images/shop/${openid}/`,
         success: function (res) {
-          console.log("上传成功" + JSON.stringify(res))
           that.setData({
             qrcode: res,
           }, () => {
@@ -70,7 +63,6 @@ Page({
           })
         },
         fail: function (res) {
-          console.log("上传失败")
           console.log(res)
         }
       })
@@ -124,55 +116,11 @@ Page({
     })
   },
 
- 
-
-
-  // popAddress() {
-  //   this.setData({
-  //     popHidden: false,
-  //   })
-  // },
-
-  // bindChange(e) {
-  //   const val = e.detail.value
-  //   const province = this.data.districtList[val[0]].data[0].id;
-  //   const city = this.data.cityList[val[1]].data[0].id;
-  //   const area = this.data.areaList[val[2]].data[0].id;
-  //   const provinceName = this.data.districtList[val[0]].data[0].name;
-  //   const cityName = this.data.cityList[val[1]].data[0].name;
-  //   const areaName = this.data.areaList[val[2]].data[0].name;
-  //   this.setData({
-  //     province,
-  //     city,
-  //     area,
-  //     addressInfo: `${provinceName}${cityName}${areaName}`,
-  //   })
-  // },
-
   pickEnsure() {
     this.setData({
       popHidden: true,
     })
   },
-
-  /** 获取城市列表
-   * id 可选 可传空字符？？
-   */
-  // getAllDistrict() {
-  //   const params = {
-  //     type: 'all',
-  //   };
-  //   apiServicePro.getAllDistrict(params).then((result) => {
-  //     if (result.code === 200) {
-  //       const districtList = result.data;
-  //       this.setData({
-  //         districtList,
-  //       });
-  //     }
-  //   }).catch((err) => {
-  //     showModal();
-  //   })
-  // },
 
   bindRegionChange: function (e) {
     this.setData({
@@ -181,11 +129,20 @@ Page({
   },
 
   /** 导入微信地址 */
-  chooseAddress:() => {
+  chooseAddress() {
+    let that = this;
     wx.chooseAddress({
       success: (res) => {
-        this.setData({
-          addressInfo: res
+        const {
+          provinceName,
+          cityName,
+          countyName,
+          detailInfo,
+        } = res;
+        const region = [provinceName, cityName, countyName];
+        that.setData({
+          region,
+          address: detailInfo,
         })
       },
       fail: function (err) {
