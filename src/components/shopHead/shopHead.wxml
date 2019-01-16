@@ -42,7 +42,7 @@
     <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
     <text class='line-v'>{{shopInfo.address}}</text>
     <Icon iconName='weChat' width='20px' height='16.67px' />
-    <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' />
+    <Icon iconName='call' width='15px' height='15px' catchtap='phoneCall' />
   </view>
   <view class='hr'></view>
 </view>
