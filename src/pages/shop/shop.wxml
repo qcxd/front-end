@@ -9,7 +9,7 @@
       <view class='flex_1'>
         <view class='car-flex paddingBottom_5'>
           <view class='flex_1'>
-            <text class='title'>{{shopDetail.name}}</text>
+            <text class='title'>{{shopDetail.shopName}}</text>
             <text class='level'>v1</text>
           </view>
           <button
