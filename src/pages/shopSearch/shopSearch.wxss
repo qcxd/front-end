@@ -27,7 +27,7 @@
 }
 
 .shopSearch .search-box {
-  padding: 15px;
+  padding: 15px 15px 0px 15px;
   border-radius: 4px;
   font-size: 14px;
 }

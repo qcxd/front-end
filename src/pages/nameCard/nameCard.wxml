@@ -1,6 +1,6 @@
 <!--pages/nameCard/nameCard.wxml-->
 <view class='nameCard'>
-  <view class='qrcode'>
+  <!-- <view class='qrcode'>
     <view class='actions'>
       <Icon iconName="download" width='14px' height='14px' />
       <Icon iconName="share2" width='14px' height='14px' />
@@ -24,5 +24,8 @@
         {{addressInfo.city.name}} {{addressInfo.area.name}} {{addressInfo.detail}}
       </view>
     </view>
-  </view>
+  </view> -->
+
+  <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="nameCard"></canvas>
+
 </view>
