@@ -27,6 +27,25 @@ Page({
     });
   },
 
+  /** 生成图片并保存 */
+  save() {
+    
+  },
+
+  /** 绘制canvas */
+  createCanvas() {
+    const ctx = wx.createCanvasContext('nameCard');
+    ctx.drawImage(userInfo.Shop.qrcode, 140, 25, 128, 34);
+    ctx.setTextAlign('left');
+    ctx.setFillStyle('#bbbbbb')
+    ctx.fillText(userInfo.Shop.shopName, 70, 270);
+  },
+
+  /** 分享页面 */
+  share() {
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
