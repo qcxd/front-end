@@ -26,6 +26,6 @@
     </view>
   </view> -->
 
-  <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="nameCard"></canvas>
+  <canvas canvas-id="nameCard"></canvas>
 
 </view>

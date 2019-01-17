@@ -38,3 +38,10 @@
   padding: 10px 0px;
 }
 
+.nameCard canvas {
+  width:100%;
+  height:100%;
+  position:fixed;
+  background-color:#55555550;
+}
+

@@ -55,10 +55,12 @@ Page({
 
     for (let i = 0; i < that.data.uploadImgs.length; i++) {
       let filePath = that.data.uploadImgs[i];
+      console.log(that.data.uploadImgs[i]);
+
       uploadImage(
       {
         filePath: filePath,
-        dir: `${aliyunServerURL}/images/shop/${openid}/`,
+          dir: `${aliyunServerURL}/images/shop/${openid}/` + filePath.replace('http://tmp/',''),
         success: function (res) {
           console.log('res', res);
           that.setData({
@@ -114,7 +116,8 @@ Page({
         var tempFilePaths = res.tempFilePaths;
         that.setData({
           filePath: res.tempFilePaths[0],
-          images: that.data.images.concat(tempFilePaths),
+          // images: that.data.images.concat(tempFilePaths),
+          images: tempFilePaths,
           uploadImgs: res.tempFilePaths
         })
       },

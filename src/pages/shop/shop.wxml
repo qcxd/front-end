@@ -22,8 +22,12 @@
           </button>
         </view>
         <view class='car-flex'>
-          <text class='number'>粉丝数：20 </text>
-          <text>汽车被收藏量：100</text>
+          <text class='number'>
+            粉丝数：{{shopDetail.shopStatistics.byFollowCars}} 
+          </text>
+          <text>
+            汽车被收藏量：{{shopDetail.shopStatistics.byFollowShops}}
+          </text>
         </view>
       </view>
     </view> 

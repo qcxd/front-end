@@ -3,7 +3,7 @@
   <view class='car-flex home-head'>
     <image class='head-img' src='{{user.avatarUrl}}' />
     <view class='flex_1'>{{user.nickName}}</view>
-    <Icon iconName='namecard' width='30px' height='20px;' bindtap='goNamecard'></Icon>
+    <Icon wx:if='{{userInfo.hasShop}}' iconName='namecard' width='30px' height='20px;' bindtap='goNamecard'></Icon>
   </view>
   <view class='car-flex home-center'>
     <view>

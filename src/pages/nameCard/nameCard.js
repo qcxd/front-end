@@ -14,31 +14,43 @@ Page({
   getUserInfo() {
     apiServicePro.getUserInfo().then(result => {
       if (result) {
-        const qrcode = result.data.Shop.qrcode;
         const userInfo = result.data;
-        userInfo.Shop.qrcode = `http://${qrcode}`;
         const addressInfo = userInfo.Shop.addressInfo;
         this.setData({
           userInfo,
           addressInfo,
+        }, () => {
+            this.createCanvas();
         });
-        console.log(userInfo);
       }
     });
   },
 
   /** 生成图片并保存 */
   save() {
-    
+    wx.canvasToTempFilePath({
+      x: 100,
+      y: 200,
+      width: 50,
+      height: 50,
+      destWidth: 100,
+      destHeight: 100,
+      canvasId: 'nameCard',
+      success(res) {
+        console.log(res.tempFilePath)
+      }
+    })
   },
 
   /** 绘制canvas */
   createCanvas() {
     const ctx = wx.createCanvasContext('nameCard');
-    ctx.drawImage(userInfo.Shop.qrcode, 140, 25, 128, 34);
+    ctx.drawImage(this.data.userInfo.Shop.qrcode, 140, 25, 128, 34);
     ctx.setTextAlign('left');
-    ctx.setFillStyle('#bbbbbb')
-    ctx.fillText(userInfo.Shop.shopName, 70, 270);
+    ctx.setFillStyle('#333333')
+    ctx.fillText(this.data.userInfo.Shop.shopName, 70, 270);
+
+    ctx.draw(); // 必须添加才能绘制
   },
 
   /** 分享页面 */
