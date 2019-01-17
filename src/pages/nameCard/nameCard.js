@@ -1,5 +1,5 @@
 // pages/nameCard/nameCard.js
-const servicePro = require('../../service/api/api-promisify.service');
+const apiServicePro = require('../../service/api/api-promisify.service');
 
 Page({
   data: {
@@ -12,7 +12,7 @@ Page({
 
   /** 获取用户信息（店铺信息） */
   getUserInfo() {
-    servicePro.getUserInfo().then(result => {
+    apiServicePro.getUserInfo().then(result => {
       if (result) {
         const qrcode = result.data.Shop.qrcode;
         const userInfo = result.data;

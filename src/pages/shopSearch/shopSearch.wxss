@@ -15,6 +15,10 @@
   background-color: #EFEEEE;
   border-radius: 25px;
 }
+.shopSearch .placeholder {
+  font-size: 14px;
+  color: #ACB4B9;
+}
 
 .shopSearch icon {
   position: relative;
@@ -25,6 +29,7 @@
 .shopSearch .search-box {
   padding: 15px;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 .shopSearch .search-box-cell {
@@ -34,6 +39,7 @@
 
 .shopSearch .subtitle {
   padding-bottom: 10px;
+  color: #13334D;
 }
 
 .shopSearch .words-cell view {

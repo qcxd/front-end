@@ -2,7 +2,6 @@ const config = require('index').config;
 const loading = require('./loading');
 
 const _handleResponse = (res, {url, success, fail}) => {
-  console.log(res);
   if (res.code === 500) {
     throw res.msg;
   }

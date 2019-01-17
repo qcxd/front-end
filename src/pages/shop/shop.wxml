@@ -31,7 +31,9 @@
     <view class='hr'></view>
     <view class='car-flex address'>
       <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
-      <text class='line-v'>{{shopDetail.address}}</text>
+      <text class='line-v'>
+         {{shopDetail.province ? shopDetail.province : ''}}{{shopDetail.city ? shopDetail.city : ''}}{{shopDetail.area ? shopDetail.area : ''}}{{shopDetail.address}}
+      </text>
       <Icon iconName='weChat' width='20px' height='16.67px' />
       <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' data-phone='{{shopDetail.phone}}'/>
     </view>

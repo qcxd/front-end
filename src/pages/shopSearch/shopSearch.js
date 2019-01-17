@@ -18,11 +18,9 @@ Page({
 
   /** 取消 返回店铺首页 */
   cancel() {
-    // const id = this.data.id;
-    // wx.navigateTo({
-    //   url: `../shop/shop?id=${id}`,
-    // })
-    delta: 1
+    wx.navigateBack({
+      delta: 1
+    })
   },
 
   /**

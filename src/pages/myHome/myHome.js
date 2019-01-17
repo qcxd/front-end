@@ -9,6 +9,7 @@ const {
 Page({
   data: {
     user: {},
+    userInfo: {},
     userStatistics: {},
   },
 
@@ -17,26 +18,25 @@ Page({
     wx.getStorage({
       key: 'user',
       success: function(res) {
-        console.log(res);
         _this.setData({
           user: res.data
         })
       },
     });
-    this.getUserStatistics();
+    this.getUserInfo();
   },
 
-  /** 获取用户信息 */
-  getUserStatistics() {
-    apiServicePro.getUserStatistics().then((result) => {
-      if (result.code === 200) {
+  /** 获取用户信息（店铺信息） */
+  getUserInfo() {
+    apiServicePro.getUserInfo().then(result => {
+      if (result) {
+        const userInfo = result.data;
         this.setData({
-          userStatistics: result.data
-        })
+          userInfo,
+          userStatistics: userInfo.statistics,
+        });
       }
-    }).catch((err) => {
-      showModal();
-    })
+    });
   },
 
   /** 创建店铺 */
@@ -50,6 +50,14 @@ Page({
   createCar() {
     wx.navigateTo({
       url: '../createCar/createCar',
+    })
+  },
+
+  /** 查看店铺 */
+  goShop() {
+    const id = this.data.userInfo.Shop.id;
+    wx.navigateTo({
+      url: `../shop/shop?id=${id}`,
     })
   },
 
