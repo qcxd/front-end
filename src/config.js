@@ -8,7 +8,7 @@ var socket = "https://www.peajs.top"
 // var hostUrl = "https://www.peajs.top/onechat"
 var hostUrl = "http://localhost:8002"
 
-var imageHost = "https://www.peajs.top"
+var fileHost = "http://test-buycarshop.oss-cn-beijing.aliyuncs.com"
 
 var config = {
 
@@ -32,7 +32,12 @@ var config = {
   downloadExampleUrl: `https://${host}/static/weapp.jpg`,
 
   socket,
-  imageHost
+
+  // aliyun OSS config
+  uploadImageUrl: `${fileHost}`, // 默认存在根目录，可根据需求改
+  AccessKeySecret: 'QaucOO51i55dLUBolkJgs7p2qBn7oC',
+  OSSAccessKeyId: 'LTAIvWyXwy6LwMKi',
+  timeout: 87600 // 这个是上传文件时Policy的失效时间
 };
 
 module.exports = config

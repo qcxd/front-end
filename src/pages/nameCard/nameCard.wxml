@@ -19,7 +19,10 @@
     </view>
     <view class='car-flex'>
       <Icon iconName="address" width='12px' height='16px' />
-      <view>{{addressInfo.province.name}}{{addressInfo.city.name}}{{addressInfo.area.name}}{{addressInfo.detail}}</view>
+      <view>
+        {{addressInfo.province.name ? addressInfo.province.name : ''}}
+        {{addressInfo.city.name}}{{addressInfo.area.name}}{{addressInfo.detail}}
+      </view>
     </view>
   </view>
 </view>

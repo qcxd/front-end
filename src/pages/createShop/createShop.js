@@ -2,6 +2,7 @@
 const apiServicePro = require('../../service/api/api-promisify.service');
 const uploadImage = require('../../utils/oss.js');
 const utils = require('../../utils/utils.js')
+const env = require('../../config.js');
 
 Page({
   data: {
@@ -26,6 +27,7 @@ Page({
   },
 
   onLoad: function (options) {
+    console.log('env', env)
     let _this = this
     wx.getStorage({
       key: 'user',
@@ -41,6 +43,8 @@ Page({
     let that = this;
     const value = e.detail.value;
     const openid = this.data.user.openid;
+    const aliyunServerURL = env.uploadImageUrl;
+    console.log('aliyunServerURL', aliyunServerURL)
 
     utils.validateEmpty(value.name, '请输入姓名');
     utils.validateEmpty(value.phone, '请输入手机号码');
@@ -54,8 +58,9 @@ Page({
       uploadImage(
       {
         filePath: filePath,
-        dir: `images/shop/${openid}/`,
+        dir: `${aliyunServerURL}/images/shop/${openid}/`,
         success: function (res) {
+          console.log('res', res);
           that.setData({
             qrcode: res,
           }, () => {

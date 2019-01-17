@@ -1,4 +1,4 @@
-const env = require('./config.js');
+const env = require('../config.js');
 
 const Base64 = require('./Base64.js');
 

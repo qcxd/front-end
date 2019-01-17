@@ -14,12 +14,15 @@ Page({
   getUserInfo() {
     servicePro.getUserInfo().then(result => {
       if (result) {
+        const qrcode = result.data.Shop.qrcode;
         const userInfo = result.data;
+        userInfo.Shop.qrcode = `http://${qrcode}`;
         const addressInfo = userInfo.Shop.addressInfo;
         this.setData({
           userInfo,
           addressInfo,
-        })
+        });
+        console.log(userInfo);
       }
     });
   },
