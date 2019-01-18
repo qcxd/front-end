@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/shopSearch/shopSearch",
-    "pages/myHome/myHome",
     "pages/ossUpload/ossUpload",
     "pages/upload/upload",
+    "pages/shopSearch/shopSearch",
+    "pages/myHome/myHome",
     "pages/createShop/createShop",
     "pages/wherehouse/wherehouse",
     "pages/home/home",

@@ -28,6 +28,7 @@ const uploadFile = function (params) {
 
   console.log('aliyunFileKey=', aliyunFileKey);
   console.log('aliyunServerURL', aliyunServerURL);
+  console.log('filePath', params.filePath);
   wx.uploadFile({
     url: aliyunServerURL,
     filePath: params.filePath,

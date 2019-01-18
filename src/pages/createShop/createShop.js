@@ -62,9 +62,9 @@ Page({
         filePath: filePath,
           dir: `${aliyunServerURL}/images/shop/${openid}/` + filePath.replace('http://tmp/',''),
         success: function (res) {
-          console.log('res', res);
+          console.log('res', `${aliyunServerURL}/${res}`);
           that.setData({
-            qrcode: res,
+            qrcode: `${aliyunServerURL}/${res}`,
           }, () => {
             that.doSubmit(e);
           })
