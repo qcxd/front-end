@@ -13,7 +13,6 @@
         <block wx:if="{{!shopIntro}}">
           <view class='level'>v1</view>
         </block>
-        <!-- <image src="../../image/icon_star2.png" catchtap='followShop' data-id="{{shopInfo.id}}"></image> -->
         <block wx:if='{{shopInfo.isFollowShop}}'>
           <Icon iconName='star' width='16px' height='16px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
         </block>
@@ -44,7 +43,7 @@
       {{shopInfo.province ? shopInfo.province : ''}}{{shopInfo.city ? shopInfo.city : ''}}{{shopInfo.area ? shopInfo.area : ''}}{{shopInfo.address}}
     </text>
     <Icon iconName='weChat' width='20px' height='16.67px' />
-    <Icon iconName='call' width='15px' height='15px' catchtap='phoneCall' />
+    <Icon iconName='call' width='15px' height='15px' catchtap='phoneCall' data-phone="{{shopInfo.phone}}" />
   </view>
   <view class='hr'></view>
 </view>

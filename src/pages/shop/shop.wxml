@@ -101,7 +101,7 @@
             <view class='car-flex'>
               <text class='flex_1'>¥{{item.price}}万</text>
               <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
-                bindtap='addWherehouse' 
+                catchtap='addWherehouse' 
                 data-id='{{item.id}}'
                 data-follow='{{item.isFollowCar}}'
               >

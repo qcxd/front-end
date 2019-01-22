@@ -22,7 +22,7 @@ Page({
   },
 
   tabSwitch(e) {
-    const index =  e.currentTarget.dataset.index;
+    const index = e.currentTarget.dataset.index;
     this.setData({
       _active: index,
       inputValue: '',
@@ -39,7 +39,8 @@ Page({
         const totalShop = result.data.count;
         const dataList = result.data.rows;
         dataList.forEach((el) => {
-          el.isOpen = false;
+          el.Shop.isOpen = false;
+          el.Shop.isFollowShop = true;
         })
         let shopList = this.data.shopList;
         if (params.id) {
@@ -47,10 +48,11 @@ Page({
         } else {
           shopList = dataList;
         }
+        console.log(shopList);
         this.setData({
           shopList,
           totalShop,
-        })
+        });
       } else {
         showModal();
       }
@@ -128,18 +130,34 @@ Page({
     })
   },
 
-  /** 取消关注 */
+  /** 取消收藏店铺 */
   unFollowShop(e) {
-    const id = e.currentTarget.dataset.id;
+    const params = {
+      id: e.detail.id,
+      follow: false
+    };
+    apiServicePro.followShop(params).then((result) => {
+      if (result.code === 200) {
+        this.dataDeal(e);
+      } else {
+        showModal();
+      }
+    }, (err) => {
+    })
+  },
+
+  dataDeal(e) {
+    console.log('unFollowShop', e);
+    const id = e.detail.id;
     const shopList = this.data.shopList;
     shopList.forEach((el) => {
-      if (el.id === id) {
-        el.isFollowShop = false;
+      if (el.Shop.id === id) {
+        el.Shop.isFollowShop = false;
       }
     })
     this.setData({
       shopList,
-    })
+    });
   },
 
   /**
@@ -192,7 +210,7 @@ Page({
       let currentPageShop = this.data.currentPageShop;
       let totalShop = this.data.totalShop;
       let pageSize = this.data.pageSize;
-      if (currentPageShop * pageSize  < totalShop ) {
+      if (currentPageShop * pageSize < totalShop) {
         this.getWarehouseList({ currentPage: currentPageShop });
       }
     } else {
