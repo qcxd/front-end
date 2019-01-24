@@ -44,9 +44,10 @@ Page({
 
   /** 绘制canvas */
   createCanvas() {
+    console.log('canvas');
     const ctx = wx.createCanvasContext('nameCard');
-    ctx.drawImage(this.data.userInfo.Shop.qrcode, 140, 25, 128, 34);
-    ctx.setTextAlign('left');
+    // ctx.drawImage(this.data.userInfo.Shop.qrcode, 140, 25, 128, 34);
+    ctx.setTextAlign('center');
     ctx.setFillStyle('#333333')
     ctx.fillText(this.data.userInfo.Shop.shopName, 70, 270);
 
