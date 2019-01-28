@@ -24,9 +24,11 @@ const _request = (...argus) => {
       header = Object.assign({}, header_pre, header),
       success = function () { console.log('default success func') },
       fail = function () { console.log('default fail func') },
-      // needLoading = 'Loading'
+      needLoading = '1',
     } = options;
-    loading.show();
+    if (needLoading === '1') {
+      loading.show();
+    }
     wx.request({
       url: config.hostUrl + url,
       method: method,
@@ -41,7 +43,9 @@ const _request = (...argus) => {
         }
       },
       complete: function (dt) {
-        loading.hide();
+        if (needLoading === '1') {
+          loading.hide();
+        }
       }
     });
   } catch (e) {

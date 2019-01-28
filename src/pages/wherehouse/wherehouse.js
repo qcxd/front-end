@@ -16,9 +16,15 @@ Page({
     totalShop: 0,
     totalCar: 0,
     pageSize: 10,
+    pageLoaded: false,
   },
 
   onLoad: function (options) {
+    this.getWarehouseList({});
+    this.getWarehouseCarList({});
+    this.setData({
+      pageLoaded: true,
+    });
   },
 
   tabSwitch(e) {
@@ -171,8 +177,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getWarehouseList({});
-    this.getWarehouseCarList({});
+    const { pageLoaded } = this.data;
+    if (pageLoaded) {
+      this.getWarehouseList({}, '0');
+      this.getWarehouseCarList({}, '0');
+    };
   },
 
   /**

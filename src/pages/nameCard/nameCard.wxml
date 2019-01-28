@@ -1,8 +1,8 @@
 <!--pages/nameCard/nameCard.wxml-->
 <view class='nameCard'>
   <view class='qrcode'>
-    <view class='actions'>
-      <Icon iconName="download" width='14px' height='14px' bindtap='save'/>
+    <view class='actions' bindtap='save'>
+      <Icon iconName="download" width='14px' height='14px'/>
       <Icon iconName="share2" width='14px' height='14px' bindtap='share'/>
     </view>
     <!-- <image src='{{userInfo.Shop.qrcode}}' mode='aspectFit'/>

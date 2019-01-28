@@ -14,6 +14,7 @@ Page({
     selectValue: '',
     cityList: [],
     popHidden: true,
+    pageLoaded: false,
   },
 
   onLoad: function (options) {
@@ -29,6 +30,10 @@ Page({
       },
     })
     this.getCityList();
+    this.getShopList({});
+    this.setData({
+      pageLoaded: true,
+    })
   },
   
   /** 店铺首页 */
@@ -37,6 +42,7 @@ Page({
       url: `../shop/shop?id=${e.currentTarget.dataset.id}`,
     })
   },
+
  /** 汽车详情 */
   goCarDetail(e) {
     wx.navigateTo({
@@ -189,7 +195,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getShopList({});
+    const { pageLoaded } = this.data;
+    if (pageLoaded) {
+      this.getShopList({}, '0');
+    }
   },
 
   /**

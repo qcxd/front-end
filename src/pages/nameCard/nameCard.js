@@ -28,15 +28,17 @@ Page({
 
   /** 生成图片并保存 */
   save() {
+    console.log('save');
     wx.canvasToTempFilePath({
-      x: 100,
-      y: 200,
-      width: 50,
-      height: 50,
-      destWidth: 100,
-      destHeight: 100,
+      x: 0,
+      y: 40,
+      width: 375,
+      height: 600,
+      destWidth: 300,
+      destHeight: 500,
       canvasId: 'nameCard',
       success(res) {
+        console.log('save canvas');
         console.log(res.tempFilePath)
       }
     })
@@ -44,12 +46,31 @@ Page({
 
   /** 绘制canvas */
   createCanvas() {
+    const {
+      userInfo
+    } = this.data;
+    const province = userInfo.Shop.addressInfo.province.name;
+    const city = userInfo.Shop.addressInfo.city.name;
+    const area = userInfo.Shop.addressInfo.area.name;
+    const detail = userInfo.Shop.addressInfo.detail;
+    const address = `${province} ${city} ${area} ${detail}`;
     console.log('canvas');
     const ctx = wx.createCanvasContext('nameCard');
-    // ctx.drawImage(this.data.userInfo.Shop.qrcode, 140, 25, 128, 34);
-    ctx.setTextAlign('center');
-    ctx.setFillStyle('#333333')
-    ctx.fillText(this.data.userInfo.Shop.shopName, 70, 270);
+    ctx.drawImage(userInfo.Shop.qrcode, 132, 80, 128, 150);
+    
+    ctx.setFillStyle('#333333');
+    ctx.setTextAlign('left');
+    ctx.fillText(userInfo.Shop.shopName, 142, 250);
+
+    ctx.drawImage('../../image/icon/icon_people.png', 32, 300, 16, 15);
+    ctx.setFontSize(14);
+    ctx.fillText(userInfo.Shop.name, 55, 313);
+    ctx.drawImage('../../image/icon/icon_call.png', 32, 320, 16, 15);
+    ctx.setFontSize(14);
+    ctx.fillText(userInfo.Shop.phone, 55, 333);
+    ctx.drawImage('../../image/icon/icon_address.png', 32, 340, 16, 15);
+    ctx.setFontSize(14);
+    ctx.fillText(address, 55, 353);
 
     ctx.draw(); // 必须添加才能绘制
   },

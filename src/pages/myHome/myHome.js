@@ -11,6 +11,7 @@ Page({
     user: {},
     userInfo: {},
     userStatistics: {},
+    pageLoaded: false,
   },
 
   onLoad: function (options) {
@@ -24,6 +25,9 @@ Page({
       },
     });
     this.getUserInfo();
+    this.setData({
+      pageLoaded: true,
+    })
   },
 
   /** 获取用户信息（店铺信息） */
@@ -79,7 +83,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const { pageLoaded } = this.data;
+    if (pageLoaded) {
+      this.getUserInfo();
+    }
   },
 
   /**
