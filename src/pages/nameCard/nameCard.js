@@ -30,11 +30,11 @@ Page({
   save() {
     console.log('save');
     wx.canvasToTempFilePath({
-      x: 0,
+      x: 5,
       y: 40,
-      width: 375,
-      height: 600,
-      destWidth: 300,
+      width: 320,
+      height: 500,
+      destWidth: 320,
       destHeight: 500,
       canvasId: 'nameCard',
       success(res) {
@@ -55,22 +55,25 @@ Page({
     const detail = userInfo.Shop.addressInfo.detail;
     const address = `${province} ${city} ${area} ${detail}`;
     console.log('canvas');
+
     const ctx = wx.createCanvasContext('nameCard');
-    ctx.drawImage(userInfo.Shop.qrcode, 132, 80, 128, 150);
-    
+
+    ctx.setFillStyle('#FFFFFF');
+    ctx.fillRect(0, 0, 375, 600);
+    ctx.drawImage(userInfo.Shop.qrcode, 32, 80, 128, 150);
     ctx.setFillStyle('#333333');
     ctx.setTextAlign('left');
-    ctx.fillText(userInfo.Shop.shopName, 142, 250);
+    ctx.fillText(userInfo.Shop.shopName, 42, 250);
 
-    ctx.drawImage('../../image/icon/icon_people.png', 32, 300, 16, 15);
-    ctx.setFontSize(14);
-    ctx.fillText(userInfo.Shop.name, 55, 313);
-    ctx.drawImage('../../image/icon/icon_call.png', 32, 320, 16, 15);
-    ctx.setFontSize(14);
-    ctx.fillText(userInfo.Shop.phone, 55, 333);
-    ctx.drawImage('../../image/icon/icon_address.png', 32, 340, 16, 15);
-    ctx.setFontSize(14);
-    ctx.fillText(address, 55, 353);
+    ctx.drawImage('../../image/icon/icon_people.png', 32, 280, 14, 12);
+    ctx.setFontSize(12);
+    ctx.fillText(userInfo.Shop.name, 55, 285);
+    ctx.drawImage('../../image/icon/icon_call.png', 32, 300, 14, 12);
+    ctx.setFontSize(12);
+    ctx.fillText(userInfo.Shop.phone, 55, 305);
+    ctx.drawImage('../../image/icon/icon_address.png', 32, 320, 14, 12);
+    ctx.setFontSize(12);
+    ctx.fillText(address, 55, 325);
 
     ctx.draw(); // 必须添加才能绘制
   },

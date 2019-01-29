@@ -1,6 +1,70 @@
 <!--pages/createCar/createCar.wxml-->
 <view class='createCarPage'>
-  <view>
-  
+  <view class='subtitle'>
+    填写车辆信息
   </view>
+  <form bindsubmit="onSubmit" bindreset="formReset">
+    <view class='info-box'>
+      <view class='info-cell car-flex'>
+        <text>品牌车系</text>
+        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <Icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+      <view class='info-cell car-flex'>
+        <text>上牌时间</text>
+        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <Icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+      <view class='info-cell car-flex'>
+        <text>行驶里程</text>
+        <input name="name" placeholder="请填写里程数" placeholder-class="placeholder"/>
+        <view class='pleft_5'>万公里</view>
+      </view>
+      <view class='info-cell car-flex'>
+        <text>牌照所在地</text>
+        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <Icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+      <view class='info-cell car-flex'>
+        <text>价格</text>
+        <input name="name" placeholder="请填写价格" placeholder-class="placeholder"/>
+        <view class='pleft_5'>万</view>
+      </view>
+      <view class='info-cell car-flex'>
+        <text>过户次数</text>
+        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <Icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+      <view class='info-cell car-flex'>
+        <text>车况</text>
+        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <Icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+      <!-- <view class='info-cell car-flex'>
+        <text>补充</text>
+        <textarea name="name" placeholder="请输入" maxlength="300" placeholder-class="placeholder"/>
+      </view> -->
+      <view class='info-cell'>
+        <view class='wechat'>
+          <view>图片上传</view>
+        </view>
+        <view class="weui-uploader">
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{images}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="chooseImage" id="{{item}}">
+                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseImage" data-num='{{images.length}}'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </form>
+
+  <button form-type="submit">提交</button>
 </view>

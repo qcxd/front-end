@@ -1,1 +1,53 @@
 /* pages/createCar/createCar.wxss */
+@import "../../lib/weui.wxss";
+
+.createCarPage {
+
+}
+.createCarPage .subtitle {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
+
+.createCarPage .info-box {
+  margin-bottom: 15px;
+  padding: 0px 15px; 
+  font-size: 16px;
+  color: #4A4A4A;
+  background: #ffffff;
+}
+
+.createCarPage .info-cell{
+  padding: 10px 0px; 
+  /* border-top: 1px solid #efefef; */
+}
+
+.createCarPage input {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.createCarPage .placeholder {
+  text-align: right;
+  color: #9B9B9B;
+}
+
+.createCarPage icon {
+  padding-left: 5px;
+}
+
+.createCarPage .pleft_5 {
+  padding-left: 5px;
+}
+
+.createCarPage .weui-uploader{
+  flex: 1;
+}
+
+.createCarPage button {
+  margin: 30px 15px;
+  border-radius: 0px;
+  color: #ffffff;
+  background: linear-gradient(to right, #35A1FB, rgb(30, 148, 245));
+}
