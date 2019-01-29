@@ -118,6 +118,7 @@
 }
 
 .homeHead .address .line-v {
+  flex: 1;
   font-size: 28rpx;
   font-weight: 400;
   border-right: 1px solid #d8e2e9;

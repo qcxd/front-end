@@ -1,7 +1,7 @@
 <!--components/fixdFooter/fixedFooter.wxml-->
 <view class='fixedFooter'>
   <view class='btn-star'>
-    <Icon iconName='star2' width='16px' height='16px' ></Icon>
+    <Icon iconName='star2' width='20px' height='20px' ></Icon>
   </view>
   <view class='btn-weChat'>
     <Icon iconName='weChat2' width='20px' height='16.67px' ></Icon>
