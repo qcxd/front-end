@@ -13,7 +13,9 @@
     "pages/shop/shop",
     "pages/logs/logs",
     "pages/shopSuccess/shopSuccess",
-    "pages/nameCard/nameCard"
+    "pages/nameCard/nameCard",
+    "pages/feedback/feedback"
+
   ],
   "window": {
     "backgroundTextStyle": "#ffffff",

@@ -42,7 +42,7 @@
     </view>
   </block>
 
-  <view class='car-flex home-cell'>
+  <view class='car-flex home-cell' bindtap='goFeedback'>
     <Icon iconName="feedback" width='20px' height='20px' />
     <text class='small-text flex_1'>用户反馈</text>
     <Icon iconName="arrowRight" width='8px' height='12px' />

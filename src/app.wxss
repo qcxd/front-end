@@ -139,7 +139,7 @@ page{
 /** search */
 .car-search {
   padding: 0px 10px 15px 10px;
-  font-size: 13px;
+  font-size: 14px;
   background-color: #ffffff;
 }
 
@@ -148,6 +148,7 @@ page{
 }
 
 .car-search input {
+  height: 2rem;
   padding-left: 30px;  
   border-radius: 4px 4px;  
   background-color: #efefef;  
@@ -155,7 +156,7 @@ page{
 
 .car-search icon {
   position: relative;
-  top: 25px;
+  top: 29px;
   left: 10px;
   z-index: 10;
 }

@@ -2,12 +2,13 @@
 
 .shopCar {
   text-align: center;
-  font-size: 14px;
+  font-size: 32rpx;
   font-weight: 400;
 }
 
 .shopCar image {
   width: 100%;
+  height:110px;
 }
 
 .shopCar-price {
@@ -27,9 +28,10 @@
 
 .shopCar-info {
   text-align: center;
+  padding: 5px 0px;
 }
 
 .shopCar-info .small-text {
   color: #ACB4B9;
-  font-size: 12px;
+  font-size: 26rpx;
 }

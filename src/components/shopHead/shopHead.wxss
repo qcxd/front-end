@@ -118,9 +118,10 @@
 }
 
 .homeHead .address .line-v {
-  font-size: 12px;
+  font-size: 28rpx;
   font-weight: 400;
   border-right: 1px solid #d8e2e9;
+  padding: 0px 5px;
 }
 
 /*0.5px线条*/

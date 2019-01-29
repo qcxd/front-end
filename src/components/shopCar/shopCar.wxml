@@ -2,7 +2,7 @@
 <view class='shopCar'>
   <view>
     <!-- <view class='shopCar-price'>{{carDetail.price}}万</view> -->
-    <image src="{{carDetail.indexImage}}" mode='widthFix'></image>
+    <image src="{{carDetail.indexImage}}" mode='aspectFill'></image>
   </view>
   <view class='shopCar-price'>{{carDetail.price}}万</view>
   <view class='shopCar-info'>
