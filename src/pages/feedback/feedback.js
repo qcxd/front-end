@@ -25,7 +25,7 @@ Page({
       filePath: '../../image/wechat.jpeg',
       success(res) {
          wx.showToast({
-          title: '保存成功',
+          title: '已保存到系统相册',
         })
       },
       file(err) {
