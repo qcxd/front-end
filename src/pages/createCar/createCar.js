@@ -1,13 +1,35 @@
 // pages/createCar/createCar.js
-Page({
+const apiServicePro = require('../../service/api/api-promisify.service');
+const {
+  showModal,
+  cityReplace,
+} = require('../../utils/utils');
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
+    shopId: '',
+    brand: '',
+    price: '',
     images: [],
     uploadImgs: [],
     count: 9,
+    brandList: [],
+    city: '',
+    cityId: '',
+    selectValue: '',
+    cityList: [],
+    popHidden: true,
+  },
+
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    this.setData({
+      shopId: options.shopId,
+    })
+    console.log(options);
+    this.getCityList();
   },
 
   onSubmit(e) {
@@ -16,8 +38,8 @@ Page({
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
 
-    utils.validateEmpty(value.name, '请输入姓名');
-    utils.validateEmpty(value.phone, '请输入手机号码');
+    utils.validateEmpty(value.brand, '请选择品牌车系');
+    utils.validateEmpty(value.price, '请输入价格');
     utils.validateImages(this.data.uploadImgs, '请上传汽车照片');
     utils.validateEmpty(value.shopName, '请输入店铺名');
     utils.validateEmpty(value.address, '请输详细地址');
@@ -49,23 +71,18 @@ Page({
   /** 创建汽车 */
   doSubmit(e) {
     const params = e.detail.value;
-    const region = this.data.region;
-    const address = {
-      province: region[0],
-      city: region[1],
-      area: region[2],
-      qrcode: this.data.qrcode, // 汽车图片数组
-    }
-    apiServicePro.createShop(Object.assign(address, params)).then((result) => {
+    const images = this.data.images; // 汽车图片数组
+    apiServicePro.createShop(Object.assign({ images }, params)).then((result) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
-          url: `../shop/shop?id=${result.data.id}`,
+          url: `../carDetail/carDetail?id=${result.data.id}`,
           // url: `../shopSuccess/shopSuccess`,
         })
       }
     })
   },
+
   /** reset */
   formReset(e) {
 
@@ -94,11 +111,73 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  /** 控制picker */
+  popPicker() {
+    let popHidden = this.data.popHidden;
+    this.setData({
+      popHidden: !popHidden,
+    })
+  },
 
+  /** 获取城市列表 */
+  getCityList() {
+    apiServicePro.getCityList({}, '0').then((result) => {
+      if (result.code === 200) {
+        const cityList = result.data;
+        cityList.forEach((e) => {
+          e.data.forEach((city) => {
+            city.name = cityReplace(city.name);
+          })
+        });
+        this.setData({
+          cityList: result.data,
+        })
+      } else { }
+    }).catch((err) => {
+      showModal();
+    })
+  },
+
+  /** 选择城市 */
+  doSelect(e) {
+    if (e.detail.name) {
+      const cityId = this.getCityId(e.detail.name);
+      this.setData({
+        popHidden: true,
+        city: e.detail.name,
+        cityId,
+      })
+      wx.setStorage({
+        key: 'city',
+        data: e.detail.name,
+      });
+    } else {  // 取消按钮
+      this.setData({
+        popHidden: true,
+      })
+    }
+  },
+
+  getCityId(city) {
+    const cityList = this.data.cityList;
+    let id = 0;
+    cityList.forEach(e => {
+      e.data.forEach(item => {
+        if (item.name.indexOf(city) >= 0) {
+          id = item.id;
+        }
+      });
+    });
+    return id;
+  },
+
+  getCarBrands() {
+    const params = {}
+    apiServicePro.getCarBrands(params, '0').then((result => {
+      this.setData({
+        brandList: result.data,
+      })
+    }));
   },
 
   /**
@@ -112,7 +191,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

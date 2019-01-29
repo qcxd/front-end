@@ -52,6 +52,7 @@
     "footer": "/components/footer/footer",
     "carCard": "/components/carCard/carCard",
     "pickCity": "/components/pickCity/pickCity",
+    "pickBrand": "/components/pickBrand/pickBrand",
     "carSwiper": "/components/carSwiper/carSwiper",
     "noData": "/components/noData/noData",
     "fixedFooter": "/components/fixedFooter/fixedFooter"

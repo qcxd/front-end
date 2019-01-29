@@ -52,8 +52,9 @@ Page({
 
   /** 创建汽车 */
   createCar() {
+    const id = this.data.userInfo.Shop.id;
     wx.navigateTo({
-      url: '../createCar/createCar',
+      url: `../createCar/createCar?shopId=${id}`,
     })
   },
 

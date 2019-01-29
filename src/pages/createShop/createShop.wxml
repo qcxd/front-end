@@ -12,12 +12,7 @@
           <view>微信二维码</view>
           <view class='small-text'>请保存自己的微信二维码并保存</view>
         </view>
-        <!-- <image class='wechat-code' src="../../image/wechat.jpeg"></image> -->
         <view class="weui-uploader">
-          <!-- <view class="weui-uploader__hd">
-            <view class="weui-uploader__title">图片上传</view>
-            <view class="weui-uploader__info">{{images.length}}/9</view>
-          </view> -->
           <view class="weui-uploader__bd">
             <view class="weui-uploader__files" id="uploaderFiles">
               <block wx:for="{{images}}" wx:key="*this">

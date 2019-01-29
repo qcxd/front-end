@@ -131,7 +131,15 @@ const getCarDetail = (id, loading = '1') => rest.get({ url: `/car/detail/${id}`,
  */
 const getUserStatistics = (loading = '1') => rest.get({ url: `/user/statistics`, loading: loading });
 
+/**
+ *  品牌列表
+ */
+const getCarBrands = (hot, loading = '1') => rest.get({ url: `/car/brands?hot=${hot}`, loading: loading });
 
+/**
+ *  某个品牌详细信息
+ */
+const getCarBrandDetail = (brand_id, loading = '1') => rest.get({ url: `/car/brand/${brand_id}`, loading: loading });
 
 module.exports = {
   getOpenid,
@@ -160,6 +168,8 @@ module.exports = {
   getWarehouseCarList,
   createCar,
   getCarDetail,
-  getUserStatistics
+  getUserStatistics,
+  getCarBrands,
+  getCarBrandDetail
 }
 

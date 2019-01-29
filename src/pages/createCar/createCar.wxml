@@ -7,22 +7,22 @@
     <view class='info-box'>
       <view class='info-cell car-flex'>
         <text>品牌车系</text>
-        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <input name="brand" placeholder="请选择" placeholder-class="placeholder"/>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>上牌时间</text>
-        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <input name="" placeholder="请选择" placeholder-class="placeholder"/>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>行驶里程</text>
-        <input name="name" placeholder="请填写里程数" placeholder-class="placeholder"/>
+        <input name="price" placeholder="请填写里程数" placeholder-class="placeholder"/>
         <view class='pleft_5'>万公里</view>
       </view>
-      <view class='info-cell car-flex'>
+      <view class='info-cell car-flex' bindtap='popPicker'>
         <text>牌照所在地</text>
-        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <view class="{{ city ? 'flex_1' : 'flex_1 placeholder'}}">{{city ? city : '请选择'}}</view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
@@ -67,4 +67,8 @@
   </form>
 
   <button form-type="submit">提交</button>
+
+  <view hidden="{{popHidden}}">
+    <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
+  </view>
 </view>

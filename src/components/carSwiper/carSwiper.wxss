@@ -1,5 +1,11 @@
 /* components/carDetail/carDetail.wxss */
 
+.car-swiper swiper {
+  height: 213px;
+  background-color: #000000;
+}
+
 .car-swiper image {
     width: 100%;
+    height: 100%;
 }
