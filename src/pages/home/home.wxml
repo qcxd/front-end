@@ -60,7 +60,7 @@
     <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
   </view>
 
-  <block wx:if ="{{popWecaht}}">
+  <block wx:if ="{{popWechat}}">
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
   </block>
   

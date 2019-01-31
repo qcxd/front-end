@@ -18,7 +18,7 @@ Page({
     pageSize: 10,
     currentQrcode: '',
     pageLoaded: false,
-    popWecaht: false,
+    popWechat: false,
   },
 
   onLoad: function (options) {
@@ -173,14 +173,14 @@ Page({
     const currentQrcode = e.currentTarget.dataset.qrcode;
     this.setData({
       currentQrcode,
-      popWecaht: true
+      popWechat: true
     })
   },
 
   /** 关闭微信二维码弹框 */
   closeWechat() {
     this.setData({
-      popWecaht: false
+      popWechat: false
     })
   },
 

@@ -105,7 +105,7 @@
 
   <footer />
 
-  <block wx:if ="{{popWecaht}}">
+  <block wx:if ="{{popWechat}}">
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
   </block>
 </view>

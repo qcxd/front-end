@@ -53,9 +53,7 @@ Page({
     })
   },
 
-  /**
-   * 加入仓库
-   */
+  /** 加入仓库 åå*/
   addWherehouse(e) {
     const params = {
       id: e.currentTarget.dataset.id,
