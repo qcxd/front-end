@@ -16,7 +16,9 @@ Page({
     totalShop: 0,
     totalCar: 0,
     pageSize: 10,
+    currentQrcode: '',
     pageLoaded: false,
+    popWecaht: false,
   },
 
   onLoad: function (options) {
@@ -166,9 +168,22 @@ Page({
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  /** 打开微信二维码弹框 */
+  popWechat(e) {
+    const currentQrcode = e.currentTarget.dataset.qrcode;
+    this.setData({
+      currentQrcode,
+      popWecaht: true
+    })
+  },
+
+  /** 关闭微信二维码弹框 */
+  closeWechat() {
+    this.setData({
+      popWecaht: false
+    })
+  },
+
   onReady: function () {
 
   },

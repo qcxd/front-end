@@ -39,6 +39,8 @@
               shopInfo='{{item.Shop}}'
               shopIntro='{{false}}'
               bind:followshop="unFollowShop"
+              bind:popWechat="popWechat"
+              data-qrcode="{{item.qrcode}}"
             />
           </view>
           <view class='shop-info'>
@@ -102,4 +104,8 @@
   </view>
 
   <footer />
+
+  <block wx:if ="{{popWecaht}}">
+    <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
+  </block>
 </view>

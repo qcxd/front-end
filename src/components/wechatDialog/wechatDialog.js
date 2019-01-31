@@ -17,9 +17,6 @@ Component({
 
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     closeWechat() {
       this.triggerEvent('closeWechat', {}, {})
