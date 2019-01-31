@@ -8,7 +8,7 @@
       <image src="../../image/wechat.jpeg" mode="aspectFit"/>
     </view>
     <view >
-      <button class="btn" bindtap="onTap">
+      <button class="btn" bindtap="saveWechat">
         保存二维码
       </button>
     </view>
