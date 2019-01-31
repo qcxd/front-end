@@ -5,7 +5,7 @@
       <Icon iconName="x" width="23px" height="23px;"/>
     </view>
     <view class="wechat-img">
-      <image src="../../image/wechat.jpeg" mode="aspectFit"/>
+      <image src="{{qrcode}}" mode="aspectFit"/>
     </view>
     <view >
       <button class="btn" bindtap="saveWechat">

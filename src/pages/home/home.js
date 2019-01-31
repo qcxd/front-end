@@ -13,6 +13,7 @@ Page({
     currentCityId: '',
     selectValue: '',
     cityList: [],
+    currentQrcode: '',
     popHidden: true,
     pageLoaded: false,
     popWecaht: false,
@@ -187,8 +188,10 @@ Page({
   },
 
   /** 打开微信二维码弹框 */
-  popWechat() {
+  popWechat(e) {
+    const currentQrcode = e.currentTarget.dataset.qrcode;
     this.setData({
+      currentQrcode,
       popWecaht: true
     })
   },

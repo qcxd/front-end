@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    qrcode: {
+      type: String,
+      value: '',
+    },
   },
 
   /**
@@ -25,8 +28,9 @@ Component({
     /**  保存微信二维码 */
     saveWechat() {
       const _this = this;
+      const qrcode = _this.properties.qrcode;
       wx.downloadFile({
-        url: 'https://example.com/audio/123',
+        url: qrcode,
         success(res) {
           // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
           if (res.statusCode === 200) {
