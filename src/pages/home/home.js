@@ -15,6 +15,7 @@ Page({
     cityList: [],
     popHidden: true,
     pageLoaded: false,
+    popWecaht: false,
   },
 
   onLoad: function (options) {
@@ -183,6 +184,20 @@ Page({
   },
 
   selectArea() {
+  },
+
+  /** 打开微信二维码弹框 */
+  popWechat() {
+    this.setData({
+      popWecaht: true
+    })
+  },
+
+  /** 关闭微信二维码弹框 */
+  closeWechat() {
+    this.setData({
+      popWecaht: false
+    })
   },
 
   /**

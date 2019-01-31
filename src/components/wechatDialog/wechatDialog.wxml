@@ -1,0 +1,20 @@
+<!--components/wechatDialog/wechatDialog.wxml-->
+<view class="wechatPage">
+  <view class="wechatPage-dialog">
+    <view class="xImg" bindtap="closeWechat">
+      <Icon iconName="x" width="23px" height="23px;"/>
+    </view>
+    <view class="wechat-img">
+      <image src="../../image/wechat.jpeg" mode="aspectFit"/>
+    </view>
+    <view >
+      <button class="btn" bindtap="onTap">
+        保存二维码
+      </button>
+    </view>
+    <view class="tips">
+      <view>1. 保存二维码</view>
+      <view>2. 微信扫一扫，添加店主为好友</view>
+    </view>
+  </view>
+</view>

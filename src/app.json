@@ -57,7 +57,8 @@
     "pickBrand": "/components/pickBrand/pickBrand",
     "carSwiper": "/components/carSwiper/carSwiper",
     "noData": "/components/noData/noData",
-    "fixedFooter": "/components/fixedFooter/fixedFooter"
+    "fixedFooter": "/components/fixedFooter/fixedFooter",
+    "wechatDialog": "/components/wechatDialog/wechatDialog"
   },
   "permission": {
     "scope.userLocation": {

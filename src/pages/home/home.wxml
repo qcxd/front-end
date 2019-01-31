@@ -25,7 +25,7 @@
   <block wx:for="{{shopList}}" wx:key="{{item.id}}">
     <view class='home-page-shop'>
       <view bindtap='goShop' data-id="{{item.id}}">
-        <shopHead shopInfo='{{item}}' bind:followshop="followShop"/>
+        <shopHead shopInfo='{{item}}' bind:followshop="followShop" bind:popWechat="popWechat"/>
       </view>
       <view class='shop-info'>
         <view class='car-flex'>
@@ -55,4 +55,10 @@
   <view hidden="{{popHidden}}">
     <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
   </view>
+
+  <block wx:if ="{{popWecaht}}">
+    <wechatDialog bind:closeWechat="closeWechat"/>
+  </block>
+  
 </view>
+

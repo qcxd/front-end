@@ -29,6 +29,7 @@ Page({
   /** 生成图片并保存 */
   save() {
     console.log('save');
+    const _this = this;
     wx.canvasToTempFilePath({
       x: 5,
       y: 40,
@@ -39,7 +40,23 @@ Page({
       canvasId: 'nameCard',
       success(res) {
         console.log('save canvas');
-        console.log(res.tempFilePath)
+        console.log(res.tempFilePath);
+        _this.saveImg(res.tempFilePath);
+      }
+    })
+  },
+
+  saveImg(filePath) {
+    console.log('save iamge');
+    wx.saveImageToPhotosAlbum({
+      filePath: filePath,
+      success(res) {
+         wx.showToast({
+          title: '已保存到系统相册',
+        })
+      },
+      file(err) {
+        showModal();
       }
     })
   },

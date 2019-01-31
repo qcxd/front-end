@@ -1,0 +1,46 @@
+/* components/wechatDialog/wechatDialog.wxss */
+
+.wechatPage {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(49,41,41,0.85);
+  z-index: 99;
+}
+
+.wechatPage .wechatPage-dialog {
+  margin: 80rpx 80rpx 160rpx 80rpx;
+  background: #ffffff;
+  padding: 20rpx 40rpx;
+}
+
+.wechatPage .xImg {
+  position: absolute;
+  right:100rpx;
+}
+
+.wechatPage .wechat-img {
+  padding-bottom: 20rpx;
+}
+
+.wechatPage .wechat-img image {
+  width: 100%;
+}
+
+.wechatPage button {
+  background: #6BC6FD;
+  border: none;
+  font-size: 32rpx;
+  color: #ffffff;
+}
+
+.wechatPage .button-hover {
+  background: rgb(88, 161, 206);
+}
+
+.wechatPage .tips {
+  color: #9B9B9B;
+  font-size: 24rpx;
+  padding: 20px 0px;
+}

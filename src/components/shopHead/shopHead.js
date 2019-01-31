@@ -38,6 +38,10 @@ Component({
       this.triggerEvent('followshop', myEventDetail, myEventOption)
     },
 
+    popWechat(e) {
+      this.triggerEvent('popWechat', {}, {})
+    },
+
     phoneCall(e) {
       phoneCall(e);
     }

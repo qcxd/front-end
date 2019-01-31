@@ -44,7 +44,7 @@
         {{shopInfo.province ? shopInfo.province : ''}}{{shopInfo.city ? shopInfo.city : ''}}{{shopInfo.area ? shopInfo.area : ''}}{{shopInfo.address}}
       </view>
     </view>
-    <Icon iconName='weChat' width='20px' height='16.67px' />
+    <Icon iconName='weChat' width='20px' height='16.67px' catchtap="popWechat"/>
     <Icon iconName='call' width='15px' height='15px' catchtap='phoneCall' data-phone="{{shopInfo.phone}}" />
   </view>
   <view class='hr'></view>
