@@ -7,7 +7,7 @@
 .wherehouse .tab { 
   justify-content: center; 
   color: #797979;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #ffffff;
 }
 
