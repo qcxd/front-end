@@ -19,21 +19,10 @@
         <block wx:if='{{!shopInfo.isFollowShop}}'>
           <Icon iconName='star2' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
         </block>
-        <!-- <view class="">已关注</view> -->
       </view>
-      <!-- <view wx:if="{{shopInfo.verify}}"><text class='shop-verify'>已认证</text></view>
-      <view wx:if="{{!shopInfo.verify}}"><text class='shop-no-verify'>未认证</text></view> -->
       <view wx:if="{{shopIntro}}" class='shop-intro'>
         <text>{{shopInfo.introduce}}</text>
-      <!-- ，只为客户放心购买，每辆车都严格把关，二手车的价格，新车的体验。 -->
       </view>
-      <!-- <view class='shop-prod'>
-        <block wx:for="{{shopInfo.Cars}}">
-          <view catchtap='goCarDetail' class='carCard'>
-            <carCard carDetail="{{shopInfo}}"></carCard>
-          </view>
-        </block>
-      </view> -->
     </view>
   </view>
   <view class='hr'></view>
