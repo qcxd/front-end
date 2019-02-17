@@ -38,7 +38,7 @@
       <text class='line-v'>
          {{shopDetail.province ? shopDetail.province : ''}}{{shopDetail.city ? shopDetail.city : ''}}{{shopDetail.area ? shopDetail.area : ''}}{{shopDetail.address}}
       </text>
-      <Icon iconName='weChat' width='20px' height='16.67px' />
+      <Icon iconName='weChat' width='20px' height='16.67px' catchtap="popWechat" data-qrcode="{{shopDetail.qrcode}}"/>
       <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' data-phone='{{shopDetail.phone}}'/>
     </view>
     <view class='hr'></view>  
@@ -134,4 +134,8 @@
       </view>
     </block>
   </view>
+
+  <block wx:if ="{{popWechat}}">
+    <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
+  </block>
 </view>

@@ -17,11 +17,13 @@
 
 .wechatPage .xImg {
   position: absolute;
-  right:100rpx;
+  right:40rpx;
+  margin-top:-60rpx;
 }
 
 .wechatPage .wechat-img {
-  padding-bottom: 20rpx;
+  padding-bottom:40rpx;
+  padding-top:40rpx;
 }
 
 .wechatPage .wechat-img image {

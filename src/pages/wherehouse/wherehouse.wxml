@@ -40,7 +40,7 @@
               shopIntro='{{false}}'
               bind:followshop="unFollowShop"
               bind:popWechat="popWechat"
-              data-qrcode="{{item.qrcode}}"
+              data-qrcode="{{item.Shop.qrcode}}"
             />
           </view>
           <view class='shop-info'>

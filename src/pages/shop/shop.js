@@ -14,6 +14,7 @@ Page({
   data: {
     shopDetail: {},
     _active: '1',
+    popWechat: false,
   },
 
   /**
@@ -130,6 +131,22 @@ Page({
         showModal();
       }
     }, (err) => {
+    })
+  },
+
+  /** 打开微信二维码弹框 */
+  popWechat(e) {
+    const currentQrcode = e.currentTarget.dataset.qrcode;
+    this.setData({
+      currentQrcode,
+      popWechat: true
+    })
+  },
+
+  /** 关闭微信二维码弹框 */
+  closeWechat() {
+    this.setData({
+      popWechat: false
     })
   },
 
