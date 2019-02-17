@@ -64,6 +64,7 @@
         </view>
       </view>
     </view>
+    <button form-type="submit">提交</button>
   </form>
 
   <button form-type="submit">提交</button>

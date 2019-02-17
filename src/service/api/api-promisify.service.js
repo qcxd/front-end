@@ -134,7 +134,7 @@ const getUserStatistics = (loading = '1') => rest.get({ url: `/user/statistics`,
 /**
  *  品牌列表
  */
-const getCarBrands = (hot, loading = '1') => rest.get({ url: `/car/brands?hot=${hot}`, loading: loading });
+const getCarBrands = (hot = false, loading = '1') => rest.get({ url: `/car/brands?hot=${hot}`, loading: loading });
 
 /**
  *  某个品牌详细信息

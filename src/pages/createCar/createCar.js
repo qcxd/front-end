@@ -1,35 +1,44 @@
 // pages/createCar/createCar.js
 const apiServicePro = require('../../service/api/api-promisify.service');
-const {
-  showModal,
-  cityReplace,
-} = require('../../utils/utils');
+const env = require('../../config.js');
+const utils = require('../../utils/utils.js');
 
 Page({
   data: {
     shopId: '',
-    brand: '',
+    brand: [],
     price: '',
     images: [],
     uploadImgs: [],
     count: 9,
-    brandList: [],
     city: '',
     cityId: '',
     selectValue: '',
     cityList: [],
     popHidden: true,
+    brandList: [],
+    brandDetailList: [],
   },
 
   /**
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
+    let _this = this
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+        _this.setData({
+          user: res.data
+        })
+      },
+    });
     this.setData({
       shopId: options.shopId,
     })
     console.log(options);
     this.getCityList();
+    this.getCarBrands();
   },
 
   onSubmit(e) {
@@ -126,7 +135,7 @@ Page({
         const cityList = result.data;
         cityList.forEach((e) => {
           e.data.forEach((city) => {
-            city.name = cityReplace(city.name);
+            city.name = utils.cityReplace(city.name);
           })
         });
         this.setData({
@@ -134,7 +143,7 @@ Page({
         })
       } else { }
     }).catch((err) => {
-      showModal();
+      utils.showModal();
     })
   },
 
@@ -171,11 +180,22 @@ Page({
     return id;
   },
 
+  /** 品牌列表 */
   getCarBrands() {
-    const params = {}
-    apiServicePro.getCarBrands(params, '0').then((result => {
+    apiServicePro.getCarBrands(false, '0').then((result => {
       this.setData({
         brandList: result.data,
+      })
+      console.log('result.data[0].id: ', result.data[0].id);
+      this.getCarBrandDetail(result.data[0].id);
+    }));
+  },
+
+  /** 某个品牌详细信息 */
+  getCarBrandDetail(brand_id) {
+    apiServicePro.getCarBrandDetail(brand_id, '0').then((result => {
+      this.setData({
+        brandDetailList: result.data,
       })
     }));
   },

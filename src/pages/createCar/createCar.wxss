@@ -23,6 +23,11 @@
   /* border-top: 1px solid #efefef; */
 }
 
+.createCarPage .info-cell text{
+  padding-right:20rpx;
+  color:#556677;
+}
+
 .createCarPage input {
   flex: 1;
   padding-left: 10px;
