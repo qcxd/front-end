@@ -18,7 +18,6 @@ Page({
     cityList: [],
     popHidden: true,
     brandList: [],
-    brandDetailList: [],
     popHiddenBrand: true,
   },
 
@@ -189,17 +188,8 @@ Page({
       this.setData({
         brandList: result.data,
       })
-      console.log('result.data[0].id: ', result.data[0].id);
-      this.getCarBrandDetail(result.data[0].id);
-    }));
-  },
-
-  /** 某个品牌详细信息 */
-  getCarBrandDetail(brand_id) {
-    apiServicePro.getCarBrandDetail(brand_id, '0').then((result => {
-      this.setData({
-        brandDetailList: result.data,
-      })
+      console.log('result.data[0].data[0].id: ', result.data[0].data[0].id);
+      this.getCarBrandDetail(result.data[0].data[0].id);
     }));
   },
 
@@ -219,6 +209,7 @@ Page({
       this.setData({
         popHiddenBrand: true,
         brand: e.detail.brand,
+        brandDetail: e.detail.brandDetail,
         // cityId,
       })
       wx.setStorage({
