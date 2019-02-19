@@ -1,2 +1,40 @@
+<!--components/pickBrand.wxml-->
+<view>
+  <view class='pick-title car-flex'>
+    <text>请选择品牌车系</text>
+    <text bindtap='doSelsct' data-id='' data-name='' class='pick-title-cnacle'>取消</text>
+  </view>
 
-<text>components/pickBrand.wxml</text>
+  <scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='pickBrand-model'>
+    <view class='pickBrand'>
+      <view>
+        <view class='pickBrand-city-code'>当前选择品牌车系</view>
+        <view class='pickBrand-city-data'>
+          <text>{{currentBrand}}</text>
+        </view>
+      </view>
+
+      <block wx:for="{{brandList}}" wx:key="{{item.code}}">
+        <view id="{{item.code}}">
+          <view class='pickBrand-city-code'>{{item.code}}</view>
+          <view class='pickBrand-city-data'>
+            <block wx:for="{{item.data}}" wx:key="{{item.id}}">
+              <view class="brand-cell">
+                <image src="{{item.image}}" class="brand-img" mode='aspectFit'/>
+                <text bindtap='doSelsct' data-id="{{item.id}}" data-brand="{{item.brand}}">{{item.brand}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+
+      <view class='pickBrand-left-code'>
+        <block wx:for="{{brandList}}" wx:key="{{item.code}}">
+          <text bindtap='jumpToView' data-code="{{item.code}}">{{item.code}}</text>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>
+

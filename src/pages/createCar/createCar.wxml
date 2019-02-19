@@ -5,9 +5,10 @@
   </view>
   <form bindsubmit="onSubmit" bindreset="formReset">
     <view class='info-box'>
-      <view class='info-cell car-flex'>
+      <view class='info-cell car-flex' bindtap='popBrand'>
         <text>品牌车系</text>
-        <input name="brand" placeholder="请选择" placeholder-class="placeholder"/>
+        <!-- <input name="brand" placeholder="请选择" placeholder-class="placeholder"/> -->
+        <view class="{{ brand ? 'flex_1' : 'flex_1 placeholder'}}">{{brand ? brand : '请选择'}}</view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
@@ -71,5 +72,9 @@
 
   <view hidden="{{popHidden}}">
     <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
+  </view>
+
+  <view hidden="{{popHiddenBrand}}">
+    <pickBrand currentBrand='{{currentBrand}}' brandList='{{brandList}}' bind:pickevent="doSelectBrand"></pickBrand>
   </view>
 </view>

@@ -6,7 +6,8 @@ const utils = require('../../utils/utils.js');
 Page({
   data: {
     shopId: '',
-    brand: [],
+    brand: '',
+    brandDetail: '',
     price: '',
     images: [],
     uploadImgs: [],
@@ -18,6 +19,7 @@ Page({
     popHidden: true,
     brandList: [],
     brandDetailList: [],
+    popHiddenBrand: true,
   },
 
   /**
@@ -120,7 +122,7 @@ Page({
     })
   },
 
-  /** 控制picker */
+  /** 控制pickerCity */
   popPicker() {
     let popHidden = this.data.popHidden;
     this.setData({
@@ -149,6 +151,7 @@ Page({
 
   /** 选择城市 */
   doSelect(e) {
+    console.log(e);
     if (e.detail.name) {
       const cityId = this.getCityId(e.detail.name);
       this.setData({
@@ -199,7 +202,36 @@ Page({
       })
     }));
   },
-  
+
+  /**  控制pickBrand */
+  popBrand() {
+    let popHiddenBrand = this.data.popHiddenBrand;
+    this.setData({
+      popHiddenBrand: !popHiddenBrand,
+    })
+  },
+
+  /** 选择城市 */
+  doSelectBrand(e) {
+    console.log(e);
+    if (e.detail.brand) {
+      // const cityId = this.getCityId(e.detail.brand);
+      this.setData({
+        popHiddenBrand: true,
+        brand: e.detail.brand,
+        // cityId,
+      })
+      wx.setStorage({
+        key: 'brand',
+        data: e.detail.brand,
+      });
+    } else {  // 取消按钮
+      this.setData({
+        popHiddenBrand: true,
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

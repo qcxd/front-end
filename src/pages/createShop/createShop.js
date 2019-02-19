@@ -1,7 +1,7 @@
 // pages/createShop/createShop.js
 const apiServicePro = require('../../service/api/api-promisify.service');
 const uploadImage = require('../../utils/oss.js');
-const utils = require('../../utils/utils.js')
+const utils = require('../../utils/utils.js');
 const env = require('../../config.js');
 
 Page({
