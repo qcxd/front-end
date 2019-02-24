@@ -7,23 +7,22 @@
     <view class='info-box'>
       <view class='info-cell car-flex' bindtap='popBrand'>
         <text>品牌车系</text>
-        <!-- <input name="brand" placeholder="请选择" placeholder-class="placeholder"/> -->
-        <view class="{{ brand ? 'flex_1' : 'flex_1 placeholder'}}">{{brand ? brand + brandDetail : '请选择'}}</view>
+        <view class="{{ brand ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">{{brand ? brand + ' ' + brandDetail : '请选择'}}</view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>上牌时间</text>
-        <input name="" placeholder="请选择" placeholder-class="placeholder"/>
+        <input class="align-right" name="" placeholder="请选择" placeholder-class="placeholder"/>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>行驶里程</text>
-        <input name="price" placeholder="请填写里程数" placeholder-class="placeholder"/>
+        <input class="align-right" name="price" placeholder="请填写里程数" placeholder-class="placeholder"/>
         <view class='pleft_5'>万公里</view>
       </view>
       <view class='info-cell car-flex' bindtap='popPicker'>
         <text>牌照所在地</text>
-        <view class="{{ city ? 'flex_1' : 'flex_1 placeholder'}}">{{city ? city : '请选择'}}</view>
+        <view class="{{ city ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">{{city ? city : '请选择'}}</view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>

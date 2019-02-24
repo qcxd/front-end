@@ -15,9 +15,6 @@ Component({
     },
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     currentView: '',
     brand_id: '',
@@ -26,11 +23,8 @@ Component({
     popBrandDetail: false,
   },
 
-  /**
-   * 组件的方法列表
-   * 
-   */
   methods: {
+    /** 一级车系品牌 */
     doSelectBrand(e) {
       this.getCarBrandDetail(e.currentTarget.dataset.id);
       this.setData({
@@ -40,7 +34,11 @@ Component({
       });
     },
 
+    /** 二级车系品牌 */
     doSelectBrandDetail(e) {
+      this.setData({
+        popBrandDetail: false
+      });
       let myEventDetail = {
         id: this.data.brand_id,
         brand: this.data.brandName,
@@ -56,7 +54,7 @@ Component({
       })
     },
 
-    /** 某个品牌详细信息 */
+    /** 品牌二级车系品牌 */
     getCarBrandDetail(brand_id) {
       apiServicePro.getCarBrandDetail(brand_id, '0').then((result => {
         this.setData({

@@ -203,14 +203,11 @@ Page({
 
   /** 选择城市 */
   doSelectBrand(e) {
-    console.log(e);
     if (e.detail.brand) {
-      // const cityId = this.getCityId(e.detail.brand);
       this.setData({
         popHiddenBrand: true,
         brand: e.detail.brand,
         brandDetail: e.detail.brandDetail,
-        // cityId,
       })
       wx.setStorage({
         key: 'brand',
