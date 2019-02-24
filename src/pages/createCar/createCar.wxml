@@ -9,8 +9,8 @@
         <text>品牌车系</text>
         <view class="{{ brand ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
           {{brand ? brand + ' ' + brandDetail : '请选择'}}
-          <input hidden="true" class="align-right" name="brand" value="{{brand}}" />
-          <input hidden="true" class="align-right" name="brandDetail" value="{{brandDetail}}"/>
+          <input hidden="true" name="brand" value="{{brand}}" />
+          <input hidden="true" name="brandDetail" value="{{brandDetail}}"/>
         </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
@@ -21,7 +21,7 @@
                   end="2017-09-01" bindchange="bindDateChange">
             <view class="picker">
               {{dateCard ? dateCard : '请选择'}}
-              <input hidden="true" class="align-right" name="dateCard" value="{{dateCard}}"/>
+              <input hidden="true" name="dateCard" value="{{dateCard}}"/>
             </view>
           </picker>
         </view>
@@ -36,7 +36,7 @@
         <text>牌照所在地</text>
         <view class="{{ city ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
           {{city ? city : '请选择'}}
-          <input hidden="true" class="align-right" name="city" value="{{city}}"/>
+          <input hidden="true" name="city" value="{{city}}"/>
         </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
@@ -56,7 +56,7 @@
           <picker bindchange="bindIntroChange" value="{{introIndex}}" range="{{introArray}}">
             <view class="picker">
               {{introduce ? introduce : '请选择'}}
-              <input hidden="true"  class="align-right" name="introduce" value="{{introduce}}"/>
+              <input hidden="true" name="introduce" value="{{introduce}}"/>
             </view>
           </picker>
         </view>

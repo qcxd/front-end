@@ -68,33 +68,37 @@ Page({
     utils.validateEmpty(value.introduce, '请选择车况');
     utils.validateImages(this.data.uploadImgs, '请上传汽车照片');
 
-    for (let i = 0; i < that.data.uploadImgs.length; i++) {
-      let filePath = that.data.uploadImgs[i];
-      console.log(that.data.uploadImgs[i]);
-
-      uploadImage(
-        {
-          filePath: filePath,
-          dir: `${aliyunServerURL}/images/shop/${openid}/` + filePath.replace('http://tmp/', ''),
-          success: function (res) {
-            console.log('res', `${aliyunServerURL}/${res}`);
-            that.setData({
-              qrcode: `${aliyunServerURL}/${res}`,
-            }, () => {
-              that.doSubmit(e);
-            })
-          },
-          fail: function (res) {
-            console.log(res)
+    let count = 0;
+    const images = [];
+    const uploadImgs = this.data.uploadImgs;
+    for (let i = 0; i < uploadImgs.length; i++) {
+      let filePath = uploadImgs[i];
+      console.log(uploadImgs[i]);
+      // ${aliyunServerURL}/
+      uploadImage({
+        filePath: filePath,
+        dir: `images/shop/${openid}/` + filePath.replace('http://tmp/', ''),
+        success: function (res) {
+          count++;
+          console.log('res', `${aliyunServerURL}/${res}`);
+          images.push(`${aliyunServerURL}/${res}`);
+          if (count = uploadImgs.length) {
+            that.doSubmit(e, images);
           }
-        })
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
     }
   },
 
   /** 创建汽车 */
-  doSubmit(e) {
+  doSubmit(e, images) {
     const params = e.detail.value;
-    const images = this.data.images; // 汽车图片数组
+    // const images = this.data.images; // 汽车图片数组
+    console.log('doSubmit****');
+    console.log(images);
     apiServicePro.createCar(Object.assign({ images }, params)).then((result) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
