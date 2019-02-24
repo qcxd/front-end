@@ -135,7 +135,6 @@
 
 .shopPage .address .line-v {
   flex: 1;
-  line-height: 0px;
   font-size: 12px;
   font-weight: 400;
   border-right: 1px solid #d8e2e9;

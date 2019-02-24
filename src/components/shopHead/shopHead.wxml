@@ -34,7 +34,7 @@
       </view>
     </view>
     <Icon iconName='weChat' width='20px' height='16.67px' catchtap="popWechat"/>
-    <Icon iconName='call' width='15px' height='15px' catchtap='popPhoneCall' data-phone="{{shopInfo.phone}}" />
+    <Icon iconName='call' width='15px' height='15px' catchtap='popPhoneCall' />
   </view>
   <view class='hr'></view>
 </view>
