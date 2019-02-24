@@ -5,8 +5,8 @@ var host = "14592619.qcloud.la"
 // var socket = "http://localhost:3002"
 var socket = "https://www.peajs.top"
 // var hostUrl = "http://localhost:3002"
-// var hostUrl = "https://www.peajs.top/onechat"
-var hostUrl = "http://localhost:8002"
+var hostUrl = "https://www.peajs.top/qcxd"
+// var hostUrl = "http://localhost:8002"
 
 var fileHost = "http://test-buycarshop.oss-cn-beijing.aliyuncs.com"
 
