@@ -20,7 +20,6 @@
 
 .createCarPage .info-cell{
   padding: 10px 0px; 
-  /* border-top: 1px solid #efefef; */
 }
 
 .createCarPage .info-cell text{
@@ -56,4 +55,8 @@
   border-radius: 0px;
   color: #ffffff;
   background: linear-gradient(to right, #35A1FB, rgb(30, 148, 245));
+}
+
+.createCarPage .align-right {
+  text-align: right;
 }
