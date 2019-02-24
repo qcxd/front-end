@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/sharePage/sharePage",
     "pages/createCar/createCar",
     "pages/ossUpload/ossUpload",
     "pages/upload/upload",
@@ -15,7 +16,6 @@
     "pages/shopSuccess/shopSuccess",
     "pages/nameCard/nameCard",
     "pages/feedback/feedback"
-
   ],
   "window": {
     "backgroundTextStyle": "dark",

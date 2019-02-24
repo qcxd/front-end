@@ -1,10 +1,10 @@
 <!--pages/nameCard/nameCard.wxml-->
 <view class='nameCard'>
   <view class='qrcode'>
-    <view class='actions' bindtap='save'>
+    <button  open-type='share' class='actions' bindtap='sharePage'>
       <Icon iconName="download" width='14px' height='14px'/>
       <Icon iconName="share2" width='14px' height='14px' bindtap='share'/>
-    </view>
+    </button>
     <!-- <image src='{{userInfo.Shop.qrcode}}' mode='aspectFit'/>
     <view class='small-text'>{{userInfo.Shop.shopName}}</view> -->
   </view>

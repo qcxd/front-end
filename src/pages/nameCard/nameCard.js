@@ -6,9 +6,46 @@ Page({
     userInfo: {},
   },
 
-  onLoad: function (options) {
+  // onLoad: function (options) {
+   
+  // },
+  onLoad: function () {
     this.getUserInfo();
+    wx.showShareMenu({
+      withShareTicket: true,
+      success: function (res) {
+        // 分享成功
+        console.log('shareMenu share success')
+        console.log('分享' , res)
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    })
   },
+  onShareAppMessage: function () {
+    return {
+      title: '这里是机智life小程序',
+      path: '/pages/index/index?id=123',
+      success: function (res) {
+        console.log(res.shareTickets[0])
+        // console.log
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: function (res) { console.log(res) },
+          fail: function (res) { console.log(res) },
+          complete: function (res) { console.log(res) }
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
+  },
+
+  
 
   /** 获取用户信息（店铺信息） */
   getUserInfo() {
@@ -45,6 +82,13 @@ Page({
       }
     })
   },
+  // sharePage() {
+  //   console.log('12')
+  //   wx.updateShareMenu({
+  //     withShareTicket: true,
+  //     success() { }
+  //   })
+  // },
 
   saveImg(filePath) {
     console.log('save iamge');
