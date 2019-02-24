@@ -45,7 +45,7 @@
           </view>
           <view class='shop-info'>
             <view class='car-flex'>
-              <text>仓库的车（{{item.FollowCars.length}}）</text>
+              <text>收藏的车（{{item.FollowCars.length}}）</text>
               <block wx:if="{{item.FollowCars.length > 0}}">
                 <block wx:if="{{item.isOpen}}">
                   <Icon iconName="arrowsUp" width="12px" height="8px" bindtap='openCars' data-id='{{item.id}}' />
@@ -56,15 +56,15 @@
               </block>
             </view>
             <block wx:if="{{item.isOpen}}">
-              <block wx:for="{{item.FollowCars}}"  wx:key="{{item.Car.id}}">
-                <view class='shop-box'>
+              <block wx:for="{{item.FollowCars}}" wx:key="{{item.Car.id}}">
+                <view class='shop-box' wx:if="{{item.Car.isFollowCar}}" catchtap='goCarDetail' data-id='{{item.Car.id}}'>
                   <image src="{{item.Car.indexImage}}" mode='widthFix'></image>
                   <view class='car-info'>
                     <view class='desc'>{{item.Car.brand}}</view>
                     <view class='car-flex'>
                       <text class='flex_1'>¥{{item.Car.price}}万</text>
-                      <button class='add' bindtap='addWherehouse' data-id='{{item.Car.id}}'>
-                        加入仓库
+                      <button class='cancle' catchtap='cancelJoin' data-id='{{item.Car.id}}'>
+                        取消加入
                       </button>
                     </view>
                   </view>

@@ -60,18 +60,18 @@
 
 .carDetail .carDetail-info .item-box {
   display: inline-block;
-  width: 33.333%;
+  width: 50%;
   text-align: left;
   padding: 10px 0px;
 }
 
 .carDetail .carDetail-info .item-name {
-  font-size: 12px;
+  font-size: 14px;
   color: #9DACB6;
 }
 
 .carDetail .carDetail-info .item-value {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .carDetail .carDetail-info .z_r {

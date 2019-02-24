@@ -1,0 +1,8 @@
+<!--components/phoneCall/phoneCall.wxml-->
+<view class='phoneCall'>
+  <view class='action-area'>
+    <view class='phone'>{{phone}}</view>
+    <view class='call'>呼叫</view>
+    <view class='cancel'>取消</view>
+  </view>
+</view>

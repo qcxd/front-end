@@ -7,37 +7,59 @@
     <view class='info-box'>
       <view class='info-cell car-flex' bindtap='popBrand'>
         <text>品牌车系</text>
-        <view class="{{ brand ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">{{brand ? brand + ' ' + brandDetail : '请选择'}}</view>
+        <view class="{{ brand ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
+          {{brand ? brand + ' ' + brandDetail : '请选择'}}
+          <input hidden="true" class="align-right" name="brand" value="{{brand}}" />
+          <input hidden="true" class="align-right" name="brandDetail" value="{{brandDetail}}"/>
+        </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>上牌时间</text>
-        <input class="align-right" name="" placeholder="请选择" placeholder-class="placeholder"/>
+        <view class="{{ dateCard ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
+          <picker mode="date" value="{{dateCard}}" start="2015-09-01" 
+                  end="2017-09-01" bindchange="bindDateChange">
+            <view class="picker">
+              {{dateCard ? dateCard : '请选择'}}
+              <input hidden="true" class="align-right" name="dateCard" value="{{dateCard}}"/>
+            </view>
+          </picker>
+        </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>行驶里程</text>
-        <input class="align-right" name="price" placeholder="请填写里程数" placeholder-class="placeholder"/>
+        <input class="align-right" name="kilometer" placeholder="请填写里程数" placeholder-class="placeholder"/>
         <view class='pleft_5'>万公里</view>
       </view>
       <view class='info-cell car-flex' bindtap='popPicker'>
         <text>牌照所在地</text>
-        <view class="{{ city ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">{{city ? city : '请选择'}}</view>
+        <view class="{{ city ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
+          {{city ? city : '请选择'}}
+          <input hidden="true" class="align-right" name="city" value="{{city}}"/>
+        </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex'>
         <text>价格</text>
-        <input name="name" placeholder="请填写价格" placeholder-class="placeholder"/>
+        <input class="align-right" name="price" placeholder="请填写价格" placeholder-class="placeholder"/>
         <view class='pleft_5'>万</view>
       </view>
       <view class='info-cell car-flex'>
         <text>过户次数</text>
-        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
-        <Icon iconName='arrowRight' width="7px" height="12px"/>
+        <input class="align-right" name="transfersNumber" placeholder="请填写" placeholder-class="placeholder"/>
+        <!-- <Icon iconName='arrowRight' width="7px" height="12px"/> -->
       </view>
-      <view class='info-cell car-flex'>
+      <view class='info-cell car-flex' bindtap='popIntro'>
         <text>车况</text>
-        <input name="name" placeholder="请选择" placeholder-class="placeholder"/>
+        <view class="{{ introduce ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
+          <picker bindchange="bindIntroChange" value="{{introIndex}}" range="{{introArray}}">
+            <view class="picker">
+              {{introduce ? introduce : '请选择'}}
+              <input hidden="true"  class="align-right" name="introduce" value="{{introduce}}"/>
+            </view>
+          </picker>
+        </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <!-- <view class='info-cell car-flex'>
@@ -58,7 +80,8 @@
               </block>
             </view>
             <view class="weui-uploader__input-box">
-              <view class="weui-uploader__input" bindtap="chooseImage" data-num='{{images.length}}'></view>
+              <view class="weui-uploader__input" bindtap="chooseImage" 
+                    data-num='{{images.length}}'></view>
             </view>
           </view>
         </view>
@@ -66,8 +89,6 @@
     </view>
     <button form-type="submit">提交</button>
   </form>
-
-  <button form-type="submit">提交</button>
 
   <view hidden="{{popHidden}}">
     <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>

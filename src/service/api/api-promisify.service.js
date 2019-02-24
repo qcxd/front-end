@@ -119,7 +119,7 @@ const getWarehouseCarList = (params, loading = '1') => rest.post({ url: `/shop/w
 /**
  * 创建汽车
  */
-const createCar = (params, loading = '1') => rest.post({ url: `/shop/createCar`, data: params, loading: loading });
+const createCar = (params, loading = '1') => rest.post({ url: `/car/createCar`, data: params, loading: loading });
 
 /**
  * 通过汽车id获取汽车详情

@@ -1,24 +1,34 @@
 // pages/createCar/createCar.js
 const apiServicePro = require('../../service/api/api-promisify.service');
+const uploadImage = require('../../utils/oss.js');
 const env = require('../../config.js');
 const utils = require('../../utils/utils.js');
 
 Page({
   data: {
     shopId: '',
-    brand: '',
-    brandDetail: '',
-    price: '',
-    images: [],
+    brand: '',            // 品牌
+    brandDetail: '',      // 二级车系
+    price: '',            // 价格
+    dateCard: '',         // 上牌时间
+    kilometer: '',        // 行驶里程
+    transfersNumber: '',  // 过户次数
+    introduce: '',        // 车况
+    images: [],           // 图片
     uploadImgs: [],
     count: 9,
-    city: '',
+    city: '',             // 上牌地点
     cityId: '',
     selectValue: '',
     cityList: [],
     popHidden: true,
     brandList: [],
     popHiddenBrand: true,
+    introArray: [
+      'A、优秀（车况好，没有任何事故）',
+      'B、良好（有少量剐蹭或钣金）',
+      'C、一般（有过前后轻碰撞事故）',
+      'D、较差（有发生过伤及主体框架的碰撞或较重事故）']
   },
 
   /**
@@ -43,17 +53,20 @@ Page({
   },
 
   onSubmit(e) {
+    console.log(e);
     let that = this;
     const value = e.detail.value;
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
 
     utils.validateEmpty(value.brand, '请选择品牌车系');
+    utils.validateEmpty(value.dateCard, '请选择上牌日期');
+    utils.validateEmpty(value.kilometer, '请输入行驶里程');
+    utils.validateEmpty(value.city, '请输选择拍照所在地');
     utils.validateEmpty(value.price, '请输入价格');
+    utils.validateEmpty(value.transfersNumber, '请输入过户次数');
+    utils.validateEmpty(value.introduce, '请选择车况');
     utils.validateImages(this.data.uploadImgs, '请上传汽车照片');
-    utils.validateEmpty(value.shopName, '请输入店铺名');
-    utils.validateEmpty(value.address, '请输详细地址');
-    utils.validatePhone(value.phone, '请输入正确的手机号');
 
     for (let i = 0; i < that.data.uploadImgs.length; i++) {
       let filePath = that.data.uploadImgs[i];
@@ -82,7 +95,7 @@ Page({
   doSubmit(e) {
     const params = e.detail.value;
     const images = this.data.images; // 汽车图片数组
-    apiServicePro.createShop(Object.assign({ images }, params)).then((result) => {
+    apiServicePro.createCar(Object.assign({ images }, params)).then((result) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
@@ -187,9 +200,7 @@ Page({
     apiServicePro.getCarBrands(false, '0').then((result => {
       this.setData({
         brandList: result.data,
-      })
-      console.log('result.data[0].data[0].id: ', result.data[0].data[0].id);
-      this.getCarBrandDetail(result.data[0].data[0].id);
+      });
     }));
   },
 
@@ -218,6 +229,19 @@ Page({
         popHiddenBrand: true,
       })
     }
+  },
+
+  bindDateChange(e) {
+    this.setData({
+      dateCard: e.detail.value
+    })
+  },
+
+  bindIntroChange(e) {
+    const { introArray } = this.data
+    this.setData({
+      introduce: introArray[e.detail.value]
+    })
   },
 
   /**

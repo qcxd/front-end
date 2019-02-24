@@ -1,0 +1,25 @@
+/* components/phoneCall/phoneCall.wxss */
+
+.phoneCall {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #dedede90;
+  text-align: center;
+}
+ .phoneCall .action-area {
+  position: fixed;
+  bottom: 0px;
+  width:100%;
+  background:#ffffff;
+  padding:15px 0px;
+ }
+.phoneCall .phone {
+  color: #ACB4B9;
+  border-bottom: 1px solid #efefef;
+}
+
+.phoneCall .call {
+  margin-bottom: 5px;
+}

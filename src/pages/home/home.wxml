@@ -28,6 +28,7 @@
         <shopHead shopInfo="{{item}}"
         bind:followshop="followShop"
         bind:popWechat="popWechat"
+        bind:popPhoneCall="popPhoneCall"
         data-qrcode="{{item.qrcode}}"
       />
       </view>
@@ -64,5 +65,8 @@
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
   </block>
   
+  <block wx:if ="{{popPhoneCall}}">
+    <phoneCall phone='{{phone}}'/>
+  </block>
 </view>
 

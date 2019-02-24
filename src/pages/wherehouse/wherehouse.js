@@ -184,6 +184,28 @@ Page({
     })
   },
 
+  /** 取消加入仓库 */
+  cancelJoin(e) {
+    const params = {
+      id: e.currentTarget.dataset.id,
+      follow: false,
+    };
+    apiServicePro.joinWarehouse(params).then((result) => {
+      if (result.code === 200) {
+        this.getWarehouseList({}, '0');
+        wx.showToast({
+          title: '已取消',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      } else {
+        showModal();
+      }
+    }, (err) => {
+    })
+  },
+
   onReady: function () {
 
   },

@@ -2,18 +2,19 @@
 <view class="carDetail">
   <view class="car-swiper">
     <carSwiper
+      imgUrls='{{carDetail.images}}'
       indicator-dots="true"
       autoplay="false"
       interval="5000"
       duration="1000"
-    ></carSwiper>
+    />
     <view class='car-flex imgs'>
       <Icon iconName='img' width='15px' height='15px'></Icon>
-      <text>60</text>
+      <text>{{carDetail.images.length}}</text>
     </view>
     </view>
   <view class="carDetail-info">
-    <view class="title-text">{{carDetail.brand}}</view>
+    <view class="title-text">{{carDetail.brand}}  {{carDetail.brandDetail}}</view>
     <view><text class="price">{{carDetail.price}}</text>万</view>
   </view>
 
@@ -21,32 +22,24 @@
     <view class='sub-title'>基本信息</view>
     <view>
       <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
+        <view class='item-name'>表显里程</view>
+        <view class='item-value'>{{carDetail.kilometer}}万公里</view>
       </view>
       <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
+        <view class='item-name'>上牌时间</view>
+        <view class='item-value'>{{carDetail.dateCard}}</view>
       </view>
       <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
+        <view class='item-name'>过户次数</view>
+        <view class='item-value'>{{carDetail.transfersNumber}}次</view>
       </view>
       <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
+        <view class='item-name'>牌照所在地</view>
+        <view class='item-value'>{{carDetail.city}}</view>
       </view>
-      <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
-      </view>
-      <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
-      </view>
-      <view class='item-box'>
-        <view class='item-name'>表里里程</view>
-        <view class='item-value'>2.7万公里</view>
+      <view >
+        <view class='item-name'>车况</view>
+        <view class='item-value'>{{carDetail.introduce}}</view>
       </view>
     </view>
   </view>

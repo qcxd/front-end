@@ -58,7 +58,8 @@
     "carSwiper": "/components/carSwiper/carSwiper",
     "noData": "/components/noData/noData",
     "fixedFooter": "/components/fixedFooter/fixedFooter",
-    "wechatDialog": "/components/wechatDialog/wechatDialog"
+    "wechatDialog": "/components/wechatDialog/wechatDialog",
+    "phoneCall": "/components/phoneCall/phoneCall"
   },
   "permission": {
     "scope.userLocation": {

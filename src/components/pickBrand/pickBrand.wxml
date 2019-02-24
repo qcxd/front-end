@@ -7,12 +7,12 @@
 
   <scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='pickBrand-model'>
     <view class='pickBrand'>
-      <view>
+      <!-- <view>
         <view class='pickBrand-city-code'>当前选择品牌车系</view>
         <view class='pickBrand-city-data'>
           <text>{{currentBrand}}</text>
         </view>
-      </view>
+      </view> -->
 
       <block wx:for="{{brandList}}" wx:key="{{item.code}}">
         <view id="{{item.code}}">

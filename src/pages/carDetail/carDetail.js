@@ -27,8 +27,11 @@ Page({
   getCarDetail(id) {
     apiServicePro.getCarDetail(id).then((result) => {
       if (result) {
+        const carDetail = result.data;
+        const dateCard = carDetail.dateCard ? this.getYMD(carDetail.dateCard) : '';
+        carDetail.dateCard = dateCard;
         this.setData({
-          carDetail: result.data,
+          carDetail,
         })
       }
     })
@@ -87,6 +90,14 @@ Page({
       }
     }, (err) => {
     })
+  },
+
+  getYMD(dateStr) {
+    const date = new Date(dateStr);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${year}年${month}月${day}日`
   },
 
   /**
