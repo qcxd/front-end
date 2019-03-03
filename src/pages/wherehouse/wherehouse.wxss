@@ -88,6 +88,7 @@
 .shop-box image {
   width:100%;
   margin:5px 0px;
+  background:#000000;
 }
 
 .shop-box .add {
