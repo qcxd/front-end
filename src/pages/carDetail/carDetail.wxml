@@ -15,7 +15,10 @@
     </view>
   <view class="carDetail-info">
     <view class="title-text">{{carDetail.brand}}  {{carDetail.brandDetail}}</view>
-    <view><text class="price">{{carDetail.price}}</text>万</view>
+    <view class='car-flex'>
+      <text class="price">{{carDetail.price}}</text>
+      <text>万</text>
+    </view>
   </view>
 
   <view class="carDetail-info">

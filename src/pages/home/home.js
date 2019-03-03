@@ -14,6 +14,7 @@ Page({
     selectValue: '',
     cityList: [],
     currentQrcode: '',
+    phone: '',
     popHidden: true,
     pageLoaded: false,
     popWechat: false,
@@ -206,6 +207,7 @@ Page({
 
   /** 打开电话弹框 */
   popPhoneCall(e) {
+    console.log(e);
     const phone = e.currentTarget.dataset.phone;
     this.setData({
       phone,

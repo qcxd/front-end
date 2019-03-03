@@ -24,6 +24,7 @@ Page({
     popHidden: true,
     brandList: [],
     popHiddenBrand: true,
+    submitDisable: false,
     introArray: [
       'A、优秀（车况好，没有任何事故）',
       'B、良好（有少量剐蹭或钣金）',
@@ -47,7 +48,6 @@ Page({
     this.setData({
       shopId: options.shopId,
     })
-    console.log(options);
     this.getCityList();
     this.getCarBrands();
   },
@@ -68,40 +68,42 @@ Page({
     utils.validateEmpty(value.introduce, '请选择车况');
     utils.validateImages(this.data.uploadImgs, '请上传汽车照片');
 
-    for (let i = 0; i < that.data.uploadImgs.length; i++) {
-      let filePath = that.data.uploadImgs[i];
-      console.log(that.data.uploadImgs[i]);
-
-      uploadImage(
-        {
-          filePath: filePath,
-          dir: `${aliyunServerURL}/images/shop/${openid}/` + filePath.replace('http://tmp/', ''),
-          success: function (res) {
-            console.log('res', `${aliyunServerURL}/${res}`);
-            that.setData({
-              qrcode: `${aliyunServerURL}/${res}`,
-            }, () => {
-              that.doSubmit(e);
-            })
-          },
-          fail: function (res) {
-            console.log(res)
+    let count = 0;
+    const images = [];
+    const uploadImgs = this.data.uploadImgs;
+    for (let i = 0; i < uploadImgs.length; i++) {
+      let filePath = uploadImgs[i];
+      console.log(uploadImgs[i]);
+      uploadImage({
+        filePath: filePath,
+        dir: `images/shop/${openid}/` + filePath.replace('http://tmp/', ''),
+        success: function (res) {
+          count++;
+          images.push(`${aliyunServerURL}/${res}`);
+          if (count === uploadImgs.length) {
+            that.doSubmit(e, images);
           }
-        })
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
     }
   },
 
   /** 创建汽车 */
-  doSubmit(e) {
+  doSubmit(e, images) {
     const params = e.detail.value;
-    const images = this.data.images; // 汽车图片数组
+    this.setData({
+      submitDisable: true
+    })
     apiServicePro.createCar(Object.assign({ images }, params)).then((result) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
           url: `../carDetail/carDetail?id=${result.data.id}`,
           // url: `../shopSuccess/shopSuccess`,
-        })
+        });
       }
     })
   },
@@ -127,7 +129,6 @@ Page({
         that.setData({
           filePath: res.tempFilePaths[0],
           images: that.data.images.concat(tempFilePaths),
-          // images: tempFilePaths,
           uploadImgs: res.tempFilePaths
         })
       },
@@ -150,11 +151,11 @@ Page({
         cityList.forEach((e) => {
           e.data.forEach((city) => {
             city.name = utils.cityReplace(city.name);
-          })
+          });
         });
         this.setData({
           cityList: result.data,
-        })
+        });
       } else { }
     }).catch((err) => {
       utils.showModal();
@@ -163,7 +164,6 @@ Page({
 
   /** 选择城市 */
   doSelect(e) {
-    console.log(e);
     if (e.detail.name) {
       const cityId = this.getCityId(e.detail.name);
       this.setData({
@@ -209,7 +209,7 @@ Page({
     let popHiddenBrand = this.data.popHiddenBrand;
     this.setData({
       popHiddenBrand: !popHiddenBrand,
-    })
+    });
   },
 
   /** 选择城市 */
@@ -219,7 +219,7 @@ Page({
         popHiddenBrand: true,
         brand: e.detail.brand,
         brandDetail: e.detail.brandDetail,
-      })
+      });
       wx.setStorage({
         key: 'brand',
         data: e.detail.brand,
@@ -227,7 +227,7 @@ Page({
     } else {  // 取消按钮
       this.setData({
         popHiddenBrand: true,
-      })
+      });
     }
   },
 

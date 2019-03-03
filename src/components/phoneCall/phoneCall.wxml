@@ -2,7 +2,7 @@
 <view class='phoneCall'>
   <view class='action-area'>
     <view class='phone'>{{phone}}</view>
-    <view class='call'>呼叫</view>
-    <view class='cancel'>取消</view>
+    <view class='call' catchtap='phoneCall' data-phone='{{phone}}'>呼叫</view>
+    <view class='cancel' catchtap='closePhoneCall'>取消</view>
   </view>
 </view>

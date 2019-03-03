@@ -1,8 +1,5 @@
 <!--pages/shop/shop.wxml-->
 <view class='shopPage'>
-  <!-- <view class='car-search'>
-    <input bindinput="doSearch" placeholder="搜索" placeholder-class='placeholder'/>
-  </view> -->
   <view class='shop-head'>
     <view class='car-flex shop-head-info'>
       <image src="{{shopDetail.logo}}" />
@@ -35,9 +32,10 @@
     <view class='hr'></view>
     <view class='car-flex address'>
       <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
-      <text class='line-v'>
-         {{shopDetail.province ? shopDetail.province : ''}}{{shopDetail.city ? shopDetail.city : ''}}{{shopDetail.area ? shopDetail.area : ''}}{{shopDetail.address}}
-      </text>
+      <view class='line-v'>
+        {{shopDetail.province ? shopDetail.province : ''}}{{shopDetail.city ? shopDetail.city : ''}}{{shopDetail.area ? shopDetail.area : ''}}{{shopDetail.address}}
+        
+      </view>
       <Icon iconName='weChat' width='20px' height='16.67px' catchtap="popWechat" data-qrcode="{{shopDetail.qrcode}}"/>
       <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' data-phone='{{shopDetail.phone}}'/>
     </view>
