@@ -24,6 +24,7 @@ Page({
     region: [],
     customItem: '全部',
     popHidden: true,
+    submitDisable: false,
   },
 
   onLoad: function (options) {
@@ -44,7 +45,7 @@ Page({
     const value = e.detail.value;
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
-    console.log('aliyunServerURL', aliyunServerURL)
+    console.log('aliyunServerURL', aliyunServerURL);
 
     utils.validateEmpty(value.name, '请输入姓名');
     utils.validateEmpty(value.phone, '请输入手机号码');
@@ -85,7 +86,10 @@ Page({
       city: region[1],
       area: region[2],
       qrcode: this.data.qrcode, // 微信二维码
-    }
+    };
+    this.setData({
+      submitDisable: true
+    });
     apiServicePro.createShop(Object.assign(address, params)).then((result) => {
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？

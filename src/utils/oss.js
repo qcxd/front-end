@@ -17,18 +17,12 @@ const uploadFile = function (params) {
     return;
   }
   console.log("params.filePath", params.filePath)
-  // const aliyunFileKey =  params.dir ;
   const aliyunFileKey = params.dir;
-  // + params.filePath.replace('http://', '');
-
   const aliyunServerURL = env.uploadImageUrl;
   const accessid = env.OSSAccessKeyId;
   const policyBase64 = getPolicyBase64();
   const signature = getSignature(policyBase64);
 
-  console.log('aliyunFileKey=', aliyunFileKey);
-  console.log('aliyunServerURL', aliyunServerURL);
-  console.log('filePath', params.filePath);
   wx.uploadFile({
     url: aliyunServerURL,
     filePath: params.filePath,
@@ -56,7 +50,7 @@ const uploadFile = function (params) {
       err.wxaddinfo = aliyunServerURL;
       if (params.fail) {
         params.fail(err)
-      }
+      };
     },
   })
 }

@@ -71,6 +71,10 @@ Page({
     let count = 0;
     const images = [];
     const uploadImgs = this.data.uploadImgs;
+
+    wx.showLoading({
+      title: '',
+    })
     for (let i = 0; i < uploadImgs.length; i++) {
       let filePath = uploadImgs[i];
       console.log(uploadImgs[i]);
@@ -82,10 +86,12 @@ Page({
           images.push(`${aliyunServerURL}/${res}`);
           if (count === uploadImgs.length) {
             that.doSubmit(e, images);
+          } else {
+            wx.hideLoading();
           }
         },
         fail: function (res) {
-          console.log(res)
+          wx.hideLoading();
         }
       })
     }
@@ -96,8 +102,9 @@ Page({
     const params = e.detail.value;
     this.setData({
       submitDisable: true
-    })
+    });
     apiServicePro.createCar(Object.assign({ images }, params)).then((result) => {
+      wx.hideLoading();      
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
