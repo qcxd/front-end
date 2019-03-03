@@ -186,13 +186,15 @@ Page({
 
   /** 取消加入仓库 */
   cancelJoin(e) {
+    const id = e.currentTarget.dataset.id || e.detail.id;
     const params = {
-      id: e.currentTarget.dataset.id,
+      id,
       follow: false,
     };
     apiServicePro.joinWarehouse(params).then((result) => {
       if (result.code === 200) {
         this.getWarehouseList({}, '0');
+        this.getWarehouseCarList({}, '0');
         wx.showToast({
           title: '已取消',
           icon: 'succes',

@@ -95,7 +95,7 @@
         <view class='wherehouse-cars'>
           <!-- <block wx:for="{{item.Car}}" wx:key="{{item.id}}"> -->
             <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
-              <carCard carDetail="{{item.Car}}"></carCard>
+              <carCard carDetail="{{item.Car}}" bind:addWherehouse="cancelJoin"></carCard>
             </view>
           <!-- </block> -->
         </view>
