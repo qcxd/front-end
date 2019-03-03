@@ -80,6 +80,7 @@
 .shop-box image {
   width: 100%;
   margin: 5px 0px;
+  background: #000000;
 }
 
 .shop-box .add {
@@ -117,6 +118,7 @@
 .shop-box .desc {
   font-size: 12px;
   padding-bottom: 2px;
+  line-height:14px;
 }
 
 .shopPage .address {
