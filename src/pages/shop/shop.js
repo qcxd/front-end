@@ -56,22 +56,25 @@ Page({
 
   /** 加入仓库 åå*/
   addWherehouse(e) {
+    console.log(e);
+    const id = e.currentTarget.dataset.id || e.detail.id;
+    const follow = (e.currentTarget.dataset.follow || e.detail.follow) ? false : true;
     const params = {
-      id: e.currentTarget.dataset.id,
-      follow: e.currentTarget.dataset.follow ? false : true,
+      id,
+      follow,
     };
     apiServicePro.joinWarehouse(params).then((result) => {
       if (result.code === 200) {
         const shopDetail = this.data.shopDetail;
         shopDetail.Cars.forEach(item => {
-          if (item.id === e.currentTarget.dataset.id) {
-            item.isFollowCar = e.currentTarget.dataset.follow ? false : true;
+          if (item.id === id) {
+            item.isFollowCar = follow;
           }
         })
         this.setData({
           shopDetail,
         })
-        if (e.currentTarget.dataset.follow) {
+        if (follow) {
           wx.showToast({
             title: '已取消',
             icon: 'succes',

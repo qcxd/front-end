@@ -63,9 +63,9 @@
                     <view class='desc'>{{item.Car.brand}}</view>
                     <view class='car-flex'>
                       <text class='flex_1'>¥{{item.Car.price}}万</text>
-                      <button class='cancle' catchtap='cancelJoin' data-id='{{item.Car.id}}'>
+                      <text class='cancel' catchtap='cancelJoin' data-id='{{item.Car.id}}'>
                         取消加入
-                      </button>
+                      </text>
                     </view>
                   </view>
                 </view>

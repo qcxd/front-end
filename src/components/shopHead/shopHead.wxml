@@ -21,7 +21,7 @@
         </block>
       </view>
       <view wx:if="{{shopIntro}}" class='shop-intro'>
-        <text>{{shopInfo.introduce}}</text>
+        <text>{{shopInfo.introduce ? shopInfo.introduce :  '暂无更多店铺简介'}}</text>
       </view>
     </view>
   </view>

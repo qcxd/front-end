@@ -126,7 +126,7 @@
     <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
       <view class='all-cars'>
         <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
-          <carCard carDetail="{{item}}"></carCard>
+          <carCard carDetail="{{item}}" bind:addWherehouse="addWherehouse"></carCard>
         </view>
       </view>
     </block>

@@ -3,10 +3,21 @@
   <view class='car-image'>
     <image src='{{carDetail.indexImage}}' mode='withFix'/>
   </view>
-  <!-- <image src="../../image/porsche-wallpaper.jpg" mode='withFix'/> -->
   <view class='car-info'>
-    <view class='title-text'>{{carDetail.brand}}</view>
-    <view class='small-text'>2014年款/12.8公里</view>
-    <view class='small-text'>￥<text class='price-text'>{{carDetail.price}}</text>万</view>
+    <view class='heightFix'>
+      <view class='title-text'>{{carDetail.brand}}</view>
+      <view class='small-text'>2014年款/12.8公里</view>
+    </view>
+    <view class='car-info-flex'>
+      <view class='small-text'>￥<text class='price-text'>{{carDetail.price}}</text>万</view>
+      <!-- <text class='cancel' catchtap='cancelJoin' data-id='{{item.Car.id}}'>取消加入</text> -->
+      <text class='{{carDetail.isFollowCar ? "cancel" : "add"}}' 
+        catchtap='addWherehouse' 
+        data-id='{{carDetail.id}}'
+        data-follow='{{carDetail.isFollowCar}}'
+      >
+        {{carDetail.isFollowCar ? "取消加入" : "加入仓库"}}
+      </text>
+    </view>
   </view>
 </view>

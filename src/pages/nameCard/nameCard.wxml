@@ -1,14 +1,14 @@
 <!--pages/nameCard/nameCard.wxml-->
 <view class='nameCard'>
   <view class='qrcode'>
-    <button  open-type='share' class='actions' bindtap='sharePage'>
+    <!-- <button  open-type='share' class='actions' bindtap='sharePage'>
       <Icon iconName="download" width='14px' height='14px'/>
       <Icon iconName="share2" width='14px' height='14px' bindtap='share'/>
-    </button>
-    <!-- <image src='{{userInfo.Shop.qrcode}}' mode='aspectFit'/>
-    <view class='small-text'>{{userInfo.Shop.shopName}}</view> -->
+    </button> -->
+    <image src='{{userInfo.Shop.qrcode}}' mode='aspectFit'/>
+    <view class='small-text'>{{userInfo.Shop.shopName}}</view>
   </view>
-  <!-- <view class='detail'>
+  <view class='detail'>
     <view class='car-flex'>
       <Icon iconName="people" width='14px' height='16px' />
       <view>{{userInfo.Shop.name}}</view>
@@ -24,8 +24,8 @@
         {{addressInfo.city.name}} {{addressInfo.area.name}} {{addressInfo.detail}}
       </view>
     </view>
-  </view> -->
+  </view>
 
-  <canvas canvas-id="nameCard"></canvas>
+  <!-- <canvas canvas-id="nameCard"></canvas> -->
 
 </view>

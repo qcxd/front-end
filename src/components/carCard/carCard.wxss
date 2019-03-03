@@ -34,4 +34,37 @@
   font-size: 15px;
   font-weight: 600;
 }
+
+.carCard .car-info-flex {
+  display: flex;
+  align-items: center;
+}
+
+.carCard .car-info-flex .small-text {
+  flex: 1;
+}
+
+.carCard .car-info-flex .cancel {
+  color: #666666;
+  border: 1px solid #efefef;
+  border-radius: 50px;
+  font-size: 12px !important;
+  text-align: center;
+  padding:2px 10px 7px 10px;
+  line-height:0.6;
+}
+
+.carCard .car-info-flex .add {
+  background-color: #35A1FB;
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 12px !important;
+  text-align: center;
+  padding:2px 10px 7px 10px;
+  line-height:0.6;
+}
+
+.carCard .heightFix {
+  min-height:60px;
+}
  
