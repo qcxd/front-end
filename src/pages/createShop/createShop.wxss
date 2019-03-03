@@ -2,7 +2,7 @@
 @import "../../lib/weui.wxss";
 
 .createShopPage {
-  /* padding-bottom: 30px; */
+  padding-bottom: 15px;
 }
 
 .createShopPage .info-box {
