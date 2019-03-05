@@ -1,0 +1,61 @@
+/* pages/index/index.wxss */
+
+@import "../../lib/weui.wxss";
+
+.index-page {
+  text-align: center;
+  padding: 30px;
+}
+
+.index-welcome {
+  padding: 70px 0px;
+  color: #35A1FB;
+}
+
+.index-location {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+  justify-content: center;
+}
+
+.index-location-city {
+  padding: 0px 10px;
+}
+
+.index-change-city {
+  font-size: 13px;
+  color: #35A1FB;
+}
+
+.index-btn {
+  padding-top: 40px;
+}
+
+.index-btn button {
+  font-size: 16px;
+}
+
+.pick-title-cnacle {
+  color: #ACB4B9;
+}
+/** 选择弹框 */
+/* .car-pop-view {
+  background-color: #ffffff;
+}
+
+.car-pop-view .car-flex {
+  padding: 5px 30px;
+  border-bottom: 1px solid rgb(170, 189, 236);
+}
+
+.car-pop-view .car-flex .pop-cancle {
+  flex: 0.5;
+  color: #999999;
+}
+
+.car-pop-view .car-flex .pop-ensure {
+  flex: 0.5;
+  color: #35A1FB;
+  text-align: right;
+} */

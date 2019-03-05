@@ -1,4 +1,4 @@
-
+// pages/index/index.js
 const app = getApp();
 const apiServicePro = require('../../service/api/api-promisify.service');
 const {
@@ -16,14 +16,15 @@ Page({
     popHidden: true,
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     let _this = this;
     wx.getStorageInfo({
       success(res) {
         if (res.keys.indexOf('user') !== -1 &&
-          res.keys.indexOf('currentCity') !== -1) {
+            res.keys.indexOf('currentCity') !== -1) {
+          // 如果已经有定位和用户信息，直接到首页
           wx.switchTab({
-            url: '../loading/loading',
+            url: '../home/home',
           })
         } else {
           _this.getOpenid();
@@ -124,7 +125,7 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function (res) {
+      success: function(res) {
         let city = res.data.result.addressComponent.city;
         city = cityReplace(city);
         _this.setData({
@@ -136,7 +137,7 @@ Page({
         });
         wx.hideLoading();
       },
-      fail: function () {
+      fail: function() {
         _this.setData({
           currentCity: "---"
         });
@@ -176,7 +177,7 @@ Page({
           url: `../home/home`,
         });
       } else {
-
+        
       }
     }).catch((err) => {
     });
@@ -200,26 +201,26 @@ Page({
     }
   },
 
-  onReady: function () {
+  onReady: function() {
 
   },
 
-  onShow: function () {
+  onShow: function() {
 
   },
 
-  onHide: function () {
+  onHide: function() {
 
   },
 
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

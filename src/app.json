@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/loading/loading",
     "pages/index/index",
+    "pages/loading/loading",
     "pages/sharePage/sharePage",
     "pages/createCar/createCar",
     "pages/ossUpload/ossUpload",

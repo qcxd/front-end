@@ -14,7 +14,6 @@
   </view>
   <view class='begin'>
     <image mode="widthFix" src='../../image/loading_car.png' />
-    <!-- <text>点此出发</text> -->
-    <button open-type="getUserInfo" bindgetuserinfo="goHome">点此出发</button>
+    <button open-type="getUserInfo" bindgetuserinfo="goHome"> 即将出发</button>
   </view>
 </view>
