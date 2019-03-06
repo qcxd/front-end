@@ -42,8 +42,8 @@ Component({
       this.triggerEvent('popWechat', {}, {})
     },
 
-    popPhoneCall(e) {
-      this.triggerEvent('popPhoneCall', {}, {})
+    phoneCall(e) {
+      phoneCall(e);
     },
 
   }

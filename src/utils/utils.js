@@ -41,6 +41,8 @@ const validateEmpty = (value, desc) => {
       icon: 'none',
     });
     return false;
+  } else {
+    return true;
   }
 }
 
@@ -52,6 +54,8 @@ const validateImages = (images, desc) => {
       icon: 'none',
     });
     return false;
+  } else {
+    return true;
   }
 }
 
@@ -64,6 +68,8 @@ const validatePhone = (phone, desc) => {
       icon: 'none',
     });
     return false;
+  } else {
+    return true;
   }
 }
 

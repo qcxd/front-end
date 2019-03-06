@@ -47,12 +47,14 @@ Page({
     const aliyunServerURL = env.uploadImageUrl;
     console.log('aliyunServerURL', aliyunServerURL);
 
-    utils.validateEmpty(value.name, '请输入姓名');
-    utils.validateEmpty(value.phone, '请输入手机号码');
-    utils.validateImages(this.data.uploadImgs, '请上传微信二维码');
-    utils.validateEmpty(value.shopName, '请输入店铺名');
-    utils.validateEmpty(value.address, '请输详细地址');
-    utils.validatePhone(value.phone, '请输入正确的手机号');
+    if (!utils.validateEmpty(value.name, '请输入姓名') ||
+        !utils.validateEmpty(value.phone, '请输入手机号码') ||
+        !utils.validateImages(this.data.uploadImgs, '请上传微信二维码') ||
+        !utils.validateEmpty(value.shopName, '请输入店铺名') ||
+        !utils.validateEmpty(value.address, '请输详细地址') ||
+        !utils.validatePhone(value.phone, '请输入正确的手机号')) {
+      return false;
+    }
 
     for (let i = 0; i < that.data.uploadImgs.length; i++) {
       let filePath = that.data.uploadImgs[i];
@@ -92,6 +94,9 @@ Page({
     });
     apiServicePro.createShop(Object.assign(address, params)).then((result) => {
       if (result.code === 200) {
+        this.setData({
+          submitDisable: false
+        });
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
           url: `../shop/shop?id=${result.data.id}`,

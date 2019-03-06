@@ -21,7 +21,7 @@
     </view>
   </view>
 
-  <view class="carDetail-info">
+  <view class="carDetail-info" style='margin-bottom:60px;'>
     <view class='sub-title'>基本信息</view>
     <view>
       <view class='item-box'>
