@@ -41,19 +41,19 @@
     <view class='hr'></view>
 
     <view class='shop-menu'>
-      <view bindtap='doSearch'>
+      <!-- <view bindtap='doSearch'>
         <icon type="search" size="15" />
         <input
           disabled='true'
           placeholder="搜索"
           placeholder-class='placeholder'/>
-      </view>
+      </view> -->
       <view class='{{_active === "1" ? "active" : ""}}' bindtap='tabSwitch' data-index="1">首页</view>
       <view class='{{_active === "0" ? "active" : ""}}' bindtap='tabSwitch' data-index="0">全部汽车</view>
     </view>
   </view>
   <block wx:if="{{_active === '1'}}">
-    <view>
+    <!-- <view>
       <view class='shop-new'>
         <view class='car-info'>
           <view>斯科达 速派 2016款</view>
@@ -62,7 +62,8 @@
         <view class='t_r'></view>
       </view>
       <carSwiper></carSwiper>
-    </view>
+    </view> -->
+
     <!-- <view class='shop-view'>
       <view class='subtitle'>-- 店主推荐 --</view>
       <view>
@@ -91,46 +92,55 @@
     <view class='shop-view'>
       <block wx:if="{{shopDetail.Cars.length > 0}}">
         <view class='subtitle'>-- 店铺汽车 --</view>  
-      </block>
-      <block wx:for="{{shopDetail.Cars}}" wx:key='{{item.id}}'>
-        <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
-          <image src="{{item.indexImage}}" mode='widthFix'></image>
-          <view class='car-info'>
-            <view class='desc'>{{item.brand}}</view>
-            <view class='car-flex'>
-              <text class='flex_1'>¥{{item.price}}万</text>
-              <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
-                catchtap='addWherehouse' 
-                data-id='{{item.id}}'
-                data-follow='{{item.isFollowCar}}'
-              >
-                {{item.isFollowCar ? "取消加入" : "加入仓库"}}
-              </text>
+        <block wx:for="{{shopDetail.Cars}}" wx:key='{{item.id}}'>
+          <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
+            <image src="{{item.indexImage}}" mode='widthFix'></image>
+            <view class='car-info'>
+              <view class='desc'>{{item.brand}}</view>
+              <view class='car-flex'>
+                <text class='flex_1'>¥{{item.price}}万</text>
+                <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
+                  catchtap='addWherehouse' 
+                  data-id='{{item.id}}'
+                  data-follow='{{item.isFollowCar}}'
+                >
+                  {{item.isFollowCar ? "取消加入" : "加入仓库"}}
+                </text>
+              </view>
             </view>
           </view>
-        </view>
-        <!-- <view class='shop-box'>
-          <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
-          <view class='car-info'>
-            <view class='desc'>保时捷911 红色</view>
-            <view class='car-flex'>
-              <text class='flex_1'>¥18.8万</text>
-              <text class='cancle'>加入仓库</text>
+          <!-- <view class='shop-box'>
+            <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
+            <view class='car-info'>
+              <view class='desc'>保时捷911 红色</view>
+              <view class='car-flex'>
+                <text class='flex_1'>¥18.8万</text>
+                <text class='cancle'>加入仓库</text>
+              </view>
             </view>
-          </view>
-        </view> -->
+          </view> -->
+        </block>
       </block>
     </view>
   </block>
   <view wx:else>
-    <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
-      <view class='all-cars'>
-        <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
-          <carCard carDetail="{{item}}" bind:addWherehouse="addWherehouse"></carCard>
+    <block wx:if="{{shopDetail.Cars.length > 0}}">
+      <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
+        <view class='all-cars'>
+          <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+            <carCard carDetail="{{item}}" bind:addWherehouse="addWherehouse"></carCard>
+          </view>
         </view>
-      </view>
+      </block>
     </block>
   </view>
+
+  <block wx:if="{{shopDetail.Cars.length <= 0}}">
+    <view class="no-cars">
+      <view>您的小店还没有汽车哦</view>
+      <view>赶快去个人中心创建汽车吧</view>
+    </view>
+  </block>
 
   <block wx:if ="{{popWechat}}">
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
