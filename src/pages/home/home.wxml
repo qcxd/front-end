@@ -64,8 +64,8 @@
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
   </block>
   
-  <block wx:if ="{{popPhoneCall}}">
+  <!-- <block wx:if ="{{popPhoneCall}}">
     <phoneCall phone='{{phone}}' bind:closePhoneCall="closePhoneCall"/>
-  </block>
+  </block> -->
 </view>
 
