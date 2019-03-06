@@ -13,7 +13,7 @@
 
 .shopCar-price {
   position: relative;
-  margin-top: -26px;
+  margin-top: -29px;
   padding: 2px 0px;
   margin-bottom: 3px;
   text-align: center;

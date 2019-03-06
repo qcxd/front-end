@@ -22,7 +22,19 @@ App({
         // }
       }
     })
+
+    // wx.getStorage({
+    //   key: 'currentCity',
+    //   success: function (res) {
+    //     const currentCityId = _this.getCityId(res.data);
+    //     _this.setData({
+    //       currentCity: res.data,
+    //       currentCityId,
+    //     });
+    //   },
+    // })
   },
+
   globalData: {
     userInfo: null,
     userLocation: null,
