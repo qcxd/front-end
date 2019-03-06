@@ -18,7 +18,6 @@ Page({
     popHidden: true,
     pageLoaded: false,
     popWechat: false,
-    popPhoneCall: false,
   },
 
   onLoad: function (options) {
@@ -202,23 +201,6 @@ Page({
   closeWechat() {
     this.setData({
       popWechat: false
-    })
-  },
-
-  /** 打开电话弹框 */
-  popPhoneCall(e) {
-    console.log(e);
-    const phone = e.currentTarget.dataset.phone;
-    this.setData({
-      phone,
-      popPhoneCall: true
-    })
-  },
-
-  /** 关闭电话弹框 */
-  closePhoneCall() {
-    this.setData({
-      popPhoneCall: false
     })
   },
 

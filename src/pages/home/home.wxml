@@ -28,9 +28,7 @@
         <shopHead shopInfo="{{item}}"
         bind:followshop="followShop"
         bind:popWechat="popWechat"
-        bind:popPhoneCall="popPhoneCall"
         data-qrcode="{{item.qrcode}}"
-        data-phone="{{item.phone}}"
       />
       </view>
       <view class='shop-info'>

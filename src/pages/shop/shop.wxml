@@ -18,7 +18,7 @@
             {{shopDetail.isFollowShop ? '已收藏' : '收藏'}}
           </button>
         </view>
-        <view class='car-flex'>
+        <view class='car-flex' style='line-height:0.9;'>
           <text class='number'>
             粉丝数：{{shopDetail.shopStatistics.byFollowCars}} 
           </text>
