@@ -22,7 +22,7 @@ Page({
       success(res) {
         if (res.keys.indexOf('user') !== -1 &&
           res.keys.indexOf('currentCity') !== -1) {
-          wx.switchTab({
+          wx.navigateTo({
             url: '../loading/loading',
           })
         } else {
