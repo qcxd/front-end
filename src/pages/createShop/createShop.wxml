@@ -65,7 +65,7 @@
       </view>
     </view>
   
-    <button form-type="submit">提交</button>
+    <button form-type="submit" disabled="{{submitDisable}}">提交</button>
   </form>
 
   <!-- <block wx:if="{{!popHidden}}" >

@@ -21,7 +21,7 @@
     </view>
   </view>
 
-  <view class="carDetail-info" style='margin-bottom:60px;'>
+  <view class="carDetail-info">
     <view class='sub-title'>基本信息</view>
     <view>
       <view class='item-box'>
@@ -44,6 +44,13 @@
         <view class='item-name'>车况</view>
         <view class='item-value'>{{carDetail.introduce}}</view>
       </view>
+    </view>
+  </view>
+
+  <view class="detail-img">
+    <view class='img-title'>图片详情</view>
+    <view wx:for="{{carDetail.images}}">
+      <image mode="aspectFit" src="{{item}}" />
     </view>
   </view>
 
@@ -75,7 +82,7 @@
       <Icon iconName='weChat2' width='20px' height='16.67px'></Icon>
       <text>微信联系</text>
     </view>
-    <view class='btn-call' catchtap='popPhoneCall' data-phone='{{carDetail.Shop.phone}}'>
+    <view class='btn-call' catchtap='phoneCall' data-phone='{{carDetail.Shop.phone}}'>
       <Icon iconName='call2' width='15px' height='15px' ></Icon>
       <text>电话预约</text>
     </view>
@@ -85,7 +92,7 @@
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
   </block>
 
-  <block wx:if ="{{popPhoneCall}}">
+  <!-- <block wx:if ="{{popPhoneCall}}">
     <phoneCall phone='{{carDetail.Shop.phone}}' bind:closePhoneCall="closePhoneCall"/>
-  </block>
+  </block> -->
 </view>

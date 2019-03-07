@@ -13,8 +13,8 @@
 
 .shopCar-price {
   position: relative;
-  margin-top: -29px;
-  padding: 2px 0px;
+  line-height:26px;
+  margin-top: -30px;
   margin-bottom: 3px;
   text-align: center;
   color:#ffffff;
@@ -38,4 +38,5 @@
 .shopCar-info .brand{
   overflow:hidden;
   text-overflow:ellipsis;
+  line-height:24px;
 }

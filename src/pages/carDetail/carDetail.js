@@ -11,7 +11,7 @@ Page({
     carDetail: {},
     currentQrcode: '',
     popWechat: false,
-    popPhoneCall: false,
+    // popPhoneCall: false,
   },
 
   onLoad: function (options) {
@@ -30,10 +30,6 @@ Page({
         })
       }
     })
-  },
-
-  phoneCall(e) {
-    phoneCall(e);
   },
 
   /** 打开微信二维码弹框 */
@@ -95,21 +91,25 @@ Page({
     return `${year}年${month}月${day}日`
   },
 
-  /** 打开电话弹框 */
-  popPhoneCall(e) {
-    const phone = e.currentTarget.dataset.phone;
-    this.setData({
-      phone,
-      popPhoneCall: true
-    });
+  phoneCall(e) {
+    phoneCall(e);
   },
 
-  /** 关闭电话弹框 */
-  closePhoneCall() {
-    this.setData({
-      popPhoneCall: false
-    })
-  },
+  // /** 打开电话弹框 */
+  // popPhoneCall(e) {
+  //   const phone = e.currentTarget.dataset.phone;
+  //   this.setData({
+  //     phone,
+  //     popPhoneCall: true
+  //   });
+  // },
+
+  // /** 关闭电话弹框 */
+  // closePhoneCall() {
+  //   this.setData({
+  //     popPhoneCall: false
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

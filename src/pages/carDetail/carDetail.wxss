@@ -40,12 +40,12 @@
   font-weight: 400;
 }
 
-.carDetail .carDetail-info image {
+/* .carDetail .carDetail-info image {
   height: 36px;
   width: 36px;
   margin: 10px 10px 10px 0px;
   border-radius: 18px;
-}
+} */
 
 .carDetail .carDetail-info .price {
   padding: 5px;
@@ -145,4 +145,21 @@
   align-items: center;
   padding: 10px;
   background-color: #35A1FB;
+}
+
+.carDetail .detail-img {
+  margin-bottom:60px;
+  padding: 15px 0px;
+  background: #ffffff;
+}
+
+.carDetail .detail-img .img-title {
+ padding: 0px 30px 15px 30px;
+ font-size: 14px;
+ color: #35A1FB;
+}
+
+.carDetail .detail-img image {
+  width: 100%;
+  background: #000000;
 }

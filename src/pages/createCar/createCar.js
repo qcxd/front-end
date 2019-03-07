@@ -59,14 +59,16 @@ Page({
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
 
-    utils.validateEmpty(value.brand, '请选择品牌车系');
-    utils.validateEmpty(value.dateCard, '请选择上牌日期');
-    utils.validateEmpty(value.kilometer, '请输入行驶里程');
-    utils.validateEmpty(value.city, '请输选择拍照所在地');
-    utils.validateEmpty(value.price, '请输入价格');
-    utils.validateEmpty(value.transfersNumber, '请输入过户次数');
-    utils.validateEmpty(value.introduce, '请选择车况');
-    utils.validateImages(this.data.uploadImgs, '请上传汽车照片');
+    if (!utils.validateEmpty(value.brand, '请选择品牌车系') ||
+        !utils.validateEmpty(value.dateCard, '请选择上牌日期') ||
+        !utils.validateEmpty(value.kilometer, '请输入行驶里程') ||
+        !utils.validateEmpty(value.city, '请输选择拍照所在地') ||
+        !utils.validateEmpty(value.price, '请输入价格') ||
+        !utils.validateEmpty(value.transfersNumber, '请输入过户次数') ||
+        !utils.validateEmpty(value.introduce, '请选择车况') ||
+        !utils.validateImages(this.data.uploadImgs, '请上传汽车照片')) {
+      return false;
+    }
 
     let count = 0;
     const images = [];
@@ -104,7 +106,10 @@ Page({
       submitDisable: true
     });
     apiServicePro.createCar(Object.assign({ images }, params)).then((result) => {
-      wx.hideLoading();      
+      wx.hideLoading(); 
+      this.setData({
+        submitDisable: true
+      });     
       if (result.code === 200) {
         // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
@@ -238,12 +243,14 @@ Page({
     }
   },
 
+  /** 上牌时间 */
   bindDateChange(e) {
     this.setData({
       dateCard: e.detail.value
     })
   },
 
+  /** 车况 */
   bindIntroChange(e) {
     const { introArray } = this.data
     this.setData({

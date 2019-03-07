@@ -94,7 +94,7 @@
         <view class='subtitle'>-- 店铺汽车 --</view>  
         <block wx:for="{{shopDetail.Cars}}" wx:key='{{item.id}}'>
           <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
-            <image src="{{item.indexImage}}" mode='widthFix'></image>
+            <image src="{{item.indexImage}}" mode='aspectFill'></image>
             <view class='car-info'>
               <view class='desc'>{{item.brand}}</view>
               <view class='car-flex'>
