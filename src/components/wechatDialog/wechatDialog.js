@@ -1,4 +1,9 @@
 // components/wechatDialog/wechatDialog.js
+const {
+  showModal,
+} = require('../../utils/utils');
+const env = require('../../config.js');
+
 Component({
   /**
    * 组件的属性列表
@@ -26,12 +31,17 @@ Component({
     saveWechat() {
       const _this = this;
       const qrcode = _this.properties.qrcode;
+      const aliyunServerURL = env.uploadImageUrl;
       wx.downloadFile({
         url: qrcode,
         success(res) {
+          console.log(res)
           // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
           if (res.statusCode === 200) {
-            _this.saveImg(res.tempFilePath);
+            let tempFilePath = res.tempFilePath.replace('http://tmp/', '');
+            tempFilePath = `${aliyunServerURL}/${tempFilePath}`;
+            console.log(tempFilePath);
+            _this.saveImg(tempFilePath);
           }
         }
       })
@@ -42,12 +52,15 @@ Component({
       wx.saveImageToPhotosAlbum({
         filePath: filePath, // 图片文件路径，可以是临时文件路径或永久文件路径，不支持网络图片路径
         success(res) {
-           wx.showToast({
+          wx.showToast({
             title: '已保存到系统相册',
           })
         },
         file(err) {
           showModal();
+          wx.showToast({
+            title: '失败',
+          })
         }
       })
     },
