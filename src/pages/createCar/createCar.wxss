@@ -60,3 +60,9 @@
 .createCarPage .align-right {
   text-align: right;
 }
+
+.createCarPage .icon-del {
+  position: absolute;
+  margin-top:-8px;
+  margin-left:-12px;
+}
