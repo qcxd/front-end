@@ -75,8 +75,8 @@
           <view class="weui-uploader__bd">
             <view class="weui-uploader__files" id="uploaderFiles">
               <block wx:for="{{images}}" wx:key="*this">
-                <Icon class="icon-del" iconName='del' width='15px' height='15px' catchtap='delImage'/>
                 <view class="weui-uploader__file" bindtap="chooseImage" id="{{item}}">
+                  <Icon class="icon-del" iconName='del' width='15px' height='15px' catchtap='delImage'/>                  
                   <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
                 </view>
               </block>
