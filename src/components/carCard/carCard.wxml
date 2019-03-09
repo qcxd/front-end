@@ -9,15 +9,21 @@
       <view class='small-text'>2014年款/12.8公里</view>
     </view>
     <view class='car-info-flex'>
-      <view class='small-text'>￥<text class='price-text'>{{carDetail.price}}</text>万</view>
-      <!-- <text class='cancel' catchtap='cancelJoin' data-id='{{item.Car.id}}'>取消加入</text> -->
-      <text class='{{carDetail.isFollowCar ? "cancel" : "add"}}' 
-        catchtap='addWherehouse' 
-        data-id='{{carDetail.id}}'
-        data-follow='{{carDetail.isFollowCar}}'
-      >
-        {{carDetail.isFollowCar ? "取消加入" : "加入仓库"}}
-      </text>
+      <view class='small-text'>
+        ￥<text class='price-text'>{{carDetail.price}}</text>万
+      </view>
+      <block wx:if="{{type === 'edit'}}">
+        <Icon class="icon-edit" iconName='edit' width='15px' height='15px'
+              catchtap='clickEvent' data-id='{{carDetail.id}}'/>
+      </block>
+      <block wx:else>
+        <text class='{{carDetail.isFollowCar ? "cancel" : "add"}}' 
+              catchtap='clickEvent' 
+              data-id='{{carDetail.id}}'
+              data-follow='{{carDetail.isFollowCar}}'>
+          {{carDetail.isFollowCar ? "取消加入" : "加入仓库"}}
+        </text>
+      </block>
     </view>
   </view>
 </view>

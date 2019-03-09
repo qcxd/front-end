@@ -104,12 +104,8 @@
               <view class='car-flex'>
                 <text class='flex_1'>¥{{item.price}}万</text>
                 <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
-                  <!-- <text class='add'
-                    catchtap='goEditCar' 
-                    data-id='{{item.id}}'>
-                    更新
-                  </text> -->
-                  <Icon class="icon-edit" iconName='edit' width='15px' height='15px' catchtap='goEditCar' data-id='{{item.id}}'/>
+                  <Icon class="icon-edit" iconName='edit' width='15px' height='15px'
+                        catchtap='goEditCar' data-id='{{item.id}}'/>
                 </block>
                 <block wx:else>
                   <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
@@ -122,16 +118,6 @@
               </view>
             </view>
           </view>
-          <!-- <view class='shop-box'>
-            <image src="../../image/porsche-normal.jpg" mode='widthFix'></image>
-            <view class='car-info'>
-              <view class='desc'>保时捷911 红色</view>
-              <view class='car-flex'>
-                <text class='flex_1'>¥18.8万</text>
-                <text class='cancle'>加入仓库</text>
-              </view>
-            </view>
-          </view> -->
         </block>
       </block>
     </view>
@@ -140,9 +126,23 @@
     <block wx:if="{{shopDetail.Cars.length > 0}}">
       <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
         <view class='all-cars'>
+        <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
           <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
-            <carCard carDetail="{{item}}" bind:addWherehouse="addWherehouse"></carCard>
+            <carCard
+              data-id='{{item.id}}'
+              carDetail="{{item}}"
+              type="edit"
+              bind:clickEvent="goEditCar"/>
           </view>
+        </block>
+        <block wx:else>
+          <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+            <carCard
+              data-id='{{item.id}}'
+              carDetail="{{item}}"
+              bind:clickEvent="addWherehouse"/>
+          </view>
+        </block>
         </view>
       </block>
     </block>
