@@ -26,24 +26,25 @@
     "backgroundColor": "#F5F7FA"
   },
   "tabBar": {
+    "color": "#D8D8D8",
     "selectedColor": "#1E90FF",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "广场",
-        "iconPath": "image/menu_1_active.png",
+        "iconPath": "image/menu_1.png",
         "selectedIconPath": "image/menu_1_active.png"
       },
       {
         "pagePath": "pages/wherehouse/wherehouse",
         "text": "仓库",
-        "iconPath": "image/menu_2_active.png",
+        "iconPath": "image/menu_2.png",
         "selectedIconPath": "image/menu_2_active.png"
       },
       {
         "pagePath": "pages/myHome/myHome",
         "text": "个人中心",
-        "iconPath": "image/menu_3_active.png",
+        "iconPath": "image/menu_3.png",
         "selectedIconPath": "image/menu_3_active.png"
       }
     ]

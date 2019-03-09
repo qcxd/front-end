@@ -56,7 +56,6 @@ Page({
 
   /** 加入仓库 åå*/
   addWherehouse(e) {
-    console.log(e);
     const id = e.currentTarget.dataset.id || e.detail.id;
     const follow = (e.currentTarget.dataset.follow || e.detail.follow) ? false : true;
     const params = {
@@ -178,7 +177,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (getCurrentPages().length == 3) {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
 
   /**

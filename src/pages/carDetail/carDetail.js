@@ -15,6 +15,7 @@ Page({
   },
 
   onLoad: function (options) {
+    console.log('getCurrentPages().length', getCurrentPages().length);
     this.getCarDetail(options.id);
   },
 
@@ -136,7 +137,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (getCurrentPages().length == 3) {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
 
   /**
