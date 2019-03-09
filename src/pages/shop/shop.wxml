@@ -10,7 +10,7 @@
             <text class='level'>v1</text>
           </view>
           <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
-            <Icon iconName='edit' width='15px' height='15px' catchtap='goEditShop'/>
+            <Icon iconName='edit' width='20px' height='20px' catchtap='goEditShop'/>
           </block>
           <block wx:else>
             <button
@@ -104,7 +104,7 @@
               <view class='car-flex'>
                 <text class='flex_1'>¥{{item.price}}万</text>
                 <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
-                  <Icon class="icon-edit" iconName='edit' width='15px' height='15px'
+                  <Icon class="icon-edit" iconName='edit' width='20px' height='20px'
                         catchtap='goEditCar' data-id='{{item.id}}'/>
                 </block>
                 <block wx:else>

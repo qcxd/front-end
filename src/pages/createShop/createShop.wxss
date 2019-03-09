@@ -101,3 +101,8 @@
 .address-picker picker-view-column view {
   text-align: center;
 }
+
+.createShopPage .icon-del {
+  position: absolute;
+  margin-top: -10px;
+}

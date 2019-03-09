@@ -14,12 +14,15 @@
         </view>
         <view class="weui-uploader">
           <view class="weui-uploader__bd">
-            <view class="weui-uploader__files" id="uploaderFiles">
-              <view class="weui-uploader__file" bindtap="chooseImage" id="{{item}}">
-                <image class="weui-uploader__img" src="{{images}}" mode="aspectFill" />
+            <block wx:if="{{images !== ''}}">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <view class="weui-uploader__file" bindtap="chooseImage" id="{{item}}">
+                  <Icon class="icon-del" iconName='del' width='15px' height='15px' catchtap='delImage'/>
+                  <image class="weui-uploader__img" src="{{images}}" mode="aspectFill" />
+                </view>
               </view>
-            </view>
-            <block wx:if="{{images === ''}}">
+            </block>
+            <block wx:else>
               <view class="weui-uploader__input-box">
                 <view class="weui-uploader__input" bindtap="chooseImage"></view>
               </view>

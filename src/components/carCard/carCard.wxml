@@ -13,7 +13,7 @@
         ￥<text class='price-text'>{{carDetail.price}}</text>万
       </view>
       <block wx:if="{{type === 'edit'}}">
-        <Icon class="icon-edit" iconName='edit' width='15px' height='15px'
+        <Icon class="icon-edit" iconName='edit' width='20px' height='20px'
               catchtap='clickEvent' data-id='{{carDetail.id}}'/>
       </block>
       <block wx:else>
