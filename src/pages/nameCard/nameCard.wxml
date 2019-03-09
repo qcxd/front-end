@@ -10,7 +10,7 @@
   </view>
   <view class='detail'>
     <view class='car-flex'>
-      <Icon iconName="people" width='14px' height='16px' />
+      <Icon iconName="people" width='20px' height='20px' />
       <view>{{userInfo.Shop.name}}</view>
     </view>
     <view class='car-flex'>
@@ -25,7 +25,5 @@
       </view>
     </view>
   </view>
-
   <!-- <canvas canvas-id="nameCard"></canvas> -->
-
 </view>
