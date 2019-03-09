@@ -36,7 +36,7 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    let _this = this
+    let _this = this;
     wx.getStorage({
       key: 'user',
       success: function (res) {
@@ -45,15 +45,48 @@ Page({
         })
       },
     });
+    if (options.carId) {
+      this.getCarDetail(options.carId);
+    }
     this.setData({
       shopId: options.shopId,
-    })
+      carId: options.carId || ''
+    });
     this.getCityList();
     this.getCarBrands();
   },
 
+  /** 汽车详情 */
+  getCarDetail(id) {
+    apiServicePro.getCarDetail(id).then((result) => {
+      if (result) {
+        this.setData({
+          brand: result.data.brand,
+          brandDetail: result.data.brandDetail,         // 二级车系
+          city: result.data.city,
+          price: result.data.price,                     // 价格
+          dateCard: this.getYMD(result.data.dateCard),  // 上牌时间
+          kilometer: result.data.kilometer,             // 行驶里程
+          transfersNumber: result.data.transfersNumber, // 过户次数
+          introduce: result.data.introduce,             // 车况
+          images: result.data.images, 
+          oldImages: result.data.images,                // 图片
+          uploadImgs: result.data.images,
+        })
+      }
+    })
+  },
+
+  getYMD(dateStr) {
+    const date = new Date(dateStr);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${year}-${month}-${day}`
+  },
+
+  /** 准备提交 */
   onSubmit(e) {
-    console.log(e);
     let that = this;
     const value = e.detail.value;
     const openid = this.data.user.openid;
@@ -71,7 +104,7 @@ Page({
     }
 
     let count = 0;
-    const images = [];
+    let images = [];
     const uploadImgs = this.data.uploadImgs;
 
     wx.showLoading({
@@ -87,7 +120,12 @@ Page({
           count++;
           images.push(`${aliyunServerURL}/${res}`);
           if (count === uploadImgs.length) {
-            that.doSubmit(e, images);
+            if (that.data.carId !== '') {
+              images = images.concat(that.data.oldImages);
+              that.updateCar(e, images, that.data.carId);
+            } else {
+              that.doSubmit(e, images);
+            }
           } else {
             wx.hideLoading();
           }
@@ -116,6 +154,35 @@ Page({
           url: `../carDetail/carDetail?id=${result.data.id}`,
           // url: `../shopSuccess/shopSuccess`,
         });
+      } else if (result.code === 1202) {
+        utils.showModal('信息校验不通过，请核对汽车信息');
+      } else {
+        utils.showModal();
+      }
+    })
+  },
+
+  /** 更新汽车 */
+  updateCar(e, images, carId) {
+    const value = e.detail.value;
+    const params = Object.assign(value, {'id': carId});
+    this.setData({
+      submitDisable: true
+    });
+    apiServicePro.updateCar(Object.assign({ images }, params)).then((result) => {
+      wx.hideLoading();
+      this.setData({
+        submitDisable: true
+      });
+      if (result.code === 200) {
+        wx.navigateTo({
+          url: `../carDetail/carDetail?id=${result.data.id}`,
+          // url: `../shopSuccess/shopSuccess`,
+        });
+      } else if (result.code === 1202) {
+        utils.showModal('信息校验不通过，请核对汽车信息');
+      } else {
+        utils.showModal();
       }
     })
   },
@@ -216,7 +283,7 @@ Page({
     }));
   },
 
-  /**  控制pickBrand */
+  /** 控制pickBrand */
   popBrand() {
     let popHiddenBrand = this.data.popHiddenBrand;
     this.setData({

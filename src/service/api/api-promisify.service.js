@@ -46,100 +46,111 @@ const uploadPhoto = (filePath, openid) => {
 /**
  * 获取openid
  */
-const getOpenid = (code, loading = '1') => rest.get({ url: '/mini/getOpenid?code=' + code, loading: loading });
+const getOpenid = (code, needLoading = '1') => rest.get({ url: '/mini/getOpenid?code=' + code, needLoading: needLoading });
 
 
 /**
  * 创建用户
  * @param {}
  */
-const insertUser = (user, loading = '1') => rest.post({ url: '/user/insertUser', data: user, loading: loading });
+const insertUser = (user, needLoading = '1') => rest.post({ url: '/user/insertUser', data: user, needLoading: needLoading });
 
 /**
  * 更新用户信息
  * @param {}
  */
-const updateUser = (params, loading = '1') => rest.post({ url: `/user/updateUser`, data: params, loading: loading });
+const updateUser = (params, needLoading = '1') => rest.post({ url: `/user/updateUser`, data: params, needLoading: needLoading });
 
 /**
  * 获取用户信息
  * @param {}
  */
-const getUserInfo = (loading = '1') => rest.get({ url: `/user/userInfo`, loading: loading });
+const getUserInfo = (needLoading = '1') => rest.get({ url: `/user/userInfo`, needLoading: needLoading });
 
 /**
  * 获取城市列表
  * @param {}
  */
-const getCityList = (params, loading = '1') => rest.post({ url: `/user/district`, data: params });
+const getCityList = (params, needLoading = '1') => rest.post({ url: `/user/district`, data: params, needLoading: needLoading });
 
 /**
  * 获取城市列表
  * @param {}
  */
-const getAllDistrict = (params, loading = '1') => rest.post({ url: `/user/allDistrict`, data: params, loading: loading });
+const getAllDistrict = (params, needLoading = '1') => rest.post({ url: `/user/allDistrict`, data: params, needLoading: needLoading });
 
 /**
  * 创建店铺
  * @param {}
  */
-const createShop = (params, loading = '1') => rest.post({ url: `/shop/createShop`, data: params, loading: loading });
+const createShop = (params, needLoading = '1') => rest.post({ url: `/shop/createShop`, data: params, needLoading: needLoading });
+
+/**
+ * 更新店铺
+ * @param {}
+ */
+const updateShop = (params, needLoading = '1') => rest.post({ url: `/shop/updateShop`, data: params, needLoading: needLoading });
 
 /**
  * 店铺列表
  * @param {}
  */
-const getShopList = (params, loading = '1') => rest.post({ url: `/shop/list`, data: params, loading: loading });
+const getShopList = (params, needLoading = '1') => rest.post({ url: `/shop/list`, data: params, needLoading: needLoading });
 
 /**
  * 通过店铺id获取店铺信息
  */
-const getShopDetail = (id, loading = '1') => rest.get({ url: `/shop/getShop?id=${id}`, loading: loading });
+const getShopDetail = (id, needLoading = '1') => rest.get({ url: `/shop/getShop?id=${id}`, needLoading: needLoading });
 
 /**
  * 收藏店铺
  */
-const followShop = (params, loading = '1') => rest.post({ url: `/shop/follow`, data: params, loading: loading });
+const followShop = (params, needLoading = '1') => rest.post({ url: `/shop/follow`, data: params, needLoading: needLoading });
 
 /**
  * 加入仓库
  */
-const joinWarehouse = (params, loading = '1') => rest.post({ url: `/shop/joinWarehouse`, data: params, loading: loading });
+const joinWarehouse = (params, needLoading = '1') => rest.post({ url: `/shop/joinWarehouse`, data: params, needLoading: needLoading });
 
 /**
  * 仓库店铺列表
  */
-const getWarehouseList = (params, loading = '1') => rest.post({ url: `/shop/warehouseList`, data: params, loading: loading });
+const getWarehouseList = (params, needLoading = '1') => rest.post({ url: `/shop/warehouseList`, data: params, needLoading: needLoading });
 
 /**
  * 仓库汽车列表
  */
-const getWarehouseCarList = (params, loading = '1') => rest.post({ url: `/shop/warehouseCarList`, data: params, loading: loading });
+const getWarehouseCarList = (params, needLoading = '1') => rest.post({ url: `/shop/warehouseCarList`, data: params, needLoading: needLoading });
 
 /**
  * 创建汽车
  */
-const createCar = (params, loading = '1') => rest.post({ url: `/car/createCar`, data: params, loading: loading });
+const createCar = (params, needLoading = '1') => rest.post({ url: `/car/createCar`, data: params, needLoading: needLoading });
+
+/**
+ * 更新汽车
+ */
+const updateCar = (params, needLoading = '1') => rest.post({ url: `/car/updateCar`, data: params, needLoading: needLoading });
 
 /**
  * 通过汽车id获取汽车详情
  */
-const getCarDetail = (id, loading = '1') => rest.get({ url: `/car/detail/${id}`, loading: loading });
+const getCarDetail = (id, needLoading = '1') => rest.get({ url: `/car/detail/${id}`, needLoading: needLoading });
 
 /**
  * 获取用户数据分析
  */
-const getUserStatistics = (loading = '1') => rest.get({ url: `/user/statistics`, loading: loading });
+const getUserStatistics = (needLoading = '1') => rest.get({ url: `/user/statistics`, needLoading: needLoading });
 
 /**
  *  品牌列表
  */
-const getCarBrands = (hot = false, loading = '1') => rest.get({ url: `/car/brands?hot=${hot}`, loading: loading });
+const getCarBrands = (hot = false, needLoading = '1') => rest.get({ url: `/car/brands?hot=${hot}`, needLoading: needLoading });
 
 /**
  *  某个品牌详细信息
  */
-const getCarBrandDetail = (brand_id, loading = '1') => rest.get({ url: `/car/brand/${brand_id}`, loading: loading });
+const getCarBrandDetail = (brand_id, needLoading = '1') => rest.get({ url: `/car/brand/${brand_id}`, needLoading: needLoading });
 
 module.exports = {
   getOpenid,
@@ -160,6 +171,7 @@ module.exports = {
   getCityList,
   getAllDistrict,
   createShop,
+  updateShop,
   getShopList,
   getShopDetail,
   followShop,
@@ -167,6 +179,7 @@ module.exports = {
   getWarehouseList,
   getWarehouseCarList,
   createCar,
+  updateCar,
   getCarDetail,
   getUserStatistics,
   getCarBrands,

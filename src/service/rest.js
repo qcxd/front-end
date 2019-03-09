@@ -26,6 +26,7 @@ const _request = (...argus) => {
       fail = function () { console.log('default fail func') },
       needLoading = '1',
     } = options;
+    // debugger
     if (needLoading === '1') {
       loading.show();
     }

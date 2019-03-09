@@ -3,7 +3,7 @@ const config = require('../config.js')
 const _request = (method, url, data, fromWp = false, callback, needLoading ='Loading') => {
   if(needLoading){
     wx.showLoading({
-      title: needLoading === true ? 'Loading' : needLoading,
+      title: needLoading === '1' ? 'Loading' : needLoading,
       mask: true
     })
   }

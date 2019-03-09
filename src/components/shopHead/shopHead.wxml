@@ -6,13 +6,13 @@
     </view>
     <view class='shop-info'>
       <view class='shop-title'>
-        <block wx:if="{{shopIntro}}">
+        <!-- <block wx:if="{{shopIntro}}">
           <view class='level'>v1</view>
-        </block>
+        </block> -->
         <text>{{shopInfo.shopName}}</text>
-        <block wx:if="{{!shopIntro}}">
+        <!-- <block wx:if="{{!shopIntro}}">
           <view class='level'>v1</view>
-        </block>
+        </block> -->
         <block wx:if='{{shopInfo.isFollowShop}}'>
           <Icon iconName='star' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
         </block>
@@ -21,7 +21,7 @@
         </block>
       </view>
       <view wx:if="{{shopIntro}}" class='shop-intro'>
-        <text>{{shopInfo.introduce ? shopInfo.introduce :  '暂无更多店铺简介'}}</text>
+        <text>{{shopInfo.introduce ? shopInfo.introduce :  ''}}</text>
       </view>
     </view>
   </view>

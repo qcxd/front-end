@@ -12,7 +12,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopDetail: {},
+    shopDetail: {}, 
+    userInfo: {},
     _active: '1',
     popWechat: false,
   },
@@ -22,6 +23,19 @@ Page({
    */
   onLoad: function (options) {
     this.getShopDetail(options.id);
+    this.getUserInfo();
+  },
+
+  /** 获取用户信息（店铺信息） */
+  getUserInfo() {
+    apiServicePro.getUserInfo().then(result => {
+      if (result) {
+        const userInfo = result.data;
+        this.setData({
+          userInfo,
+        });
+      }
+    });
   },
  
   /** 搜索页 */
@@ -152,6 +166,21 @@ Page({
     })
   },
 
+  goEditCar(e) {
+    const shopId = this.data.shopDetail.id;
+    const carId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../createCar/createCar?shopId=${shopId}&carId=${carId}`,
+    })
+  },
+
+  goEditShop() {
+    const shopId = this.data.shopDetail.id;
+    wx.navigateTo({
+      url: `../createShop/createShop?shopId=${shopId}`,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -177,7 +206,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    if (getCurrentPages().length == 3) {
+    if (getCurrentPages().length >= 3) {
       wx.navigateBack({
         delta: 1
       })
@@ -188,7 +217,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getShopDetail(this.shopDetail.id);
   },
 
   /**

@@ -5,7 +5,7 @@
       <view class='subtitle'>个人信息</view>
       <view class='info-cell car-flex'>
         <text>姓名</text>
-        <input name="name" placeholder="姓名" placeholder-class="placeholder"/>
+        <input name="name" value="{{name}}" placeholder="姓名" placeholder-class="placeholder"/>
       </view>
       <view class='info-cell car-flex'>
         <view class='wechat'>
@@ -15,15 +15,13 @@
         <view class="weui-uploader">
           <view class="weui-uploader__bd">
             <view class="weui-uploader__files" id="uploaderFiles">
-              <block wx:for="{{images}}" wx:key="*this">
-                <view class="weui-uploader__file" bindtap="chooseImage" id="{{item}}">
-                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-                </view>
-              </block>
+              <view class="weui-uploader__file" bindtap="chooseImage" id="{{item}}">
+                <image class="weui-uploader__img" src="{{images}}" mode="aspectFill" />
+              </view>
             </view>
-            <block wx:if="{{images.length <= 0}}">
+            <block wx:if="{{images === ''}}">
               <view class="weui-uploader__input-box">
-                <view class="weui-uploader__input" bindtap="chooseImage" data-num='{{images.length}}'></view>
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
               </view>
             </block>
           </view>
@@ -31,7 +29,7 @@
       </view>
       <view class='info-cell car-flex'>
         <text>手机号</text>
-        <input name="phone" placeholder="11位手机号" placeholder-class="placeholder" />
+        <input name="phone" value="phone" value="{{phone}}" placeholder="11位手机号" placeholder-class="placeholder" />
       </view>
     </view>
 
@@ -39,7 +37,7 @@
       <view class='subtitle'>店铺信息</view>
       <view class='info-cell car-flex'>
         <text>店铺名</text>
-        <input name="shopName" placeholder="请输入店铺名称" placeholder-class="placeholder" />
+        <input name="shopName" value="{{shopName}}" placeholder="请输入店铺名称" placeholder-class="placeholder" />
       </view>
       <view class='info-cell car-flex'>
         <text>选择地区</text>
@@ -54,7 +52,7 @@
       </view>
       <view class='info-cell car-flex'>
         <text>详细地址</text>
-        <input name="address" placeholder="街道门牌信息" placeholder-class="placeholder" value="{{address}}" />
+        <input name="address" value="{{address}}" placeholder="街道门牌信息" placeholder-class="placeholder" value="{{address}}" />
       </view>
       <view class='address-cell car-flex '>
         <Icon iconName='weChat' width="16px" height="16px"/>

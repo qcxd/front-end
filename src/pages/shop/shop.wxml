@@ -9,14 +9,18 @@
             <text class='title'>{{shopDetail.shopName}}</text>
             <text class='level'>v1</text>
           </view>
-          <button
-            class='{{shopDetail.isFollowShop ? "follow" : ""}}'
-            bindtap='followShop'
-            data-id='{{shopDetail.id}}'
-            data-follow='{{shopDetail.isFollowShop}}'
-          >
-            {{shopDetail.isFollowShop ? '已收藏' : '收藏'}}
-          </button>
+          <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
+            <Icon iconName='edit' width='15px' height='15px' catchtap='goEditShop'/>
+          </block>
+          <block wx:else>
+            <button
+              class='{{shopDetail.isFollowShop ? "follow" : ""}}'
+              bindtap='followShop'
+              data-id='{{shopDetail.id}}'
+              data-follow='{{shopDetail.isFollowShop}}'>
+              {{shopDetail.isFollowShop ? '已收藏' : '收藏'}}
+            </button>
+          </block>
         </view>
         <view class='car-flex' style='line-height:0.9;'>
           <text class='number'>
@@ -94,18 +98,27 @@
         <view class='subtitle'>-- 店铺汽车 --</view>  
         <block wx:for="{{shopDetail.Cars}}" wx:key='{{item.id}}'>
           <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
-            <image src="{{item.indexImage}}" mode='aspectFill'></image>
+            <image class='car-image' src="{{item.indexImage}}" mode='aspectFill'></image>
             <view class='car-info'>
               <view class='desc'>{{item.brand}}</view>
               <view class='car-flex'>
                 <text class='flex_1'>¥{{item.price}}万</text>
-                <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
-                  catchtap='addWherehouse' 
-                  data-id='{{item.id}}'
-                  data-follow='{{item.isFollowCar}}'
-                >
-                  {{item.isFollowCar ? "取消加入" : "加入仓库"}}
-                </text>
+                <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
+                  <!-- <text class='add'
+                    catchtap='goEditCar' 
+                    data-id='{{item.id}}'>
+                    更新
+                  </text> -->
+                  <Icon class="icon-edit" iconName='edit' width='15px' height='15px' catchtap='goEditCar' data-id='{{item.id}}'/>
+                </block>
+                <block wx:else>
+                  <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
+                    catchtap='addWherehouse' 
+                    data-id='{{item.id}}'
+                    data-follow='{{item.isFollowCar}}'>
+                    {{item.isFollowCar ? "取消加入" : "加入仓库"}}
+                  </text>
+                </block>
               </view>
             </view>
           </view>

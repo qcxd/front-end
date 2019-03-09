@@ -15,7 +15,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log('getCurrentPages().length', getCurrentPages().length);
     this.getCarDetail(options.id);
   },
 
@@ -96,22 +95,6 @@ Page({
     phoneCall(e);
   },
 
-  // /** 打开电话弹框 */
-  // popPhoneCall(e) {
-  //   const phone = e.currentTarget.dataset.phone;
-  //   this.setData({
-  //     phone,
-  //     popPhoneCall: true
-  //   });
-  // },
-
-  // /** 关闭电话弹框 */
-  // closePhoneCall() {
-  //   this.setData({
-  //     popPhoneCall: false
-  //   })
-  // },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -137,7 +120,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    if (getCurrentPages().length == 3) {
+    if (getCurrentPages().length >= 3) {
       wx.navigateBack({
         delta: 1
       })

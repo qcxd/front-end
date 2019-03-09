@@ -67,7 +67,7 @@ Page({
    * @param {Object} params 
    */
   getShopList(params) {
-    apiServicePro.getShopList(params).then((result) => {
+    apiServicePro.getShopList(params, '0').then((result) => {
       if (result.code === 200) {
         let shopList = this.data.shopList;
         if (params.id) {
@@ -132,7 +132,7 @@ Page({
 
   /** 获取城市列表 */
   getCityList() {
-    apiServicePro.getCityList({}).then((result) => {
+    apiServicePro.getCityList({}, '0').then((result) => {
       if (result.code === 200) {
         const cityList = result.data;
         cityList.forEach((e) => {
