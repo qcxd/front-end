@@ -17,8 +17,8 @@
       <view class='info-cell car-flex'>
         <text>上牌时间</text>
         <view class="{{ dateCard ? 'flex_1 align-right' : 'flex_1 align-right placeholder'}}">
-          <picker mode="date" value="{{dateCard}}" start="2015-09-01" 
-                  end="2017-09-01" bindchange="bindDateChange">
+          <picker mode="date" value="{{dateCard}}" start="1980-01-01" 
+                  end="{{dateNow}}" bindchange="bindDateChange">
             <view class="picker">
               {{dateCard ? dateCard : '请选择'}}
               <input hidden="true" name="dateCard" value="{{dateCard}}"/>

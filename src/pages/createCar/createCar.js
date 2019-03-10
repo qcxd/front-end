@@ -23,6 +23,7 @@ Page({
     cityList: [],
     popHidden: true,
     brandList: [],
+    dateNow: '',
     popHiddenBrand: true,
     submitDisable: false,
     introArray: [
@@ -54,6 +55,10 @@ Page({
     });
     this.getCityList();
     this.getCarBrands();
+
+    this.setData({
+      dateNow: this.getYMD(new Date())
+    })
   },
 
   /** 汽车详情 */
@@ -78,8 +83,10 @@ Page({
   getYMD(dateStr) {
     const date = new Date(dateStr);
     const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+    let month = date.getMonth() + 1;
+    month = month <= 9 ? `0${month}` : month;
+    let day = date.getDate();
+    day = day <= 9 ? `0${day}` : day;
     return `${year}-${month}-${day}`
   },
 
