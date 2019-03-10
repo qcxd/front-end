@@ -24,10 +24,10 @@
         </view>
         <view class='car-flex' style='line-height:0.9;'>
           <text class='number'>
-            粉丝数：{{shopDetail.shopStatistics.byFollowCars}} 
+            粉丝数：{{shopDetail.shopStatistics.byFollowShops}} 
           </text>
           <text>
-            汽车被收藏量：{{shopDetail.shopStatistics.byFollowShops}}
+            汽车被收藏量：{{shopDetail.shopStatistics.byFollowCars}}
           </text>
         </view>
       </view>
