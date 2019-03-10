@@ -13,11 +13,13 @@
         <!-- <block wx:if="{{!shopIntro}}">
           <view class='level'>v1</view>
         </block> -->
-        <block wx:if='{{shopInfo.isFollowShop}}'>
-          <Icon iconName='star' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
-        </block>
-        <block wx:if='{{!shopInfo.isFollowShop}}'>
-          <Icon iconName='star2' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
+        <block wx:if="{{userInfo.Shop.id === shopInfo.id}}">
+          <block wx:if='{{shopInfo.isFollowShop}}'>
+            <Icon iconName='star' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
+          </block>
+          <block wx:if='{{!shopInfo.isFollowShop}}'>
+            <Icon iconName='star2' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
+          </block>
         </block>
       </view>
       <view wx:if="{{shopIntro}}" class='shop-intro'>

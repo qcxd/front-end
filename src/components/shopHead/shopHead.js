@@ -1,12 +1,10 @@
 // components/shopHead/shopHead.js
+const apiServicePro = require('../../service/api/api-promisify.service');
 const {
   phoneCall,
 } = require('../../utils/utils');
 
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     shopInfo: {
       type: Object,
@@ -18,16 +16,10 @@ Component({
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    userInfo: {},
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
     followShop(e) {
       const myEventDetail = {
@@ -46,5 +38,16 @@ Component({
       phoneCall(e);
     },
 
+    /** 获取用户信息（店铺信息） */
+    getUserInfo() {
+      apiServicePro.getUserInfo().then(result => {
+        if (result) {
+          const userInfo = result.data;
+          this.setData({
+            userInfo,
+          });
+        }
+      });
+    },
   }
 })

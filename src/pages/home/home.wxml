@@ -26,10 +26,10 @@
     <view class='home-page-shop'>
       <view bindtap='goShop' data-id="{{item.id}}">
         <shopHead shopInfo="{{item}}"
-        bind:followshop="followShop"
-        bind:popWechat="popWechat"
-        data-qrcode="{{item.qrcode}}"
-      />
+          bind:followshop="followShop"
+          bind:popWechat="popWechat"
+          data-qrcode="{{item.qrcode}}"
+        />
       </view>
       <view class='shop-info'>
         <view class='car-flex'>
