@@ -8,6 +8,7 @@ const {
 Page({
 
   data: {
+    from: '',
     carDetail: {},
     currentQrcode: '',
     popWechat: false,
@@ -16,6 +17,11 @@ Page({
 
   onLoad: function (options) {
     this.getCarDetail(options.id);
+    if (options.from) {
+      this.setData({
+        from: options.from
+      })
+    }
   },
 
   /** 汽车详情 */
@@ -120,11 +126,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    if (getCurrentPages().length >= 3) {
+    const from = this.data.from;
+    if (from === 'creatCarPage') {
       wx.navigateBack({
         delta: 1
       })
-    }
+    };
   },
 
   /**

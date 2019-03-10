@@ -8,6 +8,7 @@ const {
 
 Page({
   data: {
+    from: '',
     shopDetail: {}, 
     userInfo: {},
     _active: '1',
@@ -17,6 +18,11 @@ Page({
   onLoad: function (options) {
     this.getShopDetail(options.id);
     this.getUserInfo();
+    if (options.from) {
+      this.setData({
+        from: options.from
+      })
+    }
   },
 
   /** 获取用户信息（店铺信息） */
@@ -195,27 +201,19 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-    if (getCurrentPages().length >= 3) {
+    const from = this.data.from;
+    if (from === 'creatShopPage') {
       wx.navigateBack({
         delta: 1
       })
-    }
+    };
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
     this.getShopDetail(this.shopDetail.id);
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
 
   },

@@ -17,10 +17,8 @@ Page({
     area: '',
     address: '',
     introduce: '',
-    // logo: '',
-    filePath: '',
-    images: '',
-    // uploadImgs: [],
+    qrcode: '',
+    tempFilePath: '',
     count: 9,
     region: [],
     customItem: '全部',
@@ -64,7 +62,7 @@ Page({
           address: shopDetail.address,
           introduce: shopDetail.introduce,
           qrcode: shopDetail.qrcode,
-          images: shopDetail.qrcode,
+          tempFilePath: shopDetail.qrcode,
           region: [shopDetail.province, shopDetail.city, shopDetail.area]
         })
       } else {
@@ -79,60 +77,44 @@ Page({
     const value = e.detail.value;
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
-    const images = this.data.images;
-    console.log(images);
-    console.log('aliyunServerURL', aliyunServerURL);
+    const tempFilePath = this.data.tempFilePath;
 
     if (!utils.validateEmpty(value.name, '请输入姓名') ||
         !utils.validateEmpty(value.phone, '请输入手机号码') ||
-        !utils.validateEmpty(images, '请上传微信二维码') ||
+        !utils.validateEmpty(tempFilePath, '请上传微信二维码') ||
         !utils.validateEmpty(value.shopName, '请输入店铺名') ||
         !utils.validateEmpty(value.address, '请输详细地址') ||
         !utils.validatePhone(value.phone, '请输入正确的手机号')) {
       return false;
     }
 
-    // for (let i = 0; i < that.data.images.length; i++) {
-    //   let filePath = that.data.images[i];
-    //   console.log(that.data.images[i]);
-
-    //   uploadImage(
-    //   {
-    //     filePath: filePath,
-    //       dir: `${aliyunServerURL}/images/shop/${openid}/` + filePath.replace('http://tmp/',''),
-    //     success: function (res) {
-    //       console.log('res', `${aliyunServerURL}/${res}`);
-    //       that.setData({
-    //         qrcode: `${aliyunServerURL}/${res}`,
-    //       }, () => {
-    //         that.doSubmit(e);
-    //       })
-    //     },
-    //     fail: function (res) {
-    //       console.log(res)
-    //     }
-    //   })
-    // }
-
-    uploadImage({
-      filePath: images,
-      dir: `${aliyunServerURL}/images/shop/${openid}/` + images.replace('http://tmp/', ''),
-      success: function (res) {
-        console.log('res', `${aliyunServerURL}/${res}`);
-        that.setData({
-          qrcode: `${aliyunServerURL}/${res}`,
-        }, () => {
-          if (that.data.shopId) {
-            that.updateShop(e, that.data.shopId);
-          } else {
-            that.doSubmit(e);
-          }
-        })
-      },
-      fail: function (res) {
-        console.log(res)
+    if (this.data.qrcode === '') {
+      uploadImage({
+        filePath: tempFilePath,
+        dir: `${aliyunServerURL}/images/shop/${openid}/` + tempFilePath.replace('http://tmp/', ''),
+        success: function (res) {
+          console.log('res', `${aliyunServerURL}/${res}`);
+          that.setData({
+            qrcode: `${aliyunServerURL}/${res}`,
+          }, () => {
+            if (that.data.shopId) {
+              that.updateShop(e, that.data.shopId);
+            } else {
+              that.doSubmit(e);
+            }
+          })
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    } else {
+      if (that.data.shopId) {
+        that.updateShop(e, that.data.shopId);
+      } else {
+        that.doSubmit(e);
       }
-    })
+    }
   },
 
   /** 创建店铺 */
@@ -153,10 +135,8 @@ Page({
         this.setData({
           submitDisable: false
         });
-        // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
-          url: `../shop/shop?id=${result.data.id}`,
-          // url: `../shopSuccess/shopSuccess`,
+          url: `../shop/shop?id=${result.data.id}&from=creatShopPage`,
         })
       }
     })
@@ -180,10 +160,8 @@ Page({
         this.setData({
           submitDisable: false
         });
-        // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
-          url: `../shop/shop?id=${result.data.id}`,
-          // url: `../shopSuccess/shopSuccess`,
+          url: `../shop/shop?id=${result.data.id}&from=creatShopPage`,
         })
       }
     })
@@ -192,7 +170,7 @@ Page({
   /** 删除上传照片 */
   delImage() {
     this.setData({
-      images: ''
+      tempFilePath: ''
     })
   },
 
@@ -214,9 +192,7 @@ Page({
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         that.setData({
-          filePath: res.tempFilePaths[0],
-          images: res.tempFilePaths[0],
-          // uploadImgs: res.tempFilePaths
+          tempFilePath: res.tempFilePaths[0],
         })
       },
     })

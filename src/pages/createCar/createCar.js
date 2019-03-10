@@ -155,10 +155,8 @@ Page({
         submitDisable: true
       });     
       if (result.code === 200) {
-        // 成功到店铺还是添加一个成功结果页面？？？
         wx.navigateTo({
-          url: `../carDetail/carDetail?id=${result.data.id}`,
-          // url: `../shopSuccess/shopSuccess`,
+          url: `../carDetail/carDetail?id=${result.data.id}&from=creatCarPage`,
         });
       } else if (result.code === 1202) {
         utils.showModal('信息校验不通过，请核对汽车信息');
@@ -182,8 +180,7 @@ Page({
       });
       if (result.code === 200) {
         wx.navigateTo({
-          url: `../carDetail/carDetail?id=${result.data.id}`,
-          // url: `../shopSuccess/shopSuccess`,
+          url: `../carDetail/carDetail?id=${result.data.id}&from=creatCarPage`,
         });
       } else if (result.code === 1202) {
         utils.showModal('信息校验不通过，请核对汽车信息');
@@ -197,7 +194,6 @@ Page({
   delImage(e) {
     const array = e.currentTarget.dataset.array;
     const index = e.currentTarget.dataset.index;
-    console.log(e);
     if (array === 'oldImages') {
       const oldImages = this.data.oldImages;
       oldImages.splice(index, 1);
