@@ -8,6 +8,7 @@ const {
 Page({
 
   data: {
+    id: '',
     from: '',
     carDetail: {},
     currentQrcode: '',
@@ -19,6 +20,7 @@ Page({
     this.getCarDetail(options.id);
     if (options.from) {
       this.setData({
+        id: options.id,
         from: options.from
       })
     }
@@ -138,7 +140,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getCarDetail(this.data.id);
+    wx.stopPullDownRefresh();
   },
 
   /**

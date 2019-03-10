@@ -8,6 +8,7 @@ const {
 
 Page({
   data: {
+    id: '',
     from: '',
     shopDetail: {}, 
     userInfo: {},
@@ -20,6 +21,7 @@ Page({
     this.getUserInfo();
     if (options.from) {
       this.setData({
+        id: options.id,
         from: options.from
       })
     }
@@ -212,7 +214,7 @@ Page({
 
   onPullDownRefresh: function () {
     console.log('下拉')
-    this.getShopDetail(this.data.shopDetail.id);
+    this.getShopDetail(this.data.id);
     wx.stopPullDownRefresh();
   },
 
