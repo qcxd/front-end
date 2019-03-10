@@ -15,6 +15,7 @@ Page({
     transfersNumber: '',  // 过户次数
     introduce: '',        // 车况
     images: [],           // 图片
+    oldImages: [],
     uploadImgs: [],
     count: 9,
     city: '',             // 上牌地点
@@ -187,6 +188,10 @@ Page({
     })
   },
 
+  /** 删除上传照片 */
+  delImage() {
+  },
+
   /** reset */
   formReset(e) {
 
@@ -209,7 +214,7 @@ Page({
           filePath: res.tempFilePaths[0],
           images: that.data.images.concat(tempFilePaths),
           uploadImgs: res.tempFilePaths
-        })
+        });
       },
     })
   },

@@ -189,6 +189,13 @@ Page({
     })
   },
 
+  /** 删除上传照片 */
+  delImage() {
+    this.setData({
+      images: ''
+    })
+  },
+
   /** reset */
   formReset(e) {
 
