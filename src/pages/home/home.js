@@ -103,7 +103,7 @@ Page({
         this.setData({
           shopList: sList
         })
-        if (e.detail.isFollowShop) {
+        if (e.detail.follow) {
           wx.showToast({
             title: '已取消收藏',
             icon: 'succes'

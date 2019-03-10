@@ -147,6 +147,12 @@ Page({
     apiServicePro.followShop(params).then((result) => {
       if (result.code === 200) {
         this.dataDeal(e);
+        wx.showToast({
+          title: '取消成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
       } else {
         showModal();
       }
@@ -196,7 +202,7 @@ Page({
         this.getWarehouseList({}, '0');
         this.getWarehouseCarList({}, '0');
         wx.showToast({
-          title: '已取消',
+          title: '取消成功',
           icon: 'succes',
           duration: 1000,
           mask: true

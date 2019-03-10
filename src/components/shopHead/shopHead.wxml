@@ -17,7 +17,7 @@
           <block wx:if='{{shopInfo.isFollowShop}}'>
             <Icon iconName='star' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
           </block>
-          <block wx:if='{{!shopInfo.isFollowShop}}'>
+          <block wx:else>
             <Icon iconName='star2' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
           </block>
         </block>

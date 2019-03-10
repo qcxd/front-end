@@ -193,6 +193,7 @@ Page({
       success: function (res) {
         that.setData({
           tempFilePath: res.tempFilePaths[0],
+          qrcode: '',
         })
       },
     })
