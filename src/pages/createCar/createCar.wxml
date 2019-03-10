@@ -29,7 +29,8 @@
       </view>
       <view class='info-cell car-flex'>
         <text>行驶里程</text>
-        <input class="align-right" name="kilometer" value="{{kilometer}}" placeholder="请填写里程数" placeholder-class="placeholder"/>
+        <input type="number" class="align-right" name="kilometer" value="{{kilometer}}" 
+          placeholder="请填写里程数" placeholder-class="placeholder"/>
         <view class='pleft_5'>万公里</view>
       </view>
       <view class='info-cell car-flex' bindtap='popPicker'>
@@ -42,12 +43,12 @@
       </view>
       <view class='info-cell car-flex'>
         <text>价格</text>
-        <input class="align-right" name="price" value="{{price}}" placeholder="请填写价格" placeholder-class="placeholder"/>
+        <input type="number" class="align-right" name="price" value="{{price}}" placeholder="请填写价格" placeholder-class="placeholder"/>
         <view class='pleft_5'>万</view>
       </view>
       <view class='info-cell car-flex'>
         <text>过户次数</text>
-        <input class="align-right" name="transfersNumber" value="{{transfersNumber}}" placeholder="请填写" placeholder-class="placeholder"/>
+        <input type="number" class="align-right" name="transfersNumber" value="{{transfersNumber}}" placeholder="请填写" placeholder-class="placeholder"/>
         <!-- <Icon iconName='arrowRight' width="7px" height="12px"/> -->
         <view class='pleft_5'>次</view>
       </view>

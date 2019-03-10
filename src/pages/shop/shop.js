@@ -211,7 +211,8 @@ Page({
   },
 
   onPullDownRefresh: function () {
-    this.getShopDetail(this.shopDetail.id);
+    console.log('下拉')
+    this.getShopDetail(this.data.shopDetail.id);
   },
 
   onReachBottom: function () {
