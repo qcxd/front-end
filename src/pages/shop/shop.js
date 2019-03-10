@@ -213,6 +213,7 @@ Page({
   onPullDownRefresh: function () {
     console.log('下拉')
     this.getShopDetail(this.data.shopDetail.id);
+    wx.stopPullDownRefresh();
   },
 
   onReachBottom: function () {

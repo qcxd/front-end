@@ -247,6 +247,7 @@ Page({
     } else {
       this.getWarehouseCarList({});
     }
+    wx.stopPullDownRefresh();
   },
 
   /**

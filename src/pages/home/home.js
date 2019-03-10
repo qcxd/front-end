@@ -239,6 +239,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.getShopList({});
+    wx.stopPullDownRefresh();
   },
 
   /**
