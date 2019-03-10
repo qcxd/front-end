@@ -14,9 +14,8 @@ Page({
     kilometer: '',        // 行驶里程
     transfersNumber: '',  // 过户次数
     introduce: '',        // 车况
-    images: [],           // 图片
-    oldImages: [],
-    uploadImgs: [],
+    oldImages: [],        // 跟新汽车图片
+    uploadImgs: [],       // 图片
     count: 9,
     city: '',             // 上牌地点
     cityId: '',
@@ -70,9 +69,7 @@ Page({
           kilometer: result.data.kilometer,             // 行驶里程
           transfersNumber: result.data.transfersNumber, // 过户次数
           introduce: result.data.introduce,             // 车况
-          images: result.data.images, 
           oldImages: result.data.images,                // 图片
-          uploadImgs: result.data.images,
         })
       }
     })
@@ -100,41 +97,49 @@ Page({
         !utils.validateEmpty(value.price, '请输入价格') ||
         !utils.validateEmpty(value.transfersNumber, '请输入过户次数') ||
         !utils.validateEmpty(value.introduce, '请选择车况') ||
-        !utils.validateImages(this.data.uploadImgs, '请上传汽车照片')) {
+        !utils.validateImages(this.data.oldImages.concat(this.data.uploadImgs), '请上传汽车照片')) {
       return false;
     }
 
     let count = 0;
     let images = [];
     const uploadImgs = this.data.uploadImgs;
-
     wx.showLoading({
       title: '',
     })
-    for (let i = 0; i < uploadImgs.length; i++) {
-      let filePath = uploadImgs[i];
-      console.log(uploadImgs[i]);
-      uploadImage({
-        filePath: filePath,
-        dir: `images/shop/${openid}/` + filePath.replace('http://tmp/', ''),
-        success: function (res) {
-          count++;
-          images.push(`${aliyunServerURL}/${res}`);
-          if (count === uploadImgs.length) {
-            if (that.data.carId !== '') {
-              images = images.concat(that.data.oldImages);
-              that.updateCar(e, images, that.data.carId);
+    if (uploadImgs.length > 0) {
+      for (let i = 0; i < uploadImgs.length; i++) {
+        let filePath = uploadImgs[i];
+        uploadImage({
+          filePath: filePath,
+          dir: `images/shop/${openid}/` + filePath.replace('http://tmp/', ''),
+          success: function (res) {
+            count++;
+            images.push(`${aliyunServerURL}/${res}`);
+            if (count === uploadImgs.length) {
+              if (that.data.carId !== '') {
+                images = images.concat(that.data.oldImages);
+                that.updateCar(e, images, that.data.carId);
+              } else {
+                that.doSubmit(e, images);
+              }
             } else {
-              that.doSubmit(e, images);
+              wx.hideLoading();
             }
-          } else {
+          },
+          fail: function (res) {
             wx.hideLoading();
           }
-        },
-        fail: function (res) {
-          wx.hideLoading();
-        }
-      })
+        });
+      }
+    } else {
+      if (that.data.carId !== '') {
+        images = images.concat(that.data.oldImages);  // 合并编辑之前的汽车图片
+        that.updateCar(e, images, that.data.carId);
+      } else {
+        that.doSubmit(e, images);
+      }
+      wx.hideLoading();
     }
   },
 
@@ -189,7 +194,23 @@ Page({
   },
 
   /** 删除上传照片 */
-  delImage() {
+  delImage(e) {
+    const array = e.currentTarget.dataset.array;
+    const index = e.currentTarget.dataset.index;
+    console.log(e);
+    if (array === 'oldImages') {
+      const oldImages = this.data.oldImages;
+      oldImages.splice(index, 1);
+      this.setData({
+        oldImages
+      });
+    } else {
+      const uploadImgs = this.data.uploadImgs;
+      uploadImgs.splice(index, 1);
+      this.setData({
+        uploadImgs
+      });
+    }
   },
 
   /** reset */
@@ -212,7 +233,6 @@ Page({
         const tempFilePaths = res.tempFilePaths;
         that.setData({
           filePath: res.tempFilePaths[0],
-          images: that.data.images.concat(tempFilePaths),
           uploadImgs: res.tempFilePaths
         });
       },
