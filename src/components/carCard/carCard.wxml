@@ -6,7 +6,7 @@
   <view class='car-info'>
     <view class='heightFix'>
       <view class='title-text'>{{carDetail.brand}}</view>
-      <view class='small-text'>2014年款/12.8公里</view>
+      <view class='small-text'>{{year}}/{{carDetail.kilometer}}万公里</view>
     </view>
     <view class='car-info-flex'>
       <view class='small-text'>

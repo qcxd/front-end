@@ -49,5 +49,14 @@ Component({
         }
       });
     },
+  },
+
+  lifetimes: {
+    attached() {
+      this.getUserInfo();
+    },
+    detached() {
+      // 在组件实例被从页面节点树移除时执行
+    },
   }
 })
