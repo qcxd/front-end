@@ -43,7 +43,6 @@
       <Icon iconName='call' width='15px' height='15px' bindtap='phoneCall' data-phone='{{shopDetail.phone}}'/>
     </view>
     <view class='hr'></view>
-
     <view class='shop-menu'>
       <!-- <view bindtap='doSearch'>
         <icon type="search" size="15" />
@@ -93,8 +92,8 @@
         </view>
       </view>
     </view> -->
-    <view class='shop-view'>
-      <block wx:if="{{shopDetail.Cars.length > 0}}">
+    <block wx:if="{{shopDetail.Cars.length > 0}}">
+      <view class='shop-view'>
         <view class='subtitle'>-- 店铺汽车 --</view>  
         <block wx:for="{{shopDetail.Cars}}" wx:key='{{item.id}}'>
           <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
@@ -119,8 +118,8 @@
             </view>
           </view>
         </block>
-      </block>
-    </view>
+      </view>
+    </block>
   </block>
   <block wx:else>
     <block wx:if="{{shopDetail.Cars.length > 0}}">
