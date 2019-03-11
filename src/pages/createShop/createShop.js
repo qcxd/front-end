@@ -132,13 +132,15 @@ Page({
     });
     apiServicePro.createShop(Object.assign(address, params)).then((result) => {
       if (result.code === 200) {
-        this.setData({
-          submitDisable: false
-        });
         wx.navigateTo({
           url: `../shop/shop?id=${result.data.id}&from=creatShopPage`,
         })
+      } else {
+        console.log(result.msg);
       }
+      this.setData({
+        submitDisable: false
+      });
     })
   },
 
@@ -157,13 +159,15 @@ Page({
     });
     apiServicePro.updateShop(Object.assign(address, params, { id: shopId})).then((result) => {
       if (result.code === 200) {
-        this.setData({
-          submitDisable: false
-        });
         wx.navigateTo({
           url: `../shop/shop?id=${result.data.id}&from=creatShopPage`,
         })
+      } else {
+        console.log(result.msg);
       }
+      this.setData({
+        submitDisable: false
+      });
     })
   },
 

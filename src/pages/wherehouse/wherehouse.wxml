@@ -93,7 +93,7 @@
           <text>{{item.Shop.shopName}}</text>
         </view> -->
         <view class='wherehouse-cars'>
-          <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+          <view catchtap='goCarDetail' class='carCard' data-id='{{item.Car.id}}'>
             <carCard 
               carDetail="{{item.Car}}" 
               bind:clickEvent="cancelJoin"/>

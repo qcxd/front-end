@@ -150,7 +150,7 @@
   <block wx:if="{{shopDetail.Cars.length <= 0}}">
     <view class="no-cars">
       <view>您的小店还没有汽车哦</view>
-      <view>赶快去个人中心创建汽车吧</view>
+      <view>赶快去个人中心<text class="theme-text" bindtap="goCreateCar">创建汽车</text>吧</view>
     </view>
   </block>
 

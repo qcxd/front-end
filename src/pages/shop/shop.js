@@ -175,6 +175,12 @@ Page({
     })
   },
 
+  goCreateCar () {
+    wx.navigateTo({
+      url: `../createCar/createCar`,
+    })
+  },
+
   goEditShop() {
     const shopId = this.data.shopDetail.id;
     wx.navigateTo({
