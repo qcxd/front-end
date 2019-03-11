@@ -26,7 +26,7 @@ Page({
           // wx.navigateTo({
           //   url: '../loading/loading',
           // })
-          this.setData({
+          _this.setData({
             hasStorage: true
           })
           setTimeout(() => {
