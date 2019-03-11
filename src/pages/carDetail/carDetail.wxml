@@ -16,6 +16,7 @@
   <view class="carDetail-info">
     <view class="title-text">{{carDetail.brand}}  {{carDetail.brandDetail}}</view>
     <view class='car-flex'>
+      <text>￥</text>
       <text class="price">{{carDetail.price}}</text>
       <text>万</text>
     </view>
@@ -54,26 +55,6 @@
     </view>
   </view>
 
-  <!-- <view class="carDetail-info">
-    <view class="title-text">👍🏼 卖家有话说：</view>
-    <view class='car-flex'>
-      <image src="../../image/porsche-wallpaper.jpg" />
-      <view>刘先森</view>
-    </view>
-      <view class="z_r"></view>
-      <view class="intro">该车巴啦巴拉xxxxxxxxxxx,该车巴啦巴拉xxxxxxxxxxx,该车巴啦巴拉xxxxxxxxxxx</view>
-  </view> -->
-
-  <!-- <view class="footer-btn">
-    <view class="collect"> 
-      <Icon iconName='star2' width='16px' height='16px' />
-      <view class="">收藏</view>
-    </view>
-    <button class="carBtn_primary_t">一键分享</button>
-    <button class="carBtn_primary_h">联系卖家</button>
-  </view> -->
-  <!-- <fixedFooter carDetail='{{carDetail}}' bind:phonecall='phoneCall'/> -->
-
   <view class='fixedFooter'>
     <view class='btn-star' catchtap="addWherehouse" data-id='{{carDetail.id}}' data-follow='{{carDetail.isFollowCar}}'>
       <Icon iconName="{{carDetail.isFollowCar ? 'star' : 'star2'}}" width='20px' height='20px' ></Icon>
@@ -86,6 +67,10 @@
       <Icon iconName='call2' width='15px' height='15px' ></Icon>
       <text>电话预约</text>
     </view>
+  </view>
+
+  <view>
+    <shopHead></shopHead>
   </view>
 
   <block wx:if ="{{popWechat}}">

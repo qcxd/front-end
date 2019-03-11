@@ -154,6 +154,20 @@
     </view>
   </block>
 
+  <view class='fixedFooter'>
+    <view class='btn-star' catchtap="addWherehouse" data-id='{{shopDetail.id}}' data-follow='{{shopDetail.isFollowShop}}'>
+      <Icon iconName="{{shopDetail.isFollowShop ? 'star' : 'star2'}}" width='20px' height='20px' ></Icon>
+    </view>
+    <view class='btn-weChat' catchtap="popWechat" data-qrcode="{{shopDetail.qrcode}}">
+      <Icon iconName='weChat2' width='20px' height='16.67px'></Icon>
+      <text>微信联系</text>
+    </view>
+    <view class='btn-call' catchtap='phoneCall' data-phone='{{shopDetail.phone}}'>
+      <Icon iconName='call2' width='15px' height='15px' ></Icon>
+      <text>电话预约</text>
+    </view>
+  </view>
+
   <block wx:if ="{{popWechat}}">
     <wechatDialog qrcode='{{currentQrcode}}' bind:closeWechat="closeWechat"/>
   </block>

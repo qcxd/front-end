@@ -43,7 +43,7 @@
       </view>
       <view class='info-cell car-flex'>
         <text>价格</text>
-        <input type="number" class="align-right" name="price" value="{{price}}" placeholder="请填写价格" placeholder-class="placeholder"/>
+        <input type="text" pattern="([1-9]\d*\.?\d*)|(0\.\d*[1-9])"  class="align-right" name="price" value="{{price}}" placeholder="请填写价格" placeholder-class="placeholder"/>
         <view class='pleft_5'>万</view>
       </view>
       <view class='info-cell car-flex'>
@@ -64,10 +64,10 @@
         </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
-      <!-- <view class='info-cell car-flex'>
+      <view class='info-cell car-flex'>
         <text>补充</text>
-        <textarea name="name" placeholder="请输入" maxlength="300" placeholder-class="placeholder"/>
-      </view> -->
+        <textarea name="note" placeholder="请输入" maxlength="300" placeholder-class="placeholder"/>
+      </view>
       <view class='info-cell'>
         <view class='wechat'>
           <view>图片上传</view>
