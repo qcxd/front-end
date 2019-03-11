@@ -113,9 +113,6 @@
 }
 
 .carDetail .detail-img {
-  margin-bottom: 100px;
-  padding: 15px 0px;
-  background: #ffffff;
 }
 
 .carDetail .detail-img .img-title {

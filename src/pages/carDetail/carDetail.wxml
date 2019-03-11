@@ -48,11 +48,19 @@
     </view>
   </view>
 
-  <view class="detail-img">
+  <view class="carDetail-info detail-img">
     <view class='img-title'>图片详情</view>
     <view wx:for="{{carDetail.images}}">
       <image mode="aspectFit" src="{{item}}" />
     </view>
+  </view>
+
+  <view style="margin-bottom: 100px;">
+    <shopHead
+      shopInfo='{{carDetail.Shop}}'
+      shopIntro='{{false}}'
+      data-qrcode="{{carDetail.Shop.qrcode}}"
+    />
   </view>
 
   <view class='fixedFooter'>
@@ -67,14 +75,6 @@
       <Icon iconName='call2' width='15px' height='15px' ></Icon>
       <text>电话预约</text>
     </view>
-  </view>
-
-  <view>
-    <shopHead
-      shopInfo='{{carDetail.Shop}}'
-      shopIntro='{{false}}'
-      data-qrcode="{{carDetail.Shop.qrcode}}"
-    />
   </view>
 
   <block wx:if ="{{popWechat}}">
