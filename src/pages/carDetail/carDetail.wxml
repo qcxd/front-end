@@ -70,7 +70,11 @@
   </view>
 
   <view>
-    <shopHead></shopHead>
+    <shopHead
+      shopInfo='{{carDetail.Shop}}'
+      shopIntro='{{false}}'
+      data-qrcode="{{carDetail.Shop.qrcode}}"
+    />
   </view>
 
   <block wx:if ="{{popWechat}}">

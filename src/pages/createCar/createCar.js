@@ -14,6 +14,7 @@ Page({
     kilometer: '',        // 行驶里程
     transfersNumber: '',  // 过户次数
     introduce: '',        // 车况
+    note: '',
     oldImages: [],        // 跟新汽车图片
     uploadImgs: [],       // 图片
     count: 9,
@@ -74,6 +75,7 @@ Page({
           kilometer: result.data.kilometer,             // 行驶里程
           transfersNumber: result.data.transfersNumber, // 过户次数
           introduce: result.data.introduce,             // 车况
+          note: result.data.note,                  // 补充
           oldImages: result.data.images,                // 图片
         })
       }
@@ -104,6 +106,7 @@ Page({
         !utils.validateEmpty(value.price, '请输入价格') ||
         !utils.validateEmpty(value.transfersNumber, '请输入过户次数') ||
         !utils.validateEmpty(value.introduce, '请选择车况') ||
+        !utils.validateEmpty(value.note, '请输入补充') ||
         !utils.validateImages(this.data.oldImages.concat(this.data.uploadImgs), '请上传汽车照片')) {
       return false;
     }
@@ -233,7 +236,6 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        const tempFilePaths = res.tempFilePaths;
         that.setData({
           filePath: res.tempFilePaths[0],
           uploadImgs: res.tempFilePaths

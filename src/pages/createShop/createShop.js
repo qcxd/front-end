@@ -105,6 +105,7 @@ Page({
           })
         },
         fail: function (res) {
+          utils.showModal('上传图片失败，请重试');
           console.log(res)
         }
       })
@@ -136,7 +137,7 @@ Page({
           url: `../shop/shop?id=${result.data.id}&from=creatShopPage`,
         })
       } else {
-        console.log(result.msg);
+        utils.showModal(result.msg);
       }
       this.setData({
         submitDisable: false
@@ -163,7 +164,7 @@ Page({
           url: `../shop/shop?id=${result.data.id}&from=creatShopPage`,
         })
       } else {
-        console.log(result.msg);
+        utils.showModal(result.msg);
       }
       this.setData({
         submitDisable: false

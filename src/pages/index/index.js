@@ -14,6 +14,7 @@ Page({
     selectValue: '',
     cityList: [],
     popHidden: true,
+    hasStorage: false,
   },
 
   onLoad: function (options) {
@@ -22,9 +23,17 @@ Page({
       success(res) {
         if (res.keys.indexOf('user') !== -1 &&
           res.keys.indexOf('currentCity') !== -1) {
-          wx.navigateTo({
-            url: '../loading/loading',
+          // wx.navigateTo({
+          //   url: '../loading/loading',
+          // })
+          this.setData({
+            hasStorage: true
           })
+          setTimeout(() => {
+            wx.switchTab({
+              url: '../home/home',
+            })
+          }, 3000);
         } else {
           _this.getOpenid();
           _this.getCityList();
