@@ -66,3 +66,10 @@
   margin-top:-8px;
   margin-left:-12px;
 }
+
+.createCarPage textarea {
+  height: 50px;
+  flex: 1;
+  padding: 10px;
+  background: #edf2f6;
+}

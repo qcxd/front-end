@@ -56,7 +56,6 @@ Page({
         } else {
           shopList = dataList;
         }
-        console.log(shopList);
         this.setData({
           shopList,
           totalShop,
@@ -161,7 +160,6 @@ Page({
   },
 
   dataDeal(e) {
-    console.log('unFollowShop', e);
     const id = e.detail.id;
     const shopList = this.data.shopList;
     shopList.forEach((el) => {
@@ -218,9 +216,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     const { pageLoaded } = this.data;
     if (pageLoaded) {
@@ -229,23 +224,12 @@ Page({
     };
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
     const _active = this.data._active;
     if (_active === '1') {
@@ -256,9 +240,6 @@ Page({
     wx.stopPullDownRefresh();
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
     const _active = this.data._active;
     if (_active === '1') {
@@ -278,9 +259,6 @@ Page({
     }
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
 
   }

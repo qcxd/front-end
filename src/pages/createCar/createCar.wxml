@@ -64,9 +64,9 @@
         </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
-      <view class='info-cell car-flex'>
-        <text>补充</text>
-        <textarea name="note" placeholder="请输入" maxlength="300" placeholder-class="placeholder"/>
+      <view class='info-cell car-flex' style="align-items:flex-start">
+        <!--<text>补充</text>-->
+        <textarea name="note" placeholder="对车况还有更多补充，可以填写在这里哦" maxlength="300" placeholder-class="placeholder"/>
       </view>
       <view class='info-cell'>
         <view class='wechat'>

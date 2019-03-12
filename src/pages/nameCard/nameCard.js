@@ -1,5 +1,8 @@
 // pages/nameCard/nameCard.js
 const apiServicePro = require('../../service/api/api-promisify.service');
+const {
+  showModal,
+} = require('../../utils/utils');
 
 Page({
   data: {
@@ -95,12 +98,14 @@ Page({
     wx.saveImageToPhotosAlbum({
       filePath: filePath,
       success(res) {
+        console.log('res', res);
          wx.showToast({
           title: '已保存到系统相册',
         })
       },
       file(err) {
-        showModal();
+        console.log('err', err);
+        showModal('保存文件失败，请重试');
       }
     })
   },

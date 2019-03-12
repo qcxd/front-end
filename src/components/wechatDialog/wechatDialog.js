@@ -31,17 +31,12 @@ Component({
     saveWechat() {
       const _this = this;
       const qrcode = _this.properties.qrcode;
-      const aliyunServerURL = env.uploadImageUrl;
       wx.downloadFile({
         url: qrcode,
         success(res) {
-          console.log(res)
           // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
           if (res.statusCode === 200) {
-            let tempFilePath = res.tempFilePath.replace('http://tmp/', '');
-            tempFilePath = `${aliyunServerURL}/${tempFilePath}`;
-            console.log(tempFilePath);
-            _this.saveImg(tempFilePath);
+            _this.saveImg(res.tempFilePath);
           }
         }
       })
@@ -57,10 +52,7 @@ Component({
           })
         },
         file(err) {
-          showModal();
-          wx.showToast({
-            title: '失败',
-          })
+          showModal('保存文件失败，请重试');
         }
       })
     },

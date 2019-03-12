@@ -20,16 +20,23 @@ Page({
   },
 
   saveImg() {
-    console.log('save iamge');
-    wx.saveImageToPhotosAlbum({
-      filePath: '../../image/wechat.jpeg',
+    wx.getImageInfo({
+      src: '../../image/wechat.jpeg',
       success(res) {
-         wx.showToast({
-          title: '已保存到系统相册',
+        console.log('getImageInfo', res);
+        wx.saveImageToPhotosAlbum({
+          filePath: res.path,
+          success(res) {
+            console.log('saveImageToPhotosAlbum', res);
+            wx.showToast({
+              title: '已保存到系统相册',
+            })
+          },
+          file(err) {
+            console.log('err', err);
+            showModal('保存文件失败，请重试');
+          }
         })
-      },
-      file(err) {
-        showModal();
       }
     })
   },

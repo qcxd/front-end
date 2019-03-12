@@ -155,8 +155,10 @@
   </block>
 
   <view class='fixedFooter'>
-    <view class='btn-star' catchtap="addWherehouse" data-id='{{shopDetail.id}}' data-follow='{{shopDetail.isFollowShop}}'>
+    <!-- <view class='btn-star' catchtap="addWherehouse" data-id='{{shopDetail.id}}' data-follow='{{shopDetail.isFollowShop}}'>
       <Icon iconName="{{shopDetail.isFollowShop ? 'star' : 'star2'}}" width='20px' height='20px' ></Icon>
+    </view> -->
+    <view class='btn-star'>
     </view>
     <view class='btn-weChat' catchtap="popWechat" data-qrcode="{{shopDetail.qrcode}}">
       <Icon iconName='weChat2' width='20px' height='16.67px'></Icon>
