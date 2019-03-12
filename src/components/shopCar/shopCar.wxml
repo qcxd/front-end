@@ -7,6 +7,6 @@
   <view class='shopCar-price'>{{carDetail.price}}万</view>
   <view class='shopCar-info'>
     <view class='brand'>{{carDetail.brand}}</view>
-    <view class='small-text'>{{carDetail.kilometer}}万公里</view>
+    <view class='small-text'>{{year}}/{{carDetail.kilometer}}万公里</view>
   </view>
 </view>

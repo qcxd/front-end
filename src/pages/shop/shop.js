@@ -19,9 +19,11 @@ Page({
   onLoad: function (options) {
     this.getShopDetail(options.id);
     this.getUserInfo();
+    this.setData({
+      id: options.id,
+    })
     if (options.from) {
       this.setData({
-        id: options.id,
         from: options.from
       })
     }
@@ -176,8 +178,9 @@ Page({
   },
 
   goCreateCar () {
+    const shopId = this.data.shopDetail.id;
     wx.navigateTo({
-      url: `../createCar/createCar`,
+      url: `../createCar/createCar?shopId=${shopId}`,
     })
   },
 
