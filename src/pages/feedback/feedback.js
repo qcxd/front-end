@@ -23,11 +23,9 @@ Page({
     wx.getImageInfo({
       src: '../../image/wechat.jpeg',
       success(res) {
-        console.log('getImageInfo', res);
         wx.saveImageToPhotosAlbum({
           filePath: res.path,
           success(res) {
-            console.log('saveImageToPhotosAlbum', res);
             wx.showToast({
               title: '已保存到系统相册',
             })
