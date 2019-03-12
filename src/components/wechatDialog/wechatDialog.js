@@ -38,6 +38,9 @@ Component({
           if (res.statusCode === 200) {
             _this.saveImg(res.tempFilePath);
           }
+        },
+        file(err) {
+          showModal('下载文件失败，请重试');
         }
       })
     },
