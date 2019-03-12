@@ -111,7 +111,7 @@
                     catchtap='addWherehouse' 
                     data-id='{{item.id}}'
                     data-follow='{{item.isFollowCar}}'>
-                    {{item.isFollowCar ? "取消加入" : "加入仓库"}}
+                    {{item.isFollowCar ? "取消收藏" : "加入仓库"}}
                   </text>
                 </block>
               </view>

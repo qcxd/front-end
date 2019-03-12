@@ -21,7 +21,7 @@
               catchtap='clickEvent' 
               data-id='{{carDetail.id}}'
               data-follow='{{carDetail.isFollowCar}}'>
-          {{carDetail.isFollowCar ? "取消加入" : "加入仓库"}}
+          {{carDetail.isFollowCar ? "取消收藏" : "加入仓库"}}
         </text>
       </block>
     </view>

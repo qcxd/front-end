@@ -55,12 +55,30 @@
     </view>
   </view>
 
-  <view style="margin-bottom: 100px;">
-    <shopHead
-      shopInfo='{{carDetail.Shop}}'
-      shopIntro='{{false}}'
-      data-qrcode="{{carDetail.Shop.qrcode}}"
-    />
+  <view style="margin-bottom: 120px;" bindtap='goShop' data-id="{{carDetail.Shop.id}}">
+    <view class='homeHead'>
+      <view class='home-shop'>
+        <view class='shop-header'>
+          <image src="{{carDetail.Shop.logo}}" mode='aspectFill'></image>
+        </view>
+        <view class='shop-info'>
+          <view class='shop-title'>
+            <text>{{carDetail.Shop.shopName}}</text>
+          </view>
+          <text>{{carDetail.Shop.introduce ? carDetail.Shop.introduce :  ''}}</text>
+        </view>
+      </view>
+      <view class='hr'></view>
+      <view class='car-flex address'>
+        <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
+        <view class='line-v'>
+          <view>
+            {{carDetail.Shop.province ? carDetail.Shop.province : ''}}{{carDetail.Shop.city ? carDetail.Shop.city : ''}}{{carDetail.Shop.area ? carDetail.Shop.area : ''}}{{carDetail.Shop.address}}
+          </view>
+        </view>
+      </view>
+      <view class='hr'></view>
+    </view>
   </view>
 
   <view class='fixedFooter'>
