@@ -32,7 +32,14 @@ Page({
         });
       },
     })
-    this.getCityList();
+    wx.getStorage({
+      key: 'cityList',
+      success: function (res) {
+        _this.setData({
+          cityList: res.data,
+        })
+      },
+    })
     this.getShopList({});
     this.setData({
       pageLoaded: true,
@@ -127,25 +134,6 @@ Page({
     let popHidden = this.data.popHidden;
     this.setData({
       popHidden: !popHidden,
-    })
-  },
-
-  /** 获取城市列表 */
-  getCityList() {
-    apiServicePro.getCityList({}, '0').then((result) => {
-      if (result.code === 200) {
-        const cityList = result.data;
-        cityList.forEach((e) => {
-          e.data.forEach((city) => {
-            city.name = cityReplace(city.name);
-          })
-        });
-        this.setData({
-          cityList: result.data,
-        })
-      } else { }
-    }).catch((err) => {
-      showModal();
     })
   },
 

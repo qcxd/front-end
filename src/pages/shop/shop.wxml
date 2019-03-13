@@ -123,27 +123,29 @@
   </block>
   <block wx:else>
     <block wx:if="{{shopDetail.Cars.length > 0}}">
-      <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
-        <view class='all-cars'>
-        <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
-          <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
-            <carCard
-              data-id='{{item.id}}'
-              carDetail="{{item}}"
-              type="edit"
-              bind:clickEvent="goEditCar"/>
+      <view style="margin-bottom: 100px;">
+        <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
+          <view class='all-cars'>
+            <block wx:if="{{userInfo.Shop.id === shopDetail.id}}">
+              <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+                <carCard
+                  data-id='{{item.id}}'
+                  carDetail="{{item}}"
+                  type="edit"
+                  bind:clickEvent="goEditCar"/>
+              </view>
+            </block>
+            <block wx:else>
+              <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+                <carCard
+                  data-id='{{item.id}}'
+                  carDetail="{{item}}"
+                  bind:clickEvent="addWherehouse"/>
+              </view>
+            </block>
           </view>
         </block>
-        <block wx:else>
-          <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
-            <carCard
-              data-id='{{item.id}}'
-              carDetail="{{item}}"
-              bind:clickEvent="addWherehouse"/>
-          </view>
-        </block>
-        </view>
-      </block>
+      </view>
     </block>
   </block>
 

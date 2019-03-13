@@ -47,19 +47,25 @@ Page({
         })
       },
     });
+    wx.getStorage({
+      key: 'cityList',
+      success: function (res) {
+        _this.setData({
+          cityList: res.data,
+        })
+      },
+    })  
     if (options.carId) {
-      this.getCarDetail(options.carId);
+      _this.getCarDetail(options.carId);
     }
-    this.setData({
+    _this.setData({
       shopId: options.shopId,
       carId: options.carId || ''
     });
-    this.getCityList();
     this.getCarBrands();
-
     this.setData({
       dateNow: this.getYMD(new Date())
-    })
+    });
   },
 
   /** 汽车详情 */
@@ -249,25 +255,6 @@ Page({
     let popHidden = this.data.popHidden;
     this.setData({
       popHidden: !popHidden,
-    })
-  },
-
-  /** 获取城市列表 */
-  getCityList() {
-    apiServicePro.getCityList({}, '0').then((result) => {
-      if (result.code === 200) {
-        const cityList = result.data;
-        cityList.forEach((e) => {
-          e.data.forEach((city) => {
-            city.name = utils.cityReplace(city.name);
-          });
-        });
-        this.setData({
-          cityList: result.data,
-        });
-      } else { }
-    }).catch((err) => {
-      utils.showModal();
     })
   },
 
