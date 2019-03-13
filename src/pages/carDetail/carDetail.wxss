@@ -116,7 +116,7 @@
 }
 
 .carDetail .detail-img .img-title {
- padding: 0px 30px 15px 30px;
+ padding-bottom: 15px;
  font-size: 14px;
  color: #35A1FB;
 }
@@ -124,4 +124,11 @@
 .carDetail .detail-img image {
   width: 100%;
   background: #000000;
+}
+
+.carDetail .shop-detail {
+  margin-bottom: 120px;
+  background: #ffffff;
+  color:#ACB4B9;
+  font-size:14px;
 }

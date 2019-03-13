@@ -15,6 +15,7 @@ Page({
     transfersNumber: '',  // 过户次数
     introduce: '',        // 车况
     note: '',
+    leftLenth: 300,
     oldImages: [],        // 跟新汽车图片
     uploadImgs: [],       // 图片
     count: 9,
@@ -340,6 +341,20 @@ Page({
     this.setData({
       introduce: introArray[e.detail.value]
     })
+  },
+
+  inputNote(e) {
+    const leftLenth = (300 - e.detail.value.length);
+    if (leftLenth > 0) {
+      this.setData({
+        leftLenth,
+        note: e.detail.value
+      });
+    } else {
+      this.setData({
+        leftLenth: 0
+      });
+    }
   },
 
   /**
