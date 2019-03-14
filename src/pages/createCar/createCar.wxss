@@ -72,4 +72,21 @@
   flex: 1;
   padding: 10px;
   background: #edf2f6;
+  z-index: 0;
+}
+
+.createCarPage .words {
+  position: absolute;
+  float: right;
+  right: 20px;
+  margin-top:45px;
+  text-align:center;
+  opacity:0.8;
+  background: #C1C9CF;
+  padding:2px 5px;
+  border-radius:20px;
+  font-size:10px;
+  line-height:12px;
+  color:#ffffff !important;
+  z-index: 0;
 }

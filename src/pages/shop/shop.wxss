@@ -59,6 +59,7 @@
   padding: 10px;
   margin-bottom: 10px;
   background:#F5F7FA;
+  margin-bottom:100px;
 }
 
 .shop-view .subtitle {

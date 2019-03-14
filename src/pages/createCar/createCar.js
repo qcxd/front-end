@@ -15,6 +15,7 @@ Page({
     transfersNumber: '',  // 过户次数
     introduce: '',        // 车况
     note: '',
+    leftLenth: 300,
     oldImages: [],        // 跟新汽车图片
     uploadImgs: [],       // 图片
     count: 9,
@@ -47,19 +48,25 @@ Page({
         })
       },
     });
+    wx.getStorage({
+      key: 'cityList',
+      success: function (res) {
+        _this.setData({
+          cityList: res.data,
+        })
+      },
+    })  
     if (options.carId) {
-      this.getCarDetail(options.carId);
+      _this.getCarDetail(options.carId);
     }
-    this.setData({
+    _this.setData({
       shopId: options.shopId,
       carId: options.carId || ''
     });
-    this.getCityList();
     this.getCarBrands();
-
     this.setData({
       dateNow: this.getYMD(new Date())
-    })
+    });
   },
 
   /** 汽车详情 */
@@ -110,6 +117,12 @@ Page({
         !utils.validateImages(this.data.oldImages.concat(this.data.uploadImgs), '请上传汽车照片')) {
       return false;
     }
+
+    // var reg = new RegExp(/([1-9]\d{0,3}\.?\d{1,2})|(0\.\d{1}[1-9])/);
+    // reg.test(value.price)
+    // if (reg.test(value.price)) {
+
+    // }
 
     let count = 0;
     let images = [];
@@ -252,25 +265,6 @@ Page({
     })
   },
 
-  /** 获取城市列表 */
-  getCityList() {
-    apiServicePro.getCityList({}, '0').then((result) => {
-      if (result.code === 200) {
-        const cityList = result.data;
-        cityList.forEach((e) => {
-          e.data.forEach((city) => {
-            city.name = utils.cityReplace(city.name);
-          });
-        });
-        this.setData({
-          cityList: result.data,
-        });
-      } else { }
-    }).catch((err) => {
-      utils.showModal();
-    })
-  },
-
   /** 选择城市 */
   doSelect(e) {
     if (e.detail.name) {
@@ -353,6 +347,13 @@ Page({
     this.setData({
       introduce: introArray[e.detail.value]
     })
+  },
+
+  inputNote(e) {
+    const leftLenth = (300 - e.detail.value.length);
+    this.setData({
+      leftLenth: leftLenth > 0 ? leftLenth : 0
+    });
   },
 
   /**

@@ -23,9 +23,6 @@ Page({
       success(res) {
         if (res.keys.indexOf('user') !== -1 &&
           res.keys.indexOf('currentCity') !== -1) {
-          // wx.navigateTo({
-          //   url: '../loading/loading',
-          // })
           _this.setData({
             hasStorage: true
           })
@@ -33,10 +30,10 @@ Page({
             wx.switchTab({
               url: '../home/home',
             })
-          }, 2000);
+          }, 1500);
         } else {
           _this.getOpenid();
-          _this.getCityList();
+          _this.getCityList(); // 放入缓存
           if (app.globalData.userLocation) {
             wx.showLoading({
               title: '定位中',
@@ -88,7 +85,11 @@ Page({
         });
         this.setData({
           cityList: result.data,
-        })
+        });
+        wx.setStorage({
+          key: 'cityList',
+          data: result.data,
+        });
       } else { }
     }).catch((err) => {
       showModal();
@@ -210,25 +211,20 @@ Page({
   },
 
   onReady: function () {
-
   },
 
   onShow: function () {
-
   },
 
   onHide: function () {
-
   },
 
   onUnload: function () {
-
   },
 
   onReachBottom: function () {
-
   },
-  onShareAppMessage: function () {
 
+  onShareAppMessage: function () {
   }
 })

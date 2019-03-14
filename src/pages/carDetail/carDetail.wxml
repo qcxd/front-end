@@ -45,6 +45,10 @@
         <view class='item-name'>车况</view>
         <view class='item-value'>{{carDetail.introduce}}</view>
       </view>
+      <view style="padding-top:10px;">
+        <view class='item-name'>补充</view>
+        <view class='item-value'>{{carDetail.note ? carDetail.note : '--' }}</view>
+      </view>
     </view>
   </view>
 
@@ -55,7 +59,9 @@
     </view>
   </view>
 
-  <view style="margin-bottom: 120px;" bindtap='goShop' data-id="{{carDetail.Shop.id}}">
+  <view class="shop-detail"
+    bindtap='goShop' 
+    data-id="{{carDetail.Shop.id}}">
     <view class='homeHead'>
       <view class='home-shop'>
         <view class='shop-header'>
@@ -69,7 +75,7 @@
         </view>
       </view>
       <view class='hr'></view>
-      <view class='car-flex address'>
+      <!-- <view class='car-flex address'>
         <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
         <view class='line-v'>
           <view>
@@ -77,7 +83,7 @@
           </view>
         </view>
       </view>
-      <view class='hr'></view>
+      <view class='hr'></view> -->
     </view>
   </view>
 

@@ -29,8 +29,8 @@
       </view>
       <view class='info-cell car-flex'>
         <text>行驶里程</text>
-        <input type="number" class="align-right" name="kilometer" value="{{kilometer}}" 
-          placeholder="请填写里程数" placeholder-class="placeholder"/>
+        <input type="digit" class="align-right" name="kilometer" value="{{kilometer}}" 
+          maxlength="10" placeholder="请填写里程数" placeholder-class="placeholder"/>
         <view class='pleft_5'>万公里</view>
       </view>
       <view class='info-cell car-flex' bindtap='popPicker'>
@@ -43,13 +43,14 @@
       </view>
       <view class='info-cell car-flex'>
         <text>价格</text>
-        <input type="text" pattern="([1-9]\d{0,3}\.?\d{1,2})|(0\.\d{1}[1-9])"  class="align-right" name="price" value="{{price}}" placeholder="请填写价格" placeholder-class="placeholder"/>
+        <input type="digit" class="align-right" name="price" value="{{price}}"
+               maxlength="7" placeholder="请填写价格" placeholder-class="placeholder"/>
         <view class='pleft_5'>万</view>
       </view>
       <view class='info-cell car-flex'>
         <text>过户次数</text>
-        <input type="number" class="align-right" name="transfersNumber" value="{{transfersNumber}}" placeholder="请填写" placeholder-class="placeholder"/>
-        <!-- <Icon iconName='arrowRight' width="7px" height="12px"/> -->
+        <input type="number" class="align-right" name="transfersNumber" value="{{transfersNumber}}"
+               maxlength="3" placeholder="请填写" placeholder-class="placeholder"/>
         <view class='pleft_5'>次</view>
       </view>
       <view class='info-cell car-flex' bindtap='popIntro'>
@@ -65,8 +66,8 @@
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex' style="align-items:flex-start">
-        <!--<text>补充</text>-->
-        <textarea name="note" placeholder="对车况还有更多补充，可以填写在这里哦" maxlength="300" placeholder-class="placeholder"/>
+        <textarea name="note" value="{{note}}" bindinput="inputNote" placeholder="对车况还有更多补充，可以填写在这里哦" maxlength="300" placeholder-class="placeholder"/>
+        <text class="words">{{leftLenth}}</text>
       </view>
       <view class='info-cell'>
         <view class='wechat'>
