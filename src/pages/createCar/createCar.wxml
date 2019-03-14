@@ -66,9 +66,11 @@
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
       <view class='info-cell car-flex' style="align-items:flex-start">
-        <textarea name="note" value="{{note}}" bindinput="inputNote" placeholder="对车况还有更多补充，可以填写在这里哦" maxlength="300" placeholder-class="placeholder"/>
-        <text class="words">{{leftLenth}}</text>
+        <textarea name="note" value="{{note}}" bindinput="inputNote" maxlength="300" auto-height
+          placeholder="对车况还有更多补充，可以填写在这里哦"  placeholder-class="placeholder"/>
+        <!-- <text class="words">{{leftLenth}}</text> -->
       </view>
+      <text class="words">{{leftLenth}}</text>
       <view class='info-cell'>
         <view class='wechat'>
           <view>图片上传</view>

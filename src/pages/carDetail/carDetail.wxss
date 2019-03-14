@@ -127,7 +127,7 @@
 }
 
 .carDetail .shop-detail {
-  margin-bottom: 120px;
+  margin-bottom: 160px;
   background: #ffffff;
   color:#ACB4B9;
   font-size:14px;

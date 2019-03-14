@@ -13,6 +13,7 @@ Page({
     currentCity: '',
     selectValue: '',
     cityList: [],
+    hotCityList: [],
     popHidden: true,
     hasStorage: false,
   },
@@ -34,6 +35,7 @@ Page({
         } else {
           _this.getOpenid();
           _this.getCityList(); // 放入缓存
+          _this.getHotCityList();
           if (app.globalData.userLocation) {
             wx.showLoading({
               title: '定位中',
@@ -75,7 +77,7 @@ Page({
 
   /** 获取城市列表 */
   getCityList() {
-    apiServicePro.getCityList({}).then((result) => {
+    apiServicePro.getCityList({}, '0').then((result) => {
       if (result.code === 200) {
         const cityList = result.data;
         cityList.forEach((e) => {
@@ -88,6 +90,29 @@ Page({
         });
         wx.setStorage({
           key: 'cityList',
+          data: result.data,
+        });
+      } else { }
+    }).catch((err) => {
+      showModal();
+    })
+  },
+
+  /** 获取城市列表 */
+  getHotCityList() {
+    apiServicePro.getCityList({hot: true}, '0').then((result) => {
+      if (result.code === 200) {
+        const hotCityList = result.data;
+        hotCityList.forEach((e) => {
+          e.data.forEach((city) => {
+            city.name = cityReplace(city.name);
+          })
+        });
+        this.setData({
+          hotCityList: result.data,
+        });
+        wx.setStorage({
+          key: 'hotCityList',
           data: result.data,
         });
       } else { }

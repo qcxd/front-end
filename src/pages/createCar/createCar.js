@@ -23,6 +23,7 @@ Page({
     cityId: '',
     selectValue: '',
     cityList: [],
+    hotCityList: [],
     popHidden: true,
     brandList: [],
     hotBrandList: [],
@@ -54,6 +55,14 @@ Page({
       success: function (res) {
         _this.setData({
           cityList: res.data,
+        })
+      },
+    })
+    wx.getStorage({
+      key: 'hotCityList',
+      success: function (res) {
+        _this.setData({
+          hotCityList: res.data,
         })
       },
     })  
