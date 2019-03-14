@@ -27,7 +27,7 @@
 }
 
 .nameCard .detail {
-  padding: 20px;
+  padding: 5px 20px;
 }
 
 .nameCard .detail icon {

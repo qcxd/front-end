@@ -118,6 +118,12 @@ Page({
       return false;
     }
 
+    // var reg = new RegExp(/([1-9]\d{0,3}\.?\d{1,2})|(0\.\d{1}[1-9])/);
+    // reg.test(value.price)
+    // if (reg.test(value.price)) {
+
+    // }
+
     let count = 0;
     let images = [];
     const uploadImgs = this.data.uploadImgs;
@@ -345,14 +351,16 @@ Page({
 
   inputNote(e) {
     const leftLenth = (300 - e.detail.value.length);
-    if (leftLenth > 0) {
+    this.setData({
+      leftLenth: leftLenth > 0 ? leftLenth : 0
+    });
+  },
+
+  inputPrice (e) {
+    console.log('e.detail.value.length', e.detail.value.length)
+    if (e.detail.value.length <= 7) {
       this.setData({
-        leftLenth,
-        note: e.detail.value
-      });
-    } else {
-      this.setData({
-        leftLenth: 0
+        price: e.detail.value
       });
     }
   },

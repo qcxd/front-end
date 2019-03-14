@@ -72,6 +72,7 @@
   flex: 1;
   padding: 10px;
   background: #edf2f6;
+  z-index: 0;
 }
 
 .createCarPage .words {
@@ -87,4 +88,5 @@
   font-size:10px;
   line-height:12px;
   color:#ffffff !important;
+  z-index: 0;
 }

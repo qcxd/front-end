@@ -43,7 +43,8 @@
       </view>
       <view class='info-cell car-flex'>
         <text>价格</text>
-        <input type="text" pattern="([1-9]\d{0,3}\.?\d{1,2})|(0\.\d{1}[1-9])"  class="align-right" name="price" value="{{price}}" placeholder="请填写价格" placeholder-class="placeholder"/>
+        <input type="digit" class="align-right" name="price" value="{{price}}" bindinput="inputPrice" 
+               maxlength="7" placeholder="请填写价格" placeholder-class="placeholder"/>
         <view class='pleft_5'>万</view>
       </view>
       <view class='info-cell car-flex'>
