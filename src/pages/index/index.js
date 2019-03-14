@@ -33,7 +33,7 @@ Page({
             wx.switchTab({
               url: '../home/home',
             })
-          }, 3000);
+          }, 2000);
         } else {
           _this.getOpenid();
           _this.getCityList();
