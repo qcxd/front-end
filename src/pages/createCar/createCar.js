@@ -356,15 +356,6 @@ Page({
     });
   },
 
-  inputPrice (e) {
-    console.log('e.detail.value.length', e.detail.value.length)
-    if (e.detail.value.length <= 7) {
-      this.setData({
-        price: e.detail.value
-      });
-    }
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
