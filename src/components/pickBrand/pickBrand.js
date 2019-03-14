@@ -13,6 +13,10 @@ Component({
       type: Array,
       value: []
     },
+    hotBrandList: {
+      type: Array,
+      value: []
+    }
   },
 
   data: {

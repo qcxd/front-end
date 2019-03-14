@@ -110,6 +110,7 @@
     <pickBrand
       currentBrand='{{currentBrand}}'
       brandList='{{brandList}}'
+      hotBrandList='{{hotBrandList}}'
       bind:pickevent="doSelectBrand"/>
   </view>
 </view>

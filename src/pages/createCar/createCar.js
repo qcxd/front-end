@@ -25,6 +25,7 @@ Page({
     cityList: [],
     popHidden: true,
     brandList: [],
+    hotBrandList: [],
     dateNow: '',
     popHiddenBrand: true,
     submitDisable: false,
@@ -64,6 +65,7 @@ Page({
       carId: options.carId || ''
     });
     this.getCarBrands();
+    this.getHotCarBrands();
     this.setData({
       dateNow: this.getYMD(new Date())
     });
@@ -303,6 +305,15 @@ Page({
     apiServicePro.getCarBrands(false, '0').then((result => {
       this.setData({
         brandList: result.data,
+      });
+    }));
+  },
+
+  /** 热门品牌列表 */
+  getHotCarBrands() {
+    apiServicePro.getCarBrands(true, '0').then((result => {
+      this.setData({
+        hotBrandList: result.data,
       });
     }));
   },
