@@ -1,28 +1,25 @@
 <!--pages/nameCard/nameCard.wxml-->
-<view class='nameCard'>
+<view class='nameCard' style="background-image: url('../../image//bg_car.png');">
   <view class='qrcode'>
     <!-- <button  open-type='share' class='actions' bindtap='sharePage'>
       <Icon iconName="download" width='14px' height='14px'/>
       <Icon iconName="share2" width='14px' height='14px' bindtap='share'/>
     </button> -->
-    <image src='{{userInfo.Shop.qrcode}}' mode='aspectFit'/>
-    <view class='small-text'>{{userInfo.Shop.shopName}}</view>
+    <image src='{{userInfo.qrcode}}' mode='aspectFit'/>
+    <view class='small-text'>{{shopName}}</view>
   </view>
   <view class='detail'>
     <view class='car-flex'>
       <Icon iconName="people" width='20px' height='20px' />
-      <view>{{userInfo.Shop.name}}</view>
+      <view>{{userInfo.name}}</view>
     </view>
     <view class='car-flex'>
       <Icon iconName="call" width='14px' height='16px' />
-      <view>{{userInfo.Shop.phone}}</view>
+      <view>{{userInfo.phone}}</view>
     </view>
     <view class='car-flex'>
       <Icon iconName="address" width='12px' height='16px' />
-      <view>
-        {{addressInfo.province.name ? addressInfo.province.name : ''}}
-        {{addressInfo.city.name}} {{addressInfo.area.name}} {{addressInfo.detail}}
-      </view>
+      <view>{{addressInfo}}</view>
     </view>
   </view>
   <!-- <canvas canvas-id="nameCard"></canvas> -->

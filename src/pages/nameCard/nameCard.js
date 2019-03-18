@@ -7,19 +7,33 @@ const {
 Page({
   data: {
     userInfo: {},
+    shopName: '',
+    addressInfo: '',
+    user: {},
   },
-
-  // onLoad: function (options) {
-   
-  // },
-  onLoad: function () {
-    this.getUserInfo();
+  
+  onLoad: function (options) {
+    let _this = this
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+        console.log(res);
+        _this.setData({
+          user: res.data
+        })
+      },
+    });
+    if (options.openid) {
+      this.getCardInfo(options.openid);
+    } else {
+      this.getUserInfo();
+    }
     wx.showShareMenu({
       withShareTicket: true,
       success: function (res) {
         // 分享成功
         console.log('shareMenu share success')
-        console.log('分享' , res)
+        console.log('分享', res)
       },
       fail: function (res) {
         // 分享失败
@@ -27,10 +41,11 @@ Page({
       }
     })
   },
+  
   onShareAppMessage: function () {
     return {
-      title: '这里是机智life小程序',
-      path: '/pages/index/index?id=123',
+      title: `${shopName}`,
+      path: `/pages/nameCard/nameCard?openid=${this.data.user.openid}`,
       success: function (res) {
         console.log(res.shareTickets[0])
         // console.log
@@ -48,19 +63,30 @@ Page({
     }
   },
 
-  
-
   /** 获取用户信息（店铺信息） */
-  getUserInfo() {
-    apiServicePro.getUserInfo().then(result => {
+  getUserInfo(openid) {
+    apiServicePro.getUserInfo(openid, '0').then(result => {
       if (result) {
-        const userInfo = result.data;
-        const addressInfo = userInfo.Shop.addressInfo;
+        const userInfo = result.data.Shop;
+        const ads = result.data.Shop.addressInfo;
         this.setData({
           userInfo,
-          addressInfo,
-        }, () => {
-            this.createCanvas();
+          shopName: result.data.Shop.shopName,
+          addressInfo: `${ads.province.name}${ads.city.name}${ads.area.name}${ads.detail}`,
+        });
+      }
+    });
+  },
+
+  getCardInfo() {
+    apiServicePro.getCardInfo().then(result => {
+      if (result) {
+        const userInfo = result.data;
+        const ads = userInfo.Shop;
+        this.setData({
+          userInfo,
+          shopName: result.data.Shop.shopName,
+          addressInfo: `${ads.province}${ads.city}${ads.area}${ads.address}`,
         });
       }
     });
@@ -85,13 +111,6 @@ Page({
       }
     })
   },
-  // sharePage() {
-  //   console.log('12')
-  //   wx.updateShareMenu({
-  //     withShareTicket: true,
-  //     success() { }
-  //   })
-  // },
 
   saveImg(filePath) {
     console.log('save iamge');
@@ -188,13 +207,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

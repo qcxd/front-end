@@ -1,8 +1,14 @@
 /* pages/nameCard/nameCard.wxss */
 .nameCard {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   width: 100%;
   height: 100%;
+  background: -webkit-linear-gradient(to bottom right, #D9EFFD, #A0D3FE); /* Safari 5.1 - 6.0 */
+  /* background: -o-linear-gradient(to bottom right, #35A1FB, #4BB6FC, #A0D3FE);
+  background: -moz-linear-gradient(to bottom right, #35A1FB, #4BB6FC, #A0D3FE);
+  background: linear-gradient(to bottom right, #35A1FB, #4BB6FC, #A0D3FE); */
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .nameCard .qrcode {
@@ -45,4 +51,3 @@
   position:fixed;
   background-color:#ffffff;
 }
-

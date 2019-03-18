@@ -152,6 +152,11 @@ const getCarBrands = (hot = false, needLoading = '1') => rest.get({ url: `/car/b
  */
 const getCarBrandDetail = (brand_id, needLoading = '1') => rest.get({ url: `/car/brand/${brand_id}`, needLoading: needLoading });
 
+/**
+ *  某个品牌详细信息
+ */
+const getCardInfo = (openid, needLoading = '1') => rest.get({ url: `/user/cardInfo?id=${openid}`, needLoading: needLoading });
+
 module.exports = {
   getOpenid,
   getUser,
@@ -183,6 +188,7 @@ module.exports = {
   getCarDetail,
   getUserStatistics,
   getCarBrands,
-  getCarBrandDetail
+  getCarBrandDetail,
+  getCardInfo
 }
 
