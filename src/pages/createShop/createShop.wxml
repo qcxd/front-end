@@ -40,7 +40,7 @@
       <view class='subtitle'>店铺信息</view>
       <view class='info-cell car-flex'>
         <text>店铺名</text>
-        <input name="shopName" value="{{shopName}}" placeholder="请输入店铺名称" placeholder-class="placeholder" />
+        <input name="shopName" value="{{shopName}}" maxlength="15" placeholder="请输入店铺名称" placeholder-class="placeholder" />
       </view>
       <view class='info-cell car-flex'>
         <text>选择地区</text>
@@ -64,6 +64,11 @@
         </view>
         <Icon iconName='arrowRight' width="6px" height="8px"/>
       </view>
+      <view class='info-cell car-flex' style="align-items:flex-start">
+        <textarea name="introduce" value="{{introduce}}" bindinput="inputIntroduce" maxlength="200" auto-height
+          placeholder="店铺简介"  placeholder-class="placeholder"/>
+      </view>
+      <text class="words">{{leftLenth}}</text>
     </view>
   
     <button form-type="submit" disabled="{{submitDisable}}">提交</button>

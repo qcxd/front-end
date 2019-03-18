@@ -1,6 +1,7 @@
 const env = require('../config.js');
 
 const Base64 = require('./Base64.js');
+const utils = require('../utils/utils.js');
 
 require('./hmac.js');
 require('./sha1.js');
@@ -47,6 +48,7 @@ const uploadFile = function (params) {
       }
     },
     fail: function (err) {
+      utils.showModal();
       err.wxaddinfo = aliyunServerURL;
       if (params.fail) {
         params.fail(err)

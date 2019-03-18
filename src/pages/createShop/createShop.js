@@ -24,6 +24,7 @@ Page({
     customItem: '全部',
     popHidden: true,
     submitDisable: false,
+    leftLenth: 100
   },
 
   onLoad: function (options) {
@@ -45,7 +46,7 @@ Page({
   },
 
   /**
-   * 听过店铺id获取信息
+   * 通过店铺id获取信息
    */
   getShopDetail(id) {
     apiServicePro.getShopDetail(id).then((result) => {
@@ -237,6 +238,13 @@ Page({
         console.log(err)
       }
     })
+  },
+
+  inputIntroduce(e) {
+    const leftLenth = (300 - e.detail.value.length);
+    this.setData({
+      leftLenth: leftLenth > 0 ? leftLenth : 0
+    });
   },
 
   /**
