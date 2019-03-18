@@ -65,10 +65,9 @@
         </view>
         <Icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
-      <view class='info-cell car-flex' style="align-items:flex-start">
+      <view class='info-cell car-flex' style="align-items:flex-start" hidden="{{popHidden || popHiddenBrand}}" >
         <textarea name="note" value="{{note}}" bindinput="inputNote" maxlength="300" auto-height
           placeholder="对车况还有更多补充，可以填写在这里哦"  placeholder-class="placeholder"/>
-        <!-- <text class="words">{{leftLenth}}</text> -->
       </view>
       <text class="words">{{leftLenth}}</text>
       <view class='info-cell'>
